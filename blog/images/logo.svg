@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="4" height="4">
+  <path fill="#000000" d="M0 0 h3 v1 h-2 v1 h1 v1 h-2 Z" />
+  <path fill="#60aaed" d="M3 0 h1 v1 h-1 Z" />
+  <path fill="#c0c4ca" d="M1 1 h2 v1 h-2 Z" />
+  <path fill="#0b4379" d="M3 1 h1 v3 h-1 Z" />
+  <path fill="#545861" d="M0 3 h2 v-1 h1 v2 h-3 Z" />
+</svg>
