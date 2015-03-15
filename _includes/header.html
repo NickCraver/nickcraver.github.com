@@ -12,7 +12,7 @@
 
     <nav class="site-nav">
       <div class="trigger">
-          <a class="page-link" href="{{ site.baseurl }}">Blog</a>
+          <a class="page-link" href="/blog/">Blog</a>
         {% for page in site.pages | sort:"name" %}
           {% if page.title %}
           <a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
