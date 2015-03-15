@@ -2,7 +2,7 @@
 title: Software Imagineering
 email: nrcraver@gmail.com
 description: > #
-baseurl: "/blog" # the subpath of your site, e.g. /blog/
+# baseurl: "" # the subpath of your site, e.g. /blog/
 url: "https://nickcraver.com" # the base hostname & protocol for your site
 twitter_username: Nick_Craver
 github_username:  NickCraver
