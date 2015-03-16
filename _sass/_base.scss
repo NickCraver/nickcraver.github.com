@@ -11,9 +11,9 @@ body {
     line-height: $base-line-height;
     font-weight: 300;
     color: $text-color;
-    background-color: $background-color;
     -webkit-text-size-adjust: 100%;
-    background: url(../images/bg.jpg) top center no-repeat #222326;
+    background: url(../images/background.jpg) top center no-repeat $background-color;
+    background-size: 960px 600px;
 }
 
 h1, h2, h3, h4, h5, h6,

@@ -180,15 +180,13 @@
     padding: 1px;
     padding: $spacing-unit 0;
 
-    background: -moz-linear-gradient(-45deg,  rgba(181,189,200,0.15) 0%, rgba(130,140,149,0.15) 1%, rgba(40,52,59,0.15) 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,rgba(181,189,200,0.15)), color-stop(1%,rgba(130,140,149,0.15)), color-stop(100%,rgba(40,52,59,0.15))); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(-45deg,  rgba(181,189,200,0.15) 0%,rgba(130,140,149,0.15) 1%,rgba(40,52,59,0.15) 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(-45deg,  rgba(181,189,200,0.15) 0%,rgba(130,140,149,0.15) 1%,rgba(40,52,59,0.15) 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(-45deg,  rgba(181,189,200,0.15) 0%,rgba(130,140,149,0.15) 1%,rgba(40,52,59,0.15) 100%); /* IE10+ */
-    background: linear-gradient(135deg,  rgba(181,189,200,0.15) 0%,rgba(130,140,149,0.15) 1%,rgba(40,52,59,0.15) 100%); /* W3C */
+    background: -moz-linear-gradient(-45deg,  rgba(181,189,200,0.10) 0%, rgba(130,140,149,0.10) 1%, rgba(40,52,59,0.10) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,rgba(181,189,200,0.10)), color-stop(1%,rgba(130,140,149,0.10)), color-stop(100%,rgba(40,52,59,0.10))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(-45deg,  rgba(181,189,200,0.10) 0%,rgba(130,140,149,0.10) 1%,rgba(40,52,59,0.10) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(-45deg,  rgba(181,189,200,0.10) 0%,rgba(130,140,149,0.10) 1%,rgba(40,52,59,0.10) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(-45deg,  rgba(181,189,200,0.10) 0%,rgba(130,140,149,0.10) 1%,rgba(40,52,59,0.10) 100%); /* IE10+ */
+    background: linear-gradient(135deg,  rgba(181,189,200,0.10) 0%,rgba(130,140,149,0.10) 1%,rgba(40,52,59,0.10) 100%); /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#26b5bdc8', endColorstr='#2628343b',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
-
-
 }
 
 .page-heading {
