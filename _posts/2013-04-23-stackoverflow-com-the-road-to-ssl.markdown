@@ -62,7 +62,7 @@ It doesn't really disallow meta.*.stackexchange.com or *.*.meta.stackexchange.co
 
 The rules were further clarified in [Section 6.4.3 of RFC 6125](http://tools.ietf.org/html/rfc6125#section-6.4.3) which says (emphasis mine):
 
-> The client SHOULD NOT attempt to match a presented identifier in which the wildcard character comprises a label other than the left-most label (e.g., **do not match `bar.*.example.net`**)
+> The client SHOULD NOT attempt to match a presented identifier in which the wildcard character comprises a label other than the left-most label (e.g., do not match `bar.*.example.net`)
 
 This means no `*.*.stackexchange.com` or `meta.*.stackexchange.com`.  Enough major browsers conform to this RFC that it’s a non-option.  So what do we do?  We thought of a few approaches.  We would prefer not to change domains for our content, so the first thought was setting up an automated operation to install new entries on a SAN cert for each new meta created.  As we worked though this option, we found several major problems:
 
