@@ -73,11 +73,8 @@ a {
 blockquote {
     color: $grey-color-light;
     background-color: $blockquote-bg-color;
-    border-left: 4px solid $blockquote-left-color;
+    border-left: 2px solid $blockquote-left-color;
     padding-left: 10px;
-    font-size: 18px;
-    letter-spacing: -1px;
-    font-style: italic;
 
     > :last-child {
         margin-bottom: 0;
@@ -87,7 +84,7 @@ blockquote {
 pre,
 code {
     font-size: 15px;
-    border: 1px solid $grey-color;
+    //border: 1px solid $grey-color;
     border-radius: 3px;
     background-color: #000;
 }

@@ -211,6 +211,11 @@ a:hover {
             font-size: 18px;
         }
     }
+    &.excerpt {
+        p {
+            margin-bottom: 0;
+        }
+    }
 }
 
 /**
