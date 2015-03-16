@@ -8,7 +8,7 @@ twitter_username: Nick_Craver
 github_username:  NickCraver
 stackoverflow_link: users/13249/nick-craver
 
-permalink: /:year/:month/:day/:title/
+permalink: /blog/:year/:month/:day/:title/
 markdown: kramdown
 highlighter: pygments
 
