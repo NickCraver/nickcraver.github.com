@@ -3,9 +3,10 @@ title: Software Imagineering
 email: nrcraver@gmail.com
 description: > #
 # baseurl: "" # the subpath of your site, e.g. /blog/
-url: "https://nickcraver.com" # the base hostname & protocol for your site
+url: "http://nickcraver.com"
 twitter_username: Nick_Craver
 github_username:  NickCraver
+stackoverflow_link: users/13249/nick-craver
 
 permalink: /:year/:month/:day/:title/
 markdown: kramdown
@@ -13,18 +14,10 @@ highlighter: pygments
 
 disqus: nickcraver
 
-url: http://nickcraver.com
-
-google_analytics: UA-28897355-1
+quantcast_key: p-078-BYb6YsRjM
+google_analytics_ua: UA-28897355-1
 
 paginate: 5
-
-footer-links:
-  email: nrcraver@gmail.com
-  github: NickCraver
-  rss: feed
-  twitter: Nick_Craver
-  stackoverflow: "users/13249/nick-craver"
 
 exclude:
   - Gemfile

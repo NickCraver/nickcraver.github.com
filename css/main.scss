@@ -4,32 +4,35 @@ layout: null
 ---
 @charset "utf-8";
 
-$base-font-family: Helvetica, Arial, sans-serif;
+$base-font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
 $base-font-size:   16px;
-$small-font-size:  12px;
+$small-font-size:  13px;
 $base-line-height: 1.5;
 
 $default-border-radius: 4px;
 $spacing-unit:     15px;
+$post-spacing-unit: 30px;
 
-$post-font-size: 13px;
+$post-font-size: 16px;
 
+$post-title-color:  #fff;
+$post-header-color: #fff;
 $text-color:       #CCCCCC;
-$background-color: #000; //#222326;
+$background-color: #000;
 $column-background-color: rgba(34, 35, 38, 0.8);
-$brand-color:      #2a7ae2;
+$brand-color:      #49afef;
 
-$svg-icon-color:    #ffffff;
+$svg-icon-color:   #ffffff;
+$border-color:     #666;
 $grey-color:       #828282;
 $grey-color-light: lighten($grey-color, 40%);
 $grey-color-dark:  darken($grey-color, 25%);
 $trans-block-color: rgba(0, 0, 0, 0.3);
 
 // Width of the content area
-$content-width:    900px;
-$page-content-width:    920px;
+$content-width:    1000px;
 
-$on-palm:          600px;
+$on-small:          600px;
 $on-laptop:        800px;
 
 // Using media queries with like this:

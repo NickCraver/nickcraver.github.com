@@ -1,0 +1,6 @@
+    <nav class="site-nav">
+        <a class="page-link{% if page.section == 'blog' %} active{% endif %}" href="/blog/">Blog {{ paths }}</a >
+        {% for p in site.pages | sort:"name" %}{% if p.title %}
+        <a class="page-link{% if page.url == p.url %} active{% endif %}" href="{{ p.url | prepend: site.baseurl }}">{{ p.title }}</a>{% endif %}{% endfor %}
+        {% include social.html %}
+    </nav>
