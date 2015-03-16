@@ -8,10 +8,11 @@ disqus_identifier: "281 http://nickcraver.com/blog/?p=281"
 Ok let’s start with the obvious, why run Stack Overflow on pre-release software?  If no one tests anything, it only means one thing: **more bugs at release**.  We have the opportunity to test the hell out of the 2014 platform.  We can encounter, triage and in most cases, get bugs resolved before release.  What company doesn’t want testers for their software _in real world environments_ whenever possible?  I would like to think all of them do, just not all have the resources to make it happen.
 
 All of that adds up to it being a huge win for us to test pre-release software in many cases.  First there’s the greedy benefit: we can help ourselves to make sure our pain points with the current version are resolved in the next.  Then there’s something we love doing even more: helping others.  By eliminating bugs from the RTM release and being able to blog about upgrade experiences such as this, we hope it helps others…just as posting a question publicly does.
+<!--more-->
 
 It’s worth noting this isn’t an isolated case.  When we make changes to [the open source libraries we  release](http://stackexchange.github.io/ "Stack Exchange Open Source"), you can bet they’ve run that code has already run under heavy stackoverflow.com load before we push a library update out - we can’t think of a better test in most cases.
 
-I;m going to elaborate on _why_ we upgraded.  If you'''re curious about the upgrade to SQL 2014 itself definitely check out [Brent Ozar's post: Update on Stack Overflow’s Recovery Strategy with SQL Server 2014](http://www.brentozar.com/archive/2013/11/update-on-stack-overflow-recovery-strategy-with-sql-server-2014/).
+I'm going to elaborate on _why_ we upgraded.  If you'''re curious about the upgrade to SQL 2014 itself definitely check out [Brent Ozar's post: Update on Stack Overflow’s Recovery Strategy with SQL Server 2014](http://www.brentozar.com/archive/2013/11/update-on-stack-overflow-recovery-strategy-with-sql-server-2014/).
 
 ### What’s in SQL 2014 for us?
 
@@ -27,7 +28,7 @@ Let’s start by understanding Windows Server clustering quorum behavior.  Quoru
 
 Let’s take a look specifically at Stack Overflow.  In our current setup we have 2 SQL clusters that are of the same configuration for the sake of this discussion. In each cluster, we have 2 servers in the New York data center and 1 in the Oregon data center:
 
-[![SE Network SQL](//nickcraver.com/blog/wp-content/uploads/2013/11/SENetwork-SQL.png)](//nickcraver.com/blog/wp-content/uploads/2013/11/SENetwork-SQL.png)
+[![SE Network SQL]({{ site.contenturl }}SENetwork-SQL-CTP2.png)]({{ site.contenturl }}SENetwork-SQL-CTP2.png)
 
 Now the key here is that VPN link from one data center to the other.  When the internet blips (as it tends to do), the VPN mesh drops and the Oregon side loses quorum and (in 2012) goes offline.  What _would_ be a read-only data center that continued to operate without a connection to New York is essentially dead in the water.  _Dammit_.
 

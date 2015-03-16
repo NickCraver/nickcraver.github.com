@@ -9,8 +9,10 @@ github_username:  NickCraver
 stackoverflow_link: users/13249/nick-craver
 
 permalink: /blog/:year/:month/:day/:title/
+contenturl: "/blog/content/"
 markdown: kramdown
 highlighter: pygments
+excerpt_separator: <!--more-->
 
 disqus: nickcraver
 

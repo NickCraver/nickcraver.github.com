@@ -8,7 +8,7 @@ disqus_identifier: "214 http://nickcraver.com/blog/?p=214"
 The best part of working for Stack Exchange is that our code, network and databases are so awesome that we never throw exceptions.
 
 Okay, okay, back to reality.  Everyone has exceptions, so how do we handle the first step of recording them?  Most .Net developers have heard of [ELMAH](http://code.google.com/p/elmah/ "ELMAH Project Page") (Error Logging Modules and Handlers), and Stack Exchange started out using a modified version of this for over a year.  The setup was simple: we were using the XML file store pointing to a share on one of the web servers (due to most of the problems being SQL or network related when shit hit the fan).
-
+<!--more-->
 What this setup didn't allow for was high-traffic logging, since the 200 file loop necessitated a directory file listing (not so fast in windows), reading existing files to see if it was a duplicate, then updating the duplicate with a new count if one was found.  Take into account the level of traffic Stack Overflow gets at any point in the day and all this meant was we effectively took that web server out of rotation (due to pegging it's network throughput just _logging_ the errors...yes, we saw the humor there).
 
 When I finally got some time to stick the errors into SQL in a way that fit _our_ needs, I wrote StackExchange.Exceptional (with input from all our dev teams along the way).  It certainly borrows a fundamental idea from ELMAH (multiple stores on a single error interface mainly), but after that they diverge significantly.  We needed a few things that no existing error handler put in one package:
@@ -29,6 +29,8 @@ The last two are probably less relevant.  Custom data just enables storing of st
 
 [I've added a few initial wikis to github for getting Exceptional up and running](https://github.com/NickCraver/StackExchange.Exceptional/wiki), I'll try and get an example project up as well...in the next few days as time allows.  Here's a quick view of the list/detail screens to get a feel:
 
-[![](//nickcraver.com/blog/wp-content/uploads/2012/08/Exceptions-List-300x86.png "Exceptions List")](//nickcraver.com/blog/wp-content/uploads/2012/08/Exceptions-List.png)[![](//nickcraver.com/blog/wp-content/uploads/2012/08/Exception-Detail-300x285.png "Exception Detail")](//nickcraver.com/blog/wp-content/uploads/2012/08/Exception-Detail.png)
+[![Exceptions List]({{ site.contenturl }}Exceptional-List.png)]({{ site.contenturl }}Exceptional-List.png)
+
+[![Exception Detail]({{ site.contenturl }}/Exceptional-Detail.png)]({{ site.contenturl }}Exceptional-Detail.png)
 
 **Update**: A sample project is now posted [alongside Exceptional core on github](https://github.com/NickCraver/StackExchange.Exceptional/tree/master/Samples.MVC4 "MVC4 Sample Project").  Some additional store providers (e.g. MongoDB) have already been requested, stay tuned for those - they'll show up in the form of other packages with a dependency on StackExchange.Exceptional, so if you don't want that store's driver, you won't have to include it.

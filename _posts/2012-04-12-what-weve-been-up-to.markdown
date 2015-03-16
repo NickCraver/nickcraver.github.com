@@ -5,12 +5,12 @@ date:   2012-04-12 12:00:00
 categories: opensource status
 disqus_identifier: "196 http://nickcraver.com/blog/?p=196"
 ---
-For starters, let's get a bad assumption I personally had before being hired out of the way: **you don't see most features we deploy**.  In fact a small percentage of features we deploy are for regular users, or seen directly.  Aside from user-facing features, there exists a great deal of UI and infrastructure for our moderators, and even more for developers.  Besides features directly on the site, a lot more goes on behind the scenes.  Here's a quick list of what's underway right now:
+For starters, let's get a bad assumption I personally had before being hired out of the way: **you don't see most features we deploy**.  In fact a small percentage of features we deploy are for regular users, or seen directly.  Aside from user-facing features, there exists a great deal of UI and infrastructure for our moderators, and even more for developers.  Besides features directly on the site, a lot more goes on behind the scenes. <!--more-->Here's a quick list of what's underway right now:
 
 *   Moving [search ](http://blog.stackoverflow.com/2011/01/stack-overflow-search-now-81-less-crappy/ "Stack Overflow Search — Now 81% Less Crappy")off the web tier, a little over a year after putting it there.
 *   Moving [the tag engine](http://samsaffron.com/archive/2011/10/28/in-managed-code-we-trust-our-recent-battles-with-the-net-garbage-collector "Sam Saffron: In managed code we trust, our recent battles with the .NET Garbage Collector") off the web tier (you may have not even heard this exists).
 *   [Real-time updates](http://meta.stackoverflow.com/questions/125677/new-feature-real-time-updates-to-questions-answers-and-inbox "New Feature: real time updates to questions, answers, and inbox") to a number of site elements (voting, new answers, comments, your rep changes, etc.)
-*   Deploying [Oregon failover cluster](http://nickcraver.com/blog/2012/02/15/planning-for-failure/ "Stack Exchange: Planning for failure, part 1") (and other related infrastructure changes)
+*   Deploying [Oregon failover cluster]({% post_url 2012-02-15-planning-for-failure %} "Stack Exchange: Planning for failure, part 1") (and other related infrastructure changes)
 *   [redacted] sidebar project
 *   [redacted] profile project
 *   Home-grown TCP Server

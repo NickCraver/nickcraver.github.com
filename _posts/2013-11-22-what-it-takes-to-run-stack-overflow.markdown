@@ -20,6 +20,7 @@ I like to think of Stack Overflow as running _with scale_ but not _at scale_.  B
 *   99,346,916 ms (27 hours) spent on redis hits
 *   132,384,059 ms (36 hours) spent on Tag Engine requests
 *   2,728,177,045 ms (757 hours) spent processing in ASP.Net
+<!--more-->
 
 (I should do a post on how we get those numbers quickly, and how just _having_ those numbers is worth the effort)
 
@@ -37,7 +38,7 @@ Keep in mind these are for the entire Stack Exchange network but still don't inc
 
 Here's what that looks like:
 
-[![DataCenter Rear](//nickcraver.com/blog/wp-content/uploads/2013/11/DataCenter-Rear-e1384796018969-768x1024.jpg)](//nickcraver.com/blog/wp-content/uploads/2013/11/DataCenter-Rear.jpg)
+[![DataCenter Rear]({{ site.contenturl }}INAP-DataCenter-Rear-768x1024.jpg)]({{ site.contenturl }}INAP-DataCenter-Rear.jpg)
 
 We don't _only_ run the sites,  The rest of those servers in the nearest rack are VMs and other infrastructure for auxiliary things not involved in serving the sites directly, like deployments, domain controllers, monitoring, ops database for sysadmin goodies, etc. Of that list above, 2 SQL servers were backups only until _very_ recently - they are now used for read-only loads so we can keep on scaling without thinking about it for even longer (this mainly consists of [the Stack Exchange API](http://api.stackexchange.com)). Two of those web servers are for dev and meta, running very little traffic.
 
@@ -86,7 +87,7 @@ Now, what does all that do?  We want performance.  We _need_ performance.  [Perf
 
 We have high visibility of what goes into our page loads by recording timings for _every single request_ to our network.  You need some sort of metrics like this, otherwise **what are you basing your decisions on?**  With those metrics handy, we can make easy to access, easy to read views like this:
 
-[![Route Time - QuestionsList](//nickcraver.com/blog/wp-content/uploads/2013/11/Route-Time-QuestionsList.png)](//nickcraver.com/blog/wp-content/uploads/2013/11/Route-Time-QuestionsList.png)
+[![Route Time - QuestionsList]({{ site.contenturl }}Route-Time-QuestionsList.png)]({{ site.contenturl }}Route-Time-QuestionsList.png)
 
 After that the percentage of hits drops off _dramatically_, but if you're curious about a specific page I'm happy to post those numbers too.  I'm focusing on render time here because that's how long it takes our server to produce a webpage, the speed of transmission is an entirely different (though admittedly, very related) topic I'll cover in the future.
 
@@ -94,7 +95,7 @@ After that the percentage of hits drops off _dramatically_, but if you're curiou
 
 It's definitely worth noting that these servers run at _very_ low utilization.  Those web servers average between **5-15% CPU**, 15.5 GB of RAM used and 20-40 Mb/s network traffic.  The SQL servers average around **5-10% CPU**, 365 GB of RAM used, and 100-200 Mb/s of network traffic.  This affords us a few major things: general room to grow before we upgrade, headroom to stay online for when things go crazy (bad query, bad code, attacks, whatever it may be), and the ability to clock back on power if needed.  Here's a [view from Opserver](https://github.com/opserver/Opserver) of our web tier taken just now:
 
-[![Opserver - Web Tier](//nickcraver.com/blog/wp-content/uploads/2013/11/Opserver-Screens-1024x305.png)](//nickcraver.com/blog/wp-content/uploads/2013/11/Opserver-Screens.png)
+[![Opserver - Web Tier]({{ site.contenturl }}Opserver-Screens-1024x305.png)]({{ site.contenturl }}Opserver-Screens.png)
 
 The primary reason the utilization is so low is efficient code.  That's not the topic of this post, but efficient code is critical to stretching your hardware further.  Anything you're doing that doesn't need doing costs more than _not doing it_, that continues to apply if it's a subset of your code that could be more efficient.  That cost comes in the form of: power consumption, hardware cost (since you need more/bigger servers), developers understanding something more complicated (to be fair, this can go both ways, efficient isn't necessarily simple) and likely a slower page render - meaning less users sticking around for another page load...or being less likely to come back.  **The cost of inefficient code can be higher than you think.  **
 

@@ -9,6 +9,7 @@ disqus_identifier: "1 http://nickcraver.com/blog/?p=1"
 In this blog, I aim to give you some behind the scenes views of what goes on at [Stack Exchange](http://stackexchange.com/) and share some lessons we learn along the way.
 
 Life at Stack Exchange is pretty busy at the moment; we have lots of projects in the air.  In short, [we're growing](http://www.quantcast.com/p-c1rF4kxgLUzNc), and growing fast. What effect does this have?
+<!--more-->
 
 While growth is awesome (it's what almost every company wants to do), it's not without technical challenges.  A significant portion of our time is currently devoted to fighting fires in one way or another, whether it be software issues with community scaling (like the mod flag queue) or actual technical walls (like drive space, Ethernet limits).
 
