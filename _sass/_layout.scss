@@ -61,6 +61,11 @@
         color: $text-color;
         line-height: $base-line-height;
 
+        &.active {
+            color: #fff;
+            text-shadow: 0 0 10px #fff;
+        }
+
         // Gaps between nav items, but not on the first one
         &:not(:first-child) {
             margin-left: 20px;

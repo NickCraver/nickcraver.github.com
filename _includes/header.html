@@ -9,15 +9,11 @@
       </svg>Nick Craver</a>
     <span class="site-subtitle">Software Imagineering</span>
     {% include social.html %}
-
     <nav class="site-nav">
       <div class="trigger">
-          <a class="page-link" href="/blog/">Blog</a>
-        {% for page in site.pages | sort:"name" %}
-          {% if page.title %}
-          <a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
-          {% endif %}
-        {% endfor %}
+        <a class="page-link{% if page.section == 'blog' %} active{% endif %}" href="/blog/">Blog {{ paths }}</a >
+        {% for p in site.pages | sort:"name" %}{% if p.title %}
+        <a class="page-link{% if page.url == p.url %} active{% endif %}" href="{{ p.url | prepend: site.baseurl }}">{{ p.title }}</a>{% endif %}{% endfor %}
       </div>
     </nav>
 </header>
