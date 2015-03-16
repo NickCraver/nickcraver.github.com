@@ -1,13 +1,13 @@
-  <script>
-    var _qevents =_qevents || [];
-    _qevents.push({ qacct:'{{ site.quantcast_key }}'});
-    (function(w,d,r,t){
-      var qe=d.createElement(t),ge=d.createElement(t),s=d.getElementsByTagName(t)[0];
-      qe.async=1;qe.src='//edge.quantserve.com/quant.js';s.parentNode.insertBefore(qe, s);
-      ge.async=1;ge.src='//www.google-analytics.com/analytics.js';s.parentNode.insertBefore(ge, s);
-      w['GoogleAnalyticsObject']=r;w[r]=w[r]||function(){(w[r].q=w[r].q||[]).push(arguments)},w[r].l=1*new Date();
-    })(window,document,'ga','script');
-    ga('create','{{ site.google_analytics_ua }}','auto');
-    ga('send','pageview');
-  </script>
-  <noscript><div style="display:none;"><img src="//pixel.quantserve.com/pixel/p-078-BYb6YsRjM.gif" border="0" height="1" width="1" alt="Quantcast"/></div></noscript>
+    <script>
+      var _qevents =_qevents || [];
+      _qevents.push({ qacct:'{{ site.quantcast_key }}'});
+      (function(w,d,r,t){
+        var qe=d.createElement(t),ge=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        qe.async=1;qe.src='//edge.quantserve.com/quant.js';s.parentNode.insertBefore(qe, s);
+        ge.async=1;ge.src='//www.google-analytics.com/analytics.js';s.parentNode.insertBefore(ge, s);
+        w['GoogleAnalyticsObject']=r;w[r]=w[r]||function(){(w[r].q=w[r].q||[]).push(arguments)},w[r].l=1*new Date();
+      })(window,document,'ga','script');
+      ga('create','{{ site.google_analytics_ua }}','auto');
+      ga('send','pageview');
+    </script>
+    <noscript><div style="display:none;"><img src="//pixel.quantserve.com/pixel/p-078-BYb6YsRjM.gif" border="0" height="1" width="1" alt="Quantcast"/></div></noscript>
