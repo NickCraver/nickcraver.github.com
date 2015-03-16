@@ -4,50 +4,44 @@ layout: null
 ---
 @charset "utf-8";
 
-$base-font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
-$base-font-size:   16px;
-$small-font-size:  13px;
-$base-line-height: 1.5;
+$base-font-family:      'Source Sans Pro', Helvetica, Arial, sans-serif;
+$base-font-size:        16px;
+$small-font-size:       13px;
+$base-line-height:      1.5;
 
 $default-border-radius: 4px;
-$spacing-unit:     15px;
-$post-spacing-unit: 30px;
+$spacing-unit:          15px;
+$post-spacing-unit:     30px;
 
-$post-font-size: 16px;
+$post-font-size:        16px;
 
-$post-title-color:  #fff;
-$post-header-color: #fff;
-$text-color:       #CCCCCC;
-$background-color: #000;
+$post-title-color:      #fff;
+$post-header-color:     #fff;
+$text-color:            #CCCCCC;
+$background-color:      #000;
 $column-background-color: rgba(34, 35, 38, 0.8);
-$brand-color:      #49afef;
+$brand-color:           #49afef;
 
-$svg-icon-color:   #ffffff;
-$border-color:     #666;
-$grey-color:       #828282;
-$grey-color-light: lighten($grey-color, 40%);
-$grey-color-dark:  darken($grey-color, 25%);
-$trans-block-color: rgba(0, 0, 0, 0.3);
+$grey-color:            #828282;
+$grey-color-light:      lighten($grey-color, 40%);
+$grey-color-dark:       darken($grey-color, 25%);
+
+$svg-icon-color:        #ffffff;
+$border-color:          #666;
+$blockquote-left-color: #F47920;
+$blockquote-bg-color:   #000;
+
 
 // Width of the content area
-$content-width:    1000px;
+$content-width:         1000px;
 
-$on-small:          600px;
-$on-laptop:        800px;
+$on-small:              600px;
 
-// Using media queries with like this:
-// @include media-query($on-palm) {
-//     .wrapper {
-//         padding-right: $spacing-unit / 2;
-//         padding-left: $spacing-unit / 2;
-//     }
-// }
 @mixin media-query($device) {
     @media screen and (max-width: $device) {
         @content;
     }
 }
-
 @import
         "base",
         "layout",

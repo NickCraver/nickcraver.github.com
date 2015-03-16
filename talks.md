@@ -1,7 +1,7 @@
 ---
 layout: page
 order: 2
-title: Tech Talks
+title: Talks
 permalink: /talks/
 ---
 

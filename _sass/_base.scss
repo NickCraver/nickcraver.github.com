@@ -71,9 +71,10 @@ a {
 
 
 blockquote {
-    color: $grey-color;
-    border-left: 4px solid $grey-color-light;
-    padding-left: 35px;
+    color: $grey-color-light;
+    background-color: $blockquote-bg-color;
+    border-left: 4px solid $blockquote-left-color;
+    padding-left: 10px;
     font-size: 18px;
     letter-spacing: -1px;
     font-style: italic;
@@ -86,9 +87,9 @@ blockquote {
 pre,
 code {
     font-size: 15px;
-    border: 1px solid $grey-color-light;
+    border: 1px solid $grey-color;
     border-radius: 3px;
-    background-color: #eef;
+    background-color: #000;
 }
 code {
     padding: 1px 5px;
@@ -102,6 +103,9 @@ pre {
         padding-right: 0;
         padding-left: 0;
     }
+}
+strong {
+    color: #ddd;
 }
 
 .wrapper {
