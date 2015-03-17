@@ -1,6 +1,6 @@
     <footer class="site-footer">
       <div class="wrapper">
-{% include nav.html %}
+{% if page.footer_nav %}{% include nav.html %}{% endif %}
         <div class="copyright">&copy; {{ site.time | date: '%Y' }}</div>
       </div>
     </footer>

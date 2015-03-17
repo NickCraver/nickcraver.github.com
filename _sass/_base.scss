@@ -10,10 +10,8 @@ body {
     font-size: $base-font-size;
     line-height: $base-line-height;
     color: $text-color;
-    -webkit-text-size-adjust: 100%;    
-    //background: url(../images/background.jpg) top center no-repeat $background-color;
+    -webkit-text-size-adjust: 100%;
     background: #222;
-    background-size: 960px 600px;
 }
 
 h1, h2, h3, h4, h5, h6,
@@ -46,11 +44,9 @@ li {
     }
 }
 
-
 h1, h2, h3, h4, h5, h6 {
     font-weight: 300;
 }
-
 
 a {
     color: $brand-color;
@@ -68,7 +64,6 @@ a {
         color: $brand-color;
     }
 }
-
 
 blockquote {
     color: $grey-color-light;
@@ -103,14 +98,13 @@ pre {
         padding-left: 0;
     }
 }
-strong {
+b, strong {
     color: #ddd;
 }
 
 .wrapper {
     padding-right: $spacing-unit;
     padding-left: $spacing-unit;
-    @extend %clearfix;
 
     @include media-query($on-small) {
         padding-right: $spacing-unit / 2;
@@ -118,23 +112,10 @@ strong {
     }
 }
 
-%clearfix {
-    &:after {
-        content: "";
-        display: table;
-        clear: both;
-    }
-}
-
 .icon {
-
     > svg {
         display: inline-block;
         width: 16px;
         height: 16px;
-
-        path {
-            //fill: $svg-icon-color;
-        }
     }
 }
