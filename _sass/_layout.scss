@@ -127,8 +127,10 @@
             > li {
                 margin-bottom: 5px;
                 &.year {
-                    margin-top: 10px;
                     margin-bottom: 10px;
+                    &:not(:first-of-type) {
+                        margin-top: 20px;
+                    }
                 }
                 h2 {
                     margin-bottom: 0;
@@ -153,12 +155,23 @@
     background-position: center center;
     width: 100%;
     height: 420px;
+    @include media-query($on-phone) {
+        height: 210px;
+    }
+    @include media-query-min($on-big) {
+        height: 600px;
+    }
 }
 
 .col-2 {
     -webkit-column-count: 2;
     -moz-column-count: 2;
     column-count: 2;
+    @include media-query($on-small) {
+        -webkit-column-count: 1;
+        -moz-column-count: 1;
+        column-count: 1;
+    }
 }
 
 
@@ -166,6 +179,20 @@
  * Posts
  */
 .post-header {}
+
+.top-right-links {
+    position: relative; 
+    > span {
+        position: absolute;
+        right: 0;
+    }
+    @include media-query($on-small) {
+        float: right;
+        > span {
+            position: static;
+        }
+    }
+}
 
 .post-link, a.post-link, .post-title {
     display: block;

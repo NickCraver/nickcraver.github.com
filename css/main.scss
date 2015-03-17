@@ -35,10 +35,17 @@ $blockquote-bg-color:   #141414;
 // Width of the content area
 $content-width:         1000px;
 
+$on-phone:              400px;
 $on-small:              600px;
+$on-big:                1500px;
 
 @mixin media-query($device) {
     @media screen and (max-width: $device) {
+        @content;
+    }
+}
+@mixin media-query-min($device) {
+    @media screen and (min-width: $device) {
         @content;
     }
 }
