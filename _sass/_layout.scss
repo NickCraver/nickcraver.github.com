@@ -114,17 +114,36 @@
 .post-list {
     margin-left: 0;
     list-style: none;
-
     h1 {
         margin-bottom: 0;
     }
-
     > div {
         margin-bottom: 50px;
     }
-
-    > li {
-        margin-bottom: $post-spacing-unit;
+    &.archive {
+        > ul {
+            list-style: none;
+            margin-left: 0;
+            > li {
+                margin-bottom: 5px;
+                &.year {
+                    margin-top: 10px;
+                    margin-bottom: 10px;
+                }
+                h2 {
+                    margin-bottom: 0;
+                }
+            }
+        }
+        .post-link {
+            display: inline;
+            font-size: 20px;
+        }
+        .post-meta {
+            display: inline-block;
+            width: 75px;
+            margin-bottom: 0;
+        }
     }
 }
 

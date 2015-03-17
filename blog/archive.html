@@ -1,0 +1,16 @@
+---
+layout: default
+section: blog
+---
+        <div class="home">
+          <div class="post-list archive">
+            <h1>Archive</h1>
+            <ul>{% for post in site.posts %}{% assign year = post.date | date: '%Y' %}{% assign lastyear = post.next.date | date: '%Y' %}
+              {% if year != lastyear %}<li class="year"><h2>{{ year }}</h2></li>{% endif %}
+              <li>
+                <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+                <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+              </li>{% endfor %}
+            </ul>
+          </div>
+        </div>
