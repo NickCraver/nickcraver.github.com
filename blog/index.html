@@ -3,16 +3,16 @@ layout: default
 section: blog
 ---
         <div class="home">
-          <div class="post-list">{% for post in site.posts | limit: 5 %}
-            <div>
-              <div class="top-right-links">
-                <span><a href="archive.html">Archive</a> ({{ site.posts | size }} posts)</span>
-              </div>
+          <div class="post-list">            
+            <div class="top-right-links">
+              <span><a href="archive.html">Archive</a> ({{ site.posts | size }} posts)</span>
+            </div>{% for post in site.posts | limit: 5 %}
+            <section>
               <h1><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h1>
               <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
               <article class="post-content{% if forloop.index0 != 0 %} excerpt{% endif %}">{% if forloop.index0 == 0 %}{{ post.content }}{% else %}{{ post.excerpt }}<a class="excerpt-link" href="{{ post.url | prepend: site.baseurl }}">Continue reading...</a>{% endif %}
               </article>
-            </div>{% endfor %}
+            </section>{% endfor %}
             <span class="archive-link"><a href="archive.html">View Archive</a> ({{ site.posts | size }} posts)</span>
           </div>
         </div>

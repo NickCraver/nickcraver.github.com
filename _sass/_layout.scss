@@ -16,7 +16,6 @@
         margin: 0 auto;
         box-sizing: border-box;
     }
-
     @include media-query($on-small) {
         padding-bottom: 0;
         margin-bottom: 0;
@@ -84,7 +83,6 @@
         &:hover {
             color: #49afef;
         }
-
         &:not(:first-child) {
             margin-left: 20px;
         }
@@ -99,7 +97,6 @@
     margin: $spacing-unit auto;
     max-width: $content-width;
     border-radius: $default-border-radius;
-    padding: 1px;
     padding: $spacing-unit 0;
 
     @include media-query($on-small) {
@@ -117,7 +114,7 @@
     h1 {
         margin-bottom: 0;
     }
-    > div {
+    > section {
         margin-bottom: 50px;
     }
     &.archive {
@@ -178,20 +175,13 @@
 /**
  * Posts
  */
-.post-header {}
+.post-header {    
+}
 
 .top-right-links {
-    position: relative; 
-    > span {
-        position: absolute;
-        right: 0;
-    }
-    @include media-query($on-small) {
-        float: right;
-        > span {
-            position: static;
-        }
-    }
+    float: right;
+    width: 120px;
+    text-align: right;
 }
 
 .post-link, a.post-link, .post-title {
@@ -222,21 +212,18 @@
         margin-bottom: 0;
         color: $post-header-color;
     }
-
     h2 {
         font-size: 32px;
         @include media-query($on-small) {
             font-size: 24px;
         }
     }
-
     h3 {
         font-size: 26px;
         @include media-query($on-small) {
             font-size: 22px;
         }
     }
-
     h4 {
         font-size: 20px;
         @include media-query($on-small) {
@@ -265,7 +252,6 @@
     .site-nav {
         margin-bottom: 10px;
     }
-
     .copyright {
         font-size: 14px;
     }
