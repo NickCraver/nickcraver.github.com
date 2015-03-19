@@ -46,7 +46,7 @@ We don't _only_ run the sites,  The rest of those servers in the nearest rack ar
 
 When you remove redundancy here's what Stack Exchange _needs_ to run (while maintaining our current level of performance):
 
-*   2 SQL servers (SO is on one, everything else on another...they could run on a single machine still having headroom though)</span>
+*   2 SQL servers (SO is on one, everything else on another...they could run on a single machine still having headroom though)
 *   2 Web Servers (_maybe_ 3, but I have faith in just 2)
 *   1 Redis Server
 *   1 Tag Engine server
