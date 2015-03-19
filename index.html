@@ -3,7 +3,7 @@ layout: full
 section: home
 ---
     <section>
-      <div class="about-cover" style="background: url(/images/nick.jpg); background-size: cover;"></div>{% capture about_include %}{% include about.md %}{% endcapture %}
+      <div class="about-cover" style="background: url(/images/nick.jpg); background-size: cover; background-position: center center;"></div>{% capture about_include %}{% include about.md %}{% endcapture %}
       <div class="page-content">
         <div class="wrapper col-2">
         {{ about_include | markdownify }}
