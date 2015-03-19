@@ -147,8 +147,9 @@
 }
 
 .about-cover {
-    background: url(../images/nick.jpg);
-    background-size: cover;
+    // This is explicitly inline to parallelize loading
+    //background: url(../images/nick.jpg);
+    //background-size: cover;
     background-position: center center;
     width: 100%;
     height: 420px;
