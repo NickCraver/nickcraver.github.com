@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+<title>Chart Test</title>
+<style>
+body { font: 10px sans-serif; background: #2e3136; color: white; }
+svg text { fill: white;}
+.axis path, .axis line { fill: none; stroke: white; shape-rendering: crispEdges; }
+.legend { cursor: pointer; }
+.legend rect { fill-opacity: 0.1; }
+.legend text { opacity: 0.5; }
+.legend.active rect { fill-opacity: 1; }
+.legend.active text { opacity: 1; }
+.legend:hover rect { fill-opacity: 0.8; }
+.legend:hover text { opacity: 0.8; }
+.tick .line.major { opacity: 0.1; }
+.bar { fill: steelblue; }
+.timing { stroke: white; stroke-opacity: 0.1; }
+.x.axis path { display: none; }
+.chart { position: relative; display: inline-block; }
+#maps { position: relative; text-align: center; }
+#maps g path, #maps g polygon {
+  fill: rgba(1, 1, 1, 0.5);
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+#maps g:hover path, #maps g:hover polygon {
+  fill: #72afd2 !important;
+}
+#maps .map-container {
+  width: 500px;
+  height: 400px;
+  display: inline-block;
+  opacity: 0.8;
+  position: relative;
+}
+#maps .title, #maps .timer {
+  text-anchor: middle;
+}
+#maps.simulation {
+  width: 100%;
+  position: absolute;
+}
+button {
+  background: white;
+  border-radius: 5px;
+  border: 0;
+  text-align: center;
+  top: 50%;
+  cursor: hand;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+button:hover {
+  color: white;
+  background-color: #000;
+}
+#maps button {
+  position: relative;
+  z-index: 10;
+  width: 120px;
+  top: 220px;
+}
+#maps .tooltip {
+  position: absolute;
+  background: white;
+  border-radius: 5px;
+  width: 100px;
+  padding: 5px;
+  color: #000;
+  text-align: left;
+  z-index: 20;
+}
+#maps .tooltip .country-name {
+  font-weight: bold;
+}
+#maps .tooltip .total {
+  font-weight: bold;
+}
+#maps .tooltip .lacking-data {
+  color: maroon;
+}
+</style>
+</head>
+<body>
+<script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.4.2/d3.min.js?ver=3.8.5"></script>
+<script type="text/csv" id="top-sites">
+CountryCode,Country,Host,Protocol,Hits,TCP,TLS,Request,Response,Interactive,CountryRank,ProtocolRank,HTTPRank,HasHTTPSData
+US,United States,stackoverflow.com,http,110650,32,0,149,97,292,1,4,4,1
+US,United States,teststackoverflow.com,http,180918,44,0,116,12,96,1,3,3,1
+US,United States,teststackoverflow.com,https,89113,52,78,78,9,313,1,5,3,1
+IN,India,stackoverflow.com,http,53198,118,0,582,447,676,2,98,98,1
+IN,India,teststackoverflow.com,http,63546,187,0,578,67,147,2,116,116,1
+IN,India,teststackoverflow.com,https,37535,223,332,377,69,915,2,97,116,1
+GB,United Kingdom,stackoverflow.com,http,25889,47,0,212,127,299,3,15,15,1
+GB,United Kingdom,teststackoverflow.com,http,37728,67,0,163,14,110,3,15,15,1
+GB,United Kingdom,teststackoverflow.com,https,22573,73,106,118,12,283,3,12,15,1
+DE,Germany,stackoverflow.com,http,19753,39,0,240,131,356,4,25,25,1
+DE,Germany,teststackoverflow.com,http,30850,78,0,190,10,128,4,31,31,1
+DE,Germany,teststackoverflow.com,https,17140,69,91,134,10,286,4,11,31,1
+CA,Canada,stackoverflow.com,http,15190,26,0,117,75,259,5,3,3,1
+CA,Canada,teststackoverflow.com,http,24121,36,0,93,11,102,5,2,2,1
+CA,Canada,teststackoverflow.com,https,12769,39,61,65,9,325,5,4,2,1
+FR,France,stackoverflow.com,http,12944,46,0,241,140,394,6,29,29,1
+FR,France,teststackoverflow.com,http,16139,73,0,195,15,141,6,36,36,1
+FR,France,teststackoverflow.com,https,9407,76,101,142,12,359,6,22,36,1
+BR,Brazil,stackoverflow.com,http,7987,84,0,330,200,455,7,54,54,1
+BR,Brazil,teststackoverflow.com,http,14339,121,0,241,18,94,7,50,50,1
+BR,Brazil,teststackoverflow.com,https,7741,132,163,184,15,542,7,55,50,1
+AU,Australia,stackoverflow.com,http,8171,123,0,455,292,257,8,60,60,1
+AU,Australia,teststackoverflow.com,http,13666,177,0,435,23,96,8,91,91,1
+AU,Australia,teststackoverflow.com,https,7978,201,252,302,22,666,8,76,91,1
+NL,Netherlands,stackoverflow.com,http,7911,47,0,168,118,346,9,12,12,1
+NL,Netherlands,teststackoverflow.com,http,11930,67,0,134,10,106,9,6,6,1
+NL,Netherlands,teststackoverflow.com,https,7037,63,86,104,9,225,9,2,6,1
+IT,Italy,stackoverflow.com,http,8085,67,0,273,181,1886,10,112,112,1
+IT,Italy,teststackoverflow.com,http,10531,100,0,226,18,117,10,44,44,1
+IT,Italy,teststackoverflow.com,https,5993,93,130,172,15,402,10,36,44,1
+ES,Spain,stackoverflow.com,http,8274,64,0,257,163,371,11,35,35,1
+ES,Spain,teststackoverflow.com,http,11114,97,0,210,16,137,11,43,43,1
+ES,Spain,teststackoverflow.com,https,6020,96,130,160,12,387,11,35,43,1
+RU,Mother Russia,stackoverflow.com,http,9207,77,0,277,176,477,12,49,49,1
+RU,Mother Russia,teststackoverflow.com,http,12208,114,0,222,14,165,12,61,61,1
+RU,Mother Russia,teststackoverflow.com,https,6721,111,147,177,16,450,12,43,61,1
+PL,Poland,stackoverflow.com,http,8172,55,0,229,153,447,13,38,38,1
+PL,Poland,teststackoverflow.com,http,10751,88,0,185,14,164,13,41,41,1
+PL,Poland,teststackoverflow.com,https,6418,79,106,148,12,402,13,27,41,1
+SE,Sweden,stackoverflow.com,http,5991,55,0,188,133,244,14,7,7,1
+SE,Sweden,teststackoverflow.com,http,9879,78,0,163,10,94,14,11,11,1
+SE,Sweden,teststackoverflow.com,https,5002,78,99,122,8,233,14,7,11,1
+PH,Philippines,stackoverflow.com,http,5228,178,0,690,555,1029,15,114,114,1
+PH,Philippines,teststackoverflow.com,http,6288,270,0,627,85,152,15,125,125,1
+PH,Philippines,teststackoverflow.com,https,3898,356,389,440,95,1471,15,113,125,1
+IL,Israel,stackoverflow.com,http,5520,80,0,297,197,274,16,33,33,1
+IL,Israel,teststackoverflow.com,http,6553,111,0,244,15,99,16,47,47,1
+IL,Israel,teststackoverflow.com,https,4833,130,184,191,11,403,16,44,47,1
+TR,Turkey,stackoverflow.com,http,4833,84,0,293,195,322,17,40,40,1
+TR,Turkey,teststackoverflow.com,http,5682,124,0,252,19,86,17,54,54,1
+TR,Turkey,teststackoverflow.com,https,3731,126,173,199,19,437,17,46,54,1
+KR,Korea,stackoverflow.com,http,4610,131,0,269,236,91,18,21,21,0
+KR,Korea,teststackoverflow.com,http,6381,157,0,243,12,62,18,51,51,1
+KR,Korea,teststackoverflow.com,https,3248,172,216,226,9,301,18,45,51,1
+RO,Romania,stackoverflow.com,http,3850,67,0,227,153,405,19,34,34,1
+RO,Romania,teststackoverflow.com,http,5212,99,0,186,13,125,19,34,34,1
+RO,Romania,teststackoverflow.com,https,3204,93,119,152,8,312,19,21,34,1
+UA,Ukraine,stackoverflow.com,http,4608,72,0,229,155,446,20,42,42,1
+UA,Ukraine,teststackoverflow.com,http,6728,108,0,182,15,258,20,68,68,1
+UA,Ukraine,teststackoverflow.com,https,3086,100,137,160,12,434,20,37,68,1
+BE,Belgium,stackoverflow.com,http,3491,47,0,187,116,320,21,11,11,1
+BE,Belgium,teststackoverflow.com,http,4904,66,0,156,13,106,21,10,10,1
+BE,Belgium,teststackoverflow.com,https,3122,62,88,108,10,270,21,6,10,1
+CH,Switzerland,stackoverflow.com,http,3591,39,0,217,115,372,22,24,24,1
+CH,Switzerland,teststackoverflow.com,http,5278,66,0,175,10,96,22,13,13,1
+CH,Switzerland,teststackoverflow.com,https,2950,63,89,120,7,217,22,3,13,1
+VN,Viet Nam,stackoverflow.com,http,4622,164,0,478,414,583,23,90,90,0
+VN,Viet Nam,teststackoverflow.com,http,5613,218,0,417,35,142,23,101,101,1
+VN,Viet Nam,teststackoverflow.com,https,3433,220,257,355,42,617,23,80,101,1
+JP,Japan,stackoverflow.com,http,3711,89,0,353,209,290,24,44,44,0
+JP,Japan,teststackoverflow.com,http,5572,115,0,333,17,117,24,71,71,1
+JP,Japan,teststackoverflow.com,https,3100,148,178,214,14,312,24,38,71,1
+MX,Mexico,stackoverflow.com,http,3313,60,0,264,179,531,25,50,50,1
+MX,Mexico,teststackoverflow.com,http,4574,82,0,217,23,171,25,58,58,1
+MX,Mexico,teststackoverflow.com,https,2169,91,132,155,16,615,25,51,58,1
+SG,Singapore,stackoverflow.com,http,3825,82,0,545,332,272,26,71,71,0
+SG,Singapore,teststackoverflow.com,http,4807,150,0,517,36,91,26,99,99,1
+SG,Singapore,teststackoverflow.com,https,3166,210,263,301,21,353,26,62,99,1
+ID,Indonesia,stackoverflow.com,http,3546,169,0,747,733,872,27,115,115,0
+ID,Indonesia,teststackoverflow.com,http,4442,264,0,677,109,168,27,129,129,1
+ID,Indonesia,teststackoverflow.com,https,2886,269,372,491,114,927,27,102,129,1
+CZ,Czech Republic,stackoverflow.com,http,3352,55,0,214,147,459,28,37,37,1
+CZ,Czech Republic,teststackoverflow.com,http,4748,87,0,168,17,225,28,59,59,1
+CZ,Czech Republic,teststackoverflow.com,https,2834,80,105,135,12,419,28,29,59,1
+PK,Pakistan,stackoverflow.com,http,3571,147,0,629,495,913,29,106,106,0
+PK,Pakistan,teststackoverflow.com,http,4706,289,0,677,65,165,29,126,126,1
+PK,Pakistan,teststackoverflow.com,https,2922,290,322,394,61,1374,29,108,126,1
+DK,Denmark,stackoverflow.com,http,2913,53,0,175,120,242,30,6,6,1
+DK,Denmark,teststackoverflow.com,http,4299,77,0,137,9,113,30,8,8,1
+DK,Denmark,teststackoverflow.com,https,2511,76,106,114,7,248,30,9,8,1
+FI,Finland,stackoverflow.com,http,2747,57,0,222,138,266,32,13,13,1
+FI,Finland,teststackoverflow.com,http,4461,88,0,177,10,121,32,25,25,1
+FI,Finland,teststackoverflow.com,https,2485,77,97,137,9,280,32,13,25,1
+PT,Portugal,stackoverflow.com,http,2647,68,0,241,174,552,33,51,51,1
+PT,Portugal,teststackoverflow.com,http,3478,96,0,203,19,146,33,46,46,1
+PT,Portugal,teststackoverflow.com,https,2083,94,124,155,14,367,33,30,46,1
+TW,Taiwan,stackoverflow.com,http,3072,111,0,377,244,433,34,62,62,0
+TW,Taiwan,teststackoverflow.com,http,3929,153,0,335,19,103,34,75,75,1
+TW,Taiwan,teststackoverflow.com,https,2259,181,212,246,20,299,34,47,75,1
+AT,Austria,stackoverflow.com,http,2699,48,0,233,140,295,35,19,19,1
+AT,Austria,teststackoverflow.com,http,3712,78,0,180,13,110,35,21,21,1
+AT,Austria,teststackoverflow.com,https,2311,70,91,141,14,302,35,14,21,1
+MY,Malaysia,stackoverflow.com,http,2620,168,0,574,440,553,36,94,94,1
+MY,Malaysia,teststackoverflow.com,http,3347,250,0,568,51,130,36,117,117,1
+MY,Malaysia,teststackoverflow.com,https,2241,260,330,396,59,583,36,88,117,1
+CN,China,stackoverflow.com,http,5022,191,0,469,507,7623,37,139,139,0
+CN,China,teststackoverflow.com,http,6751,261,0,485,86,97,37,109,109,1
+CN,China,teststackoverflow.com,https,2781,304,344,388,79,3302,37,132,109,1
+NO,Norway,stackoverflow.com,http,2370,56,0,190,123,209,38,5,5,1
+NO,Norway,teststackoverflow.com,http,3577,80,0,165,8,92,38,12,12,1
+NO,Norway,teststackoverflow.com,https,2231,79,106,123,5,236,38,8,12,1
+HU,Hungary,stackoverflow.com,http,2453,60,0,220,148,394,39,30,30,1
+HU,Hungary,teststackoverflow.com,http,3383,90,0,167,14,134,39,30,30,1
+HU,Hungary,teststackoverflow.com,https,2244,78,104,138,9,306,39,18,30,1
+ZA,South Africa,stackoverflow.com,http,2397,127,0,611,416,594,40,95,95,1
+ZA,South Africa,teststackoverflow.com,http,3206,179,0,551,57,92,40,106,106,1
+ZA,South Africa,teststackoverflow.com,https,1862,254,306,360,58,1018,40,99,106,1
+HK,Hong Kong,stackoverflow.com,http,2604,126,0,429,278,365,41,64,64,1
+HK,Hong Kong,teststackoverflow.com,http,3351,174,0,391,29,99,41,84,84,1
+HK,Hong Kong,teststackoverflow.com,https,2079,186,244,272,20,248,41,48,84,1
+TH,Thailand,stackoverflow.com,http,2678,91,0,717,436,365,42,89,89,0
+TH,Thailand,teststackoverflow.com,http,2952,165,0,653,44,106,42,112,112,1
+TH,Thailand,teststackoverflow.com,https,2275,264,343,399,42,482,42,81,112,1
+GR,Greece,stackoverflow.com,http,2313,76,0,273,200,435,43,47,47,1
+GR,Greece,teststackoverflow.com,http,3346,117,0,239,18,162,43,65,65,1
+GR,Greece,teststackoverflow.com,https,2178,106,124,189,18,439,43,40,65,1
+AR,Argentina,stackoverflow.com,http,2203,95,0,375,257,506,44,70,70,1
+AR,Argentina,teststackoverflow.com,http,3059,143,0,313,25,138,44,76,76,1
+AR,Argentina,teststackoverflow.com,https,1584,159,197,232,16,729,44,72,76,1
+IE,Ireland,stackoverflow.com,http,2156,53,0,205,141,306,45,17,17,1
+IE,Ireland,teststackoverflow.com,http,2958,83,0,179,16,109,45,24,24,1
+IE,Ireland,teststackoverflow.com,https,1638,89,122,135,10,308,45,20,24,1
+NZ,New Zealand,stackoverflow.com,http,1891,68,0,440,292,276,46,55,55,1
+NZ,New Zealand,teststackoverflow.com,http,2919,103,0,416,41,90,46,80,80,1
+NZ,New Zealand,teststackoverflow.com,https,1578,164,201,247,12,636,46,66,80,1
+BG,Bulgaria,stackoverflow.com,http,1731,60,0,210,151,365,47,27,27,0
+BG,Bulgaria,teststackoverflow.com,http,2382,98,0,174,10,123,47,29,29,1
+BG,Bulgaria,teststackoverflow.com,https,1497,82,102,140,8,313,47,19,29,1
+IR,Iran,stackoverflow.com,http,2256,140,0,790,674,990,48,116,116,0
+IR,Iran,teststackoverflow.com,http,2848,215,0,774,111,117,48,128,128,1
+IR,Iran,teststackoverflow.com,https,2213,253,283,434,135,1919,48,116,128,1
+RS,Serbia,stackoverflow.com,http,1506,64,0,237,162,369,49,32,32,0
+RS,Serbia,teststackoverflow.com,http,1939,99,0,197,20,127,49,40,40,1
+RS,Serbia,teststackoverflow.com,https,1410,86,111,155,10,347,49,25,40,1
+EG,Egypt,stackoverflow.com,http,1785,121,0,602,564,1075,50,110,110,0
+EG,Egypt,teststackoverflow.com,http,2224,199,0,519,111,129,50,111,111,1
+EG,Egypt,teststackoverflow.com,https,1577,206,304,359,100,1414,50,106,111,1
+CO,Colombia,stackoverflow.com,http,1372,65,0,259,190,606,51,58,58,0
+CO,Colombia,teststackoverflow.com,http,1972,94,0,230,22,136,51,55,55,1
+CO,Colombia,teststackoverflow.com,https,907,112,151,167,13,593,51,54,55,1
+SK,Slovakia,stackoverflow.com,http,1370,53,0,226,148,353,52,26,26,1
+SK,Slovakia,teststackoverflow.com,http,1783,89,0,178,15,141,52,35,35,1
+SK,Slovakia,teststackoverflow.com,https,1145,79,105,145,17,379,52,26,35,1
+HR,Croatia,stackoverflow.com,http,1148,64,0,243,168,521,53,48,48,0
+HR,Croatia,teststackoverflow.com,http,1692,101,0,196,18,127,53,39,39,1
+HR,Croatia,teststackoverflow.com,https,1124,90,123,163,7,391,53,33,39,1
+BY,Belarus,stackoverflow.com,http,1436,81,0,277,201,632,54,63,63,0
+BY,Belarus,teststackoverflow.com,http,1877,123,0,238,28,146,54,64,64,1
+BY,Belarus,teststackoverflow.com,https,915,120,157,191,29,574,54,57,64,1
+SI,Slovenia,stackoverflow.com,http,1055,59,0,205,146,274,55,14,14,0
+SI,Slovenia,teststackoverflow.com,http,1543,91,0,171,12,125,55,26,26,1
+SI,Slovenia,teststackoverflow.com,https,861,80,107,138,8,291,55,16,26,1
+LT,Lithuania,stackoverflow.com,http,990,60,0,212,138,318,56,22,22,0
+LT,Lithuania,teststackoverflow.com,http,1417,92,0,165,12,134,56,27,27,1
+LT,Lithuania,teststackoverflow.com,https,808,81,104,142,8,283,56,15,27,1
+CL,Chile,stackoverflow.com,http,936,82,0,309,215,513,57,59,59,0
+CL,Chile,teststackoverflow.com,http,1156,120,0,246,23,184,57,69,69,1
+CL,Chile,teststackoverflow.com,https,644,132,176,202,22,742,57,68,69,1
+LK,Sri Lanka,stackoverflow.com,http,1260,146,0,666,345,617,58,97,97,0
+LK,Sri Lanka,teststackoverflow.com,http,1299,251,0,515,48,124,58,110,110,1
+LK,Sri Lanka,teststackoverflow.com,https,812,240,320,399,40,1081,58,100,110,1
+AE,United Arab Emirates,stackoverflow.com,http,1086,104,0,456,285,364,59,65,65,0
+AE,United Arab Emirates,teststackoverflow.com,http,1297,145,0,436,22,107,59,87,87,1
+AE,United Arab Emirates,teststackoverflow.com,https,1023,193,277,273,20,778,59,82,87,1
+BD,Bangladesh,stackoverflow.com,http,1154,146,0,703,620,874,60,109,109,0
+BD,Bangladesh,teststackoverflow.com,http,1323,240,0,625,77,163,60,124,124,1
+BD,Bangladesh,teststackoverflow.com,https,1044,231,288,451,113,1353,60,107,124,1
+SA,Saudi Arabia,stackoverflow.com,http,981,76,0,526,330,511,61,83,83,0
+SA,Saudi Arabia,teststackoverflow.com,http,1206,111,0,483,55,117,61,97,97,1
+SA,Saudi Arabia,teststackoverflow.com,https,874,200,281,278,37,772,61,85,97,1
+EE,Estonia,stackoverflow.com,http,713,68,0,211,145,314,62,23,23,0
+EE,Estonia,teststackoverflow.com,http,1045,96,0,163,15,110,62,22,22,1
+EE,Estonia,teststackoverflow.com,https,533,89,119,147,18,332,62,24,22,1
+PE,Peru,stackoverflow.com,http,830,83,0,371,253,549,63,74,74,0
+PE,Peru,teststackoverflow.com,http,1001,138,0,303,33,122,63,73,73,1
+PE,Peru,teststackoverflow.com,https,524,144,212,212,51,854,63,78,73,1
+MA,Morocco,stackoverflow.com,http,790,115,0,433,276,664,64,85,85,0
+MA,Morocco,teststackoverflow.com,http,1071,171,0,390,48,155,64,96,96,1
+MA,Morocco,teststackoverflow.com,https,628,168,219,268,46,980,64,90,96,1
+LV,Latvia,stackoverflow.com,http,712,61,0,207,130,326,65,20,20,0
+LV,Latvia,teststackoverflow.com,http,922,92,0,163,11,111,65,20,20,1
+LV,Latvia,teststackoverflow.com,https,544,80,107,134,9,304,65,17,20,1
+TN,Tunisia,stackoverflow.com,http,810,129,0,497,316,667,66,88,88,0
+TN,Tunisia,teststackoverflow.com,http,1086,153,0,381,47,178,66,95,95,1
+TN,Tunisia,teststackoverflow.com,https,632,165,272,284,54,835,66,87,95,1
+CR,Costa Rica,stackoverflow.com,http,470,69,0,257,190,430,67,45,45,0
+CR,Costa Rica,teststackoverflow.com,http,623,91,0,209,23,83,67,32,32,1
+CR,Costa Rica,teststackoverflow.com,https,246,129,180,179,16,695,67,64,32,1
+VE,Venezuela,stackoverflow.com,http,449,85,0,397,381,779,68,91,91,0
+VE,Venezuela,teststackoverflow.com,http,583,141,0,319,47,127,68,77,77,1
+VE,Venezuela,teststackoverflow.com,https,329,130,203,216,38,859,68,77,77,1
+LB,Lebanon,stackoverflow.com,http,444,65,0,648,607,351,69,93,93,0
+LB,Lebanon,teststackoverflow.com,http,475,108,0,640,115,65,69,108,108,1
+LB,Lebanon,teststackoverflow.com,https,389,254,318,352,90,1136,69,101,108,1
+MK,Macedonia,stackoverflow.com,http,415,97,0,251,163,529,70,52,52,0
+MK,Macedonia,teststackoverflow.com,http,599,128,0,222,15,145,70,60,60,1
+MK,Macedonia,teststackoverflow.com,https,373,119,158,184,24,390,70,39,60,1
+BA,Bosnia And Herzegovina,stackoverflow.com,http,383,78,0,265,170,354,71,36,36,0
+BA,Bosnia And Herzegovina,teststackoverflow.com,http,576,120,0,213,19,103,71,42,42,1
+BA,Bosnia And Herzegovina,teststackoverflow.com,https,325,105,154,187,36,406,71,42,42,1
+NP,Nepal,stackoverflow.com,http,427,171,0,878,976,911,72,123,123,0
+NP,Nepal,teststackoverflow.com,http,588,260,0,627,161,149,72,127,127,1
+NP,Nepal,teststackoverflow.com,https,364,271,369,500,224,2205,72,124,127,1
+JO,Jordan,stackoverflow.com,http,572,86,0,501,323,740,73,92,92,0
+JO,Jordan,teststackoverflow.com,http,515,123,0,386,48,130,73,83,83,1
+JO,Jordan,teststackoverflow.com,https,459,165,262,252,24,593,73,70,83,1
+KE,Kenya,stackoverflow.com,http,407,238,0,1055,756,1938,74,127,127,0
+KE,Kenya,teststackoverflow.com,http,519,218,0,924,136,289,74,140,140,1
+KE,Kenya,teststackoverflow.com,https,284,258,323,439,222,2385,74,125,140,1
+UY,Uruguay,stackoverflow.com,http,364,92,0,406,212,542,75,73,73,0
+UY,Uruguay,teststackoverflow.com,http,485,135,0,277,16,121,75,66,66,1
+UY,Uruguay,teststackoverflow.com,https,293,159,198,222,22,584,75,63,66,1
+MD,Moldova,stackoverflow.com,http,366,69,0,232,155,435,76,39,39,0
+MD,Moldova,teststackoverflow.com,http,440,114,0,180,15,108,76,33,33,1
+MD,Moldova,teststackoverflow.com,https,309,93,118,154,10,373,76,28,33,1
+AM,Armenia,stackoverflow.com,http,387,96,0,290,185,328,77,41,41,0
+AM,Armenia,teststackoverflow.com,http,487,138,0,259,28,99,77,62,62,1
+AM,Armenia,teststackoverflow.com,https,318,128,165,201,13,602,77,60,62,1
+LU,Luxembourg,stackoverflow.com,http,350,36,0,228,113,449,78,31,31,0
+LU,Luxembourg,teststackoverflow.com,http,433,56,0,181,11,88,78,7,7,1
+LU,Luxembourg,teststackoverflow.com,https,225,62,87,127,13,271,78,10,7,1
+EC,Ecuador,stackoverflow.com,http,298,61,0,399,234,521,79,66,66,0
+EC,Ecuador,teststackoverflow.com,http,413,114,0,306,35,200,79,81,81,1
+EC,Ecuador,teststackoverflow.com,https,176,119,179,174,29,577,79,59,81,1
+IS,Iceland,stackoverflow.com,http,299,71,0,206,150,229,80,10,10,0
+IS,Iceland,teststackoverflow.com,http,460,98,0,189,19,68,80,19,19,1
+IS,Iceland,teststackoverflow.com,https,243,98,123,142,7,326,80,23,19,1
+NG,Nigeria,stackoverflow.com,http,302,138,0,817,974,1460,81,126,126,0
+NG,Nigeria,teststackoverflow.com,http,399,274,0,739,164,230,81,138,138,1
+NG,Nigeria,teststackoverflow.com,https,249,288,300,465,168,2604,81,128,138,1
+KZ,Kazakhstan,stackoverflow.com,http,329,120,0,476,271,465,82,78,78,0
+KZ,Kazakhstan,teststackoverflow.com,http,422,164,0,370,19,150,82,85,85,1
+KZ,Kazakhstan,teststackoverflow.com,https,248,180,238,264,17,788,82,79,85,1
+DZ,Algeria,stackoverflow.com,http,279,113,0,659,628,1335,83,119,119,0
+DZ,Algeria,teststackoverflow.com,http,461,162,0,486,155,216,83,120,120,1
+DZ,Algeria,teststackoverflow.com,https,280,174,268,297,148,1712,83,109,120,1
+MT,Malta,stackoverflow.com,http,294,92,0,241,169,207,84,18,18,0
+MT,Malta,teststackoverflow.com,http,343,118,0,222,21,79,84,37,37,1
+MT,Malta,teststackoverflow.com,https,237,129,158,170,6,299,84,31,37,1
+CY,Cyprus,stackoverflow.com,http,232,106,0,299,207,324,85,43,43,0
+CY,Cyprus,teststackoverflow.com,http,388,126,0,260,21,171,85,70,70,1
+CY,Cyprus,teststackoverflow.com,https,246,138,169,222,15,477,85,53,70,1
+GE,Georgia,stackoverflow.com,http,258,80,0,285,230,1169,86,96,96,0
+GE,Georgia,teststackoverflow.com,http,363,114,0,291,21,102,86,63,63,1
+GE,Georgia,teststackoverflow.com,https,211,138,169,177,22,378,86,41,63,1
+DO,Dominican Republic,stackoverflow.com,http,215,56,0,338,225,489,87,57,57,0
+DO,Dominican Republic,teststackoverflow.com,http,333,90,0,184,22,166,87,45,45,1
+DO,Dominican Republic,teststackoverflow.com,https,181,84,188,148,28,620,87,56,45,1
+PR,Puerto Rico,stackoverflow.com,http,176,54,0,175,132,327,88,16,16,0
+PR,Puerto Rico,teststackoverflow.com,http,229,71,0,175,19,91,88,16,16,1
+PR,Puerto Rico,teststackoverflow.com,https,173,66,127,128,20,436,88,34,16,1
+KH,Cambodia,stackoverflow.com,http,226,154,0,535,662,566,89,100,100,0
+KH,Cambodia,teststackoverflow.com,http,250,211,0,512,95,155,89,113,113,1
+KH,Cambodia,teststackoverflow.com,https,170,164,212,364,76,752,89,84,113,1
+GT,Guatemala,stackoverflow.com,http,178,53,0,338,320,603,90,76,76,0
+GT,Guatemala,teststackoverflow.com,http,246,100,0,265,26,196,90,72,72,1
+GT,Guatemala,teststackoverflow.com,https,119,84,177,167,40,835,90,71,72,1
+QA,Qatar,stackoverflow.com,http,201,86,0,502,293,462,91,79,79,0
+QA,Qatar,teststackoverflow.com,http,249,146,0,541,40,72,91,100,100,1
+QA,Qatar,teststackoverflow.com,https,230,165,346,288,36,812,91,89,100,1
+BO,Bolivia,stackoverflow.com,http,174,117,0,648,444,1215,92,113,113,0
+BO,Bolivia,teststackoverflow.com,http,257,180,0,483,89,126,92,105,105,1
+BO,Bolivia,teststackoverflow.com,https,121,197,192,271,77,947,92,91,105,1
+AL,Albania,stackoverflow.com,http,176,76,0,245,226,406,93,46,46,0
+AL,Albania,teststackoverflow.com,http,226,120,0,211,16,125,93,49,49,1
+AL,Albania,teststackoverflow.com,https,157,139,206,185,7,574,93,61,49,1
+MU,Mauritius,stackoverflow.com,http,187,168,0,753,552,1172,94,117,117,0
+MU,Mauritius,teststackoverflow.com,http,238,252,0,621,82,283,94,131,131,1
+MU,Mauritius,teststackoverflow.com,https,155,231,456,449,42,1467,94,110,131,1
+AZ,Azerbaijan,stackoverflow.com,http,174,92,0,398,254,493,95,72,72,0
+AZ,Azerbaijan,teststackoverflow.com,http,231,123,0,428,34,91,95,82,82,1
+AZ,Azerbaijan,teststackoverflow.com,https,136,187,232,252,14,583,95,67,82,1
+MN,Mongolia,stackoverflow.com,http,155,104,0,455,247,484,96,75,75,0
+MN,Mongolia,teststackoverflow.com,http,215,202,0,416,52,104,96,98,98,1
+MN,Mongolia,teststackoverflow.com,https,115,185,206,290,37,1158,96,96,98,1
+JM,Jamaica,stackoverflow.com,http,142,89,0,253,256,747,97,80,80,0
+JM,Jamaica,teststackoverflow.com,http,214,76,0,225,16,152,97,48,48,1
+JM,Jamaica,teststackoverflow.com,https,150,92,158,169,50,925,97,75,48,1
+KW,Kuwait,stackoverflow.com,http,171,54,0,574,362,564,98,87,87,0
+KW,Kuwait,teststackoverflow.com,http,244,78,0,530,52,78,98,92,92,1
+KW,Kuwait,teststackoverflow.com,https,169,268,248,298,37,896,98,94,92,1
+IQ,Iraq,stackoverflow.com,http,149,60,0,523,299,441,99,77,77,0
+IQ,Iraq,teststackoverflow.com,http,195,101,0,452,50,120,99,89,89,1
+IQ,Iraq,teststackoverflow.com,https,140,148,244,281,101,1202,99,98,89,1
+GH,Ghana,stackoverflow.com,http,121,364,0,827,685,5267,100,138,138,0
+GH,Ghana,teststackoverflow.com,http,172,281,0,829,294,306,100,146,146,1
+GH,Ghana,teststackoverflow.com,https,110,241,477,503,197,1620,100,117,146,1
+MM,Myanmar,stackoverflow.com,http,134,153,0,1501,1649,1753,101,133,133,0
+MM,Myanmar,teststackoverflow.com,http,129,412,0,1069,316,118,101,150,150,1
+MM,Myanmar,teststackoverflow.com,https,90,292,367,797,692,2789,101,134,150,1
+PA,Panama,stackoverflow.com,http,123,62,0,201,159,394,102,28,28,0
+PA,Panama,teststackoverflow.com,http,169,61,0,184,23,117,102,23,23,1
+PA,Panama,teststackoverflow.com,https,88,61,110,121,6,469,102,32,23,1
+PS,Palestinian,stackoverflow.com,http,131,70,0,505,314,560,103,84,84,0
+PS,Palestinian,teststackoverflow.com,http,79,95,0,395,65,92,103,79,79,1
+PS,Palestinian,teststackoverflow.com,https,66,84,223,203,41,1026,103,86,79,1
+SV,El Salvador,stackoverflow.com,http,129,90,0,312,189,466,104,53,53,0
+SV,El Salvador,teststackoverflow.com,http,171,99,0,307,48,521,104,115,115,1
+SV,El Salvador,teststackoverflow.com,https,89,105,205,130,27,511,104,49,115,1
+TT,Trinidad And Tobago,stackoverflow.com,http,96,67,0,255,196,590,105,56,56,0
+TT,Trinidad And Tobago,teststackoverflow.com,http,170,100,0,218,31,395,105,93,93,1
+TT,Trinidad And Tobago,teststackoverflow.com,https,116,101,158,154,15,644,105,58,93,1
+UZ,Uzbekistan,stackoverflow.com,http,142,122,0,679,734,427,106,101,101,0
+UZ,Uzbekistan,teststackoverflow.com,http,145,113,0,701,194,75,106,123,123,1
+UZ,Uzbekistan,teststackoverflow.com,https,114,223,342,339,152,1186,106,103,123,1
+PY,Paraguay,stackoverflow.com,http,91,80,0,706,314,814,107,99,99,0
+PY,Paraguay,teststackoverflow.com,http,120,209,0,393,27,76,107,86,86,1
+PY,Paraguay,teststackoverflow.com,https,51,246,321,325,57,850,107,95,86,1
+OM,Oman,stackoverflow.com,http,145,91,0,803,376,760,108,104,104,0
+OM,Oman,teststackoverflow.com,http,132,133,0,786,39,74,108,121,121,1
+OM,Oman,teststackoverflow.com,https,112,242,287,354,18,800,108,92,121,1
+ET,Ethiopia,stackoverflow.com,http,81,308,0,1019,1499,3447,109,135,135,0
+ET,Ethiopia,teststackoverflow.com,http,99,456,0,734,276,153,109,143,143,1
+ET,Ethiopia,teststackoverflow.com,https,61,537,296,631,123,2742,109,131,143,1
+BH,Bahrain,stackoverflow.com,http,123,72,0,589,307,565,110,86,86,0
+BH,Bahrain,teststackoverflow.com,http,133,93,0,686,56,66,110,107,107,1
+BH,Bahrain,teststackoverflow.com,https,119,237,216,284,77,913,110,93,107,1
+UG,Uganda,stackoverflow.com,http,96,161,0,1008,827,3427,111,134,134,0
+UG,Uganda,teststackoverflow.com,http,93,732,0,982,302,148,111,152,152,1
+UG,Uganda,teststackoverflow.com,https,64,301,291,476,334,3218,111,133,152,1
+TZ,Tanzania,stackoverflow.com,http,63,258,0,799,554,716,112,108,108,0
+TZ,Tanzania,teststackoverflow.com,http,106,305,0,790,46,193,112,135,135,1
+TZ,Tanzania,teststackoverflow.com,https,78,505,323,517,228,2068,112,126,135,1
+NI,Nicaragua,stackoverflow.com,http,85,119,0,339,338,425,113,67,67,0
+NI,Nicaragua,teststackoverflow.com,http,114,109,0,542,79,96,113,102,102,1
+NI,Nicaragua,teststackoverflow.com,https,42,344,138,139,198,539,113,73,102,1
+SY,Syrian Arab Republic,stackoverflow.com,http,86,281,0,1131,807,2262,114,129,129,0
+SY,Syrian Arab Republic,teststackoverflow.com,http,32,182,0,750,260,130,114,134,134,1
+SY,Syrian Arab Republic,teststackoverflow.com,https,98,233,455,526,167,1858,114,119,134,1
+KG,Kyrgyzstan,stackoverflow.com,http,91,106,0,349,300,475,115,69,69,0
+KG,Kyrgyzstan,teststackoverflow.com,http,109,205,0,351,53,113,115,88,88,1
+KG,Kyrgyzstan,teststackoverflow.com,https,56,138,172,271,47,586,115,65,88,1
+HN,Honduras,stackoverflow.com,http,75,81,0,306,276,762,116,81,81,0
+HN,Honduras,teststackoverflow.com,http,95,68,0,271,73,76,116,56,56,1
+HN,Honduras,teststackoverflow.com,https,37,88,138,158,27,578,116,50,56,1
+MO,Macao,stackoverflow.com,http,52,108,0,359,320,650,117,82,82,0
+MO,Macao,teststackoverflow.com,http,91,161,0,384,6,90,117,78,78,1
+MO,Macao,teststackoverflow.com,https,64,205,250,290,46,223,117,52,78,1
+CU,Cuba,stackoverflow.com,http,87,153,0,7136,9206,17048,118,140,140,0
+CU,Cuba,teststackoverflow.com,http,34,103,0,1857,1151,80,118,155,155,0
+MG,Madagascar,stackoverflow.com,http,49,278,0,816,786,1088,119,124,124,0
+MG,Madagascar,teststackoverflow.com,http,99,235,0,934,237,296,119,145,145,1
+MG,Madagascar,teststackoverflow.com,https,27,178,248,673,555,3366,119,135,145,1
+SD,Sudan,stackoverflow.com,http,75,291,0,1887,1595,3060,120,136,136,0
+SD,Sudan,teststackoverflow.com,http,73,226,0,1075,387,103,120,148,148,1
+SD,Sudan,teststackoverflow.com,https,73,353,240,597,108,2893,120,130,148,1
+ZW,Zimbabwe,stackoverflow.com,http,50,244,0,1387,2403,2815,121,137,137,0
+ZW,Zimbabwe,teststackoverflow.com,http,56,212,0,1470,341,105,121,151,151,1
+ZW,Zimbabwe,teststackoverflow.com,https,37,487,332,612,199,5859,121,137,151,1
+ME,Montenegro,stackoverflow.com,http,45,60,0,265,129,2348,122,121,121,0
+ME,Montenegro,teststackoverflow.com,http,89,123,0,241,10,104,122,53,53,1
+ME,Montenegro,teststackoverflow.com,https,51,136,332,265,18,539,122,69,53,1
+YE,Yemen,stackoverflow.com,http,71,280,0,632,616,1445,123,125,125,0
+YE,Yemen,teststackoverflow.com,http,103,349,0,865,61,323,123,142,142,1
+YE,Yemen,teststackoverflow.com,https,60,289,358,510,197,2010,123,122,142,1
+MV,Maldives,stackoverflow.com,http,48,219,0,680,590,886,124,111,111,0
+MV,Maldives,teststackoverflow.com,http,59,161,0,462,30,93,124,94,94,1
+MV,Maldives,teststackoverflow.com,https,54,219,417,408,211,1015,124,104,94,1
+SN,Senegal,stackoverflow.com,http,35,215,0,645,609,1199,125,118,118,0
+SN,Senegal,teststackoverflow.com,http,65,349,0,583,104,181,125,130,130,1
+SN,Senegal,teststackoverflow.com,https,44,263,237,540,184,2429,125,127,130,1
+BB,Barbados,stackoverflow.com,http,31,42,0,165,145,785,126,61,61,0
+BB,Barbados,teststackoverflow.com,http,35,78,0,152,12,130,126,18,18,1
+BB,Barbados,teststackoverflow.com,https,26,883,138,128,40,1141,126,105,18,1
+BN,Brunei Darussalam,stackoverflow.com,http,36,85,0,666,449,766,127,102,102,0
+BN,Brunei Darussalam,teststackoverflow.com,http,47,204,0,946,29,114,127,132,132,1
+BN,Brunei Darussalam,teststackoverflow.com,https,25,250,244,496,157,2131,127,120,132,1
+LY,Libya,stackoverflow.com,http,35,139,0,1085,924,1858,128,128,128,0
+LY,Libya,teststackoverflow.com,http,51,243,0,1091,98,151,128,141,141,1
+LY,Libya,teststackoverflow.com,https,39,439,530,1140,126,1293,128,123,141,1
+CI,Cote Divoire,stackoverflow.com,http,32,149,0,658,415,968,129,107,107,0
+CI,Cote Divoire,teststackoverflow.com,http,41,236,0,595,7,135,129,114,114,1
+CI,Cote Divoire,teststackoverflow.com,https,27,419,289,401,148,1813,129,118,114,1
+NA,Namibia,stackoverflow.com,http,22,295,0,1681,1522,1556,131,132,132,0
+NA,Namibia,teststackoverflow.com,http,47,195,0,677,29,1520,131,156,156,1
+NA,Namibia,teststackoverflow.com,https,26,288,360,407,83,1780,131,115,156,1
+AF,Afghanistan,stackoverflow.com,http,26,54,0,1478,220,986,132,120,120,0
+AF,Afghanistan,teststackoverflow.com,http,41,119,0,1243,273,106,132,147,147,1
+AF,Afghanistan,teststackoverflow.com,https,55,228,393,495,319,2425,132,129,147,1
+BW,Botswana,teststackoverflow.com,http,33,316,0,1012,565,407,133,153,153,0
+MZ,Mozambique,stackoverflow.com,http,29,154,0,932,485,1261,134,122,122,0
+MZ,Mozambique,teststackoverflow.com,http,33,166,0,585,22,104,134,104,104,1
+MZ,Mozambique,teststackoverflow.com,https,25,499,235,370,112,1525,134,111,104,1
+CM,Cameroon,stackoverflow.com,http,25,167,0,1235,1683,1932,135,131,131,0
+CM,Cameroon,teststackoverflow.com,http,45,344,0,1382,384,367,135,154,154,1
+CM,Cameroon,teststackoverflow.com,https,27,263,247,862,473,5416,135,136,154,1
+ZM,Zambia,stackoverflow.com,http,21,173,0,1067,2669,860,136,130,130,0
+ZM,Zambia,teststackoverflow.com,http,38,331,0,650,101,259,136,136,136,1
+ZM,Zambia,teststackoverflow.com,https,22,2457,1272,1440,892,7118,136,138,136,1
+CW,Curacao,stackoverflow.com,http,20,47,0,724,264,192,137,68,68,0
+CW,Curacao,teststackoverflow.com,http,40,59,0,219,33,94,137,28,28,1
+CW,Curacao,teststackoverflow.com,https,26,167,130,187,131,773,137,74,28,1
+RW,Rwanda,teststackoverflow.com,http,26,231,0,1068,158,92,138,139,139,0
+LA,Lao Peoples Democratic Republic,teststackoverflow.com,http,24,425,0,963,43,460,139,149,149,1
+LA,Lao Peoples Democratic Republic,teststackoverflow.com,https,20,312,466,540,119,1304,139,112,149,1
+IM,Isle Of Man,teststackoverflow.com,http,24,89,0,583,7,187,141,103,103,0
+FJ,Fiji,stackoverflow.com,http,24,56,0,937,689,334,142,103,103,0
+FJ,Fiji,teststackoverflow.com,http,25,225,0,850,225,77,142,137,137,0
+AO,Angola,teststackoverflow.com,http,23,183,0,1236,214,56,143,144,144,1
+AO,Angola,teststackoverflow.com,https,21,148,509,340,88,1695,143,114,144,1
+JE,Jersey,stackoverflow.com,http,26,28,0,247,152,227,144,9,9,0
+JE,Jersey,teststackoverflow.com,http,20,73,0,180,6,24,144,4,4,0
+BS,Bahamas,teststackoverflow.com,http,32,93,0,298,66,106,145,67,67,0
+LI,Liechtenstein,stackoverflow.com,http,20,10,0,282,121,216,146,8,8,0
+LI,Liechtenstein,teststackoverflow.com,http,25,32,0,237,4,78,146,14,14,1
+LI,Liechtenstein,teststackoverflow.com,https,21,23,39,95,4,158,146,1,14,1
+FO,Faroe Islands,teststackoverflow.com,http,37,66,0,186,3,107,147,17,17,0
+NC,New Caledonia,teststackoverflow.com,http,30,221,0,458,250,132,148,122,122,1
+NC,New Caledonia,teststackoverflow.com,https,24,413,243,334,13,542,148,83,122,1
+SR,Suriname,teststackoverflow.com,http,22,257,0,381,264,101,149,118,118,0
+HT,Haiti,teststackoverflow.com,http,28,328,0,663,136,186,150,133,133,0
+BZ,Belize,teststackoverflow.com,http,25,139,0,457,351,72,151,119,119,0
+GG,Guernsey,stackoverflow.com,http,25,52,0,162,111,125,152,2,2,0
+GG,Guernsey,teststackoverflow.com,http,25,87,0,301,4,49,152,38,38,0
+MC,Monaco,teststackoverflow.com,http,20,61,0,191,1,84,153,9,9,0
+KY,Cayman Islands,teststackoverflow.com,http,26,60,0,152,27,62,154,5,5,0
+GY,Guyana,stackoverflow.com,http,20,90,0,516,460,987,155,105,105,0
+GY,Guyana,teststackoverflow.com,http,20,184,0,326,11,202,155,90,90,1
+GY,Guyana,teststackoverflow.com,https,21,265,607,457,211,1744,155,121,90,1
+BM,Bermuda,stackoverflow.com,http,23,9,0,116,23,199,156,1,1,0
+BM,Bermuda,teststackoverflow.com,http,26,25,0,99,15,60,156,1,1,0
+PF,French Polynesia,teststackoverflow.com,http,36,172,0,350,9,73,159,74,74,0
+GD,Grenada,teststackoverflow.com,http,20,75,0,259,23,118,171,52,52,0
+LC,Saint Lucia,teststackoverflow.com,http,21,68,0,278,54,89,176,57,57,0
+</script>
+<div class="charts"></div>
+<script>
+function renderChart(options) {
+    var margin = {top: 20, right: 70, bottom: 90, left: 40},
+        width = 572 - margin.left - margin.right,
+        height = 370 - margin.top - margin.bottom,
+        x = d3.scale.ordinal()
+              .rangeRoundBands([0, width], .1),
+        y = d3.scale.linear()
+              .rangeRound([height, 0]),
+        color = d3.scale.ordinal()
+                  .range(options.series.map(function(s) { return s.color; })),
+        xAxis = d3.svg.axis()
+                 .scale(x)
+                 .orient('bottom'),
+        yAxis = d3.svg.axis()
+                  .scale(y)
+                  .orient('left')
+                  .tickFormat(d3.format('.2s')),
+        div = options.container.append('div')
+                     .attr('class', 'chart');
+
+    var svg = div.append('svg')
+                 .attr('width', width + margin.left + margin.right)
+                 .attr('height', height + margin.top + margin.bottom)
+                 .append('g')
+                 .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
+
+    if (options.title) {
+      svg.append('text')
+         .attr('class','title')
+         .attr('width', width)
+         .attr('transform', 'translate(0, -10)')
+         .text(options.title);
+    }
+
+    var data = options.data;
+    color.domain(options.series.map(function(s) { return s.column; })); 
+
+    data.forEach(function(d) {
+        var y0 = 0;
+        d.times = color.domain().map(function(name) { return {name: name, y0: y0, y1: y0 += +d[name]}; });
+        d.total = d.times[d.times.length - 1].y1;
+    });
+
+    if (options.dataSort)
+        data.sort(options.dataSort);
+    if (options.elementLimit)
+        data = data.filter(function(d, i) { return i <= options.elementLimit; });
+
+    x.domain(data.map(function(d) { return d[options.xCategory]; }));
+    y.domain([0, options.max || d3.max(data, function(d) { return d.total; })]);
+
+    svg.append('g')
+       .attr('class', 'x axis')
+       .attr('transform', 'translate(0,' + height + ')')
+       .call(xAxis)
+       .selectAll('text')  
+         .style('text-anchor', 'end')
+         .attr('dx', '-.7em')
+         .attr('dy', '0')
+         .attr('transform', function(d) {
+           return 'rotate(-55)' 
+         });
+
+    var yAxisLine = svg.append('g')
+                       .attr('class', 'y axis')
+                       .call(yAxis);
+    yAxisLine.append('text')
+             .attr('transform', 'rotate(-90)')
+             .attr('y', 6)
+             .attr('dy', '.71em')
+             .style('text-anchor', 'end')
+             .text(options.yLabel);
+    yAxisLine.selectAll('.y.axis g.tick line')
+             .attr('class', 'major line')
+             .attr('x1', width);
+
+    var legend = svg.selectAll('.legend')
+      .data(color.domain().slice().reverse())
+      .enter().append('g')
+        .attr('class', 'legend active')
+        .attr('transform', function(d, i) { return 'translate(0,' + i * 20 + ')'; })
+        .on('click', function(d) { 
+            var e = d3.select(this);
+            e.classed({ 'active': !e.classed('active') }); 
+            update();
+        });
+    legend.append('rect')
+          .attr('class', 'legend')
+          .attr('x', width)
+          .attr('width', 16)
+          .attr('height', 16)
+          .style('fill', color)
+          .style('stroke', color);
+    legend.append('text')
+          .attr('x', width + 22)
+          .attr('y', 9)
+          .attr('dy', '.35em')
+          .text(function(d) { return d; });
+
+    var interval = svg.selectAll('.interval')
+      .data(data)
+      .enter().append('g')
+        .attr('transform', function(d) { return 'translate(' + x(d[options.xCategory]) + ',0)'; });
+
+    interval.selectAll('rect')
+      .data(function(d) { return d.times; })
+      .enter().append('rect')
+        .attr('class', function(d) { return d.name.replace(' ','-') + ' timing'; })
+        .attr('width', x.rangeBand())
+        .style('fill', function(d) { return color(d.name); });
+
+    function update() {
+      var activeSeries = svg.selectAll('.legend.active').data();
+
+      data.forEach(function(d) {
+        var y0 = 0;
+        d.times = color.domain().map(function(name) { 
+          return activeSeries.indexOf(name) > -1 
+            ? {name: name, y0: y0, y1: y0 += +d[name]}
+            : {name: name, y0: y0, y1: y0 }; 
+        });
+        d.total = d.times[d.times.length - 1].y1;
+      });
+
+      interval.data(data)
+              .selectAll('rect')
+              .data(function(d) { return d.times; })
+              .transition()
+              .ease('bounce')
+              .duration(500)
+              .attr('y', function(d) { return y(d.y1); })
+              .attr('height', function(d) { return y(d.y0) - y(d.y1); });
+    }
+
+    update();
+}
+var csv = d3.select('#top-sites').text().replace(/^\s+/,''),
+    data = d3.csv.parse(csv),
+    series = [
+        { column: 'TCP', color: '#8cbb4e' },
+        { column: 'TLS', color: '#795892' },
+        { column: 'Request', color: '#0099b2' },
+        { column: 'Response', color: '#d99d35' },
+        { column: 'Interactive', color: '#bd4d32' }
+    ],
+    seriesMap = {},
+    testData = data.filter(function(d) { return d.Host == 'teststackoverflow.com'; }),
+    SOData = data.filter(function(d) { return d.Host == 'stackoverflow.com'; });
+
+var options = {
+    data: testData.filter(function(d) { return d.Protocol == 'http' && d.HasHTTPSData == 1 && d.CountryRank <= 40; }),
+    container: d3.select('.charts'),
+    xCategory: 'Country',
+    yLabel: 'milliseconds',
+    title: 'HTTP',
+    series: series,
+    columns: ['TCP', 'TLS', 'Request', 'Response', 'Interactive'],
+    colors: ['#8cbb4e', '#795892', '#0099b2', '#d99d35', '#bd4d32'],
+    elementLimit: 40,
+    max: 2500,
+    dataSort: function(a, b) { return a.CountryRank - b.CountryRank; }
+};
+renderChart(options);
+options.title = 'HTTPS';
+options.data = testData.filter(function(d) { return d.Protocol == 'https' && d.CountryRank <= 40 });
+renderChart(options);
+</script>
+<div id="maps">
+  <div class="simulation">
+    <button>Simulate Request</button>
+  </div>
+</div>
+<script>
+var svgMapXml;
+d3.xml('world-map.svg', function(xml) {
+  if (xml) {
+    svgMapXml = xml.documentElement;
+    mapLoaded(xml);
+  } else {
+    console.log('Error loading world-map.svg');
+  }
+});
+
+function mapLoaded(xml) {
+  var container = d3.select('#maps');
+
+  data.forEach(function(c) {
+      c.Total = +c.TCP + +c.TLS + +c.Request + +c.Response + +c.Interactive;
+  });
+
+  var httpMap = makeCloropleth(container, 'HTTP Performance', testData.filter(function(d) { return d.Protocol == 'http'; })),
+      httpsMap = makeCloropleth(container, 'TLS / SSL Performance', testData.filter(function(d) { return d.Protocol == 'https'; }));
+
+  var speed = 0.2;
+  container.select('button')
+           .on('click', function() {
+             httpMap.reset(200, function() { httpMap.animate(speed); });
+             httpsMap.reset(200, function() { httpsMap.animate(speed); });
+           });
+}
+
+function makeCloropleth(container, title, data, finishCallback) {
+  var mapElem = svgMapXml.cloneNode(true),
+      mapContainer = container.append('div')
+                              .attr('class', 'map-container');
+  mapContainer.node()
+              .appendChild(mapElem);
+
+  var map = d3.select(mapElem),
+      highest = 0,
+      countryData = {},
+      countries = map.selectAll('g[data-id]'),
+      tooltip = mapContainer.append('div')
+                            .attr('class', 'tooltip')               
+                            .style('opacity', 0);
+
+  map.append('text')
+    .attr('class','title')
+    .attr('transform', 'translate(250, -10)')
+    .text(title);
+  map.append('text')
+    .attr('class','timer')
+    .attr('transform', 'translate(250, 0)')
+    .text();
+
+  data.forEach(function(c) { countryData[c.CountryCode] = c; });
+
+  countries = countries.filter(function() {
+    var countryId = this.getAttribute('data-id'),
+        countryCode = countryId.split('-')[0],
+        country = countryData[countryCode];
+    d3.select(this)
+      .selectAll('path, polygon')
+      .datum(country)
+      .on('mousemove', function(e) {     
+          var d = d3.select(this).data();
+          if (d[0]) {
+            tooltip.html(getTooltip(d[0]));
+          } else {
+            var countryName = countryId.split('-').slice(1).join(' ')
+                                       .replace(/\w\S*/g, function(t){
+                                          return t.charAt(0).toUpperCase()+t.substr(1).toLowerCase();
+                                       });
+            tooltip.html("<span class='country-name'>" + countryName + "</span><br/><span class='lacking-data'>Not enough data</span>");
+          }
+          tooltip.style('display', 'block')
+                 .style('left', (d3.event.offsetX + 20) + 'px')     
+                 .style('top', (d3.event.offsetY - 28) + 'px')
+                 .transition()        
+                   .duration(200)      
+                   .style('opacity', .9);
+        })                  
+      .on('mouseout', function(e) {       
+          tooltip.transition()        
+              .duration(200)      
+              .style('opacity', 0)
+              .each('end', function() { d3.select(this).style('display', 'none'); });;   
+      });
+    return country;
+  });
+
+  function getTooltip(country) {
+    var html = "<span class='country-name'>" + country.Country + "</span><br/>";
+    for (var i = 0; i < series.length; i++) {
+      var s = series[i];
+      if(country[s.column] > 0) {
+        html += ("<span style='color: " + s.color + "'>" + s.column + "</span>: " + (+country[s.column]).toLocaleString() + " ms<br/>");
+      }
+    }
+    html += "<br/>Total: <span class='total'>" + country.Total.toLocaleString() + "</span> ms";
+    return html;
+  }
+
+  function colorFade(poly, delay, color, duration) {
+    poly.transition()
+        .delay(delay)
+        .duration(duration || 10)
+        .style('fill', color);
+  }
+
+  function reset(duration, callback) {
+    map.selectAll('path, polygon')
+       .transition()
+       .duration(duration)
+       .style('fill','rgba(1, 1, 1, 0.5)');
+    if (callback) {
+      setTimeout(callback, duration);
+    }
+  }
+
+  function animate(speed, callback) {
+    countries.each(function(e, i) {
+      var countryElem = d3.select(this).selectAll('path, polygon'),
+          country = countryElem.data()[0],
+          total = 0;
+      if (country == null)
+        return;
+
+      for (var i = 0; i < series.length; i++) {
+        var s = series[i];
+        if (country[s.column]) {
+          colorFade(countryElem, total/speed, s.color);
+          total += +country[s.column];
+        }
+      }
+
+      highest = Math.max(highest, total);
+      colorFade(countryElem, total/speed, '#ffffff', 200);
+    });
+
+    map.select('.timer')
+       .transition()
+       .ease('linear')
+       .duration(highest/speed)
+       .tween('text', function(d) {
+         var i = d3.interpolateNumber(0, highest);
+         return function(t) {
+           this.textContent = Math.round(i(t), 0).toLocaleString() + ' ms';
+         };
+       });
+
+    if (callback) {
+      setTimeout(callback, highest);
+    }
+  }
+  return {
+    animate: animate,
+    reset: reset
+  };
+}
+</script>
+</body>
+</html>
