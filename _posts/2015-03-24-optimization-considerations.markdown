@@ -172,7 +172,7 @@ And [here's what I use](https://github.com/NickCraver/nickcraver.github.com/blob
 </script>
 ~~~
 
-Why? Because it looks nicer and modern browsers can now preload that `analytics.js`. What's the downside? [IE9 doesn't support the `async` attribute](http://caniuse.com/#feat=script-async). Luckily, *I don't care*. If you care about IE9, I advise you...uhhh....don't do this.
+Why? Because it looks nicer and modern browsers can now preload that `analytics.js`. What's the downside? [IE9 doesn't support the `async` attribute](http://caniuse.com/#feat=script-async), which dynamically appending it side-steps and makes the fetch non-blocking anyway. Luckily, *I don't care*. If you care about IE9, I advise you...uhhh....don't do this.
 
 Okay, so performance isn't everything - it needs to be visually appealing. Usually that means images. Images mean more requests. *Or do they?* Nope, not today. There's one obvious solution here: [CSS image sprites](https://css-tricks.com/css-sprites/). For instance, here's [the Stack Overflow image sprite](http://cdn.sstatic.net/stackoverflow/img/sprites.svg). What's better than that *for me*? No requests.
 
