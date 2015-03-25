@@ -237,7 +237,7 @@ I realize this post goes down several alleys in performance and decision detail,
 
 Oh and one last bit. If anyone's doing a similar setup with CloudFlare in front of a static host and aggressive caching, you may find the following `pre-push` [git hook](http://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks) handy:
 
-~~~ bash
+~~~ shell
 #!/bin/sh
  
 sleep 10s && curl https://www.cloudflare.com/api_json.html \

@@ -86,14 +86,20 @@ code {
 }
 code {
     padding: 1px 5px;
+    word-wrap: break-word;
 }
 pre {
     padding: 8px 12px;
+    
+    @include media-query($on-small) {
+        overflow-x: scroll;
+    }
 
     > code {
         border: 0;
         padding-right: 0;
         padding-left: 0;
+        word-wrap: normal;
     }
 }
 b, strong {
