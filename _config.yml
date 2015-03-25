@@ -11,6 +11,7 @@ stackoverflow_link: users/13249/nick-craver
 permalink: /blog/:year/:month/:day/:title/
 contenturl: "/blog/content/"
 markdown: kramdown
+highlighter: rouge
 kramdown:
   input: GFM
   syntax_highlighter: rouge
