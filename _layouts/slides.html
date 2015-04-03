@@ -1,3 +1,7 @@
+---
+layout: null
+section: talks
+---
 <!DOCTYPE html>
 <html>
   <head>
@@ -17,7 +21,8 @@
   <body>
     <div class="reveal">
       <div class="slides">
-{{ content }}
+{% capture kdcontent %}{{ page.content }}{% endcapture %}
+{{ kdcontent | replace: '    <', '<' | markdownify }}
       </div>
     </div>
     <script src="/talks/js/slides.js"></script>
