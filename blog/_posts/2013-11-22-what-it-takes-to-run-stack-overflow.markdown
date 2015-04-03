@@ -3,7 +3,6 @@ layout: post
 author: Nick Craver
 title:  "What it takes to run Stack Overflow"
 date:   2013-11-22 12:00:00
-categories: hardware StackOverflow
 disqus_identifier: "260 http://nickcraver.com/blog/?p=260"
 ---
 I like to think of Stack Overflow as running _with scale_ but not _at scale_.  By that I meant we run very efficiently, but I still don't think of us as "big", not yet.  Let's throw out some numbers so you can get an idea of what scale we are at currently.  Here are some quick numbers from **a 24 hour window** few days ago - November 12th, 2013 to be exact.  These numbers are from a typical weekday and only include our active data center - what _we_ host.  Things like hits/bandwidth to our CDN are not included, they don't hit our network.

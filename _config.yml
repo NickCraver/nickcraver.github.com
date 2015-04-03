@@ -2,13 +2,12 @@
 title: Software Imagineering
 email: nrcraver@gmail.com
 description: > #
-# baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://nickcraver.com"
 twitter_username: Nick_Craver
 github_username:  NickCraver
 stackoverflow_link: users/13249/nick-craver
 
-permalink: /blog/:year/:month/:day/:title/
+permalink: /:categories/:year/:month/:day/:title/
 contenturl: "/blog/content/"
 markdown: kramdown
 kramdown:

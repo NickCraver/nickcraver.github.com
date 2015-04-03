@@ -2,7 +2,6 @@
 layout: post
 title:  "Keeping track of the bad things: StackExchange.Exceptional"
 date:   2012-08-23 12:00:00
-categories: StackExchange.Exceptional
 disqus_identifier: "214 http://nickcraver.com/blog/?p=214"
 ---
 The best part of working for Stack Exchange is that our code, network and databases are so awesome that we never throw exceptions.

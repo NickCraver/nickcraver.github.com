@@ -1,0 +1,15 @@
+---
+layout: default
+section: talks
+---
+        <div class="home">
+          <div class="post-list archive">
+            <h1>Talks</h1>
+            <ul>{% for post in site.categories.talks %}{% assign year = post.year %}{% assign lastyear = post.next.year %}
+              {% if year != lastyear %}<li class="year"><h2>{{ year }}</h2></li>{% endif %}
+              <li>
+                <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+              </li>{% endfor %}
+            </ul>
+          </div>
+        </div>

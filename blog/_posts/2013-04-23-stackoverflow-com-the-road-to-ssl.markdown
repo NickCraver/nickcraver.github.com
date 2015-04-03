@@ -2,7 +2,6 @@
 layout: post
 title:  "Stackoverflow.com: the road to SSL"
 date:   2013-04-23 12:00:00
-categories: https tls ssl
 disqus_identifier: "233 http://nickcraver.com/blog/?p=233"
 ---
 A question we often get asked at Stack Exchange is why stackoverflow.com and all our other domains aren’t served over SSL.  It’s a user request we see at least a few times a month asking to ensure their security and privacy.  So why haven’t we done it yet?  I wanted to address that here, it’s not that we don’t _want_ to do it, it’s just a lot of work and we’re getting there.
