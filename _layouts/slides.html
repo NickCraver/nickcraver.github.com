@@ -21,8 +21,7 @@ section: talks
   <body>
     <div class="reveal">
       <div class="slides">
-{% capture kdcontent %}{{ page.content }}{% endcapture %}
-{{ kdcontent | replace: '    <', '<' | markdownify }}
+{{ content }}
       </div>
     </div>
     <script src="/talks/js/slides.js"></script>

@@ -42,4 +42,26 @@ section.has-light-background {
 	}
 }
 
-@import "reveal-theme";
+h1, h2, h3, h4, h5, h6,
+p, blockquote, pre,
+ul, ol, dl, figure,
+%vertical-rhythm {
+    margin-bottom: 0;
+}
+
+@import "reveal-theme",
+        "syntax-highlighting";
+
+.reveal section img.plain {
+    background: none;
+    border: 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+.reveal .highlight {
+    background: none;
+    code, pre code {
+       word-wrap: break-word;
+    }
+}
