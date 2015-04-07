@@ -149,7 +149,7 @@ Note: [HTTP2 does compress headers](http://http2.github.io/http2-spec/compressio
 
 I also changed the JavaScript include. Here's [what Google gives you](https://developers.google.com/analytics/devguides/collection/analyticsjs/):
 
-~~~ html
+{% highlight html %}
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -159,18 +159,18 @@ I also changed the JavaScript include. Here's [what Google gives you](https://de
   ga('create', 'UA-XXXX-Y', 'auto');
   ga('send', 'pageview');
 </script>
-~~~
+{% endhighlight %}
 
 And [here's what I use](https://github.com/NickCraver/nickcraver.github.com/blob/master/_includes/analytics.html):
 
-~~~ html
+{% highlight html %}
 <script async src='//www.google-analytics.com/analytics.js'></script>
 <script>
   var ga=ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
   ga('create','{{ site.google_analytics_ua }}','auto');
   ga('send','pageview');
 </script>
-~~~
+{% endhighlight %}
 
 Why? Because it looks nicer and modern browsers can now preload that `analytics.js`. What's the downside? [IE9 doesn't support the `async` attribute](http://caniuse.com/#feat=script-async), which dynamically appending it side-steps and makes the fetch non-blocking anyway. Luckily, *I don't care*. If you care about IE9, I advise you...uhhh....don't do this.
 
@@ -178,7 +178,7 @@ Okay, so performance isn't everything - it needs to be visually appealing. Usual
 
 Remember my traffic consists largely of "view a page and leave" - we're optimizing first hit here. See that logo in the upper right? It's [an SVG](http://www.w3.org/TR/SVG/struct.html#ImageElement) embedded right in the HTML, like this:
 
-~~~ html
+{% highlight html %}
 <svg class="logo" viewBox="0 0 4 4">
   <path fill="#000000" d="M0 0 h3 v1 h-2 v1 h1 v1 h-2 Z" />
   <path fill="#60aaed" d="M3 0 h1 v1 h-1 Z" />
@@ -186,7 +186,7 @@ Remember my traffic consists largely of "view a page and leave" - we're optimizi
   <path fill="#0b4379" d="M3 1 h1 v3 h-1 Z" />
   <path fill="#545861" d="M0 3 h2 v-1 h1 v2 h-3 Z" />
 </svg>
-~~~
+{% endhighlight %}
 
 You can see the logo embedded [in the header here](https://github.com/NickCraver/nickcraver.github.com/blob/master/_includes/header.html) and the others [in my social include here](https://github.com/NickCraver/nickcraver.github.com/blob/master/_includes/social.html). With [gzip compression](https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/optimize-encoding-and-transfer) these aren't adding much to the page weight and they're saving a request and rendering delay.
 
@@ -198,10 +198,10 @@ It's worth noting that the mobile friendly changes [have an additional benefit i
 
 Why use CloudFlare? Doesn't GitHub pages do everything I need? Nope. While GitHub free hosting for pags is pretty good, it's pretty limited to doing just that with no options. What I'm doing is pointing the root of `nickcraver.com` to GitHub with an `@` CNAME to `nickcraver.github.io`. For those familiar with the rules: nope, this isn't valid DNS *to respond with*...but you're not getting a CNAME, [you're getting CloudFlare IPs on A records](https://blog.cloudflare.com/introducing-cname-flattening-rfc-compliant-cnames-at-a-domains-root/) since it's proxied through them. Here's my current `dig` result:
 
-~~~ bind
+{% highlight bash %}
 nickcraver.com.     299 IN  A   162.159.245.22
 nickcraver.com.     299 IN  A   162.159.244.22
-~~~
+{% endhighlight %}
 
 This allows me do things to further increase performance. For example, I use CloudFlare's [page rules](https://support.cloudflare.com/hc/en-us/articles/200168306-Is-there-a-tutorial-for-Page-Rules-) to change the cache header duration to an hour instead of 10 minutes (what GitHub uses) for most things. The control is very flexible (and getting better soon), but a simple longer cache is all I'm doing for now. They can also continue serving my pages from cache if the GitHub source is offline.
 
@@ -237,7 +237,7 @@ I realize this post goes down several alleys in performance and decision detail,
 
 Oh and one last bit. If anyone's doing a similar setup with CloudFlare in front of a static host and aggressive caching, you may find the following `pre-push` [git hook](http://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks) handy:
 
-~~~ shell
+{% highlight bash %}
 #!/bin/sh
  
 sleep 10s && curl https://www.cloudflare.com/api_json.html \
@@ -248,5 +248,5 @@ sleep 10s && curl https://www.cloudflare.com/api_json.html \
   -d 'v=1' &
  
 exit 0
-~~~
+{% endhighlight %}
 This auto-purges my site when I push to GitHub on a 10 second delay in the background. Note: it's a global purge, so if you have a larger site it's likely better to analyze which files are changing (you could base this on the `_site` directory) and purge only what's changing. Hooks are scripts so you could go nuts here - I'm just sharing a simple hands-off nothing-to-remember approach.
