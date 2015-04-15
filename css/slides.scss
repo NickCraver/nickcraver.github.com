@@ -36,12 +36,6 @@ $heading2Size: 1.6em;
 $heading3Size: 1.3em;
 $heading4Size: 1.0em;
 
-section.has-light-background {
-	&, h1, h2, h3, h4, h5, h6 {
-		color: #222;
-	}
-}
-
 h1, h2, h3, h4, h5, h6,
 p, blockquote, pre,
 ul, ol, dl, figure,
@@ -52,16 +46,74 @@ ul, ol, dl, figure,
 @import "reveal-theme",
         "syntax-highlighting";
 
-.reveal section img.plain {
-    background: none;
-    border: 0;
-    margin: 0;
-    box-shadow: none;
+.reveal {
+    h1, h2, h3, h4, h5, h6 {
+        text-transform: none;
+        font-weight: 300;
+    }
+    section {
+        &.has-light-background {
+            &, h1, h2, h3, h4, h5, h6 {
+                color: #222;
+            }
+        }
+        img.plain {
+            background: none;
+            border: 0;
+            margin: 0;
+            box-shadow: none;
+            max-height: 500px;
+        } 
+    }
+    li {
+        line-height: 1.5em;
+    }
+    .highlight {
+        background: none;
+        code, pre code {
+           word-wrap: break-word;
+        }
+    }
 }
 
-.reveal .highlight {
-    background: none;
-    code, pre code {
-       word-wrap: break-word;
+.stackoverflow-logo {
+    .so-text {
+        fill: #A7A9AC;
+    }
+}
+.middle-arrow-wrap {
+    svg, img {
+        vertical-align: middle;
+    }
+}
+.middle-arrow {
+    height: 60px;
+    width: 60px;
+    path {
+        fill: #A7A9AC;
+    }
+}
+
+html.at-slide div.slide-background.present {
+    background: url("../talks/content/At-Sign.svg") center center no-repeat;
+    background-size: 600px 600px;
+}
+
+div.logo {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+
+    svg {
+        width: 24px;
+        height: 24px;
+        vertical-align: middle;
+        margin-right: 8px;
+    }
+    a {
+        line-height: 24px;
+        color: #49AFEF;
+        text-decoration: none;
+        font-family: "Source Sans Pro",Helvetica,Arial,sans-serif;
     }
 }
