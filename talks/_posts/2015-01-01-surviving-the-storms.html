@@ -1,0 +1,256 @@
+---
+layout: slides
+section: talks
+title: Surviving the Storms
+permalink: talks/storms
+contentpath : ../content/storms/
+---
+
+<section data-state="at-slide">
+  <h1>Surviving the Storms</h1>
+  <p>
+{% include stackoverflow-logo.svg %}
+  </p>
+  <p>
+  <small>by <a href="http://twitter.com/Nick_Craver">@Nick_Craver</a></small>
+  </p>
+</section>
+
+<section>
+  <img src="../content/Fixing-StackOverflow.jpg" class="plain" />
+</section>
+
+<section>
+    <h2>A typical month at Stack Overflow</h2>
+    <ul>
+        <li>1,221,560,439 Page Views</li>
+        <li>5,127,732,306 HTTP Hits</li>
+        <li>48,286,916,506,506 Bytes Sent</li>
+        <li>3,202,505,376 CDN Hits</li>
+        <li>54,400,000,000,000 CDN Bytes</li>
+        <li>23,788,557,797 SQL Queries</li>
+        <li>185,405,583,038 Redis Ops</li>
+        <li>19.5ms Average Render Time</li>
+    </ul>
+</section>
+
+<section>
+  <section>
+    <h2>Priciples</h2>
+    <p>Decide what's impotant <i>to you</i></p>
+  </section>
+  <section>
+    <h2>What's important <i>to us</i></h2>
+    <p class="fragment">Keeping it stupid, simple</p>
+    <p class="fragment">Going fast<i class="fragment">er</i></p>
+    <p class="fragment">...and maybe staying online</p>
+  </section>
+</section>
+
+<section>
+  <section>
+    <h1>Real Life</h1>
+  </section>
+  <section>
+    <h2>Things Will Go Wrong</h2>
+    <p>Suck it up</p>
+    <p>Fix it</p>
+    <p>Make it better</p>
+  </section>
+</section>
+
+<section>
+  <section>
+    <h1>Small Storms</h1>
+    <p>Dealing with matters of scale</p>
+  </section>
+  <section>
+    <h3>The Problem</h3>
+    <p>Seemingly Random Slow HTTP Responses</p>
+  </section>
+  <section>
+    <img src="{{page.contentpath}}Small-GCStalls1.png" class="plain" />
+    <img src="{{page.contentpath}}Small-GCStalls2.png" class="plain" />
+  </section>
+  <section>
+    <h2>Start Simple</h2>
+{% highlight csharp %}
+var sw = Stopwatch.StartNew();
+doThing();
+sw.Stop();
+{% endhighlight %}
+  </section>
+  <section>
+    <h3>MiniProfiler</h3>
+    <img src="{{page.contentpath}}Small-MiniProfiler.png" class="plain" />
+  </section>
+  <section>
+    <h3>Timings</h3>
+    <img src="{{page.contentpath}}Small-RouteTimings.png" class="plain" />
+  </section>
+  <section>
+    <h2>Dapper</h2>
+{% highlight csharp %}
+var users = Current.DB.Query<User>(@"
+Select * 
+  From Users 
+ Where Id In @ids", new { ids = userIds });
+
+var mdUsers = Current.DB.Query<User, UserMetadata, User>(@"
+Select u.*, umd.* 
+  From Users u 
+       Join UserMetadata umd On u.Id = umd.UserId 
+ Where u.Id IN @ids",
+  (u, umd) => { u.CachedMetadata = umd; return u; }, 
+  new { ids = sanitizedIds }, 
+  splitOn: "UserId");
+{% endhighlight %}
+  </section>
+</section>
+
+<section>
+  <h1>Man-made Storms</h1>
+</section>
+
+<section>
+  <section>
+    <h2>Tag Engine DDoS</h2>
+    <small>Denver Meetup - October, 2014</small>
+  </section>
+  <section>
+    <img src="{{page.contentpath}}Denver-Pana.jpg" class="plain" />
+  </section>
+  <section>
+    <img src="{{page.contentpath}}Denver-Tweet1.png" class="plain" />
+  </section>
+  <section>
+    <img src="{{page.contentpath}}Denver-Tweet2.png" class="plain" />
+  </section>
+  <section>
+    <img src="{{page.contentpath}}Denver-Tweet3.png" class="plain" />
+  </section>
+  <section>
+    <img src="{{page.contentpath}}Denver-Tweet4.png" class="plain" />
+  </section>
+  <section>
+    <img src="{{page.contentpath}}Denver-Formula.jpg" class="plain" />
+  </section>
+  <section>
+    <img src="{{page.contentpath}}Denver-Tweet5.png" class="plain" />
+  </section>
+  <section>
+    <img src="{{page.contentpath}}Denver-Tweet6.png" class="plain" />
+  </section>
+  <section>
+    <img src="{{page.contentpath}}Denver-Payoff.jpg" class="plain" />
+  </section>
+</section>
+
+<section>
+  <h1>Big Storms</h1>
+</section>
+
+<section>
+  <section>
+    <h2>What We Planned For</h2>
+    <small>Colo Move - January, 2013</small>
+  </section>
+  <section>
+    <h2>Prepration</h2>
+    <p class="fragment">Setting Goals</p>
+    <p class="fragment">Getting Ready</p>
+  </section>
+  <section>
+    <h3>Starting Point</h3>
+    <div class="middle-arrow-wrap">
+      <img src="{{page.contentpath}}Colo-Old.jpg" class="plain" />
+      <svg viewBox="0 -256 1792 1792" class="middle-arrow fragment">
+        <g transform="matrix(1,0,0,-1,113.89831,1293.0169)">
+          <path d="m 1285,640 q 0,27 -18,45 l -91,91 -362,362 q -18,18 -45,18 -27,0 -45,-18 l -91,-91 q -18,-18 -18,-45 0,-27 18,-45 L 822,768 H 320 q -26,0 -45,-19 -19,-19 -19,-45 V 576 q 0,-26 19,-45 19,-19 45,-19 H 822 L 633,323 q -19,-19 -19,-45 0,-26 19,-45 l 91,-91 q 18,-18 45,-18 27,0 45,18 l 362,362 91,91 q 18,18 18,45 z m 251,0 Q 1536,431 1433,254.5 1330,78 1153.5,-25 977,-128 768,-128 559,-128 382.5,-25 206,78 103,254.5 0,431 0,640 0,849 103,1025.5 206,1202 382.5,1305 559,1408 768,1408 977,1408 1153.5,1305 1330,1202 1433,1025.5 1536,849 1536,640 z" />
+        </g>
+      </svg>
+      <img src="{{page.contentpath}}Colo-New.jpg" class="plain fragment" />
+    </div>
+  </section>
+  <section>
+    <h3>Lockout</h3>
+    <img src="{{page.contentpath}}Colo-Lockout.jpg" class="plain" />
+  </section>
+  <section>
+    <h3>The Problem</h3>
+    <img src="{{page.contentpath}}SQL-Infrastructure-Dark.svg" class="plain" style="max-height: 600px;" />
+  </section>
+  <section>
+    <h3>Decisions</h3>
+    <img src="{{page.contentpath}}Colo-Decisions.jpg" class="plain" />
+  </section>
+  <section>
+    <h3>The Plan v1</h3>
+    <img src="{{page.contentpath}}Colo-Ports1.jpg" class="plain" />
+  </section>
+  <section>
+    <h3>The Plan <span style="text-decoration: line-through;">v1</span> v2</h3>
+    <img src="{{page.contentpath}}Colo-Ports2.jpg" class="plain" />
+  </section>
+  <section>
+    <h3>Improvements: Maintenance</h3>
+    <img src="{{page.contentpath}}Colo-Cables.jpg" class="plain" />
+  </section>
+  <section>
+    <h3>Improvements: Maintenance</h3>
+    <img src="{{page.contentpath}}Colo-CableLabels.jpg" class="plain" />
+  </section>
+  <section>
+    <h3>Improvements: Monitoring</h3>
+    <img src="{{page.contentpath}}Colo-Opserver.png" class="plain" />
+  </section>
+  <section>
+    <h3>Improvements: Monitoring</h3>
+    <img src="{{page.contentpath}}Colo-Opserver2.png" class="plain" />
+  </section>
+</section>
+
+<section>
+  <section>
+    <h2>What Actually Happened</h2>
+    <small>New York - October, 2012</small>
+  </section>
+  <section>
+    <h1>Hurricane Sandy</h1>
+  </section>
+  <section data-background="{{page.contentpath}}NewYork-Dark.jpg">
+  </section>
+  <section>
+    <img src="{{page.contentpath}}Sandy-Basement.jpg" class="plain" />
+  </section>
+  <section>
+    <img src="{{page.contentpath}}Sandy-Barrels.png" class="plain" />
+  </section>
+  <section>
+    <img src="{{page.contentpath}}Sandy-Buckets.jpg" class="plain" />
+  </section>
+  <section>
+    <img src="{{page.contentpath}}Sandy-Buckets2.png" class="plain" />
+  </section>
+  <section>
+    <h1>Respect</h1>
+  </section>
+</section>
+
+<section>
+  <h1>Q&A</h1>
+  <p>We love Q&A</p>
+</section>
+
+<section>
+  <h2>Links</h2>
+  <ul>
+    <li><a href="http://stackexchange.github.io/">Open Source Tools</a> (MiniProfiler, Opserver, etc.)</li>
+    <li><a href="http://blog.stackoverflow.com/2012/11/se-podcast-36-we-got-hit-by-a-hurricane/">Stack Exchange Blog - We Got hit By a Hurricane</a></li>
+    <li><a href="http://www.greendatacenternews.org/articles/share/508504/">Tech Week - Fuel Buckets Keep New York Data...</a></li>
+    <li><a href="https://www.youtube.com/watch?v=_JliTnAKzmQ">"Bucket Brigade"</a> - Peer 1 Hosting</li>
+    <li><a href="http://samsaffron.com/archive/2011/10/28/in-managed-code-we-trust-our-recent-battles-with-the-net-garbage-collector">In managed code we trust...</a> - Sam Saffron</li>
+    <li><a href="http://blog.serverfault.com/2015/03/05/how-we-upgrade-a-live-data-center/">How we upgrade a live data center</a></li>
+  </ul>
+</section>
+
