@@ -79,7 +79,7 @@ Let's look at it by the numbers. When doing performance optimization, you have t
 
 ![New Blog Performance - Reload]({{ site.contenturl }}Blog-NewHomePerformanceReload.png)
 
-That's looking better. The first hit now has a `DOMContentLoaded` of **267ms** and a `load` event at `348ms`. Compared to the previous `load` or **1,390ms**, we're talking about a first hit reduction of **1,123ms** or **80.8%**.
+That's looking better. The first hit now has a `DOMContentLoaded` of **267ms** and a `load` event at `348ms`. Compared to the previous `load` of **1,390ms**, we're talking about a first hit reduction of **1,123ms** or **80.8%**.
 
 I know what you're thinking. "Hey Nick, what about all those other blog post images? *You're cheating!*". To you I say: **absolutely**. Performance is all about cheating. Why do you think it's so much fun for me? To be honest though, they don't matter much. They didn't affect the overall load time much as you can see in the timeline breakdown and where they start & stop.
 
@@ -176,7 +176,7 @@ Why? Because it looks nicer and modern browsers can now preload that `analytics.
 
 Okay, so performance isn't everything - it needs to be visually appealing. Usually that means images. Images mean more requests. *Or do they?* Nope, not today. There's one obvious solution here: [CSS image sprites](https://css-tricks.com/css-sprites/). For instance, here's [the Stack Overflow image sprite](http://cdn.sstatic.net/stackoverflow/img/sprites.svg). What's better than that *for me*? No requests.
 
-Remember my traffic consists largely of "view a page and leave" - we're optimizing first hit here. See that logo in the upper right? It's [an SVG](http://www.w3.org/TR/SVG/struct.html#ImageElement) embedded right in the HTML, like this:
+Remember my traffic consists largely of "view a page and leave" - we're optimizing first hit here. See that logo in the upper left? It's [an SVG](http://www.w3.org/TR/SVG/struct.html#ImageElement) embedded right in the HTML, like this:
 
 {% highlight html %}
 <svg class="logo" viewBox="0 0 4 4">
