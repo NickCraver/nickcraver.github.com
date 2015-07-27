@@ -126,7 +126,7 @@ To address an obvious question: is this a security issue? Answer: it can be. It'
 Set-ItemProperty -Path HKLM:\Software\Microsoft\.NETFramework -Name useLegacyJit -Type DWord -Value 1
 {% endhighlight %}
 
-Be aware, [the app.config/web.config method (#3)](https://github.com/Microsoft/dotnet/blob/master/docs/testing-with-ryujit.md) of disabling RyuJIT **does not work**.
+Be aware, [the `web.config` method (#3)](https://github.com/Microsoft/dotnet/blob/master/docs/testing-with-ryujit.md) of disabling RyuJIT **does not work**. Outside of IIS hosting, applying this fix via `app.config` *does* work.
 
 We are talking with and pushing Microsoft to get a fix for this shipped ASAP. We recognize releasing a fix for .Net on the Microsoft side isn't a small deal. Our disclosure is prompted by the reality that a fix cannot be released, distributed, and applied immediately.
 
