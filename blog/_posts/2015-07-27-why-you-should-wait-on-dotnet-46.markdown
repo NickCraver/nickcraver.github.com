@@ -6,6 +6,8 @@ date:   2015-07-27
 ---
 What follows is the work of several people: [Marc Gravell](http://blog.marcgravell.com/) and I have taken lead on this at Stack Overflow and we continue to coordinate with Microsoft on a resolution. They have fixed the bug internally, but not for users. Given the severity, we can't in good conscience let such a subtle yet high-impact bug linger silently. **We are not upgrading Stack Overflow to .Net 4.6**, and you shouldn't upgrade yet either. You can find [the issue we opened on GitHub (for public awareness) here](https://github.com/dotnet/coreclr/issues/1296). I will update this post as soon as a fix is relased.
 
+**Update #1:** [A pull request has been posted by Matt Michell (Microsoft)](https://github.com/dotnet/coreclr/pull/1298)
+
 This critical bug is specific to .Net 4.6 and RyuJIT (64-bit). I'll make this big and bold so we get to the point quickly:  
 
 ### The methods you call can get different parameter values than you passed in.  
