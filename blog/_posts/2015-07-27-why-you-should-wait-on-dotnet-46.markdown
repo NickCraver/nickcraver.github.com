@@ -51,7 +51,7 @@ Here's what that code looks like now. Note: I have slightly shortened it to fit 
 void Set<T>(string key, T val, int? durationSecs, bool sliding, bool broadcastRemoveFromCache = false)
 {
     LocalCache.OnLogDuration(key, durationSecs, "LocalCache.Set");
-    SetWithPriority<T>(key, value, durationSecs, sliding, CacheItemPriority.Default);
+    SetWithPriority<T>(key, val, durationSecs, sliding, CacheItemPriority.Default);
 }
 
 void SetWithPriority<T>(string key, T val, int? durationSecs, bool isSliding, CacheItemPriority priority)
@@ -59,7 +59,7 @@ void SetWithPriority<T>(string key, T val, int? durationSecs, bool isSliding, Ca
     LocalCache.OnLogDuration(key, durationSecs, "LocalCache.SetWithPriority");
     key = KeyInContext(key);
 
-    RawSet(key, value, durationSecs, isSliding, priority);
+    RawSet(key, val, durationSecs, isSliding, priority);
 }
 
 void RawSet(string cacheKey, object value, int? durationSecs, bool isSliding, CacheItemPriority priority)
