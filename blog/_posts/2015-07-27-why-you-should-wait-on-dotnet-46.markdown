@@ -12,13 +12,15 @@ What follows is the work of several people: [Marc Gravell](http://blog.marcgrave
 
 **Update #3 (July 28th):** Microsoft's Rich Lander has posted an update: [RyuJIT Bug Advisory in the .NET Framework 4.6](http://blogs.msdn.com/b/dotnet/archive/2015/07/28/ryujit-bug-advisory-in-the-net-framework-4-6.aspx).
 
+**Update #4 (July 29th):** There's [another subtle bug](https://github.com/dotnet/coreclr/issues/1299) found by Andrey Akinshin and the F# Engine Exception [is confirmed to be a separate issue](https://github.com/Microsoft/visualfsharp/issues/536#issuecomment-125384182). I still recommend disabling RyuJIT in production given [the increasing bug count](https://github.com/dotnet/coreclr/issues?utf8=%E2%9C%93&q=is%3Aissue+RyuJIT).
+
 This critical bug is specific to .Net 4.6 and RyuJIT (64-bit). I'll make this big and bold so we get to the point quickly:  
 
 ### The methods you call can get different parameter values than you passed in.  
 <p></p>
 The JIT (Just-in-Time compiler) in .Net (and many platforms) does something called Tail Call optimization. This happens to alleviate stack load on the last-called method in a chain. I won't go into what a tail call is [because there's already an excellent write up by David Broman](http://blogs.msdn.com/b/davbr/archive/2007/06/20/enter-leave-tailcall-hooks-part-2-tall-tales-of-tail-calls.aspx).
 
-The issue here is a bug in how RyuJIT x64 implements this optimization in certain situations. Let's look at the specific example we hit at Stack Overflow ([we have uploaded a minimal version of this reproduction to GitHub](https://github.com/StackExchange/RyuJIT-TailCallBug)).
+The issue here is a bug in how RyuJIT x64 implements this optimization in certain situations. <!--more-->Let's look at the specific example we hit at Stack Overflow ([we have uploaded a minimal version of this reproduction to GitHub](https://github.com/StackExchange/RyuJIT-TailCallBug)).
 
 We noticed that [MiniProfiler](http://miniprofiler.com/) (which we use to track performance) was showing only on the first page load. The profiler then failed to show again until an application recycle. This turned out to be a caching bug based on the HTTP Cache usage locally. HTTP Cache is our "L1" cache at Stack Overflow; [redis](http://redis.io/) is typically the "L2." After over a day of debugging (and sanity checking), we tracked the crazy to here:
 
