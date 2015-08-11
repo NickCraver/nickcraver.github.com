@@ -4,7 +4,12 @@ author: Nick Craver
 title:  "Why you should wait on upgrading to .Net 4.6"
 date:   2015-07-27
 ---
-What follows is the work of several people: [Marc Gravell](http://blog.marcgravell.com/) and I have taken lead on this at Stack Overflow and we continue to coordinate with Microsoft on a resolution. They have fixed the bug internally, but not for users. Given the severity, we can't in good conscience let such a subtle yet high-impact bug linger silently. **We are not upgrading Stack Overflow to .Net 4.6**, and you shouldn't upgrade yet either. You can find [the issue we opened on GitHub (for public awareness) here](https://github.com/dotnet/coreclr/issues/1296). I will update this post as soon as a fix is relased.
+**Update (August 11th):** A patch for this bug has been released by Microsoft. Here's their update to the advisory:
+
+> We released an updated version of RyuJIT today, which resolves this advisory. The update was released as [Microsoft Security Bulletin MS15-092](https://technet.microsoft.com/library/security/ms15-092.aspx) and is available on Windows Update or via direct download as [KB3086251](https://support.microsoft.com/kb/3086251). The update resolves: [CoreCLR #1296](https://github.com/dotnet/coreclr/issues/1296), [CoreCLR #1299](https://github.com/dotnet/coreclr/issues/1299), and [VisualFSharp #536](https://github.com/Microsoft/visualfsharp/issues/536). Major thanks to the developers who reported these issues. Thanks to everyone for their patience.
+
+### Original Post
+What follows is the work of several people: [Marc Gravell](http://blog.marcgravell.com/) and I have taken lead on this at Stack Overflow and we continue to coordinate with Microsoft on a resolution. They have fixed the bug internally, but not for users. Given the severity, we can't in good conscience let such a subtle yet high-impact bug linger silently. **We are not upgrading Stack Overflow to .Net 4.6**, and you shouldn't upgrade yet either. You can find [the issue we opened on GitHub (for public awareness) here](https://github.com/dotnet/coreclr/issues/1296). **A fix has been released, see Update 5 below**.
 
 **Update #1 (July 27th):** [A pull request has been posted by Matt Michell (Microsoft)](https://github.com/dotnet/coreclr/pull/1298).
 
@@ -13,6 +18,8 @@ What follows is the work of several people: [Marc Gravell](http://blog.marcgrave
 **Update #3 (July 28th):** Microsoft's Rich Lander has posted an update: [RyuJIT Bug Advisory in the .NET Framework 4.6](http://blogs.msdn.com/b/dotnet/archive/2015/07/28/ryujit-bug-advisory-in-the-net-framework-4-6.aspx).
 
 **Update #4 (July 29th):** There's [another subtle bug](https://github.com/dotnet/coreclr/issues/1299) found by Andrey Akinshin and the F# Engine Exception [is confirmed to be a separate issue](https://github.com/Microsoft/visualfsharp/issues/536#issuecomment-125384182). I still recommend disabling RyuJIT in production given [the increasing bug count](https://github.com/dotnet/coreclr/issues?utf8=%E2%9C%93&q=is%3Aissue+RyuJIT).
+
+**Update #5 (August 11th):** A patch for this bug has been released by Microsoft, see above.
 
 This critical bug is specific to .Net 4.6 and RyuJIT (64-bit). I'll make this big and bold so we get to the point quickly:  
 
