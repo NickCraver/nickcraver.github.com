@@ -27,7 +27,7 @@ I'm also embedding it here for ease, hopefully this adds a lot of concreteness t
 
 It's public. You can comment and vote on topics as well as suggest new topics either on the board itself or shoot me a tweet: [@Nick_Craver](https://twitter.com/Nick_Craver). Please, help me out by simply voting for what you want to know so I can prioritize the queue. If you see a topic and have specific questions, please comment on the card so I make sure to answer it in the post.
 
-The first post wont be vote-driven. I think it *has* to be the architecture overview so all future references make sense. After that, I'll go down the board and blog the highest-voted topic each time.
+The first post won't be vote-driven. I think it *has* to be the architecture overview so all future references make sense. After that, I'll go down the board and blog the highest-voted topic each time.
 
 I've missed blogging due to spending my nights entirely in open source lately. I don't believe that's necessarily the *best* or *only* way for me to help developers. Having votes for topics gives me real motivation to dedicate the time to writing them up, pulling the stats, and making the pretty pictures. For that, I thank everyone participating.
 
