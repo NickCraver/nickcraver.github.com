@@ -6,7 +6,7 @@ footer_nav: true
         <div class="home">
           <div class="post-list">            
             <div class="top-right-links">
-              <span><a href="archive.html">Archive</a> ({{ site.posts | size }} posts)</span>
+              <span><a href="archive/">Archive</a> ({{ site.posts | size }} posts)</span>
             </div>{% for post in site.categories.blog limit: 5 %}
             <section>
               <h1><a class="post-link" href="{% if post.stuburl %}{{ post.stuburl }}{% else %}{{ post.url | prepend: site.baseurl }}{% endif %}">{{ post.title }}</a></h1>
@@ -14,6 +14,6 @@ footer_nav: true
               <article class="post-content{% if forloop.index0 != 0 %} excerpt{% endif %}">{% if forloop.index0 == 0 %}{{ post.content }}{% else %}{{ post.excerpt }}<a class="excerpt-link" href="{% if post.stuburl %}{{ post.stuburl }}{% else %}{{ post.url | prepend: site.baseurl }}{% endif %}">Continue reading...</a>{% endif %}
               </article>
             </section>{% endfor %}
-            <span class="archive-link"><a href="archive.html">View Archive</a> ({{ site.posts | size }} posts)</span>
+            <span class="archive-link"><a href="archive/">View Archive</a> ({{ site.posts | size }} posts)</span>
           </div>
         </div>
