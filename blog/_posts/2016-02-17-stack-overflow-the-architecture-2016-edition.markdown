@@ -109,7 +109,7 @@ These service boxes do heavy lifting with the tag engine and backend APIs where 
 
 ### Cache & Pub/Sub ([Redis](http://Redis.io/))
 
-We use [Redis](http://Redis.io/) for a few things here and it's rock solid. Despite doing about 160 million ops a month, every instance is below 2% CPU. Usually much lower:
+We use [Redis](http://Redis.io/) for a few things here and it's rock solid. Despite doing about 160 billion ops a month, every instance is below 2% CPU. Usually much lower:
 
 ![Redis in Bosun]({{ site.contenturl }}SO-Architecture-Redis-Utilization.png)
 
