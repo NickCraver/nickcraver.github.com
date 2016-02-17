@@ -12,6 +12,12 @@ body {
     color: $text-color;
     -webkit-text-size-adjust: 100%;
     background: #222;
+    &.mac {
+        padding: 5px;
+        hr:first-child, hr + p, p + h2 {
+            display: none;
+        }
+    }
 }
 
 h1, h2, h3, h4, h5, h6,

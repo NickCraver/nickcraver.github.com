@@ -226,6 +226,7 @@
     }
     h4 {
         font-size: 20px;
+        margin-bottom: 0.2em;
         @include media-query($on-small) {
             font-size: 18px;
         }
