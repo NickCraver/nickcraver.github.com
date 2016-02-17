@@ -44,7 +44,7 @@ What do we ***need*** to run Stack Overflow? [That hasn't changed much since 201
 
 Now that we have some baseline numbers for an idea of scale, let's see how we make those fancy web pages. Since few systems exist in complete isolation (and ours is no exception), architecture decisions often make far less sense without a bigger picture of how those pieces fit into the whole. That's the goal here, to cover the big picture. Many [subsequent posts](https://trello.com/b/0zgQjktX/blog-post-queue-for-stack-overflow-topics) will do deep dives into specific areas. This will be a logistical overview with hardware highlights only; the next post will have the hardware details.
 
-For those of you here to see what the hardware looks like these days, here are a few pictures I took of rack A (it has a matching sister rack B) during [our Februrary 2015 upgrade](http://blog.serverfault.com/2015/03/05/how-we-upgrade-a-live-data-center/):
+For those of you here to see what the hardware looks like these days, here are a few pictures I took of rack A (it has a matching sister rack B) during [our February 2015 upgrade](http://blog.serverfault.com/2015/03/05/how-we-upgrade-a-live-data-center/):
 
 <div style="text-align: center;">
 <img src="http://i.imgur.com/TEb0jiPh.jpg" width="384" height="512" style="padding: 5px;" />
