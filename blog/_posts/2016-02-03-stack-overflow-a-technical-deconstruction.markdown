@@ -4,6 +4,9 @@ author: Nick Craver
 title:  "Stack Overflow: A Technical Deconstruction"
 date:   2016-02-03
 ---
+> As new posts in the series appear, I'll add them here to serve as a master list:  
+> #1: [Stack Overflow: The Architecture - 2016 Edition]({% post_url 2016-02-17-stack-overflow-the-architecture-2016-edition %})
+
 One of the reasons I love working at Stack Overflow is we're <s>allowed</s> *encouraged* to talk about almost anything out in the open. Except for things companies *always* keep private like financials and the nuclear launch codes, everything else is fair game. That's an awesome thing that we haven't taken advantage of on the technical side lately. I think it's time for an experiment in extreme openness.
 
 By sharing what we do (and I mean *all* of us), we better our world. Everyone that works at Stack shares at least one passion: improving life for all developers. Sharing how we do things is one of the best and biggest ways we can do that. It helps you. It helps me. It helps all of us.
