@@ -131,7 +131,7 @@ The socket servers themselves are `http.sys` based, running on the web tier. It'
 
 ![Websocket connection counts from Bosun]({{ site.contenturl }}SO-Architecture-Bosun-Websockets.png)
 
-Why websockets? They're tremendosuly more efficient than polling at our scale. We can simply push more data with fewer resources this way, while being more instant to the user. They're not without issues though---ephemeral port and file handle exhaustion on the load balancer are fun issues [we'll cover later](https://trello.com/c/7nv66g78/58-websockets).
+Why websockets? They're tremendously more efficient than polling at our scale. We can simply push more data with fewer resources this way, while being more instant to the user. They're not without issues though---ephemeral port and file handle exhaustion on the load balancer are fun issues [we'll cover later](https://trello.com/c/7nv66g78/58-websockets).
 
 ### Search ([Elasticsearch](https://www.elastic.co/products/elasticsearch))
 
