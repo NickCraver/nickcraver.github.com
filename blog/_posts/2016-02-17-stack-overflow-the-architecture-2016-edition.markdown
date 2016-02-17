@@ -127,7 +127,7 @@ Redis isn't just for cache though, it also has a publish & subscriber mechanism 
 
 We use websockets to push real-time updates to users such as notifications in the top bar, vote counts, [new nav](http://meta.stackoverflow.com/questions/308875/new-navigation-release-candidate) counts, new answers and comments, and a few other  bits. 
 
-The socket servers themselves are `http.sys` based, running on the web tier. It's a very thin application on top of our open source library: [`StackExchange.NetGain`](https://github.com/StackExchange/NetGain). During peak, we have about 500,000 **concurrent** websocket connections open. That's a lot of browsers. Fun fact: some of those browsers have been open for over 18 months. We're not sure why. Someone should go check if those developers are still alive. Here's what this week's concurrent websocket pattern looks like:
+The socket servers themselves are using raw sockets running on the web tier. It's a very thin application on top of our open source library: [`StackExchange.NetGain`](https://github.com/StackExchange/NetGain). During peak, we have about 500,000 **concurrent** websocket connections open. That's a lot of browsers. Fun fact: some of those browsers have been open for over 18 months. We're not sure why. Someone should go check if those developers are still alive. Here's what this week's concurrent websocket pattern looks like:
 
 ![Websocket connection counts from Bosun]({{ site.contenturl }}SO-Architecture-Bosun-Websockets.png)
 
