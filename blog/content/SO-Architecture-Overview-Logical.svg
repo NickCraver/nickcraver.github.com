@@ -1359,8 +1359,8 @@
 				<rect x="18" y="1" width="188" height="35" fill="rgb(255,255,255)" stroke="none" opacity="0.0000000000000000">
 				</rect>
 				<text stroke-width="0">
-					<tspan font-size="28" font-family="Verdana" font-weight="100" stroke="rgb(255,255,255)" fill="rgb(255,255,255)" opacity="1.0000000000000000" x="18.26 37.55 60.65 71.77 79.51 94.22 122.00 138.22 155.17 172.75 184.80 192.54 " y="25.84 25.84 25.84 25.84 25.84 25.84 25.84 25.84 25.84 25.84 25.84 25.84 ">
-						SwtichFabric</tspan>
+					<tspan font-size="28" font-family="Verdana" font-weight="100" stroke="rgb(255,255,255)" fill="rgb(255,255,255)" opacity="1.0000000000000000" x="18.26 37.55 60.65 68.39 79.51 94.22 122.00 138.22 155.17 172.75 184.80 192.54 " y="25.84 25.84 25.84 25.84 25.84 25.84 25.84 25.84 25.84 25.84 25.84 25.84 ">
+						SwitchFabric</tspan>
 				</text>
 			</g>
 		</g>
