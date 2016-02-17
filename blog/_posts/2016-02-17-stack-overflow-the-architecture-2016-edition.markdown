@@ -68,7 +68,7 @@ Here are some rules that apply globally so I don't have to repeat them with ever
 
 ### The Internets
 
-First you have to find us---that's [DNS](https://en.wikipedia.org/wiki/Domain_Name_System). Finding us needs to be fast, so we farm this out to [CloudFlare](https://www.cloudflare.com/) (currently) because they have DNS servers nearer to almost everyone around the world. We update our DNS records via an API and they do the "hosting" of DNS. But since we're jerks with deeply-rooted trust issues, we still have our own DNS servers as well. Should the apocalpyse happen (probably caused by the GPL, [Punyon](https://twitter.com/JasonPunyon), or caching) and people still want to program to take their mind off of it, we'll flip them on. 
+First you have to find us---that's [DNS](https://en.wikipedia.org/wiki/Domain_Name_System). Finding us needs to be fast, so we farm this out to [CloudFlare](https://www.cloudflare.com/) (currently) because they have DNS servers nearer to almost everyone around the world. We update our DNS records via an API and they do the "hosting" of DNS. But since we're jerks with deeply-rooted trust issues, we still have our own DNS servers as well. Should the apocalypse happen (probably caused by the GPL, [Punyon](https://twitter.com/JasonPunyon), or caching) and people still want to program to take their mind off of it, we'll flip them on. 
 
 After you find our secret hideout, HTTP traffic comes from one of our four ISPs (Level 3, Zayo, Cogent, and Lightower in New York) and flows through one of our four edge routers. We peer with our ISPs using [BGP](https://en.wikipedia.org/wiki/Border_Gateway_Protocol) (fairly standard) in order to control the flow of traffic and provide several avenues for traffic to reach us most efficiently. These [ASR-1001](http://www.cisco.com/c/en/us/products/routers/asr-1001-router/index.html) and [ASR-1001-X](http://www.cisco.com/c/en/us/products/routers/asr-1001-x-router/index.html) routers are in 2 pairs, each servicing 2 ISPs in active/active fashion---so we're redundant here. Though they're all on the same physical 10Gbps network, external traffic is in separate isolated external [VLANs](https://en.wikipedia.org/wiki/Virtual_LAN) which the load balancers are connected to as well. After flowing through the routers, you're headed for a load balancer.
 
@@ -131,7 +131,7 @@ The socket servers themselves are `http.sys` based, running on the web tier. It'
 
 ![Websocket connection counts from Bosun]({{ site.contenturl }}SO-Architecture-Bosun-Websockets.png)
 
-Why websockets? They're tremendosuly more efficient than polling at our scale. We can simply push more data with fewer resources this way, while being more instant to the user. They're not without issues though---ephemeral port and file handle exhaustion on the load balancer are fun issues [we'll cover later](https://trello.com/c/7nv66g78/58-websockets).
+Why websockets? They're tremendously more efficient than polling at our scale. We can simply push more data with fewer resources this way, while being more instant to the user. They're not without issues though---ephemeral port and file handle exhaustion on the load balancer are fun issues [we'll cover later](https://trello.com/c/7nv66g78/58-websockets).
 
 ### Search ([Elasticsearch](https://www.elastic.co/products/elasticsearch))
 
