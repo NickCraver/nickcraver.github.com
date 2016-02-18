@@ -76,7 +76,7 @@ I suppose this may be a good time to mention we have a 10Gbps [MPLS](https://en.
 
 ### Load Balancers ([HAProxy](http://www.haproxy.org/))
 
-The load balancers are running [HAProxy](http://www.haproxy.org/) 1.5.15 on [CentOS 7](https://www.centos.org/), our preferred flavor of Linux. TLS (SSL) traffic is also terminated in HAProxy. We'll be looking hard at HAProxy 1.6 soon for [HTTP/2](https://en.wikipedia.org/wiki/HTTP/2) support.
+The load balancers are running [HAProxy](http://www.haproxy.org/) 1.5.15 on [CentOS 7](https://www.centos.org/), our preferred flavor of Linux. TLS (SSL) traffic is also terminated in HAProxy. We'll be looking hard at HAProxy 1.7 soon for [HTTP/2](https://en.wikipedia.org/wiki/HTTP/2) support.
 
 Unlike all other servers with a dual 10Gbps LACP network link, each load balancer has 2 pairs of 10Gbps: one for the external network and one for the DMZ. These boxes run 64GB or more of memory to more efficiently handle SSL negotiation. When we can cache more TLS sessions in memory for reuse, there's less to recompute on subsequent connections to the same client. This means we can resume sessions both faster and cheaper. Given that RAM is pretty cheap dollar-wise, it's an easy choice.
 
