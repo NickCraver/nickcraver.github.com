@@ -115,7 +115,7 @@ We use [Redis](http://Redis.io/) for a few things here and it's rock solid. Desp
 
 We have a L1/L2 cache system with Redis. "L1" is HTTP Cache on the web servers or whatever application is in play. "L2" is falling back to Redis and fetching the value out. Our values are stored in the [Protobuf format](https://developers.google.com/protocol-buffers/), via [protobuf-dot-net](https://github.com/mgravell/protobuf-net) by Marc Gravell. For a client, we're using [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis)---written in-house and open source. When one web server gets a cache miss in both L1 and L2, it fetches the value from source (a database query, API call, etc.) and puts the result in both local cache and Redis. The next server wanting the value may miss L1, but would find the value in L2/Redis, saving a database query or API call.
 
-We also run many Q&A sites, so each site has it's own L1/L2 caching: by key prefix in L1 and by database ID in L2/Redis. We'll go deeper on this in a [future post](https://trello.com/c/OztwfkG7/16-caching-Redis).
+We also run many Q&A sites, so each site has its own L1/L2 caching: by key prefix in L1 and by database ID in L2/Redis. We'll go deeper on this in a [future post](https://trello.com/c/OztwfkG7/16-caching-Redis).
 
 Alongside the 2 main Redis servers (master/slave) that run all the site instances, we also have a machine learning instance slaved across 2 more dedicated servers (due to memory). This is used for recommending questions on the home page, better matching to jobs, etc. It's a platform called Providence, [covered by Kevin Montrose here](http://kevinmontrose.com/2015/01/27/providence-machine-learning-at-stack-exchange/). 
 
