@@ -19,6 +19,7 @@ When I tell you how we do `<something>`, a few things happen:
 - It helps eliminate the perception that "the big boys" always do it right. No, we screw up too.
 
 There's nothing to lose here and there's no reason to keep things to yourself unless you're afraid of being wrong. Good news: that's not a problem. We get it wrong all the time anyway, so I'm not really worried about that one. Failure is *always* an option. The best any of us can do is live, learn, move on, and do it better next time.
+<!--more-->
 
 ## Here's where I need your help
 I need you to tell me: what do you want to hear about? My intention is to get to a great many things, but it will take some time. What are people most interested in? How do I decide which topic to blog about next? The answer: I don't know and I can't decide. That's where you come in. Please, tell me.
