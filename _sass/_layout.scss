@@ -242,6 +242,30 @@
 }
 
 /**
+ * Desktop Build
+ */
+.wishlist {
+    table { 
+        width: 100%; 
+        border-collapse: collapse; 
+    }
+    tr:nth-child(even) td { 
+        background: #2c2c2c;; 
+    }
+    img { 
+        width: 48px; 
+        height: 48px; 
+        border: 0; 
+    }
+    td:nth-child(2) { 
+        font-size: 12px; 
+    }
+    .quantity, .notes { 
+        font-size: 0.8em; 
+    }
+}
+
+/**
  * Site footer
  */
 .site-footer {
