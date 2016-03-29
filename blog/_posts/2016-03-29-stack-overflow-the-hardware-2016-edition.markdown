@@ -174,7 +174,7 @@ Here's what the SQL Servers in New York looked like while getting their PCIe SSD
   - Dual 10 Gbps network (Intel X540/I350 NDC) - Internal (DMZ) Traffic
   - Dual 10 Gbps network (Intel X540) - External Traffic
 
-*Note: These servers were ordered at different times and as a result, differ in spec. Also, the two CloudFlare load balancers have more memory for a memcached install we no longer run today for CloudFlare's [Railgun](https://www.cloudflare.com/railgun/).*
+*Note: These servers were ordered at different times and as a result, differ in spec. Also, the two CloudFlare load balancers have more memory for a memcached install (which we no longer run today) for CloudFlare’s [Railgun](https://www.cloudflare.com/railgun/).*
 
 <div class="pics-{{ page.slug }}">
 The service, redis, search, and load balancer boxes above are all 1U servers in a stack. Here's what that stack looks like in New York:
