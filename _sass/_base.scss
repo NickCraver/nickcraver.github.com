@@ -11,7 +11,7 @@ body {
     line-height: $base-line-height;
     color: $text-color;
     -webkit-text-size-adjust: 100%;
-    background: #222;
+    background: $background-color;
     &.mac {
         padding: 5px;
         hr:first-child, hr + p, p + h2 {
@@ -69,6 +69,20 @@ a {
     &:hover {
         color: $brand-color;
     }
+    
+    &.button {
+        background-color: darken($brand-color, 10%);
+        border-radius: 5px;
+        color: $background-color;
+        padding: 2px 4px;
+        display: inline-block;
+        text-align: center;
+        
+        &:hover {
+            color: darken($background-color, 100%);;
+            background-color: $brand-color;
+        }
+    }
 }
 
 blockquote {
@@ -93,7 +107,7 @@ code {
 code {
     padding: 1px 5px;
     word-wrap: break-word;
-    border: solid 1px #333;
+    border: solid 1px $code-border-color;
 }
 pre {
     padding: 8px 12px;

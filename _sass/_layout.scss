@@ -77,6 +77,8 @@
     .page-link {
         color: $text-color;
         line-height: $base-line-height;
+        transition: transform 0.1s;
+        transition-property: transform;
 
         &.active {
             color: #fff;
@@ -84,6 +86,7 @@
         }
         &:hover {
             color: #49afef;
+            transform: translateY(-1px) scale(1.1, 1.1);
         }
         &:not(:first-child) {
             margin-left: 20px;
