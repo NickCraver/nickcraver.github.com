@@ -169,7 +169,7 @@ And [here's what I use](https://github.com/NickCraver/nickcraver.github.com/blob
 <script async src='//www.google-analytics.com/analytics.js'></script>
 <script>
   var ga=ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-  ga('create','{{ site.google_analytics_ua }}','auto');
+  ga('create','UA-XXXX-Y','auto');
   ga('send','pageview');
 </script>
 {% endhighlight %}
