@@ -1,9 +1,11 @@
 ---
 layout: post
 author: Nick Craver
-title:  "Optimization Considerations: Rebuilding this site"
+title:  "Optimization Considerations: The client matters most"
 date:   2015-03-24
 ---
+> Update April 2016: This is a blog post I wrote in March 2015 with a poor title that's still fill of relevant transmission and client-side performance optimizations. It walks through the things I look at when optimizing a pageload, and most of these approaches apply to any web application. I am simply using my blog as a case study here because it's a simple, [open source](https://github.com/NickCraver/nickcraver.github.com) case study we can walk though together. 
+
 This week I took a few days and re-built my blog. It was previously a WordPress instance on a small host with CloudFlare in front. It is now a statically generated, [open source](https://github.com/NickCraver/nickcraver.github.com), managed via git, hosted on GitHub pages, and still proxied through CloudFlare. This post is my attempt to explain my reasoning and process in optimizing it along the way.
 
 ### Why?
