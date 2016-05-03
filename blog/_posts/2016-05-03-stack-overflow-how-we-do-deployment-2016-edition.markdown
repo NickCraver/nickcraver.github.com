@@ -371,7 +371,7 @@ A question I'm often asked is how we prevent breaks while rolling out new code c
    - We may add and migrate, but a live rename is almost certain to cause an outage of some sort. We don't do that outside of dev.
  - APIs:
    - Deploy the new endpoint before the new consumer.
-   - If changing an existing endpoint, it's usually 3 across deploys: add (endpoint), migrate (consumer), cleanup (endpoint).
+   - If changing an existing endpoint, it's usually across 3 deploys: add (endpoint), migrate (consumer), cleanup (endpoint).
  - Bugs:
    - Try not to deploy bugs.
    - If you screw up, try not to do it the same way twice.
