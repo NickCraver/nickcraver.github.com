@@ -20,7 +20,7 @@ disqus: nickcraver
 
 google_analytics_ua: UA-28897355-1
 
-paginate: 5
+#paginate: 5
 
 exclude:
   - Gemfile

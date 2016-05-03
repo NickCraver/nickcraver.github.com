@@ -101,7 +101,6 @@ blockquote {
 pre,
 code {
     font-size: 15px;
-    //border: 1px solid $grey-color;
     border-radius: 3px;
 }
 code {
@@ -125,6 +124,24 @@ pre {
 }
 b, strong {
     color: #ddd;
+}
+
+table.comparison { 
+    margin: 0 auto;
+    border: none;
+    border-collapse: collapse;
+    background: $blockquote-bg-color;
+    td, th {
+        border: solid 1px $background-color;
+        padding: 2px 10px;
+        text-align: left;
+    }
+    th {
+        color: #fff;
+    }
+    td.lit {
+        background: rgba(26, 154, 235, 0.8);
+    }
 }
 
 .wrapper {
