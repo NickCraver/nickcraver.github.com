@@ -4,7 +4,9 @@ author: Nick Craver
 title:  "Stack Overflow: The Hardware - 2016 Edition"
 date:   2016-03-29
 ---
-> This is #2 in a [very long series of posts]({% post_url 2016-02-03-stack-overflow-a-technical-deconstruction %}) on Stack Overflow's architecture. Previous post: [Stack Overflow: The Architecture - 2016 Edition]({% post_url 2016-02-17-stack-overflow-the-architecture-2016-edition %})
+> This is #2 in a [very long series of posts]({% post_url 2016-02-03-stack-overflow-a-technical-deconstruction %}) on Stack Overflow's architecture.  
+Previous post (#1): [Stack Overflow: The Architecture - 2016 Edition]({% post_url 2016-02-17-stack-overflow-the-architecture-2016-edition %})  
+Next post (#3): [Stack Overflow: How We Do Deployment - 2016 Edition]({% post_url 2016-05-03-stack-overflow-how-we-do-deployment-2016-edition %})
 
 Who loves hardware? Well, I do and this is my blog so I win. If you *don't* love hardware then I'd go ahead and close the browser.
 

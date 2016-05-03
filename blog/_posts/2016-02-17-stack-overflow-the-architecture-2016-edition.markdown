@@ -4,7 +4,9 @@ author: Nick Craver
 title:  "Stack Overflow: The Architecture - 2016 Edition"
 date:   2016-02-17
 ---
-> This is #1 in a [very long series of posts]({% post_url 2016-02-03-stack-overflow-a-technical-deconstruction %}) on Stack Overflow's architecture. Welcome.
+> This is #1 in a [very long series of posts]({% post_url 2016-02-03-stack-overflow-a-technical-deconstruction %}) on Stack Overflow's architecture. Welcome.  
+Previous post (#0): [Stack Overflow: A Technical Deconstruction]({% post_url 2016-02-03-stack-overflow-a-technical-deconstruction %})  
+Next post (#2): [Stack Overflow: The Hardware - 2016 Edition]({% post_url 2016-03-29-stack-overflow-the-hardware-2016-edition %})
 
 To get an idea of what all of this stuff "does," let me start off with an update on the average day at Stack Overflow. So you can compare to the [previous numbers from November 2013]({% post_url 2013-11-22-what-it-takes-to-run-stack-overflow %}), here's a day of statistics from February 9th, 2016 with differences since November 12th, 2013:
 
