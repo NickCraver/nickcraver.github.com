@@ -292,7 +292,7 @@ The steps here are the minimal needed to *gracefully* update a website, informin
 6. Tell IIS to start the new site ([`Start-Website`](https://technet.microsoft.com/en-us/library/hh867884(v=wps.630).aspx))
 7. Tell HAProxy this website is ready to come back up
 
-Note that HAProxy doesn't *immediately* bring the site back online. It will do so after 3 successfully polls, this is a key difference between `MAINT` and `DRAIN` in HAProxy. `MAINT` -> `READY` assumes the server is instantly up. `DRAIN` -> `READY` assumes down. The former has a very nasty effect on [ThreadPool](https://msdn.microsoft.com/en-us/library/system.threading.threadpool.aspx) growth waiting with the initial slam while things are spinning up.
+Note that HAProxy doesn't *immediately* bring the site back online. It will do so after 3 successfull polls, this is a key difference between `MAINT` and `DRAIN` in HAProxy. `MAINT` -> `READY` assumes the server is instantly up. `DRAIN` -> `READY` assumes down. The former has a very nasty effect on [ThreadPool](https://msdn.microsoft.com/en-us/library/system.threading.threadpool.aspx) growth waiting with the initial slam while things are spinning up.
 
 We repeat the above for all webservers in the build. There's also a slight pause between each server, all of which is tunable with TeamCity settings.
 
