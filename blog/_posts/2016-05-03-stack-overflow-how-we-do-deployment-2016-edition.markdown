@@ -181,7 +181,7 @@ since msbuild requires separate projects for parallel execution of targets, this
 2 times, the DefaultTargets of each copy is set to one of BuildViews, CompileNode or CompressJSContent. 
 thus the absence of the DependesOnTarget="ReplaceConfigs" on those _call_ targets
 {% endhighlight %}
-While we maintain 1 copy of the file in the repo, during the build it actually forks into 2 parallel MSBuild processes. We simply copy the file, change the `DefaultTargets`, and kick it off in parallel [here](https://gist.github.com/NickCraver/b59ff38567b32936e2a3440e439d5d5c#file-build-msbuild-L146). 
+While we maintain 1 copy of the file in the repo, during the build it actually forks into 2 parallel MSBuild processes. We simply copy the file, change the `DefaultTargets`, and kick it off in parallel [here](https://gist.github.com/NickCraver/b59ff38567b32936e2a3440e439d5d5c#file-build-xml-L146). 
 
 The first process is building the ASP.NET MVC views with our custom Roslyn-based build in [StackExchange.Precompilation](https://github.com/StackExchange/StackExchange.Precompilation), [explained by Samo Prelog here](http://blog.stackoverflow.com/2015/07/announcing-stackexchange-precompilation/). It's not only building the views but also plugging in localized strings for each language via `switch` statements. There's a hint at how that works [a bit further down](#localizationtranslations-moonspeak). We wrote this process for localization, but it turns out controlling the speed and batching of the view builds allows us to be *much* faster than `aspnet_compiler` used to be. Rumor is performance has gotten better there lately, though.
 
