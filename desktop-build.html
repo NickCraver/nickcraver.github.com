@@ -6,65 +6,73 @@ permalink: /desktop-build/
     <section>
       <div class="page-content">
         <div class="wrapper">
-          <h1>Stack Overflow Developer Desktop Build</h1>
+          <h1>Stack Overflow Developer Desktop Build - 2016</h1>
           <p>One of the things we're big on at Stack Exchange is hardware - we love it. More importantly, we love <i>not waiting on it</i>. 
             With that in mind, we upgrade our developer machines every 2 years. In case it helps anyone else, I'm posting our current parts list here.
             This isn't set in stone, we review and update it to the latest tech every time we build a machine. We also customize the build for each developer if needed - for example those needing extra space or specific display connections, etc. I'll try and keep this page updated as we make changes.
           </p>
           <p>If you're wondering about laptops: yes, we use those too. You can buy what you want to work with. Most prefer a beefy desktop and a laptop to remote in, or switch their desktop and laptop refreshes every 2 years (alternating what they spend most on). Some just want the beefiest laptop they can get. Laptops are mostly <a href="https://www.apple.com/macbook-pro/">Retina MacBook Pros</a> (16GB RAM, 1TB Drives, max procs). Not all laptops are rMBPs though, some prefer a <a href="http://www.apple.com/macbook-air/">MacBook Air</a> or an <a href="http://shop.lenovo.com/us/en/laptops/thinkpad/x-series/x1-carbon/">X1 Carbon</a> (for lighter workloads)...or something else entirely.
           </p>
-          <p>Monitors are not on here because they're usually a separate purchase rarely made at the same time. Most of our developers use 3x 30" <a href="http://www.dell.com/ed/business/p/dell-u3014/pd">Dell U3014s</a> (whatever the current 30" model is), but this also varies widely. Some prefer the <a href="http://www.amazon.com/LG-Electronics-34UM95-34-Inch-LED-Lit/dp/B00JR6GCZA">LG 34" 21:9 UM95 widescreens</a> for example. Keyboards & mice are much more varied - the <a href="https://codekeyboards.com/">CODE keyboard</a> quite a few devs use (yeah, we all have various switches) but everything is very much personal choice for looks, ergonomics, etc.</p>
-          <p>Make special note of the memory here. DDR4 is still rapidly changing, it's almost certainly changed with every build we do. For the big memory users (VMs, SQL, redis clusters, etc.), we are going with the Crucial 128GB kit <a href="http://www.corsair.com/en-us/vengeance-lpx-128gb-8x16gb-ddr4-dram-2400mhz-c14-memory-kit-black-cmk128gx4m8a2400c14">available here</a>.</p>
+          <p>Monitors are not on here because they're usually a separate purchase rarely made at the same time. Most of our developers use 3x 30" <a href="http://www.dell.com/ed/business/p/dell-u3014/pd">Dell U3014s</a> (whatever the current 30" model is), but this also varies widely. Some prefer the <a href="http://www.amazon.com/LG-Electronics-34UM95-34-Inch-LED-Lit/dp/B00JR6GCZA">LG 34" 21:9 UM95 widescreens</a> for example. Lately, 4K and 5K are becoming more common. We're hoping some single-cable 5K monitors (DisplayPort 1.3+) start arriving, then they'll be practical too - right now they're a connectivity issue. Keyboards & mice are much more varied - the <a href="https://codekeyboards.com/">CODE keyboard</a> quite a few devs use (yeah, we all have various switches) but everything is very much personal choice for looks, ergonomics, etc.</p>
+          <p>Make special note of the memory here. DDR4 is still changing, and it's shifting with every build we do. For the big memory users (VMs, SQL, redis clusters, machine learning, etc.), we are going with a 128GB setup. For lighter workloads, we may only get 64GB since it's so easy to add another 64GB later. Why do we get 128GB? Because for under $250 more, if you need more than 64GB it's <i>so cheap</i> compared to anything else to increase productivity. It's a very easy barrier to buy your way out of.</p>
           <div class="wishlist">
             <table>
               <tbody>
                 <tr>
                   <td><img src="http://ecx.images-amazon.com/images/I/41tUoL1SfrL._SL500_SS96_.jpg" alt=""></td>
                   <td>
-                    <a href="http://amzn.to/1FCewAd">Intel Core i7-5930K Haswell-E 6-Core 3.5GHz LGA 2011-v3 140W Desktop Processor BX80648I75930K</a><br/>
-                    We don't get the i7-5960X because though it has 8 cores, they are clocked lower. Given that things like compilation don't scale well to 8 cores - the 5930K wins.
+                    <a href="http://amzn.to/1TP90H3">Intel Boxed Core i7-6900K Processor (20M Cache, up to 3.70 GHz) FC-LGA14A 3.2 GHz 8-core BX80671I76900K</a><br/>
+                    We don't get the i7-6950X because though it has 10 cores, they are clocked lower and the price increase is crazy. You're much better off with a Xeon v4 in that range.
                   </td>
-                  <td>$559.99</td>
+                  <td>$1,104.94</td>
                 </tr>
                 <tr>
-                  <td><img src="http://ecx.images-amazon.com/images/I/51wmOc5UBnL._SL500_SS96_.jpg" alt=""></td>
+                  <td><img src="http://ecx.images-amazon.com/images/I/5130hF6q-6L._SS96_.jpg" alt=""></td>
                   <td>
-                    <a href="http://amzn.to/1FCeM2d">PNY XLR8 GeForce GTX 980 4GB GDDR5 Graphics Card VCGGTX9804XPB-&#8203;CG</a><br/>
-                    We generally get the top "reasonable" graphics card - because driving 3x 30" Monitors isn't trivial, currently that's the GTX 980.
+                    <a href="http://amzn.to/1UjRZz4">Asus X99-PRO/USB 3.1 Motherboard, Intel Socket 2011-v3 Core i7 Processors, 8x DIMM, Quad Channel Memory</a><br/>
+                    There are sevreral X99 options out there, but this offers a great mix of IO connectivity, 128GB RAM, and the dual PCIe 4x M.2 flexibility, and at a reasonable price.
                   </td>
-                  <td>$519.99</td>
+                  <td>$336.22</td>
                 </tr>
                 <tr>
-                  <td><img src="http://ecx.images-amazon.com/images/I/514JHagPJVL._SL500_SS96_.jpg" alt=""></td>
+                  <td><img src="http://ecx.images-amazon.com/images/I/41rVp90QE3L._SS96_.jpg" alt=""></td>
                   <td>
-                    <a href="http://amzn.to/1KikeN6">ASRock X99 WS LGA2011-v3/ Intel X99/ DDR4/ Quad CrossFireX & Quad SLI/ SATA3&USB3.0/ M.2/ A&2GbE/ EATX Motherboard</a><br/>
-                    There are better options if you only need 64GB max RAM. I suggest the <a href="http://amzn.to/1QfDgIV">ASUS X99-A/USB 3.1</a> or <a href="http://amzn.to/1cEIZW8">ASUS X99-DELUXE/U3.1</a> in that case.
+                    <a href="http://www.geforce.com/hardware/10series/geforce-gtx-1080">NVIDIA GTX 1080 8GB GDDR5x Graphics Card</a><br/>
+                    High-end because driving 3 monitors isn't trivial. Additionally, we do tag engine processing on the GPU, so developers working on this code need a current CUDA GPU.
                   </td>
-                  <td>$385.94</td>
+                  <td>$699.00</td>
                 </tr>
                 <tr>
-                  <td><img src="http://ecx.images-amazon.com/images/I/51QtJZBEgKL._SL500_SS96_.jpg" alt=""></td>
+                  <td><img src="http://ecx.images-amazon.com/images/I/51g8Qw7CpRL._SS96_.jpg" alt=""></td>
                   <td>
-                    <a href="http://amzn.to/1RUUngu">Corsair Graphite Series Steel Silver 600T Mid-Towe Computer Case (CC-9011020-WW&#8203;)</a><br/>
-                    This case is on the large side, but it's extremely easy to work in. There's also a slightly more expensive storm trooper colors edition <a href="http://amzn.to/1cEJjV1">available here</a>.
+                    <a href="http://amzn.to/1O2ZrSm">Crucial Ballistix Sport LT 64GB Kit (16GBx4) DDR4 2400 MT/s (PC4-19200) DIMM 288-Pin - BLS4K16G4D240FSB</a><br/>
+                    An alternative for the wary is <a href="http://amzn.to/1TP8poP">the Corsair 128GB kit</a>, coming as a single set tested together.
+                  </td>
+                  <td>$247.94 <span class="quantity">(x2)</span></td>
+                </tr>
+                <tr>
+                  <td><img src="http://ecx.images-amazon.com/images/I/51IuAuphmfL._SS96_.jpg" alt=""></td>
+                  <td>
+                    <a href="http://amzn.to/1UfODww">Corsair CC600TWM-WHT Special Edition Graphite Series 600T Mid Tower Gaming Computer Case - White</a><br/>
+                    This case is on the large side, but it's extremely easy to work in. There's also a newer full tower 780T also in storm trooper colors edition, <a href="hhttp://amzn.to/1XNHclT">available here</a>.
                   </td>
                   <td>$189.99</td>
                 </tr>
                 <tr>
-                  <td><img src="http://ecx.images-amazon.com/images/I/412M8LGGfrL._SL500_SS96_.jpg" alt=""></td>
+                  <td><img src="http://ecx.images-amazon.com/images/I/41OCseGZJ2L._SS96_.jpg" alt=""></td>
                   <td>
-                    <a href="http://amzn.to/1ImtnC6">Samsung 850 Pro 1 TB 2.5-Inch SATA III Internal SSD (MZ-7KE1T0BW)</a><br/>
-                    OS Drive. Note: it does <i>not</i> have a capacitor, so I use a <a href="http://amzn.to/1eWftNx">APC BR1500G</a> with an <a href="http://amzn.to/1eWfxww">expansion pack</a> for UPS.
+                    <a href="http://amzn.to/1RUuHOe">Samsung 950 PRO Series - 512GB PCIe NVMe - M.2 Internal SSD (MZ-V5P512BW)</a><br/>
+                    OS Drive. This will soon change to a <a href="http://www.anandtech.com/show/10168/samsung-shows-off-sm961-and-pm961-ssds-oem-drives-get-a-boost">Samsung SM961</a> when they debut later in 2016: 1TB, 3200MB/s read, 1800MB/s write, and 450,000/400,000 read/write IOPS.
                   </td>
-                  <td>$431.00</td>
+                  <td>$334.00</td>
                 </tr>
                 <tr>
-                  <td><img src="http://ecx.images-amazon.com/images/I/41I1TCDO99L._SL500_SS96_.jpg" alt=""></td>
+                  <td><img src="http://ecx.images-amazon.com/images/I/41fw65-8tpL._SS96_.jpg" alt=""></td>
                   <td>
-                    <a href="http://amzn.to/1ImtvSf">Samsung 840 EVO 1TB 2.5-Inch SATA III Internal SSD (MZ-7TE1T0BW)</a><br/>
-                    Data drive, good enough for most local database or scratch work.
+                    <a href="http://amzn.to/1TIHpBV">Samsung 850 EVO 1TB 2.5-Inch SATA III Internal SSD (MZ-75E1T0B/AM)</a><br/>
+                    Data drive, good enough for most local database or scratch work. Note: it does <i>not</i> have a capacitor, so I use a <a href="http://amzn.to/1eWftNx">APC BR1500G</a> with an <a href="http://amzn.to/1eWfxww">expansion pack</a> for UPS.
                   </td>
-                  <td>$469.75</td>
+                  <td>$306.56</td>
                 </tr>
                 <tr>
                   <td><img src="http://ecx.images-amazon.com/images/I/51IIyMpgySL._SL500_SS96_.jpg" alt=""></td>
@@ -72,15 +80,15 @@ permalink: /desktop-build/
                     <a href="http://amzn.to/1G3MK28">Seagate 4TB SSHD SATA 6Gb/s 64MB Cache 3.5-Inch Internal Bare Drive (ST4000DX001)</a><br/>
                     Slower/bigger data drive - I recommend backing up the Samsung 850 Pro OS drive weekly to this drive, with built-in Windows backup.
                   </td>
-                  <td>$149.00</td>
+                  <td>$144.99</td>
                 </tr>
                 <tr>
                   <td><img src="http://ecx.images-amazon.com/images/I/41vYdEvYgLL._SL500_SS96_.jpg" alt=""></td>
                   <td>
                     <a href="http://amzn.to/1T4NMle">Corsair RM Series 850 Watt ATX/EPS 80PLUS Gold-Certified Power Supply - CP-9020056-NA RM850</a><br/>
-                    For those electing to run dual GTX 980s in SLI, we bump this to a <a href="http://amzn.to/1T4ZzQv">1000W</a> model.
+                    For those electing to run dual GTX 1080s, we bump this to a <a href="http://amzn.to/1T4ZzQv">1000W</a> model.
                   </td>
-                  <td>$99.99</td>
+                  <td>$129.99</td>
                 </tr>
                 <tr>
                   <td><img src="http://ecx.images-amazon.com/images/I/315Jigh7OlL._SL500_SS96_.jpg" alt=""></td>
@@ -88,7 +96,7 @@ permalink: /desktop-build/
                     <a href="http://amzn.to/1FCgoZY">LG Internal UH12NS30 BD-ROM Blu-ray Optical Drive</a><br/>
                     Optional - only if you need an optical drive.
                   </td>
-                  <td>$49.99</td>
+                  <td>$51.95</td>
                 </tr>
                 <tr>
                   <td><img src="http://ecx.images-amazon.com/images/I/41QwZkFDVNL._SL500_SS96_.jpg" alt=""></td>
@@ -96,7 +104,7 @@ permalink: /desktop-build/
                     <a href="http://amzn.to/1ImwSs8">ICY DOCK ToughArmor MB996SP-6SB 6 x 2.5 SATA 6Gbps HDD / SSD Mobile Rack / Cage in 1 x 5.25 bay</a><br/>
                     For mounting all your SSDs easily in a front bay. Read is 2x 4pin molex for power and 6x SATA.
                   </td>
-                  <td>$90.04</td>
+                  <td>$82.99</td>
                 </tr>
                 <tr>
                   <td><img src="http://ecx.images-amazon.com/images/I/51GGy8K2QBL._SL500_SS96_.jpg" alt=""></td>
@@ -107,20 +115,12 @@ permalink: /desktop-build/
                   <td>$61.99</td>
                 </tr>
                 <tr>
-                  <td><img src="http://ecx.images-amazon.com/images/I/41xGCzsuz6L._SL500_SS96_.jpg" alt=""></td>
-                  <td>
-                    <a href="http://amzn.to/1eW7q39">Crucial 32GB Kit (8GBx4) DDR4-2133 (PC4-17000) DR x8 Unbuffered DIMM 288-Pin Desktop Memory CT4K8G4DFD8213 / CT4C8G4DFD8213</a><br/>
-                    <b>This is for 64GB</b>. For the 128GB option, grab <a href="http://www.corsair.com/en-us/vengeance-lpx-128gb-8x16gb-ddr4-dram-2400mhz-c14-memory-kit-black-cmk128gx4m8a2400c14">the Corsair 128GB kit</a>.
-                  </td>
-                  <td>$139.99 <span class="quantity">(x2)</span></td>
-                </tr>
-                <tr>
                   <td><img src="http://ecx.images-amazon.com/images/I/41MJ%2BssXjVL._SL500_SS96_.jpg" alt=""></td>
                   <td>
-                    <a href="http://amzn.to/1FI37ht">NZXT CB-8P 250mm Individually Sleeved 8-Pin Motherboard Power Extension Premium Cable (Black)</a><br/>
+                    <a href="http://amzn.to/24vR4Rh">Vantacor 8 Pin Sleeved Motherboard Power Extension Cable (Black)</a><br/>
                     Needed to reach the top of most motherboards in the 600T case.
                   </td>
-                  <td>$10.13</td>
+                  <td>$9.99</td>
                 </tr>
                 <tr>
                   <td><img src="http://ecx.images-amazon.com/images/I/314YGJ5SHML._SL500_SS96_.jpg" alt=""></td>
@@ -128,15 +128,15 @@ permalink: /desktop-build/
                     <a href="http://amzn.to/1dmzOu8">Arctic Silver 5 Thermal Compound 3.5 Grams</a><br/>
                     The heat sinks listed come with thermal grease applied. If you are uncomfortable doing it yourself - just leave this off.
                   </td>
-                  <td>$7.49</td>
+                  <td>$7.44</td>
                 </tr>
                 <tr>
-                  <td><img src="http://ecx.images-amazon.com/images/I/4150gRGihKL._SL500_SS96_.jpg" alt=""></td>
+                  <td><img src="http://ecx.images-amazon.com/images/I/41P0HBATgQL._SS96_.jpg" alt=""></td>
                   <td>
-                    <a href="http://amzn.to/1dmyUOq">Monoprice 18-Inch SATA III 6.0 Gbps Cable with Locking Latch and 1 x 90-Degree Plug (108783)</a><br/>
+                    <a href="http://amzn.to/1X8wyaj">C&E 3 Pack 18 inch SATA 6Gbps Cable w/Locking Latch Black, CNE545677</a><br/>
                     Extra cables to hook up all ports in the 6x SATA cage above.
                   </td>
-                  <td>$3.09 <span class="quantity">(x4)</span></td>
+                  <td>$11.34 <span class="quantity">(x2)</span></td>
                 </tr>
               </tbody>
             </table>

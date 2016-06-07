@@ -262,6 +262,10 @@
         height: 48px; 
         border: 0; 
     }
+    td:first-child {
+        width: 48px;
+        padding-right: 5px;
+    }
     td:nth-child(2) { 
         font-size: 12px; 
     }
