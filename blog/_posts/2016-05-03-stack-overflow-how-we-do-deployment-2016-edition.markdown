@@ -43,7 +43,7 @@ I'm going ahead and inserting a set of section links here because this post got 
 This is our starting point for this article. We have the Stack Overflow repository on a developer's machine. For the sake of discussing the process, let's say they added a column to a database table and the corresponding property to the C# object --- that way we can dig into how database migrations work along the way.  
 
 ### A Little Context
-We deploy roughly 25 times per day to development (our CI build) just for Stack Overflow Q&A. Other projects also push many times. We deploy to production about 5-10 times on a typical day. A deploy from first push to full deploy is under 9 minutes (2:15 for dev, 2:40 for meta, and 3:20 for all sites). We have roughly 15 people pushing to the repository used in this post. The repo contains the code for these applications: [Stack Overflow](http://stackoverflow.com/) (every single Q&A site), [stackexchange.com](http://stackexchange.com/) (root domain only), [Stack Snippets](http://stacksnippets.net/) (for Stack Overflow JavaScript snippets), [Stack Auth](http://stackauth.com/) (for oAuth), [sstatic.net](http://sstatic.net/) (cookieless CDN domain), [Stack Exchange API v2](http://api.stackexchange.com/), [Stack Exchange Mobile](http://mobile.stackexchange.com/) (iOS and Android API), Stack Server (Tag Engine and Elasticsearch indexing Windows service), and Socket Server (our WebSocket Windows service).
+We deploy roughly 25 times per day to development (our CI build) just for Stack Overflow Q&A. Other projects also push many times. We deploy to production about 5-10 times on a typical day. A deploy from first push to full deploy is under 9 minutes (2:15 for dev, 2:40 for meta, and 3:20 for all sites). We have roughly 15 people pushing to the repository used in this post. The repo contains the code for these applications: [Stack Overflow](http://stackoverflow.com/) (every single Q&A site), [stackexchange.com](http://stackexchange.com/) (root domain only), [Stack Snippets](http://stacksnippets.net/) (for Stack Overflow JavaScript snippets), [Stack Auth](http://stackauth.com/) (for OAuth), [sstatic.net](http://sstatic.net/) (cookieless CDN domain), [Stack Exchange API v2](http://api.stackexchange.com/), [Stack Exchange Mobile](http://mobile.stackexchange.com/) (iOS and Android API), Stack Server (Tag Engine and Elasticsearch indexing Windows service), and Socket Server (our WebSocket Windows service).
 
 ### The Human Steps
 When we're coding, if a database migration is involved then we have some extra steps. First, we check the chatroom (and confirm in the local repo) which SQL migration number is available next (we'll get to how this works). Each project with a database has their own migration folder and number. For this deploy, we're talking about the Q&A migrations folder, which applies to all Q&A databases. Here's what chat and the local repo look like before we get started:
@@ -72,7 +72,7 @@ Begin
 End
 {% endhighlight %}
 
-We've tested the migration works by running it against our local Q&A database of choice in SSMS and that the code on top of it works. Before deploying though, we need to make sure it runs *as a migration*. For example sometimes you may forget to put a [GO](https://msdn.microsoft.com/en-us/library/ms188037.aspx) separating something that must be the first or only operation in a batch such as creating a view. So, we test it in the runner. To do this, we run the `migrate.local.bat` you see in the screenshot above. The contents are simple:  
+We've tested the migration works by running it against our local Q&A database of choice in SSMS and that the code on top of it works. Before deploying though, we need to make sure it runs *as a migration*. For example, sometimes you may forget to put a [GO](https://msdn.microsoft.com/en-us/library/ms188037.aspx) separating something that must be the first or only operation in a batch such as creating a view. So, we test it in the runner. To do this, we run the `migrate.local.bat` you see in the screenshot above. The contents are simple:
 {% highlight bat %}
 ..\Build\Migrator-Fast --tier=local 
   --sites="Data Source=.;Initial Catalog=Sites.Database;Integrated Security=True" %*
@@ -102,7 +102,7 @@ With respect to the Git commands above: if a command line works for you, use it.
 I didn't cover branches above because compared to many teams, we very rarely use them. Most commits are on `master`. Generally, we branch for only one of a few reasons:
 
 - A developer is new, and early on we want code reviews
-- A developer is working on a big (or risky) feature, and wants a one-off code review
+- A developer is working on a big (or risky) feature and wants a one-off code review
 - Several developers are working on a big feature
 
 Other than the (generally rare) cases above, almost all commits are directly to `master` and deployed soon after. We don't like a big build queue. This encourages us to make small to medium size commits often and deploy often. It's just how we choose to operate. I'm not recommending it for most teams or any teams for that matter. *Do what works for you*. This is simply what works for us.
@@ -169,7 +169,7 @@ Phew, that was easy. I don't know why everyone hates localization. Just kidding,
 Strings are surrounded by `_s()` (regular string) or `_m()` (markdown) in code. We love `_s()` and `_m()`. It's almost identical for both JavaScript and C#. During the build, we extract these strings by analyzing the JavaScript (with [AjaxMin](https://www.nuget.org/packages/AjaxMin/)) and C#/Razor (with a custom [Roslyn](https://github.com/dotnet/roslyn)-based build). We take these strings and stick them in files to use for the translators, our community team, and ultimately back into the build later. There's obviously *way* more going on - but those are the relevant bits. It's worth noting here that we're excited about the proposed [Source Generators](https://github.com/dotnet/roslyn/blob/features/source-generators/docs/features/generators.md) feature specced for a future Roslyn release. We hope in its final form we'll be able to re-write this portion of Moonspeak as a much simpler generator while still avoiding as many runtime allocations as possible.
 
 #### Step 5: MSBuild
-This is where most of the magic happens. It's a single step but behind the scenes we're doing unspeakable things to MSBuild that I'm going to...speak about, I guess. The full `.msbuild` file [is in the earlier Gist](https://gist.github.com/NickCraver/b59ff38567b32936e2a3440e439d5d5c#file-build-msbuild). The most relevant section is the description of crazy:
+This is where most of the magic happens. It's a single step, but behind the scenes, we're doing unspeakable things to MSBuild that I'm going to...speak about, I guess. The full `.msbuild` file [is in the earlier Gist](https://gist.github.com/NickCraver/b59ff38567b32936e2a3440e439d5d5c#file-build-msbuild). The most relevant section is the description of crazy:
 
 {% highlight md %}
 THIS IS HOW WE ROLL:  
@@ -292,7 +292,7 @@ The steps here are the minimal needed to *gracefully* update a website, informin
 6. Tell IIS to start the new site ([`Start-Website`](https://technet.microsoft.com/en-us/library/hh867884(v=wps.630).aspx))
 7. Tell HAProxy this website is ready to come back up
 
-Note that HAProxy doesn't *immediately* bring the site back online. It will do so after 3 successfull polls, this is a key difference between `MAINT` and `DRAIN` in HAProxy. `MAINT` -> `READY` assumes the server is instantly up. `DRAIN` -> `READY` assumes down. The former has a very nasty effect on [ThreadPool](https://msdn.microsoft.com/en-us/library/system.threading.threadpool.aspx) growth waiting with the initial slam while things are spinning up.
+Note that HAProxy doesn't *immediately* bring the site back online. It will do so after 3 successful polls, this is a key difference between `MAINT` and `DRAIN` in HAProxy. `MAINT` -> `READY` assumes the server is instantly up. `DRAIN` -> `READY` assumes down. The former has a very nasty effect on [ThreadPool](https://msdn.microsoft.com/en-us/library/system.threading.threadpool.aspx) growth waiting with the initial slam while things are spinning up.
 
 We repeat the above for all webservers in the build. There's also a slight pause between each server, all of which is tunable with TeamCity settings.
 
@@ -303,7 +303,7 @@ You hit `ny-web01` and get a brand spanking new querystring for the new version.
 At the end of this step (in production), 7 of 9 web servers are typically online and serving users. The last 2 will finish their spin-up shortly after. The step takes about 2 minutes for 9 servers. But yay, our code is live! Now we're free to deploy again for that bug we probably just sent out.
 
 #### Step 9: New Strings Hook
-This dev-only step isn't particularly interesting, but useful. All it does it call a webhook telling it that some new strings were present in this build, if there were any. The hook target triggers an upload to our translation service to tighten the iteration time on translations (similar to our chat mechanism above). It's last because strictly speaking it's optional and we don't want it to interfere.
+This dev-only step isn't particularly interesting, but useful. All it does is call a webhook telling it that some new strings were present in this build if there were any. The hook target triggers an upload to our translation service to tighten the iteration time on translations (similar to our chat mechanism above). It's last because strictly speaking it's optional and we don't want it to interfere.
 
 That's it. Dev build complete. Put away the [rolly chairs and swords](https://xkcd.com/303/).
 
@@ -333,7 +333,7 @@ Note: we do a chat notification for build as someone goes through the tiers. Her
 ### Database Migrations
 See? I promised we'd come back to these. To reiterate: if new code is needed to handle the database migrations, *it must be deployed first*.  In practice though, you're likely dropping a table, or adding a table/column. For the removal case, we remove it from code, deploy, then deploy again (or later) with the drop migration. For the addition case, we would typically add it as nullable or unused in code. If it needs to be `not null`, a foreign key, etc. we'd do that in a later deploy as well.
 
-The database migrator we use is a very simple repo we could open source, but honestly there are dozens out there and the "same migration against n databases" is fairly specific. The others are probably much better and ours is very specific to *only* our needs. The migrator connects to the Sites database, gets the list of databases to run against, and executes all migrations against every one (running multiple databases in parallel). This is done by looking at the passed-in migrations folder and loading it (once) as well as hashing the contents of every file. Each database has a `Migrations` table that keeps track of what has already been run. It looks like this (descending order):
+The database migrator we use is a very simple repo we could open source, but honestly, there are dozens out there and the "same migration against n databases" is fairly specific. The others are probably much better and ours is very specific to *only* our needs. The migrator connects to the Sites database, gets the list of databases to run against, and executes all migrations against every one (running multiple databases in parallel). This is done by looking at the passed-in migrations folder and loading it (once) as well as hashing the contents of every file. Each database has a `Migrations` table that keeps track of what has already been run. It looks like this (descending order):
 
 ![Migrations Table]({{ site.contenturl }}SO-Deployment-Migrations-Table.png)  
 
@@ -344,7 +344,7 @@ In memory, we compare the list of migrations that already ran to those needing t
 Rollbacks. We rarely do them. In fact, I can't remember ever having done one. We avoid them through the approach in general: we deploy small and often. It's often quicker to fix code and deploy than reverse a migration, especially across hundreds of databases. We also make development mimic production as often as possible, restoring production data periodically. If we needed to reverse something, we could just push another migration negating whatever we did that went boom. The tooling has no concept of rollback though. Why roll back when you can roll forward?
 
 ### Localization/Translations (Moonspeak)
-This will get its own post, but I wanted to hint at why we do all of this work at compile time. After all, I always advocate strongly for simplicity (yep, even in this 6,000 word blog post - the irony is not lost on me). You should only do something more complicated when you *need* to do something more complicated. This is one of those cases, for performance. [Samo](https://twitter.com/m0sa) does a lot of work to make our localizations have as little **runtime** impact as possible. We'll gladly trade a bit of build complexity to make that happen. While there are options such as [`.resx` files](https://msdn.microsoft.com/en-us/library/ekyft91f.aspx) or [the new localization in ASP.NET Core 1.0](https://github.com/aspnet/localization), most of these allocate more than necessary especially with tokenized strings. Here's what strings look like in our code:
+This will get its own post, but I wanted to hint at why we do all of this work at compile time. After all, I always advocate strongly for simplicity (yep, even in this 6,000-word blog post - the irony is not lost on me). You should only do something more complicated when you *need* to do something more complicated. This is one of those cases, for performance. [Samo](https://twitter.com/m0sa) does a lot of work to make our localizations have as little **runtime** impact as possible. We'll gladly trade a bit of build complexity to make that happen. While there are options such as [`.resx` files](https://msdn.microsoft.com/en-us/library/ekyft91f.aspx) or [the new localization in ASP.NET Core 1.0](https://github.com/aspnet/localization), most of these allocate more than necessary especially with tokenized strings. Here's what strings look like in our code:
 
 ![Translations: IDE]({{ site.contenturl }}SO-Deployment-Translations-1.png)
 

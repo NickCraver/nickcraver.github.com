@@ -25,7 +25,7 @@ We're also looking at what's best *in the system*. Each server is not an island.
 
 When we spec out our hardware, we look at a myriad of requirements that help determine what to order. I've never really written this mental checklist down, so let's give it a shot:  
 
-- Is this a scale up or scale out problem? (Are we buying one bigger machine, or a few smaller ones?)
+- Is this a scale up or scale out problem? (Are we buying one bigger machine or a few smaller ones?)
   - How much redundancy do we need/want? (How much headroom and failover capability?)
 - Storage:
   - Will this server/application touch disk? (Do we need anything besides the spinny OS drives?)
@@ -33,7 +33,7 @@ When we spec out our hardware, we look at a myriad of requirements that help det
     - If SSDs, what's the write load? (Are we talking Intel S3500/3700s? P360x? P3700s?)
       - How much SSD capacity do we need? (And should it be a 2-tier solution with HDDs as well?)
       - Is this data totally transient? (Are SSDs without capacitors, which are far cheaper, a better fit?)
-  - Will the storage needs likely expand? (Do we get a 1U/10-bay server, or a 2U/26-bay server?)
+  - Will the storage needs likely expand? (Do we get a 1U/10-bay server or a 2U/26-bay server?)
   - Is this a data warehouse type scenario? (Are we looking at 3.5" drives? If so, in a 12 or 16 drives per 2U chassis?)
     - Is the storage trade-off for the 3.5" backplane worth the 120W TDP limit on processing?
   - Do we need to expose the disks directly? (Does the controller need to support pass-through?)
@@ -42,7 +42,7 @@ When we spec out our hardware, we look at a myriad of requirements that help det
   - How much memory *could* it use? (What's *reasonable* to buy?)
   - Do we think it will need more memory later? (What memory channel configuration should we go with?)
   - Is this a memory-access-heavy application? (Do we want to max out the clock speed?)
-    - Is it highly parallel access? (Do we want spread the same space across more DIMMs?)
+    - Is it highly parallel access? (Do we want to spread the same space across more DIMMs?)
 - CPU:
   - What kind of processing are we looking at? (Do we need base CPUs or power?)
   - Is it heavily parallel? (Do we want fewer, faster cores? Or, does it call for more, slower cores?)
@@ -210,7 +210,7 @@ Since this post is meant to be an appendix for many future posts [in the series]
 <a href="{{ site.contenturl }}SO-Hardware-VMs-Front.jpg" target="_blank"><img src="{{ site.contenturl }}SO-Hardware-VMs-Front-Small.jpg" width="477" height="708" style="padding-right: 16px; padding-top: 16px;" /></a><a href="{{ site.contenturl }}SO-Hardware-VMs-Rear.jpg" target="_blank"><img src="{{ site.contenturl }}SO-Hardware-VMs-Rear-Small.jpg" width="477" height="708" style="padding-top: 16px;" /></a>
 </div>
   
-There a few more noteworthy servers behind the scenes that aren't VMs. These perform background tasks, help us troublehsoot with logging, store tons of data, etc.
+There a few more noteworthy servers behind the scenes that aren't VMs. These perform background tasks, help us troubleshoot with logging, store tons of data, etc.
 
 #### Machine Learning Servers (Providence)
 These servers are idle about 99% of the time, but do heavy lifting for a nightly processing job: refreshing Providence. They also serve as an inside-the-datacenter place to test new algorithms on large datasets.
@@ -221,7 +221,7 @@ These servers are idle about 99% of the time, but do heavy lifting for a nightly
 - 4x Intel [530](http://ark.intel.com/products/75336/Intel-SSD-530-Series-480GB-2_5in-SATA-6Gbs-20nm-MLC) 480GB SATA SSDs (RAID 10)
 - Dual 10 Gbps network (Intel X540/I350 NDC)
 
-#### Maching Learning Redis Servers (Still Providence)
+#### Machine Learning Redis Servers (Still Providence)
 This is the redis data store for Providence. The usual setup is one master, one slave, and one instance used for testing the latest version of our ML algorithms. While not used to serve the Q&A sites, this data is used when serving job matches on Careers as well as the sidebar job listings.
 
 - 3 Dell [R720xd](http://www.dell.com/us/business/p/poweredge-r720xd/pd) Servers, each with:
@@ -260,7 +260,7 @@ We like for dev to simulate production as much as possible, so SQL matches as we
   
 <div class="pics-{{ page.slug }}">
 
-That's it for the hardware actually serving the sites or that's generally interesting. We of course have other servers for the background tasks such as logging, monitoring, backups, etc. If you're especially curious about specs of any other systems, just ask in comments and I'm happy to detail them out. Here's what the full setup looks like in New York as of a few weeks ago:
+That's it for the hardware actually serving the sites or that's generally interesting. We, of course, have other servers for the background tasks such as logging, monitoring, backups, etc. If you're especially curious about specs of any other systems, just ask in comments and I'm happy to detail them out. Here's what the full setup looks like in New York as of a few weeks ago:
 
 <a href="{{ site.contenturl }}SO-Hardware-Racks2.jpg" target="_blank"><img src="{{ site.contenturl }}SO-Hardware-Racks2-Small.jpg" width="477" height="708" style="padding-right: 16px;" /></a><a href="{{ site.contenturl }}SO-Hardware-Racks.jpg" target="_blank"><img src="{{ site.contenturl }}SO-Hardware-Racks-Small.jpg" width="477" height="708" /></a>
 
