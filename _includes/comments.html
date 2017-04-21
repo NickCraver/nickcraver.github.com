@@ -6,5 +6,5 @@
                 disqus_url = '{{ page.url | prepend: site.baseurl | prepend: site.url }}',
                 discuss_identifier = '{% if page.disqus_identifier %}{{ page.disqus_identifier}}{% else %}{{ page.url | prepend: site.baseurl | prepend: site.url }}{% endif %}';
           </script>
-          <script async src='//{{ site.disqus }}.disqus.com/embed.js'></script>
+          <script async src='https://{{ site.disqus }}.disqus.com/embed.js'></script>
           <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
