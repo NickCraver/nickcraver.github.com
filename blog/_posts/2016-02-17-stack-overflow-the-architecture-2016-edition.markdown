@@ -4,11 +4,11 @@ author: Nick Craver
 title:  "Stack Overflow: The Architecture - 2016 Edition"
 date:   2016-02-17
 ---
-> This is #1 in a [very long series of posts]({% post_url 2016-02-03-stack-overflow-a-technical-deconstruction %}) on Stack Overflow's architecture. Welcome.  
-Previous post (#0): [Stack Overflow: A Technical Deconstruction]({% post_url 2016-02-03-stack-overflow-a-technical-deconstruction %})  
-Next post (#2): [Stack Overflow: The Hardware - 2016 Edition]({% post_url 2016-03-29-stack-overflow-the-hardware-2016-edition %})
+> This is #1 in a [very long series of posts]({% post_url blog/2016-02-03-stack-overflow-a-technical-deconstruction %}) on Stack Overflow's architecture. Welcome.  
+Previous post (#0): [Stack Overflow: A Technical Deconstruction]({% post_url blog/2016-02-03-stack-overflow-a-technical-deconstruction %})  
+Next post (#2): [Stack Overflow: The Hardware - 2016 Edition]({% post_url blog/2016-03-29-stack-overflow-the-hardware-2016-edition %})
 
-To get an idea of what all of this stuff "does," let me start off with an update on the average day at Stack Overflow. So you can compare to the [previous numbers from November 2013]({% post_url 2013-11-22-what-it-takes-to-run-stack-overflow %}), here's a day of statistics from February 9th, 2016 with differences since November 12th, 2013:
+To get an idea of what all of this stuff "does," let me start off with an update on the average day at Stack Overflow. So you can compare to the [previous numbers from November 2013]({% post_url blog/2013-11-22-what-it-takes-to-run-stack-overflow %}), here's a day of statistics from February 9th, 2016 with differences since November 12th, 2013:
 
 - **209,420,973** <span class="note">(+61,336,090)</span> HTTP requests to our load balancer
 - **66,294,789** <span class="note">(+30,199,477)</span> of those were page loads
@@ -42,7 +42,7 @@ So what's changed in the last 2 years? Besides replacing some servers and networ
 - 2 Cisco [ASR-1001](http://www.cisco.com/c/en/us/products/routers/asr-1001-router/index.html) Routers (replaced Cisco 3945 Routers)
 - 2 Cisco [ASR-1001-x](http://www.cisco.com/c/en/us/products/routers/asr-1001-x-router/index.html) Routers (new!)
 
-What do we ***need*** to run Stack Overflow? [That hasn't changed much since 2013]({% post_url 2013-11-22-what-it-takes-to-run-stack-overflow %}#core-hardware), but due to the optimizations and new hardware mentioned above, we're down to ***needing*** only 1 web server. We have unintentionally tested this, successfully, a few times. To be clear: I'm saying it works. I'm not saying it's a good idea. It's fun though, every time.
+What do we ***need*** to run Stack Overflow? [That hasn't changed much since 2013]({% post_url blog/2013-11-22-what-it-takes-to-run-stack-overflow %}#core-hardware), but due to the optimizations and new hardware mentioned above, we're down to ***needing*** only 1 web server. We have unintentionally tested this, successfully, a few times. To be clear: I'm saying it works. I'm not saying it's a good idea. It's fun though, every time.
 
 Now that we have some baseline numbers for an idea of scale, let's see how we make those fancy web pages. Since few systems exist in complete isolation (and ours is no exception), architecture decisions often make far less sense without a bigger picture of how those pieces fit into the whole. That's the goal here, to cover the big picture. Many [subsequent posts](https://trello.com/b/0zgQjktX/blog-post-queue-for-stack-overflow-topics) will do deep dives into specific areas. This will be a logistical overview with hardware highlights only; the next post will have the hardware details.
 

@@ -5,9 +5,9 @@ title:  "Stack Overflow: A Technical Deconstruction"
 date:   2016-02-03
 ---
 > As new posts in the series appear, I'll add them here to serve as a master list:  
-> #1: [Stack Overflow: The Architecture - 2016 Edition]({% post_url 2016-02-17-stack-overflow-the-architecture-2016-edition %})  
-> #2: [Stack Overflow: The Hardware - 2016 Edition]({% post_url 2016-03-29-stack-overflow-the-hardware-2016-edition %})  
-> #3: [Stack Overflow: How We Do Deployment - 2016 Edition]({% post_url 2016-05-03-stack-overflow-how-we-do-deployment-2016-edition %})
+> #1: [Stack Overflow: The Architecture - 2016 Edition]({% post_url blog/2016-02-17-stack-overflow-the-architecture-2016-edition %})  
+> #2: [Stack Overflow: The Hardware - 2016 Edition]({% post_url blog/2016-03-29-stack-overflow-the-hardware-2016-edition %})  
+> #3: [Stack Overflow: How We Do Deployment - 2016 Edition]({% post_url blog/2016-05-03-stack-overflow-how-we-do-deployment-2016-edition %})
 
 One of the reasons I love working at Stack Overflow is we're <s>allowed</s> *encouraged* to talk about almost anything out in the open. Except for things companies *always* keep private like financials and the nuclear launch codes, everything else is fair game. That's an awesome thing that we haven't taken advantage of on the technical side lately. I think it's time for an experiment in extreme openness.
 
@@ -40,7 +40,7 @@ I've missed blogging due to spending my nights entirely in open source lately. I
 If you're curious about my writing style and what to expect, check out some of my previous posts:
 
 - [How we upgrade a live data center](http://blog.serverfault.com/2015/03/05/how-we-upgrade-a-live-data-center/)
-- [What it takes to run Stack Overflow]({% post_url 2013-11-22-what-it-takes-to-run-stack-overflow %})
-- [Stackoverflow.com: the road to SSL]({% post_url 2013-04-23-stackoverflow-com-the-road-to-ssl %})
+- [What it takes to run Stack Overflow]({% post_url blog/2013-11-22-what-it-takes-to-run-stack-overflow %})
+- [Stackoverflow.com: the road to SSL]({% post_url blog/2013-04-23-stackoverflow-com-the-road-to-ssl %})
 
 Am I crazy? Yep, probably - that's already a lot of topics. But I think it'll be fun and engaging. Let's go on this adventure together.

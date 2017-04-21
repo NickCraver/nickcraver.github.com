@@ -4,9 +4,9 @@ author: Nick Craver
 title:  "Stack Overflow: The Hardware - 2016 Edition"
 date:   2016-03-29
 ---
-> This is #2 in a [very long series of posts]({% post_url 2016-02-03-stack-overflow-a-technical-deconstruction %}) on Stack Overflow's architecture.  
-Previous post (#1): [Stack Overflow: The Architecture - 2016 Edition]({% post_url 2016-02-17-stack-overflow-the-architecture-2016-edition %})  
-Next post (#3): [Stack Overflow: How We Do Deployment - 2016 Edition]({% post_url 2016-05-03-stack-overflow-how-we-do-deployment-2016-edition %})
+> This is #2 in a [very long series of posts]({% post_url blog/2016-02-03-stack-overflow-a-technical-deconstruction %}) on Stack Overflow's architecture.  
+Previous post (#1): [Stack Overflow: The Architecture - 2016 Edition]({% post_url blog/2016-02-17-stack-overflow-the-architecture-2016-edition %})  
+Next post (#3): [Stack Overflow: How We Do Deployment - 2016 Edition]({% post_url blog/2016-05-03-stack-overflow-how-we-do-deployment-2016-edition %})
 
 Who loves hardware? Well, I do and this is my blog so I win. If you *don't* love hardware then I'd go ahead and close the browser.
 
@@ -189,7 +189,7 @@ The service, redis, search, and load balancer boxes above are all 1U servers in 
 
 We have other servers not directly or indirectly involved in serving site traffic. These are either only tangentially related (e.g., domain controllers which are seldom used for application pool authentication and run as VMs) or are for nonessential purposes like monitoring, log storage, backups, etc.
 
-Since this post is meant to be an appendix for many future posts [in the series]({% post_url 2016-02-03-stack-overflow-a-technical-deconstruction %}), I'm including all of the interesting "background" servers as well. This also lets me share more server porn with you, and who doesn't love that?
+Since this post is meant to be an appendix for many future posts [in the series]({% post_url blog/2016-02-03-stack-overflow-a-technical-deconstruction %}), I'm including all of the interesting "background" servers as well. This also lets me share more server porn with you, and who doesn't love that?
 
 #### VM Servers (VMWare, Currently)
 - 2 Dell [FX2s](http://www.dell.com/us/business/p/poweredge-fx/pd) Blade Chassis, each with 2 of 4 blades populated
@@ -266,7 +266,7 @@ That's it for the hardware actually serving the sites or that's generally intere
 
 </div>
 
-What's next? The way [this series]({% post_url 2016-02-03-stack-overflow-a-technical-deconstruction %}) works is I blog in order of what the community wants to know about most. Going by [the Trello board](https://trello.com/b/0zgQjktX/blog-post-queue-for-stack-overflow-topics), it looks like [Deployment](https://trello.com/c/bh4GZ30c/25-deployment) is the next most interesting topic. So next time expect to learn how code goes from a developers machine to production and everything involved along the way. I'll cover database migrations, rolling builds, CI infrastructure, how our dev environment is set up, and share stats on all things deployment.
+What's next? The way [this series]({% post_url blog/2016-02-03-stack-overflow-a-technical-deconstruction %}) works is I blog in order of what the community wants to know about most. Going by [the Trello board](https://trello.com/b/0zgQjktX/blog-post-queue-for-stack-overflow-topics), it looks like [Deployment](https://trello.com/c/bh4GZ30c/25-deployment) is the next most interesting topic. So next time expect to learn how code goes from a developers machine to production and everything involved along the way. I'll cover database migrations, rolling builds, CI infrastructure, how our dev environment is set up, and share stats on all things deployment.
 
 <script>
 (function () {

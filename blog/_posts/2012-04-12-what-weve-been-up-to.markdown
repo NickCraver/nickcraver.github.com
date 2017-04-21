@@ -9,7 +9,7 @@ For starters, let's get a bad assumption I personally had before being hired out
 *   Moving [search ](http://blog.stackoverflow.com/2011/01/stack-overflow-search-now-81-less-crappy/ "Stack Overflow Search — Now 81% Less Crappy")off the web tier, a little over a year after putting it there.
 *   Moving [the tag engine](http://samsaffron.com/archive/2011/10/28/in-managed-code-we-trust-our-recent-battles-with-the-net-garbage-collector "Sam Saffron: In managed code we trust, our recent battles with the .NET Garbage Collector") off the web tier (you may have not even heard this exists).
 *   [Real-time updates](http://meta.stackoverflow.com/questions/125677/new-feature-real-time-updates-to-questions-answers-and-inbox "New Feature: real time updates to questions, answers, and inbox") to a number of site elements (voting, new answers, comments, your rep changes, etc.)
-*   Deploying [Oregon failover cluster]({% post_url 2012-02-15-planning-for-failure %} "Stack Exchange: Planning for failure, part 1") (and other related infrastructure changes)
+*   Deploying [Oregon failover cluster]({% post_url blog/2012-02-15-planning-for-failure %} "Stack Exchange: Planning for failure, part 1") (and other related infrastructure changes)
 *   [redacted] sidebar project
 *   [redacted] profile project
 *   Home-grown TCP Server
