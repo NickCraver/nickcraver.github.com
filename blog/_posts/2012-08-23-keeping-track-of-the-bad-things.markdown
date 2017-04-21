@@ -6,7 +6,7 @@ disqus_identifier: "214 http://nickcraver.com/blog/?p=214"
 ---
 The best part of working for Stack Exchange is that our code, network and databases are so awesome that we never throw exceptions.
 
-Okay, okay, back to reality.  Everyone has exceptions, so how do we handle the first step of recording them?  Most .Net developers have heard of [ELMAH](http://code.google.com/p/elmah/ "ELMAH Project Page") (Error Logging Modules and Handlers), and Stack Exchange started out using a modified version of this for over a year.  The setup was simple: we were using the XML file store pointing to a share on one of the web servers (due to most of the problems being SQL or network related when shit hit the fan).
+Okay, okay, back to reality.  Everyone has exceptions, so how do we handle the first step of recording them?  Most .Net developers have heard of [ELMAH](https://elmah.github.io/ "ELMAH Project Page") (Error Logging Modules and Handlers), and Stack Exchange started out using a modified version of this for over a year.  The setup was simple: we were using the XML file store pointing to a share on one of the web servers (due to most of the problems being SQL or network related when shit hit the fan).
 <!--more-->
 What this setup didn't allow for was high-traffic logging, since the 200 file loop necessitated a directory file listing (not so fast in windows), reading existing files to see if it was a duplicate, then updating the duplicate with a new count if one was found.  Take into account the level of traffic Stack Overflow gets at any point in the day and all this meant was we effectively took that web server out of rotation (due to pegging it's network throughput just _logging_ the errors...yes, we saw the humor there).
 

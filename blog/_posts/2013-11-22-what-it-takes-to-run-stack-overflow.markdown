@@ -27,19 +27,19 @@ Keep in mind these are for the entire Stack Exchange network but still don't inc
 
 *   4 MS SQL Servers
 *   11 IIS Web Servers
-*   2 [Redis](http://redis.io/) Servers
-*   3 Tag Engine servers (anything searching by tag hits this, e.g. [/questions/tagged/c++](http://stackoverflow.com/questions/tagged/c++))
-*   3 [elasticsearch](http://www.elasticsearch.org/) servers
-*   2 Load balancers ([HAProxy](http://haproxy.1wt.eu/))
-*   2 Networks (each a [Nexus 5596](http://www.cisco.com/en/US/prod/collateral/switches/ps9441/ps9670/data_sheet_c78-618603.html) + [Fabric Extenders](http://www.cisco.com/en/US/prod/collateral/switches/ps9441/ps10110/data_sheet_c78-507093.html))
-*   2 Cisco [5525-X ASAs](http://www.cisco.com/en/US/prod/collateral/vpndevc/ps6032/ps6094/ps6120/data-sheet-c78-729807.html) (think Firewall)
-*   2 Cisco [3945 Routers](http://www.cisco.com/en/US/products/ps10541/)
+*   2 [Redis](https://redis.io/) Servers
+*   3 Tag Engine servers (anything searching by tag hits this, e.g. [/questions/tagged/c++](https://stackoverflow.com/questions/tagged/c++))
+*   3 [elasticsearch](https://www.elastic.co/) servers
+*   2 Load balancers ([HAProxy](https://www.haproxy.org/))
+*   2 Networks (each a [Nexus 5596](https://www.cisco.com/c/en/us/products/collateral/switches/nexus-5000-series-switches/data_sheet_c78-618603.html) + [Fabric Extenders](https://www.cisco.com/c/en/us/products/collateral/switches/nexus-2000-series-fabric-extenders/data_sheet_c78-507093.html))
+*   2 Cisco [5525-X ASAs](https://www.cisco.com/c/en/us/products/collateral/security/asa-5500-x-series-next-generation-firewalls/data-sheet-c78-729807.html) (think Firewall)
+*   2 Cisco [3945 Routers](https://www.cisco.com/c/en/us/products/routers/3945-integrated-services-router-isr/index.html)
 
 Here's what that looks like:
 
 [![DataCenter Rear]({{ site.contenturl }}INAP-DataCenter-Rear-768x1024.jpg)]({{ site.contenturl }}INAP-DataCenter-Rear.jpg)
 
-We don't _only_ run the sites,  The rest of those servers in the nearest rack are VMs and other infrastructure for auxiliary things not involved in serving the sites directly, like deployments, domain controllers, monitoring, ops database for sysadmin goodies, etc. Of that list above, 2 SQL servers were backups only until _very_ recently - they are now used for read-only loads so we can keep on scaling without thinking about it for even longer (this mainly consists of [the Stack Exchange API](http://api.stackexchange.com)). Two of those web servers are for dev and meta, running very little traffic.
+We don't _only_ run the sites,  The rest of those servers in the nearest rack are VMs and other infrastructure for auxiliary things not involved in serving the sites directly, like deployments, domain controllers, monitoring, ops database for sysadmin goodies, etc. Of that list above, 2 SQL servers were backups only until _very_ recently - they are now used for read-only loads so we can keep on scaling without thinking about it for even longer (this mainly consists of [the Stack Exchange API](https://api.stackexchange.com)). Two of those web servers are for dev and meta, running very little traffic.
 
 ### Core Hardware
 
@@ -73,16 +73,16 @@ Is 20 Gb massive overkill? You bet your ass it is, the active SQL servers averag
 
 We currently have about 2 TB of SQL data (1.06 TB / 1.63 TB across 18 SSDs on the first cluster, 889 GB / 1.45 TB across 4 SSDs on the second cluster), so that's what we'd need on the cloud (hmmm, there's that word again).  Keep in mind that's all SSD.  The average write time on any of our databases is **0 milliseconds**, it's not even at the unit we can measure because the storage handles it that well.  With the database in memory and 2 levels of cache in front of it, Stack Overflow actually has a 40:60 read-write ratio.  Yeah, you read that right, 60% of our database disk access is writes ([you should know your read/write workload too](http://sqlblog.com/blogs/louis_davidson/archive/2009/06/20/read-write-ratio-versus-read-write-ratio.aspx)).  There's also storage for each web server - 2x 320GB SSDs in a RAID 1.  The elastic boxes need about 300 GB a piece and do perform much better on SSDs (we write/re-index very frequently).
 
-It's worth noting we do have a SAN, an [Equal Logic PS6110X](http://www.dell.com/us/business/p/equallogic-ps6110x/pd) that's 24x900GB 10K SAS drives on a 2x 10Gb link (active/standby) to our core network.  It's used exclusively for the VM servers as shared storage for high availability but does not really support hosting our websites.  To put it another way, if the SAN died the sites would not even notice for a while (only the VM domain controllers are a factor).
+It's worth noting we do have a SAN, an [Equal Logic PS6110X](http://www.dell.com/us/business/p/equallogic-ps6110xv/pd) that's 24x900GB 10K SAS drives on a 2x 10Gb link (active/standby) to our core network.  It's used exclusively for the VM servers as shared storage for high availability but does not really support hosting our websites.  To put it another way, if the SAN died the sites would not even notice for a while (only the VM domain controllers are a factor).
 
 ### Put it all together
 
-Now, what does all that do?  We want performance.  We _need_ performance.  [Performance is a feature](http://www.codinghorror.com/blog/2011/06/performance-is-a-feature.html "Performance is a Feature by Jeff Atwood"), a very important feature to us.  The main page loaded on all of our sites is the question page, affectionately known as Question/Show (its route name) internally.  On November 12th, that page rendered in an average of **28 milliseconds**.  While we strive to maintain 50ms, we _really_ try and shave every possible millisecond off your pageload experience.  All of our developers are certifiably anal curmudgeons when it comes to performance, so that helps keep times low as well. Here are the other top hit pages on SO, average render time on the same 24 hour period as above:
+Now, what does all that do?  We want performance.  We _need_ performance.  [Performance is a feature](https://blog.codinghorror.com/performance-is-a-feature/ "Performance is a Feature by Jeff Atwood"), a very important feature to us.  The main page loaded on all of our sites is the question page, affectionately known as Question/Show (its route name) internally.  On November 12th, that page rendered in an average of **28 milliseconds**.  While we strive to maintain 50ms, we _really_ try and shave every possible millisecond off your pageload experience.  All of our developers are certifiably anal curmudgeons when it comes to performance, so that helps keep times low as well. Here are the other top hit pages on SO, average render time on the same 24 hour period as above:
 
 *   Question/Show: 28 ms (29.7 million hits)
 *   User Profiles: 39 ms (1.7 million hits)
 *   Question List: 78 ms (1.1 million hits)
-*   Home page: 65 ms (1 million hits) _(that's very slow for us - Kevin Montrose will be fixing this perf soon: [here's the main cause](http://kevinmontrose.com/2013/05/22/your-future-on-stack-overflow/))_
+*   Home page: 65 ms (1 million hits) _(that's very slow for us - Kevin Montrose will be fixing this perf soon: [here's the main cause](https://kevinmontrose.com/2013/05/22/your-future-on-stack-overflow/))_
 
 We have high visibility of what goes into our page loads by recording timings for _every single request_ to our network.  You need some sort of metrics like this, otherwise **what are you basing your decisions on?**  With those metrics handy, we can make easy to access, easy to read views like this:
 

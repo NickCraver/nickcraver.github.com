@@ -43,7 +43,7 @@ I'm going ahead and inserting a set of section links here because this post got 
 This is our starting point for this article. We have the Stack Overflow repository on a developer's machine. For the sake of discussing the process, let's say they added a column to a database table and the corresponding property to the C# object --- that way we can dig into how database migrations work along the way.  
 
 ### A Little Context
-We deploy roughly 25 times per day to development (our CI build) just for Stack Overflow Q&A. Other projects also push many times. We deploy to production about 5-10 times on a typical day. A deploy from first push to full deploy is under 9 minutes (2:15 for dev, 2:40 for meta, and 3:20 for all sites). We have roughly 15 people pushing to the repository used in this post. The repo contains the code for these applications: [Stack Overflow](http://stackoverflow.com/) (every single Q&A site), [stackexchange.com](http://stackexchange.com/) (root domain only), [Stack Snippets](http://stacksnippets.net/) (for Stack Overflow JavaScript snippets), [Stack Auth](http://stackauth.com/) (for OAuth), [sstatic.net](http://sstatic.net/) (cookieless CDN domain), [Stack Exchange API v2](http://api.stackexchange.com/), [Stack Exchange Mobile](http://mobile.stackexchange.com/) (iOS and Android API), Stack Server (Tag Engine and Elasticsearch indexing Windows service), and Socket Server (our WebSocket Windows service).
+We deploy roughly 25 times per day to development (our CI build) just for Stack Overflow Q&A. Other projects also push many times. We deploy to production about 5-10 times on a typical day. A deploy from first push to full deploy is under 9 minutes (2:15 for dev, 2:40 for meta, and 3:20 for all sites). We have roughly 15 people pushing to the repository used in this post. The repo contains the code for these applications: [Stack Overflow](https://stackoverflow.com/) (every single Q&A site), [stackexchange.com](https://stackexchange.com/) (root domain only), [Stack Snippets](https://stacksnippets.net/) (for Stack Overflow JavaScript snippets), [Stack Auth](https://stackauth.com/) (for OAuth), [sstatic.net](https://sstatic.net/) (cookieless CDN domain), [Stack Exchange API v2](https://api.stackexchange.com/), [Stack Exchange Mobile](https://mobile.stackexchange.com/) (iOS and Android API), Stack Server (Tag Engine and Elasticsearch indexing Windows service), and Socket Server (our WebSocket Windows service).
 
 ### The Human Steps
 When we're coding, if a database migration is involved then we have some extra steps. First, we check the chatroom (and confirm in the local repo) which SQL migration number is available next (we'll get to how this works). Each project with a database has their own migration folder and number. For this deploy, we're talking about the Q&A migrations folder, which applies to all Q&A databases. Here's what chat and the local repo look like before we get started:
@@ -146,7 +146,7 @@ The first 2 steps are migrations. In development, we automatically migrate the "
 The important part here is **databases are always migrated before code is deployed**. Database migrations are a topic all in themselves and something people have expressed interest in, so I detail them a bit more [a little later in this post](#database-migrations).
 
 #### Step 3: Finding Moonspeak (Translation)
-Due to the structure and limitations of the build process, we have to locate our Moonspeak tooling since we don't know the location for sure (it changes with each version due to the version being in the path). Okay, what's Moonspeak? Moonspeak is the [codename](http://meta.stackexchange.com/a/25529/135201) for our localization tooling. Don't worry, [we'll cover it in-depth later](https://trello.com/c/GdywwBgb/24-localization-moonspeak-translations). The step itself is simple:
+Due to the structure and limitations of the build process, we have to locate our Moonspeak tooling since we don't know the location for sure (it changes with each version due to the version being in the path). Okay, what's Moonspeak? Moonspeak is the [codename](https://meta.stackexchange.com/a/25529/135201) for our localization tooling. Don't worry, [we'll cover it in-depth later](https://trello.com/c/GdywwBgb/24-localization-moonspeak-translations). The step itself is simple:
 
 {% highlight powershell %}
 echo "##teamcity[setParameter name='system.moonspeaktools' 
@@ -183,7 +183,7 @@ thus the absence of the DependesOnTarget="ReplaceConfigs" on those _call_ target
 {% endhighlight %}
 While we maintain 1 copy of the file in the repo, during the build it actually forks into 2 parallel MSBuild processes. We simply copy the file, change the `DefaultTargets`, and kick it off in parallel [here](https://gist.github.com/NickCraver/b59ff38567b32936e2a3440e439d5d5c#file-build-xml-L146). 
 
-The first process is building the ASP.NET MVC views with our custom Roslyn-based build in [StackExchange.Precompilation](https://github.com/StackExchange/StackExchange.Precompilation), [explained by Samo Prelog here](http://blog.stackoverflow.com/2015/07/announcing-stackexchange-precompilation/). It's not only building the views but also plugging in localized strings for each language via `switch` statements. There's a hint at how that works [a bit further down](#localizationtranslations-moonspeak). We wrote this process for localization, but it turns out controlling the speed and batching of the view builds allows us to be *much* faster than `aspnet_compiler` used to be. Rumor is performance has gotten better there lately, though.
+The first process is building the ASP.NET MVC views with our custom Roslyn-based build in [StackExchange.Precompilation](https://github.com/StackExchange/StackExchange.Precompilation), [explained by Samo Prelog here](https://stackoverflow.blog/2015/07/23/announcing-stackexchange-precompilation/). It's not only building the views but also plugging in localized strings for each language via `switch` statements. There's a hint at how that works [a bit further down](#localizationtranslations-moonspeak). We wrote this process for localization, but it turns out controlling the speed and batching of the view builds allows us to be *much* faster than `aspnet_compiler` used to be. Rumor is performance has gotten better there lately, though.
 
 The second process is the `.less`, `.css`, and `.js` compilation and minification which involves a few components. First up are the `.jsbundle` files. They are simple files that look like this example:
 
@@ -284,7 +284,7 @@ if ($ServerSession -ne $null)
 
 The steps here are the minimal needed to *gracefully* update a website, informing the load balancer of what's happening and impacting users as little as possible. Here's what happens:
 
-1. Tell [HAProxy](http://www.haproxy.org/) to stop sending new traffic
+1. Tell [HAProxy](https://www.haproxy.org/) to stop sending new traffic
 2. Wait a few seconds for all current requests to finish
 3. Tell IIS to stop the site ([`Stop-Website`](https://technet.microsoft.com/en-us/library/ee790607.aspx))
 4. Tell HAProxy that this webserver is down (rather than waiting for it to detect)
@@ -324,7 +324,7 @@ What we covered above was the entire development CI build with all the things™
 </table>
 <!-- Since you were bored enough to look at the source, here's something to do: https://www.youtube.com/watch?v=W3TtS1wkb7M -->
 
-What do the tiers really translate to? All of our development sites are on WEB10 and WEB11 servers (under different application pools and websites). Meta runs on WEB10 and WEB11 servers, this is specifically [meta.stackexchange.com](http://meta.stackexchange.com/) and [meta.stackoverflow.com](http://meta.stackoverflow.com/). Production (all other Q&A sites and metas) like Stack Overflow are on WEB01-WEB09.
+What do the tiers really translate to? All of our development sites are on WEB10 and WEB11 servers (under different application pools and websites). Meta runs on WEB10 and WEB11 servers, this is specifically [meta.stackexchange.com](https://meta.stackexchange.com/) and [meta.stackoverflow.com](https://meta.stackoverflow.com/). Production (all other Q&A sites and metas) like Stack Overflow are on WEB01-WEB09.
 
 Note: we do a chat notification for build as someone goes through the tiers. Here's me (against all sane judgement) building out some changes at 5:17pm on a Friday. Don't try this at home, I'm a professional. Sometimes. Not often.
 

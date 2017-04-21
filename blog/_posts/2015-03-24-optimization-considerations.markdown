@@ -15,7 +15,7 @@ I couldn't do what I wanted with WordPress, at least...not without a fight. I wa
 
 ![Old Blog]({{ site.contenturl }}Blog-OldHome.png)
 
-Let's start with the job, what's actually happening here? Well...not much. I'm serving the same HTML to many people, many times. It's usually around 60,000 hits a day when a post gets love. The comments are powered by [Disqus](https://disqus.com/) and my impression counts are tracked by [Google Analytics](http://www.google.com/analytics/). All of the action happens client-side with both. The HTML is identical for every user. That's *the* big point: **what the server needs to send to the client is the same for every user**. The post content, list of posts, archives, etc. change only when I add post, correct a post, or make a content tweak. Between those events, *everything is static*.
+Let's start with the job, what's actually happening here? Well...not much. I'm serving the same HTML to many people, many times. It's usually around 60,000 hits a day when a post gets love. The comments are powered by [Disqus](https://disqus.com/) and my impression counts are tracked by [Google Analytics](https://www.google.com/analytics/). All of the action happens client-side with both. The HTML is identical for every user. That's *the* big point: **what the server needs to send to the client is the same for every user**. The post content, list of posts, archives, etc. change only when I add post, correct a post, or make a content tweak. Between those events, *everything is static*.
 
 While I *do* love that people find my posts worth reading, I *don't* love rendering or processing them 60,000 times. On top of that, my theme and setup didn't lend itself to performance. My job and passion (I'm lucky: it's both) is optimization. I make websites. Really fast websites. Why should my blog be any different? I believe nickcraver.com should be representative of who I am, in both content and purpose. It *must* be fast.
 
@@ -57,13 +57,13 @@ I start with a simple truth:
 Q: What is the fastest operation you can perform?
 A: **Nothing.** Doing nothing is always faster than doing something.
 
-Don't do something 10,000 times if the result is always the same. Do it once and keep using the result. On Stack Overflow (and most everywhere else), this is simply called cache. On my blog, it's static generation via [Jekyll](http://jekyllrb.com/). Note that *where* you cache matters - are you storing a data structure and still transforming it to HTML every time? Do you really need to do that? Storing HTML may seem rudimentary, but it's very effective.
+Don't do something 10,000 times if the result is always the same. Do it once and keep using the result. On Stack Overflow (and most everywhere else), this is simply called cache. On my blog, it's static generation via [Jekyll](https://jekyllrb.com/). Note that *where* you cache matters - are you storing a data structure and still transforming it to HTML every time? Do you really need to do that? Storing HTML may seem rudimentary, but it's very effective.
 
 ### The New
 
-First, I want to thank both [Jin Yang](http://www.8164.org/) ([@jzy](https://twitter.com/jzy)) for helping tremendously on design and SVG images and also [Jon Chan](http://www.jonhmchan.com/), a great developer on the Careers team for actually convincing me of the static route with one of his internal projects you'll hopefully see soon. Looking at that project finally motivated me to take the time and move my blog. 
+First, I want to thank both [Jin Yang](http://www.8164.org/) ([@jzy](https://twitter.com/jzy)) for helping tremendously on design and SVG images and also [Jon Chan](https://www.jonhmchan.com/), a great developer on the Careers team for actually convincing me of the static route with one of his internal projects you'll hopefully see soon. Looking at that project finally motivated me to take the time and move my blog. 
 
-The [Jekyll](http://jekyllrb.com/) approach is simple: take some templates and content, process them once, and spit out a static site. [GitHub will even host it](https://pages.github.com/) (for free). This means I can also [maintain the entire site on GitHub](https://github.com/NickCraver/nickcraver.github.com). I can even take pull requests for corrections. Look, [I got one already](https://github.com/NickCraver/nickcraver.github.com/pull/1)! I'm all about open source, so this works out great.
+The [Jekyll](https://jekyllrb.com/) approach is simple: take some templates and content, process them once, and spit out a static site. [GitHub will even host it](https://pages.github.com/) (for free). This means I can also [maintain the entire site on GitHub](https://github.com/NickCraver/nickcraver.github.com). I can even take pull requests for corrections. Look, [I got one already](https://github.com/NickCraver/nickcraver.github.com/pull/1)! I'm all about open source, so this works out great.
 
 Maybe it's subconsciously thinking about performance, but I love a minimal look and feel. That goes well with performance. Here's what I made on the first pass:
 
@@ -96,17 +96,17 @@ Let's consider my audience, not dissimilar from most others blogs aside from the
 
 ![Blog- Bounce Rate]({{ site.contenturl }}Blog-BounceRate.png)
 
-Even on a high traffic day of ~20-30k hits, the [bounce rate](https://support.google.com/analytics/answer/1009409) is pretty stable. To support this 90% use case, I need not display the full posts [on the home page](http://nickcraver.com/blog/) and all of the potential image weight that comes with them. That's **4 requests** for images and **18.1KB** of HTML gone.
+Even on a high traffic day of ~20-30k hits, the [bounce rate](https://support.google.com/analytics/answer/1009409) is pretty stable. To support this 90% use case, I need not display the full posts [on the home page](https://nickcraver.com/blog/) and all of the potential image weight that comes with them. That's **4 requests** for images and **18.1KB** of HTML gone.
 
 I also control my own theme. Unlike some other projects where I'm implementing someone else's can't-change design, I can tune both the implementation and design itself here. Awesome. Jin knows programming as well, that helps tremendously here. Changing the design means I can use CSS3 for the effects I want and discard a *lot* of images. That's **23 requests** gone, if we're counting.
 
-I used to measure traffic with both [Quantcast](https://www.quantcast.com/nickcraver.com) and [Google Analytics](http://www.google.com/analytics/), but I really don't need 2. I dropped Quantcast. That's **3 requests** (1 for the JavaScript and 1 to 2 more for analytics) gone.
+I used to measure traffic with both [Quantcast](https://www.quantcast.com/nickcraver.com) and [Google Analytics](https://www.google.com/analytics/), but I really don't need 2. I dropped Quantcast. That's **3 requests** (1 for the JavaScript and 1 to 2 more for analytics) gone.
 
-[jQuery](http://jquery.com/) and [d3.js](http://d3js.org/) (on pages that don't need them: most of them) can also be dropped. That's **2 requests** gone.
+[jQuery](https://jquery.com/) and [d3.js](https://d3js.org/) (on pages that don't need them: most of them) can also be dropped. That's **2 requests** gone.
 
 I decided comment counts on the post list didn't matter, opting for them only on the post page itself. I was honestly 50/50 on this and may change my mind - leave me feedback! That's **3 requests** gone.
 
-So far we're down **35-36 requests** of the overall [**42**](http://en.wikipedia.org/wiki/Phrases_from_The_Hitchhiker%27s_Guide_to_the_Galaxy#Answer_to_the_Ultimate_Question_of_Life.2C_the_Universe.2C_and_Everything_.2842.29). Not bad. What's left?
+So far we're down **35-36 requests** of the overall [**42**](https://en.wikipedia.org/wiki/Phrases_from_The_Hitchhiker%27s_Guide_to_the_Galaxy#Answer_to_the_Ultimate_Question_of_Life.2C_the_Universe.2C_and_Everything_.2842.29). Not bad. What's left?
 
 We're down to only 7 requests:
 
@@ -125,7 +125,7 @@ Let's strip the HTML that's not needed on every page. All that WordPress (by def
 
 Let's stop and make a rather important point here. Hey, that's only 18.1KB...what's the big deal? I download multi-gigabyte ISOs for work, 18KB is nothing! 
 
-The 18.1KB *size* savings isn't the issue, **it's that 9.2KB (plus headers) is under ~14.3KB** and the previous 27.3KB is not. This costs *time*. Back in 1999 (yes, there was internet...ish in '99), the [congestion window size (CWND)](http://en.wikipedia.org/wiki/Congestion_window) default was upped to 4 segments (approx. 4x1,460=5.7KB) via [RFC 2581](https://tools.ietf.org/html/rfc2581). Later, [RFC 6928](https://tools.ietf.org/html/rfc6928) increased it to 10 segments (approx. 10x1,460=14.3KB) (which Google uses - and any high performance site should look at). Ilya Grigorik has [a pretty good description with more detail](http://chimera.labs.oreilly.com/books/1230000000545/ch02.html#CONGESTION_AVOIDANCE_AND_CONTROL) and you can read [the full scientific reasoning here](https://developers.google.com/speed/articles/tcp_initcwnd_paper.pdf).
+The 18.1KB *size* savings isn't the issue, **it's that 9.2KB (plus headers) is under ~14.3KB** and the previous 27.3KB is not. This costs *time*. Back in 1999 (yes, there was internet...ish in '99), the [congestion window size (CWND)](https://en.wikipedia.org/wiki/Congestion_window) default was upped to 4 segments (approx. 4x1,460=5.7KB) via [RFC 2581](https://tools.ietf.org/html/rfc2581). Later, [RFC 6928](https://tools.ietf.org/html/rfc6928) increased it to 10 segments (approx. 10x1,460=14.3KB) (which Google uses - and any high performance site should look at). Ilya Grigorik has [a pretty good description with more detail](http://chimera.labs.oreilly.com/books/1230000000545/ch02.html#CONGESTION_AVOIDANCE_AND_CONTROL) and you can read [the full scientific reasoning here](https://developers.google.com/speed/articles/tcp_initcwnd_paper.pdf).
 
 Why does this matter? because fitting the request inside the initial window means the client gets *the entire content* before it even needs to send an ACK to the server - it doesn't need to wait on content or round trips related to the ACK. If it *doesn't* fit inside the window, then the client needs to send an ACK and the server has to receive it before sending the next window (which exponentially increases, but still incurs the round-trip to do so).
 
@@ -141,13 +141,13 @@ Here's the new `/blog` weighting in at 9.2KB:
 
 Hey that's better! It's only 6 segments, so when the server gets the request it can blast out the full response before asynchronously getting an ACK. This means while we're telling the server "yep, got it!" the page is already there and content is preloading and rendering.
 
-Next, I took the time to [upgrade to Universal analytics](https://developers.google.com/analytics/devguides/collection/upgrade/) which will soon be the GA standard. Why? Because it has more features and it slims down from the [16.1KB `ga.js`](http://www.google-analytics.com/ga.js) to the new [11.2KB `analytics.js`](http://www.google-analytics.com/analytics.js). 
+Next, I took the time to [upgrade to Universal analytics](https://developers.google.com/analytics/devguides/collection/upgrade/) which will soon be the GA standard. Why? Because it has more features and it slims down from the [16.1KB `ga.js`](https://www.google-analytics.com/ga.js) to the new [11.2KB `analytics.js`](https://www.google-analytics.com/analytics.js). 
 
 Well since we already sailed down for TCP boat river, so let's see: how much time did we save here? Well, none. Because headers aren't compressed and they send us over the initial 10 window anyway. You can see the last 2 rows here and the time gap where the server was waiting for an ACK (from earlier, in red) to send them along:
 
 ![TCP Stream for analytics.js]({{ site.contenturl }}Blog-AnalyticsJSTCP.png)
 
-Note: [HTTP2 does compress headers](http://http2.github.io/http2-spec/compression.html) and [SPDY does as well](http://www.chromium.org/spdy/spdy-whitepaper). This was me testing from a simple repeatable `curl` request which supports neither natively. It's possible that with compressed headers we do actually fit in the initial windows with both versions. It matters little though, since this request doesn't delay the page load or user experience.
+Note: [HTTP2 does compress headers](https://http2.github.io/http2-spec/compression.html) and [SPDY does as well](https://www.chromium.org/spdy/spdy-whitepaper). This was me testing from a simple repeatable `curl` request which supports neither natively. It's possible that with compressed headers we do actually fit in the initial windows with both versions. It matters little though, since this request doesn't delay the page load or user experience.
 
 I also changed the JavaScript include. Here's [what Google gives you](https://developers.google.com/analytics/devguides/collection/analyticsjs/):
 
@@ -174,11 +174,11 @@ And [here's what I use](https://github.com/NickCraver/nickcraver.github.com/blob
 </script>
 {% endhighlight %}
 
-Why? Because it looks nicer and modern browsers can now preload that `analytics.js`. What's the downside? [IE9 doesn't support the `async` attribute](http://caniuse.com/#feat=script-async), which dynamically appending it side-steps and makes the fetch non-blocking anyway. Luckily, *I don't care*. If you care about IE9, I advise you...uhhh....don't do this.
+Why? Because it looks nicer and modern browsers can now preload that `analytics.js`. What's the downside? [IE9 doesn't support the `async` attribute](https://caniuse.com/#feat=script-async), which dynamically appending it side-steps and makes the fetch non-blocking anyway. Luckily, *I don't care*. If you care about IE9, I advise you...uhhh....don't do this.
 
-Okay, so performance isn't everything - it needs to be visually appealing. Usually that means images. Images mean more requests. *Or do they?* Nope, not today. There's one obvious solution here: [CSS image sprites](https://css-tricks.com/css-sprites/). For instance, here's [the Stack Overflow image sprite](http://cdn.sstatic.net/stackoverflow/img/sprites.svg). What's better than that *for me*? No requests.
+Okay, so performance isn't everything - it needs to be visually appealing. Usually that means images. Images mean more requests. *Or do they?* Nope, not today. There's one obvious solution here: [CSS image sprites](https://css-tricks.com/css-sprites/). For instance, here's [the Stack Overflow image sprite](https://cdn.sstatic.net/stackoverflow/img/sprites.svg). What's better than that *for me*? No requests.
 
-Remember my traffic consists largely of "view a page and leave" - we're optimizing first hit here. See that logo in the upper left? It's [an SVG](http://www.w3.org/TR/SVG/struct.html#ImageElement) embedded right in the HTML, like this:
+Remember my traffic consists largely of "view a page and leave" - we're optimizing first hit here. See that logo in the upper left? It's [an SVG](https://www.w3.org/TR/SVG/struct.html#ImageElement) embedded right in the HTML, like this:
 
 {% highlight html %}
 <svg class="logo" viewBox="0 0 4 4">
@@ -194,7 +194,7 @@ You can see the logo embedded [in the header here](https://github.com/NickCraver
 
 I trimmed the CSS (via [SASS](http://sass-lang.com/), the Jekyll default since it's Ruby based) from 6.5KB to 2.2KB. This has more to do with minimalism than anything, but the site also works well on mobile as a result of the changes which include adding [CSS media queries](https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Media_queries) where needed. The net effect on load time is about nil, it was mostly cleanup.
 
-It's worth noting that the mobile friendly changes [have an additional benefit in Google rankings starting April 21st](http://googlewebmastercentral.blogspot.com/2015/02/finding-more-mobile-friendly-search.html). While my old blog had many issues, [now we're looking good](https://www.google.com/webmasters/tools/mobile-friendly/?url=nickcraver.com).
+It's worth noting that the mobile friendly changes [have an additional benefit in Google rankings starting April 21st](https://webmasters.googleblog.com/2015/02/finding-more-mobile-friendly-search.html). While my old blog had many issues, [now we're looking good](https://www.google.com/webmasters/tools/mobile-friendly/?url=nickcraver.com).
 
 ### The Proxy
 
@@ -207,7 +207,7 @@ nickcraver.com.     299 IN  A   162.159.244.22
 
 This allows me do things to further increase performance. For example, I use CloudFlare's [page rules](https://support.cloudflare.com/hc/en-us/articles/200168306-Is-there-a-tutorial-for-Page-Rules-) to change the cache header duration to an hour instead of 10 minutes (what GitHub uses) for most things. The control is very flexible (and getting better soon), but a simple longer cache is all I'm doing for now. They can also continue serving my pages from cache if the GitHub source is offline.
 
-While I could control DNS from anywhere and CNAME to CloudFlare, using their [name servers](http://en.wikipedia.org/wiki/Name_server) directly saves a DNS hop in first-hit situations. It's important to distinguish here: it's not *your* first hit as an individual user/browser combination that I'm normally referring to. It's the first hit *on your DNS server* within my [TTL](http://en.wikipedia.org/wiki/Time_to_live). To see what I mean here we have to compare the options. Both options assume I want CloudFlare for in place for speed, DDoS protection, TLS support, etc.
+While I could control DNS from anywhere and CNAME to CloudFlare, using their [name servers](https://en.wikipedia.org/wiki/Name_server) directly saves a DNS hop in first-hit situations. It's important to distinguish here: it's not *your* first hit as an individual user/browser combination that I'm normally referring to. It's the first hit *on your DNS server* within my [TTL](https://en.wikipedia.org/wiki/Time_to_live). To see what I mean here we have to compare the options. Both options assume I want CloudFlare for in place for speed, DDoS protection, TLS support, etc.
 
  - Option #1: CNAME to CloudFlare, CloudFlare pulls from GitHub - Result: CloudFlare IPs
  - Option #2: Name servers to CloudFlare, CloudFlare pulls from GitHub - Result: CloudFlare IPs
@@ -225,19 +225,19 @@ Now Option #2, with the CNAME flattened:
 1. Where is `blog.nickcraver.com`? Result: A records: `162.159.244.22`, `162.159.245.22`
 2. Start establishing a connection to one of those IPs to load the site
 
-Since CloudFlare is immediately returning the IPs we need without that extra lookup in option #2, we're saving time. To be fair, this won't matter much for people on more popular or [free](http://pcsupport.about.com/od/tipstricks/a/free-public-dns-servers.htm) DNS servers, like say the [Google Public DNS](https://developers.google.com/speed/public-dns/). The speed gains are proportional to your miss rate, and you're simply less likely to miss on a more popular server where someone else just did the same lookup causing a cache. It's also likely that the CNAME in option #1 (depending on your mobility needs) has a much higher TTL than what it points to, so that lookup is less likely to happen than the second, again proportional to miss rate overall. 
+Since CloudFlare is immediately returning the IPs we need without that extra lookup in option #2, we're saving time. To be fair, this won't matter much for people on more popular or [free](https://www.lifewire.com/free-and-public-dns-servers-2626062) DNS servers, like say the [Google Public DNS](https://developers.google.com/speed/public-dns/). The speed gains are proportional to your miss rate, and you're simply less likely to miss on a more popular server where someone else just did the same lookup causing a cache. It's also likely that the CNAME in option #1 (depending on your mobility needs) has a much higher TTL than what it points to, so that lookup is less likely to happen than the second, again proportional to miss rate overall. 
  
 
 
 ### The Balance
 
-Optimization isn't about *only* minimizing page load times. If that was the case I'd have this: `<html></html>`. There's a balance. You weigh how fancy, graphical, etc. something you want to be and optimize to that level. I wanted the blog to look a certain way, be consistent across OSes (since I use a PC during the day and a Retina MacBook Pro on the side and at night). For this reason and to keep some alignment issues consistent, Jin recommended a web font: [Source Sans Pro](http://www.google.com/fonts/specimen/Source+Sans+Pro).
+Optimization isn't about *only* minimizing page load times. If that was the case I'd have this: `<html></html>`. There's a balance. You weigh how fancy, graphical, etc. something you want to be and optimize to that level. I wanted the blog to look a certain way, be consistent across OSes (since I use a PC during the day and a Retina MacBook Pro on the side and at night). For this reason and to keep some alignment issues consistent, Jin recommended a web font: [Source Sans Pro](https://fonts.google.com/specimen/Source+Sans+Pro).
 
-The font adds [one `.css` load](http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600) and 1 to 2 web requests for font files (the `.woff` requests you see in my chrome timings). Yep, it does - but I think it's worth it for the consistent and (IMO) better look.
+The font adds [one `.css` load](https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600) and 1 to 2 web requests for font files (the `.woff` requests you see in my chrome timings). Yep, it does - but I think it's worth it for the consistent and (IMO) better look.
 
 I realize this post goes down several alleys in performance and decision detail, but my goal was to illustrate how these things matter on even a small simple site such as this. Hopefully, you find a little bit of it useful or at least interesting. In the coming weeks I'm going to focus a few posts on client times for page loads, and how we're working on them for Stack Overflow and all Stack Exchange sites.
 
-Oh and one last bit. If anyone's doing a similar setup with CloudFlare in front of a static host and aggressive caching, you may find the following `pre-push` [git hook](http://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks) handy:
+Oh and one last bit. If anyone's doing a similar setup with CloudFlare in front of a static host and aggressive caching, you may find the following `pre-push` [git hook](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks) handy:
 
 {% highlight bash %}
 #!/bin/sh

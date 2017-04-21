@@ -12,7 +12,7 @@ Who loves hardware? Well, I do and this is my blog so I win. If you *don't* love
 
 Still here? Awesome. Or your browser is crazy slow, in which case you should think about some new hardware.
 
-I've repeated many, *many* times: **[performance is a feature](http://blog.codinghorror.com/performance-is-a-feature/)**. Since your code is only as fast as the hardware it runs on, the hardware definitely matters. Just like any other platform, Stack Overflow's architecture comes in layers. Hardware is the foundation layer for us, and having it in-house affords us many luxuries not available in other scenarios...like running on someone else’s servers. It also comes with direct and indirect costs. But that's not the point of this post, [that comparison will come later](https://trello.com/c/4e6TOnA7/87-on-prem-vs-aws-azure-etc-why-the-cloud-isn-t-for-us). For now, I want to provide a detailed inventory of our infrastructure for reference and comparison purposes. And pictures of servers. Sometimes naked servers. This web page could have loaded much faster, but I couldn't help myself.
+I've repeated many, *many* times: **[performance is a feature](https://blog.codinghorror.com/performance-is-a-feature/)**. Since your code is only as fast as the hardware it runs on, the hardware definitely matters. Just like any other platform, Stack Overflow's architecture comes in layers. Hardware is the foundation layer for us, and having it in-house affords us many luxuries not available in other scenarios...like running on someone else’s servers. It also comes with direct and indirect costs. But that's not the point of this post, [that comparison will come later](https://trello.com/c/4e6TOnA7/87-on-prem-vs-aws-azure-etc-why-the-cloud-isn-t-for-us). For now, I want to provide a detailed inventory of our infrastructure for reference and comparison purposes. And pictures of servers. Sometimes naked servers. This web page could have loaded much faster, but I couldn't help myself.
 
 In many posts through this series I will give a lot of numbers and specs. When I say "our SQL server utilization is almost always at 5--10% CPU," well, that's great. But, 5--10% *of what?* That's when we need a point of reference. This hardware list is meant to both answer those questions and serve as a source for comparison when looking at other platforms and what utilization may look like there, how much capacity to compare to, etc.
 <!--more-->
@@ -72,16 +72,16 @@ A few global truths so I need not repeat them in each server spec below:
 - All servers have both an [iDRAC](http://en.community.dell.com/techcenter/systems-management/w/wiki/3204.dell-remote-access-controller-drac-idrac) connection (via the management network) and a KVM connection.
 
 #### Network
-- 2x Cisco Nexus [5596UP](http://www.cisco.com/c/en/us/products/switches/nexus-5596up-switch/index.html) core switches (96 SFP+ ports each at 10 Gbps)
-- 10x Cisco Nexus [2232TM](http://www.cisco.com/c/en/us/products/switches/nexus-2232tm-10ge-fabric-extender/index.html) Fabric Extenders (**2 per rack** - each has 32 BASE-T ports each at 10Gbps + 8 SFP+ 10Gbps uplinks)
+- 2x Cisco Nexus [5596UP](https://www.cisco.com/c/en/us/products/switches/nexus-5596up-switch/index.html) core switches (96 SFP+ ports each at 10 Gbps)
+- 10x Cisco Nexus [2232TM](https://www.cisco.com/c/en/us/products/switches/nexus-2232tm-10ge-fabric-extender/index.html) Fabric Extenders (**2 per rack** - each has 32 BASE-T ports each at 10Gbps + 8 SFP+ 10Gbps uplinks)
 - 2x Fortinet [800C](http://www.fortinet.com/products/fortigate/enterprise-firewalls.html) Firewalls
-- 2x Cisco [ASR-1001](http://www.cisco.com/c/en/us/products/routers/asr-1001-router/index.html) Routers
-- 2x Cisco [ASR-1001-x](http://www.cisco.com/c/en/us/products/routers/asr-1001-x-router/index.html) Routers
-- 6x Cisco [2960S-48TS-L](http://www.cisco.com/c/en/us/support/switches/catalyst-2960s-48ts-l-switch/model.html) Management network switches (**1 Per Rack** - 48 1Gbps ports + 4 SFP 1Gbps)
+- 2x Cisco [ASR-1001](https://www.cisco.com/c/en/us/products/routers/asr-1001-router/index.html) Routers
+- 2x Cisco [ASR-1001-x](https://www.cisco.com/c/en/us/products/routers/asr-1001-x-router/index.html) Routers
+- 6x Cisco [2960S-48TS-L](https://www.cisco.com/c/en/us/support/switches/catalyst-2960s-48ts-l-switch/model.html) Management network switches (**1 Per Rack** - 48 1Gbps ports + 4 SFP 1Gbps)
 - 1x Dell [DMPU4032](http://accessories.us.dell.com/sna/productdetail.aspx?c=us&l=en&s=bsd&cs=04&sku=A7546775) KVM
 - 7x Dell [DAV2216](http://accessories.us.dell.com/sna/productdetail.aspx?c=us&l=en&s=bsd&cs=04&sku=A7546777) KVM Aggregators (**1--2 per rack** - each uplinks to the DPMU4032)
 
-*Note: Each FEX has 80 Gbps of uplink bandwidth to its core, and the cores have a 160 Gbps port channel between them. Due to being a more recent install, the hardware in our Denver data center is slightly newer. All 4 routers are [ASR-1001-x](http://www.cisco.com/c/en/us/products/routers/asr-1001-x-router/index.html) models and the 2 cores are [Cisco Nexus 56128P](http://www.cisco.com/c/en/us/products/switches/nexus-56128p-switch/index.html), which have 96 SFP+ 10Gbps ports and 8 QSFP+ 40Gbps ports each. This saves 10Gbps ports for future expansion since we can bond the cores with 4x 40Gbps links, instead of eating 16x 10Gbps ports as we do in New York.*
+*Note: Each FEX has 80 Gbps of uplink bandwidth to its core, and the cores have a 160 Gbps port channel between them. Due to being a more recent install, the hardware in our Denver data center is slightly newer. All 4 routers are [ASR-1001-x](https://www.cisco.com/c/en/us/products/routers/asr-1001-x-router/index.html) models and the 2 cores are [Cisco Nexus 56128P](https://www.cisco.com/c/en/us/products/switches/nexus-56128p-switch/index.html), which have 96 SFP+ 10Gbps ports and 8 QSFP+ 40Gbps ports each. This saves 10Gbps ports for future expansion since we can bond the cores with 4x 40Gbps links, instead of eating 16x 10Gbps ports as we do in New York.*
 
 <div class="pics-{{ page.slug }}">
 Here's what the network gear looks like in New York:
@@ -101,17 +101,17 @@ Give a shout to [Mark Henderson](https://twitter.com/thefarseeker), one of our S
 
 #### SQL Servers (Stack Overflow Cluster)
 - 2 Dell [R720xd](http://www.dell.com/us/business/p/poweredge-r720xd/pd) Servers, each with:
-- Dual [E5-2697v2](http://ark.intel.com/products/75283/Intel-Xeon-Processor-E5-2697-v2-30M-Cache-2_70-GHz) Processors (12 cores @2.7--3.5GHz each)
+- Dual [E5-2697v2](https://ark.intel.com/products/75283/Intel-Xeon-Processor-E5-2697-v2-30M-Cache-2_70-GHz) Processors (12 cores @2.7--3.5GHz each)
 - 384 GB of RAM (24x 16 GB DIMMs)
-- 1x Intel [P3608](http://www.intel.com/content/www/us/en/solid-state-drives/solid-state-drives-dc-p3608-series.html) 4 TB NVMe PCIe SSD (RAID 0, 2 controllers per card)
-- 24x Intel [710](http://ark.intel.com/products/56584/Intel-SSD-710-Series-200GB-2_5in-SATA-3Gbs-25nm-MLC) 200 GB SATA SSDs (RAID 10)
+- 1x Intel [P3608](https://www.intel.com/content/www/us/en/solid-state-drives/solid-state-drives-dc-p3608-series.html) 4 TB NVMe PCIe SSD (RAID 0, 2 controllers per card)
+- 24x Intel [710](https://ark.intel.com/products/56584/Intel-SSD-710-Series-200GB-2_5in-SATA-3Gbs-25nm-MLC) 200 GB SATA SSDs (RAID 10)
 - Dual 10 Gbps network (Intel X540/I350 NDC)
 
 #### SQL Servers (Stack Exchange "...and everything else" Cluster)
 - 2 Dell [R730xd](http://www.dell.com/us/business/p/poweredge-r730xd/pd) Servers, each with:
-- Dual [E5-2667v3](http://ark.intel.com/products/83361/Intel-Xeon-Processor-E5-2667-v3-20M-Cache-3_20-GHz) Processors (8 cores @3.2--3.6GHz each)
+- Dual [E5-2667v3](https://ark.intel.com/products/83361/Intel-Xeon-Processor-E5-2667-v3-20M-Cache-3_20-GHz) Processors (8 cores @3.2--3.6GHz each)
 - 768 GB of RAM (24x 32 GB DIMMs)
-- 3x Intel [P3700](http://ark.intel.com/products/79620/Intel-SSD-DC-P3700-Series-2_0TB-12-Height-PCIe-3_0-20nm-MLC) 2 TB NVMe PCIe SSD (RAID 0)
+- 3x Intel [P3700](https://ark.intel.com/products/79620/Intel-SSD-DC-P3700-Series-2_0TB-12-Height-PCIe-3_0-20nm-MLC) 2 TB NVMe PCIe SSD (RAID 0)
 - 24x 10K Spinny 1.2 TB SATA HDDs (RAID 10)
 - Dual 10 Gbps network (Intel X540/I350 NDC)
 
@@ -126,9 +126,9 @@ Here's what the SQL Servers in New York looked like while getting their PCIe SSD
 
 #### Web Servers
 - 11 Dell [R630](http://www.dell.com/us/business/p/poweredge-r630/pd) Servers, each with:
-- Dual [E5-2690v3](http://ark.intel.com/products/81713/Intel-Xeon-Processor-E5-2690-v3-30M-Cache-2_60-GHz) Processors (12 cores @2.6--3.5GHz each)
+- Dual [E5-2690v3](https://ark.intel.com/products/81713/Intel-Xeon-Processor-E5-2690-v3-30M-Cache-2_60-GHz) Processors (12 cores @2.6--3.5GHz each)
 - 64 GB of RAM (8x 8 GB DIMMs)
-- 2x Intel [320](http://ark.intel.com/products/56567/Intel-SSD-320-Series-300GB-2_5in-SATA-3Gbs-25nm-MLC) 300GB SATA SSDs (RAID 1)
+- 2x Intel [320](https://ark.intel.com/products/56567/Intel-SSD-320-Series-300GB-2_5in-SATA-3Gbs-25nm-MLC) 300GB SATA SSDs (RAID 1)
 - Dual 10 Gbps network (Intel X540/I350 NDC)
 
 <div class="pics-{{ page.slug }}">
@@ -138,41 +138,41 @@ Here's what the SQL Servers in New York looked like while getting their PCIe SSD
 
 #### Service Servers (Workers)
 - 2 Dell [R630](http://www.dell.com/us/business/p/poweredge-r630/pd) Servers, each with:
-  - Dual [E5-2643 v3](http://ark.intel.com/products/81900/Intel-Xeon-Processor-E5-2643-v3-20M-Cache-3_40-GHz) Processors (6 cores @3.4--3.7GHz each)
+  - Dual [E5-2643 v3](https://ark.intel.com/products/81900/Intel-Xeon-Processor-E5-2643-v3-20M-Cache-3_40-GHz) Processors (6 cores @3.4--3.7GHz each)
   - 64 GB of RAM (8x 8 GB DIMMs)
 - 1 Dell [R620](http://www.dell.com/us/business/p/poweredge-r620/pd) Server, with:
-  - Dual [E5-2667](http://ark.intel.com/products/64589/Intel-Xeon-Processor-E5-2667-15M-Cache-2_90-GHz-8_00-GTs-Intel-QPI) Processors (6 cores @2.9--3.5GHz each)
+  - Dual [E5-2667](https://ark.intel.com/products/64589/Intel-Xeon-Processor-E5-2667-15M-Cache-2_90-GHz-8_00-GTs-Intel-QPI) Processors (6 cores @2.9--3.5GHz each)
   - 32 GB of RAM (8x 4 GB DIMMs)
-- 2x Intel [320](http://ark.intel.com/products/56567/Intel-SSD-320-Series-300GB-2_5in-SATA-3Gbs-25nm-MLC) 300GB SATA SSDs (RAID 1)
+- 2x Intel [320](https://ark.intel.com/products/56567/Intel-SSD-320-Series-300GB-2_5in-SATA-3Gbs-25nm-MLC) 300GB SATA SSDs (RAID 1)
 - Dual 10 Gbps network (Intel X540/I350 NDC)
 
 *Note: NY-SERVICE03 is still an R620, due to not being old enough for replacement at the same time. It will be upgraded later this year.*
 
 #### Redis Servers (Cache)
 - 2 Dell [R630](http://www.dell.com/us/business/p/poweredge-r630/pd) Servers, each with:
-- Dual [E5-2687W v3](http://ark.intel.com/products/81909/Intel-Xeon-Processor-E5-2687W-v3-25M-Cache-3_10-GHz) Processors (10 cores @3.1--3.5GHz each)
+- Dual [E5-2687W v3](https://ark.intel.com/products/81909/Intel-Xeon-Processor-E5-2687W-v3-25M-Cache-3_10-GHz) Processors (10 cores @3.1--3.5GHz each)
 - 256 GB of RAM (16x 16 GB DIMMs)
-- 2x Intel [520](http://ark.intel.com/products/66250/Intel-SSD-520-Series-240GB-2_5in-SATA-6Gbs-25nm-MLC) 240GB SATA SSDs (RAID 1)
+- 2x Intel [520](https://ark.intel.com/products/66250/Intel-SSD-520-Series-240GB-2_5in-SATA-6Gbs-25nm-MLC) 240GB SATA SSDs (RAID 1)
 - Dual 10 Gbps network (Intel X540/I350 NDC)
 
 #### Elasticsearch Servers (Search)
 - 3 Dell [R620](http://www.dell.com/us/business/p/poweredge-r620/pd) Servers, each with:
-- Dual [E5-2680](http://ark.intel.com/products/64583/Intel-Xeon-Processor-E5-2680-20M-Cache-2_70-GHz-8_00-GTs-Intel-QPI) Processors (8 cores @2.7--3.5GHz each)
+- Dual [E5-2680](https://ark.intel.com/products/64583/Intel-Xeon-Processor-E5-2680-20M-Cache-2_70-GHz-8_00-GTs-Intel-QPI) Processors (8 cores @2.7--3.5GHz each)
 - 192 GB of RAM (12x 16 GB DIMMs)
-- 2x Intel [S3500](http://ark.intel.com/products/75685/Intel-SSD-DC-S3500-Series-800GB-2_5in-SATA-6Gbs-20nm-MLC) 800GB SATA SSDs (RAID 1)
+- 2x Intel [S3500](https://ark.intel.com/products/75685/Intel-SSD-DC-S3500-Series-800GB-2_5in-SATA-6Gbs-20nm-MLC) 800GB SATA SSDs (RAID 1)
 - Dual 10 Gbps network (Intel X540/I350 NDC)
 
 #### HAProxy Servers (Load Balancers)
 - 2 Dell [R620](http://www.dell.com/us/business/p/poweredge-r620/pd) Servers (CloudFlare Traffic), each with:
-  - Dual [E5-2637 v2](http://ark.intel.com/products/81900/Intel-Xeon-Processor-E5-2643-v3-20M-Cache-3_40-GHz) Processors (4 cores @3.5--3.8GHz each)
+  - Dual [E5-2637 v2](https://ark.intel.com/products/81900/Intel-Xeon-Processor-E5-2643-v3-20M-Cache-3_40-GHz) Processors (4 cores @3.5--3.8GHz each)
   - 192 GB of RAM (12x 16 GB DIMMs)
-  - 6x Seagate [Constellation 7200RPM](http://www.amazon.com/SEAGATE-ST91000640NS-Constellation-6-0Gb-internal/dp/B004HZEF2I) 1TB SATA HDDs (RAID 10) (Logs)
+  - 6x Seagate [Constellation 7200RPM](https://www.amazon.com/SEAGATE-ST91000640NS-Constellation-6-0Gb-internal/dp/B004HZEF2I) 1TB SATA HDDs (RAID 10) (Logs)
   - Dual 10 Gbps network (Intel X540/I350 NDC) - Internal (DMZ) Traffic
   - Dual 10 Gbps network (Intel X540) - External Traffic
 - 2 Dell [R620](http://www.dell.com/us/business/p/poweredge-r620/pd) Servers (Direct Traffic), each with:
-  - Dual [E5-2650](http://ark.intel.com/products/64590/Intel-Xeon-Processor-E5-2650-20M-Cache-2_00-GHz-8_00-GTs-Intel-QPI) Processors (8 cores @2.0--2.8GHz each)
+  - Dual [E5-2650](https://ark.intel.com/products/64590/Intel-Xeon-Processor-E5-2650-20M-Cache-2_00-GHz-8_00-GTs-Intel-QPI) Processors (8 cores @2.0--2.8GHz each)
   - 64 GB of RAM (4x 16 GB DIMMs)
-  - 2x Seagate [Constellation 7200RPM](http://www.amazon.com/SEAGATE-ST91000640NS-Constellation-6-0Gb-internal/dp/B004HZEF2I) 1TB SATA HDDs (RAID 10) (Logs)
+  - 2x Seagate [Constellation 7200RPM](https://www.amazon.com/SEAGATE-ST91000640NS-Constellation-6-0Gb-internal/dp/B004HZEF2I) 1TB SATA HDDs (RAID 10) (Logs)
   - Dual 10 Gbps network (Intel X540/I350 NDC) - Internal (DMZ) Traffic
   - Dual 10 Gbps network (Intel X540) - External Traffic
 
@@ -194,7 +194,7 @@ Since this post is meant to be an appendix for many future posts [in the series]
 #### VM Servers (VMWare, Currently)
 - 2 Dell [FX2s](http://www.dell.com/us/business/p/poweredge-fx/pd) Blade Chassis, each with 2 of 4 blades populated
   - 4 Dell [FC630](http://www.dell.com/us/business/p/poweredge-fx/pd#Misc) Blade Servers (2 per chassis), each with:
-    - Dual [E5-2698 v3](http://ark.intel.com/products/81900/Intel-Xeon-Processor-E5-2643-v3-20M-Cache-3_40-GHz) Processors (16 cores @2.3--3.6GHz each)
+    - Dual [E5-2698 v3](https://ark.intel.com/products/81900/Intel-Xeon-Processor-E5-2643-v3-20M-Cache-3_40-GHz) Processors (16 cores @2.3--3.6GHz each)
     - 768 GB of RAM (24x 32 GB DIMMs)
     - 2x 16GB SD Cards (Hypervisor - no local storage)
   - Dual 4x 10 Gbps network (FX IOAs - BASET)
@@ -216,25 +216,25 @@ There a few more noteworthy servers behind the scenes that aren't VMs. These per
 These servers are idle about 99% of the time, but do heavy lifting for a nightly processing job: refreshing Providence. They also serve as an inside-the-datacenter place to test new algorithms on large datasets.
 
 - 2 Dell [R620](http://www.dell.com/us/business/p/poweredge-r620/pd) Servers, each with:
-- Dual [E5-2697 v2](http://ark.intel.com/products/75283/Intel-Xeon-Processor-E5-2697-v2-30M-Cache-2_70-GHz) Processors (12 cores @2.7--3.5GHz each)
+- Dual [E5-2697 v2](https://ark.intel.com/products/75283/Intel-Xeon-Processor-E5-2697-v2-30M-Cache-2_70-GHz) Processors (12 cores @2.7--3.5GHz each)
 - 384 GB of RAM (24x 16 GB DIMMs)
-- 4x Intel [530](http://ark.intel.com/products/75336/Intel-SSD-530-Series-480GB-2_5in-SATA-6Gbs-20nm-MLC) 480GB SATA SSDs (RAID 10)
+- 4x Intel [530](https://ark.intel.com/products/75336/Intel-SSD-530-Series-480GB-2_5in-SATA-6Gbs-20nm-MLC) 480GB SATA SSDs (RAID 10)
 - Dual 10 Gbps network (Intel X540/I350 NDC)
 
 #### Machine Learning Redis Servers (Still Providence)
 This is the redis data store for Providence. The usual setup is one master, one slave, and one instance used for testing the latest version of our ML algorithms. While not used to serve the Q&A sites, this data is used when serving job matches on Careers as well as the sidebar job listings.
 
 - 3 Dell [R720xd](http://www.dell.com/us/business/p/poweredge-r720xd/pd) Servers, each with:
-- Dual [E5-2650 v2](http://ark.intel.com/products/75269/Intel-Xeon-Processor-E5-2650-v2-20M-Cache-2_60-GHz) Processors (8 cores @2.6--3.4GHz each)
+- Dual [E5-2650 v2](https://ark.intel.com/products/75269/Intel-Xeon-Processor-E5-2650-v2-20M-Cache-2_60-GHz) Processors (8 cores @2.6--3.4GHz each)
 - 384 GB of RAM (24x 16 GB DIMMs)
-- 4x Samsung [840 Pro](http://www.samsung.com/semiconductor/products/flash-storage/client-ssd) 480 GB SATA SSDs (RAID 10)
+- 4x Samsung [840 Pro](https://www.samsung.com/semiconductor/products/flash-storage/client-ssd) 480 GB SATA SSDs (RAID 10)
 - Dual 10 Gbps network (Intel X540/I350 NDC)
 
 #### Logstash Servers (For ya know...logs)
 Our Logstash cluster (using Elasticsearch for storage) stores logs from, well, everything. We plan to replicate HTTP logs in here but are hitting performance issues. However, we do aggregate all network device logs, syslogs, and Windows and Linux system logs here so we can get a network overview or search for issues very quickly. This is also used as a data source in Bosun to get additional information when alerts fire. The total cluster's raw storage is 6x12x4 = 288 TB.
 
 - 6 Dell [R720xd](http://www.dell.com/us/business/p/poweredge-r720xd/pd) Servers, each with:
-- Dual [E5-2660 v2](http://ark.intel.com/products/75272/Intel-Xeon-Processor-E5-2660-v2-25M-Cache-2_20-GHz) Processors (10 cores @2.2--3.0GHz each)
+- Dual [E5-2660 v2](https://ark.intel.com/products/75272/Intel-Xeon-Processor-E5-2660-v2-25M-Cache-2_20-GHz) Processors (10 cores @2.2--3.0GHz each)
 - 192 GB of RAM (12x 16 GB DIMMs)
 - 12x 7200 RPM Spinny 4 TB SATA HDDs (RAID 0 x3 - 4 drives per)
 - Dual 10 Gbps network (Intel X540/I350 NDC)
@@ -243,9 +243,9 @@ Our Logstash cluster (using Elasticsearch for storage) stores logs from, well, e
 This is where we log every single HTTP hit to our load balancers (sent from HAProxy via syslog) to a SQL database. We only record a few top level bits like URL, Query, UserAgent, timings for SQL, Redis, etc. in here -- so it all goes into a Clustered Columnstore Index per day. We use this for troubleshooting user issues, detecting botnets, etc.
 
 - 1 Dell [R730xd](http://www.dell.com/us/business/p/poweredge-r730xd/pd) Server with:
-- Dual [E5-2660 v3](http://ark.intel.com/products/81706/Intel-Xeon-Processor-E5-2660-v3-25M-Cache-2_60-GHz) Processors (10 cores @2.6--3.3GHz each)
+- Dual [E5-2660 v3](https://ark.intel.com/products/81706/Intel-Xeon-Processor-E5-2660-v3-25M-Cache-2_60-GHz) Processors (10 cores @2.6--3.3GHz each)
 - 256 GB of RAM (16x 16 GB DIMMs)
-- 2x Intel [P3600](http://ark.intel.com/products/80995/Intel-SSD-DC-P3600-Series-2_0TB-2_5in-PCIe-3_0-20nm-MLC) 2 TB NVMe PCIe SSD (RAID 0)
+- 2x Intel [P3600](https://ark.intel.com/products/80995/Intel-SSD-DC-P3600-Series-2_0TB-2_5in-PCIe-3_0-20nm-MLC) 2 TB NVMe PCIe SSD (RAID 0)
 - 16x Seagate [ST6000NM0024](http://www.seagate.com/internal-hard-drives/enterprise-hard-drives/hdd/enterprise-capacity-3-5-hdd/?sku=ST6000NM0024) 7200RPM Spinny 6 TB SATA HDDs (RAID 10)
 - Dual 10 Gbps network (Intel X540/I350 NDC)
 
@@ -253,9 +253,9 @@ This is where we log every single HTTP hit to our load balancers (sent from HAPr
 We like for dev to simulate production as much as possible, so SQL matches as well...or at least it used to. We've upgraded production processors since this purchase. We'll be refreshing this box with a 2U solution at the same time as we upgrade the Stack Overflow cluster later this year.
 
 - 1 Dell [R620](http://www.dell.com/us/business/p/poweredge-r620/pd) Server with:
-- Dual [E5-2620](http://ark.intel.com/products/64594/Intel-Xeon-Processor-E5-2620-15M-Cache-2_00-GHz-7_20-GTs-Intel-QPI) Processors (6 cores @2.0--2.5GHz each)
+- Dual [E5-2620](https://ark.intel.com/products/64594/Intel-Xeon-Processor-E5-2620-15M-Cache-2_00-GHz-7_20-GTs-Intel-QPI) Processors (6 cores @2.0--2.5GHz each)
 - 384 GB of RAM (24x 16 GB DIMMs)
-- 8x Intel [S3700](http://ark.intel.com/products/71916/Intel-SSD-DC-S3700-Series-800GB-2_5in-SATA-6Gbs-25nm-MLC) 800 GB SATA SSDs (RAID 10)
+- 8x Intel [S3700](https://ark.intel.com/products/71916/Intel-SSD-DC-S3700-Series-800GB-2_5in-SATA-6Gbs-25nm-MLC) 800 GB SATA SSDs (RAID 10)
 - Dual 10 Gbps network (Intel X540/I350 NDC)
   
 <div class="pics-{{ page.slug }}">

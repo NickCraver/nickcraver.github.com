@@ -26,21 +26,21 @@ To get an idea of what all of this stuff "does," let me start off with an update
 - **22.71** <span class="note">(-5.29)</span> ms average (19.12 ms in ASP.Net) for 49,180,275 question page renders 
 - **11.80** <span class="note">(-53.2)</span> ms average (8.81 ms in ASP.Net) for 6,370,076 home page renders 
 
-You may be wondering about the drastic ASP.Net reduction in processing time compared to 2013 (which was 757 hours) despite 61 million more requests a day. That's due to both [a hardware upgrade in early 2015](http://blog.serverfault.com/2015/03/05/how-we-upgrade-a-live-data-center/) as well as a lot of performance tuning inside the applications themselves. Please don't forget: [performance is still a feature](http://www.codinghorror.com/blog/2011/06/performance-is-a-feature.html). If you're curious about more hardware specifics than I'm about to provide---fear not. The next post will be an appendix with detailed hardware specs for all of the servers that run the sites (I'll update this with a link when it's live).
+You may be wondering about the drastic ASP.Net reduction in processing time compared to 2013 (which was 757 hours) despite 61 million more requests a day. That's due to both [a hardware upgrade in early 2015](http://blog.serverfault.com/2015/03/05/how-we-upgrade-a-live-data-center/) as well as a lot of performance tuning inside the applications themselves. Please don't forget: [performance is still a feature](https://blog.codinghorror.com/performance-is-a-feature/). If you're curious about more hardware specifics than I'm about to provide---fear not. The next post will be an appendix with detailed hardware specs for all of the servers that run the sites (I'll update this with a link when it's live).
 <!--more-->
 
 So what's changed in the last 2 years? Besides replacing some servers and network gear, not much. Here's a top-level list of hardware that runs the sites today (noting what's different since 2013):
 
 - 4 Microsoft SQL Servers (new hardware for 2 of them)
 - 11 IIS Web Servers (new hardware)
-- 2 [Redis](http://Redis.io/) Servers (new hardware)
+- 2 [Redis](https://redis.io/) Servers (new hardware)
 - 3 Tag Engine servers (new hardware for 2 of the 3)
-- 3 [Elasticsearch](http://www.elasticsearch.org/) servers (same)
-- 4 [HAProxy](http://haproxy.1wt.eu/) Load Balancers (added 2 to support CloudFlare)
-- 2 Networks (each a [Nexus 5596 Core](http://www.cisco.com/en/US/prod/collateral/switches/ps9441/ps9670/data_sheet_c78-618603.html) + [2232TM Fabric Extenders](http://www.cisco.com/c/en/us/products/switches/nexus-2232tm-10ge-fabric-extender/index.html), upgraded to 10Gbps everywhere)
-- 2 Fortinet [800C](http://www.fortinet.com/products/fortigate/enterprise-firewalls.html) Firewalls (replaced Cisco 5525-X ASAs)
-- 2 Cisco [ASR-1001](http://www.cisco.com/c/en/us/products/routers/asr-1001-router/index.html) Routers (replaced Cisco 3945 Routers)
-- 2 Cisco [ASR-1001-x](http://www.cisco.com/c/en/us/products/routers/asr-1001-x-router/index.html) Routers (new!)
+- 3 [Elasticsearch](https://www.elastic.co/) servers (same)
+- 4 [HAProxy](https://www.haproxy.org/) Load Balancers (added 2 to support CloudFlare)
+- 2 Networks (each a [Nexus 5596 Core](https://www.cisco.com/c/en/us/products/collateral/switches/nexus-5000-series-switches/data_sheet_c78-618603.html) + [2232TM Fabric Extenders](https://www.cisco.com/c/en/us/products/switches/nexus-2232tm-10ge-fabric-extender/index.html), upgraded to 10Gbps everywhere)
+- 2 Fortinet [800C](https://www.fortinet.com/products/firewalls/firewall/fortigate-mid-range.html) Firewalls (replaced Cisco 5525-X ASAs)
+- 2 Cisco [ASR-1001](https://www.cisco.com/c/en/us/products/routers/asr-1001-router/index.html) Routers (replaced Cisco 3945 Routers)
+- 2 Cisco [ASR-1001-x](https://www.cisco.com/c/en/us/products/routers/asr-1001-x-router/index.html) Routers (new!)
 
 What do we ***need*** to run Stack Overflow? [That hasn't changed much since 2013]({% post_url blog/2013-11-22-what-it-takes-to-run-stack-overflow %}#core-hardware), but due to the optimizations and new hardware mentioned above, we're down to ***needing*** only 1 web server. We have unintentionally tested this, successfully, a few times. To be clear: I'm saying it works. I'm not saying it's a good idea. It's fun though, every time.
 
@@ -53,7 +53,7 @@ For those of you here to see what the hardware looks like these days, here are a
 <img src="https://i.imgur.com/ZFvRqgkh.jpg" width="384" height="512" style="padding: 5px;" />
 </div>
 
-...and if you're into that kind of thing, [here's the entire 256 image album from that week](http://imgur.com/a/X1HoY) (you're damn right that number's intentional). Now, let's dig into layout. Here's a logical overview of the major systems in play:
+...and if you're into that kind of thing, [here's the entire 256 image album from that week](https://imgur.com/a/X1HoY) (you're damn right that number's intentional). Now, let's dig into layout. Here's a logical overview of the major systems in play:
 
 ![Logical Overview]({{ site.contenturl }}SO-Architecture-Overview-Logical.svg)
 
@@ -72,13 +72,13 @@ Here are some rules that apply globally so I don't have to repeat them with ever
 
 First, you have to find us---that's [DNS](https://en.wikipedia.org/wiki/Domain_Name_System). Finding us needs to be fast, so we farm this out to [CloudFlare](https://www.cloudflare.com/) (currently) because they have DNS servers nearer to almost everyone around the world. We update our DNS records via an API and they do the "hosting" of DNS. But since we're jerks with deeply-rooted trust issues, we still have our own DNS servers as well. Should the apocalypse happen (probably caused by the GPL, [Punyon](https://twitter.com/JasonPunyon), or caching) and people still want to program to take their mind off of it, we'll flip them on.
 
-After you find our secret hideout, HTTP traffic comes from one of our four ISPs (Level 3, Zayo, Cogent, and Lightower in New York) and flows through one of our four edge routers. We peer with our ISPs using [BGP](https://en.wikipedia.org/wiki/Border_Gateway_Protocol) (fairly standard) in order to control the flow of traffic and provide several avenues for traffic to reach us most efficiently. These [ASR-1001](http://www.cisco.com/c/en/us/products/routers/asr-1001-router/index.html) and [ASR-1001-X](http://www.cisco.com/c/en/us/products/routers/asr-1001-x-router/index.html) routers are in 2 pairs, each servicing 2 ISPs in active/active fashion---so we're redundant here. Though they're all on the same physical 10Gbps network, external traffic is in separate isolated external [VLANs](https://en.wikipedia.org/wiki/Virtual_LAN) which the load balancers are connected to as well. After flowing through the routers, you're headed for a load balancer.
+After you find our secret hideout, HTTP traffic comes from one of our four ISPs (Level 3, Zayo, Cogent, and Lightower in New York) and flows through one of our four edge routers. We peer with our ISPs using [BGP](https://en.wikipedia.org/wiki/Border_Gateway_Protocol) (fairly standard) in order to control the flow of traffic and provide several avenues for traffic to reach us most efficiently. These [ASR-1001](https://www.cisco.com/c/en/us/products/routers/asr-1001-router/index.html) and [ASR-1001-X](https://www.cisco.com/c/en/us/products/routers/asr-1001-x-router/index.html) routers are in 2 pairs, each servicing 2 ISPs in active/active fashion---so we're redundant here. Though they're all on the same physical 10Gbps network, external traffic is in separate isolated external [VLANs](https://en.wikipedia.org/wiki/Virtual_LAN) which the load balancers are connected to as well. After flowing through the routers, you're headed for a load balancer.
 
 I suppose this may be a good time to mention we have a 10Gbps [MPLS](https://en.wikipedia.org/wiki/Multiprotocol_Label_Switching) between our 2 data centers, but it is not directly involved in serving the sites. We use this for data replication and quick recovery in the cases where we need a burst. "But Nick, that's not redundant!" Well, you're technically correct ([the best kind of correct](https://www.youtube.com/watch?v=hou0lU8WMgo)), that's a single point of failure on its face. But wait! We maintain 2 more failover [OSPF](https://en.wikipedia.org/wiki/Open_Shortest_Path_First) routes (the MPLS is #1, these are #2 and 3 by cost) via our ISPs. Each of the sets mentioned earlier connects to the corresponding set in Colorado, and they load balance traffic between in the failover situation. We could make both sets connect to both sets and have 4 paths but, well, whatever.  Moving on.
 
-### Load Balancers ([HAProxy](http://www.haproxy.org/))
+### Load Balancers ([HAProxy](https://www.haproxy.org/))
 
-The load balancers are running [HAProxy](http://www.haproxy.org/) 1.5.15 on [CentOS 7](https://www.centos.org/), our preferred flavor of Linux. TLS (SSL) traffic is also terminated in HAProxy. We'll be looking hard at HAProxy 1.7 soon for [HTTP/2](https://en.wikipedia.org/wiki/HTTP/2) support.
+The load balancers are running [HAProxy](https://www.haproxy.org/) 1.5.15 on [CentOS 7](https://www.centos.org/), our preferred flavor of Linux. TLS (SSL) traffic is also terminated in HAProxy. We'll be looking hard at HAProxy 1.7 soon for [HTTP/2](https://en.wikipedia.org/wiki/HTTP/2) support.
 
 Unlike all other servers with a dual 10Gbps LACP network link, each load balancer has 2 pairs of 10Gbps: one for the external network and one for the DMZ. These boxes run 64GB or more of memory to more efficiently handle SSL negotiation. When we can cache more TLS sessions in memory for reuse, there's less to recompute on subsequent connections to the same client. This means we can resume sessions both faster and cheaper. Given that RAM is pretty cheap dollar-wise, it's an easy choice.
 
@@ -86,7 +86,7 @@ The load balancers themselves are a pretty simple setup. We listen to different 
 
 ### Web Tier (IIS 8.5, ASP.Net MVC 5.2.3, and .Net 4.6.1)
 
-The load balancers feed traffic to 9 servers we refer to as "primary" (01-09) and 2 "dev/meta" (10-11, our staging environment) web servers. The primary servers run things like Stack Overflow, Careers, and all Stack Exchange sites except [meta.stackoverflow.com](http://meta.stackoverflow.com/) and [meta.stackexchange.com](http://meta.stackexchange.com/), which run on the last 2 servers. The primary Q&A Application itself is multi-tenant. This means that a single application serves the requests for all Q&A sites. Put another way: we can run the entire Q&A network off of a single application pool on a single server. Other applications like Careers, API v2, Mobile API, etc. are separate. Here's what the primary and dev tiers look like in IIS:
+The load balancers feed traffic to 9 servers we refer to as "primary" (01-09) and 2 "dev/meta" (10-11, our staging environment) web servers. The primary servers run things like Stack Overflow, Careers, and all Stack Exchange sites except [meta.stackoverflow.com](https://meta.stackoverflow.com/) and [meta.stackexchange.com](https://meta.stackexchange.com/), which run on the last 2 servers. The primary Q&A Application itself is multi-tenant. This means that a single application serves the requests for all Q&A sites. Put another way: we can run the entire Q&A network off of a single application pool on a single server. Other applications like Careers, API v2, Mobile API, etc. are separate. Here's what the primary and dev tiers look like in IIS:
 
 <div style="text-align: center;">
 ![IIS in NY-WEB01]({{ site.contenturl }}SO-Architecture-IIS-NY-WEB01.png)
@@ -107,11 +107,11 @@ I'll go into why we're so overprovisioned in future posts, but the highlight ite
 
 Behind those web servers is the very similar "service tier." It's also running IIS 8.5 on Windows 2012R2. This tier runs internal services to support the production web tier and other internal systems. The two big players here are "Stack Server" which runs the tag engine and is based on `http.sys` (not behind IIS) and the Providence API (IIS-based). Fun fact: I have to set affinity on each of these 2 processes to land on separate sockets because Stack Server just steamrolls the L2 and L3 cache when refreshing question lists on a 2-minute interval.
 
-These service boxes do heavy lifting with the tag engine and backend APIs where we need redundancy, but not 9x redundancy. For example, loading all of the posts and their tags that change every `n` minutes from the database (currently 2) isn't that cheap. We don't want to do that load 9 times on the web tier; 3 times is enough and gives us enough safety. We also configure these boxes differently on the hardware side to be better optimized for the different computational load characteristics of the tag engine and elastic indexing jobs (which also run here). The "tag engine" is a relatively complicated topic in itself and will be a [dedicated post](https://trello.com/c/DqklJDSF/29-tag-engine). The basics are: when you visit `/questions/tagged/java`, you're hitting the tag engine to see which questions match. It does *all* of our tag matching outside of `/search`, so the [new navigation](http://meta.stackoverflow.com/questions/308875/new-navigation-release-candidate), etc. are all using this service for data.
+These service boxes do heavy lifting with the tag engine and backend APIs where we need redundancy, but not 9x redundancy. For example, loading all of the posts and their tags that change every `n` minutes from the database (currently 2) isn't that cheap. We don't want to do that load 9 times on the web tier; 3 times is enough and gives us enough safety. We also configure these boxes differently on the hardware side to be better optimized for the different computational load characteristics of the tag engine and elastic indexing jobs (which also run here). The "tag engine" is a relatively complicated topic in itself and will be a [dedicated post](https://trello.com/c/DqklJDSF/29-tag-engine). The basics are: when you visit `/questions/tagged/java`, you're hitting the tag engine to see which questions match. It does *all* of our tag matching outside of `/search`, so the [new navigation](https://meta.stackoverflow.com/questions/308875/new-navigation-release-candidate), etc. are all using this service for data.
 
-### Cache & Pub/Sub ([Redis](http://Redis.io/))
+### Cache & Pub/Sub ([Redis](https://redis.io/))
 
-We use [Redis](http://Redis.io/) for a few things here and it's rock solid. Despite doing about 160 billion ops a month, every instance is below 2% CPU. Usually much lower:
+We use [Redis](https://Redis.io/) for a few things here and it's rock solid. Despite doing about 160 billion ops a month, every instance is below 2% CPU. Usually much lower:
 
 ![Redis in Bosun]({{ site.contenturl }}SO-Architecture-Redis-Utilization.png)
 
@@ -119,7 +119,7 @@ We have an L1/L2 cache system with Redis. "L1" is HTTP Cache on the web servers 
 
 We also run many Q&A sites, so each site has its own L1/L2 caching: by key prefix in L1 and by database ID in L2/Redis. We'll go deeper on this in a [future post](https://trello.com/c/OztwfkG7/16-caching-Redis).
 
-Alongside the 2 main Redis servers (master/slave) that run all the site instances, we also have a machine learning instance slaved across 2 more dedicated servers (due to memory). This is used for recommending questions on the home page, better matching to jobs, etc. It's a platform called Providence, [covered by Kevin Montrose here](http://kevinmontrose.com/2015/01/27/providence-machine-learning-at-stack-exchange/). 
+Alongside the 2 main Redis servers (master/slave) that run all the site instances, we also have a machine learning instance slaved across 2 more dedicated servers (due to memory). This is used for recommending questions on the home page, better matching to jobs, etc. It's a platform called Providence, [covered by Kevin Montrose here](https://kevinmontrose.com/2015/01/27/providence-machine-learning-at-stack-exchange/). 
 
 The main Redis servers have 256GB of RAM (about 90GB in use) and the Providence servers have 384GB of RAM (about 125GB in use).
 
@@ -127,7 +127,7 @@ Redis isn't just for cache though, it also has a publish & subscriber mechanism 
 
 ### Websockets ([NetGain](https://github.com/StackExchange/NetGain))
 
-We use websockets to push real-time updates to users such as notifications in the top bar, vote counts, [new nav](http://meta.stackoverflow.com/questions/308875/new-navigation-release-candidate) counts, new answers and comments, and a few other  bits. 
+We use websockets to push real-time updates to users such as notifications in the top bar, vote counts, [new nav](https://meta.stackoverflow.com/questions/308875/new-navigation-release-candidate) counts, new answers and comments, and a few other  bits. 
 
 The socket servers themselves are using raw sockets running on the web tier. It's a very thin application on top of our open source library: [`StackExchange.NetGain`](https://github.com/StackExchange/NetGain). During peak, we have about 500,000 **concurrent** websocket connections open. That's a lot of browsers. Fun fact: some of those browsers have been open for over 18 months. We're not sure why. Someone should go check if those developers are still alive. Here's what this week's concurrent websocket pattern looks like:
 
@@ -143,7 +143,7 @@ Each Elastic cluster (there's one in each data center) has 3 nodes, and each sit
 
 The same application domains (yeah, we're screwed with .Net Core here...) in Stack Server that host the tag engine also continually index items in Elasticsearch. We do some simple tricks here such as [`ROWVERSION` in SQL Server](https://msdn.microsoft.com/en-us/library/ms182776.aspx) (the data source) compared against a "last position" document in Elastic. Since it behaves like a sequence, we can simply grab and index any items that have changed since the last pass.
 
-The main reason we're on Elasticsearch instead of something like SQL full-text search is scalability and better allocation of money. SQL CPUs are comparatively very expensive, Elastic is cheap and has far more features these days. Why not [Solr](http://lucene.apache.org/solr/)? We want to search across the entire network (many indexes at once), and this wasn't supported at decision time. The reason we're not on 2.x yet is [a major change to "types"](https://github.com/elastic/elasticsearch/issues/8870) means we need to reindex everything to upgrade. I just don't have enough time to make the needed changes and migration plan yet.
+The main reason we're on Elasticsearch instead of something like SQL full-text search is scalability and better allocation of money. SQL CPUs are comparatively very expensive, Elastic is cheap and has far more features these days. Why not [Solr](https://lucene.apache.org/solr/)? We want to search across the entire network (many indexes at once), and this wasn't supported at decision time. The reason we're not on 2.x yet is [a major change to "types"](https://github.com/elastic/elasticsearch/issues/8870) means we need to reindex everything to upgrade. I just don't have enough time to make the needed changes and migration plan yet.
 
 ### Databases (SQL Server)
 
@@ -151,7 +151,7 @@ We're using SQL Server as our [single source of truth](https://en.wikipedia.org/
 
 The first cluster is a set of Dell R720xd servers, each with 384GB of RAM, 4TB of PCIe SSD space, and 2x 12 cores. It hosts the Stack Overflow, Sites (bad name, I'll explain later), PRIZM, and Mobile databases.
 
-The second cluster is a set of Dell R730xd servers, each with 768GB of RAM, 6TB of PCIe SSD space, and 2x 8 cores. This cluster runs *everything else*. That list includes [Careers](http://careers.stackoverflow.com/), [Open ID](https://openid.stackexchange.com/), [Chat](https://chat.stackoverflow.com/), [our Exception log](https://github.com/NickCraver/StackExchange.Exceptional), and every other Q&A site (e.g. [Super User](http://superuser.com/), [Server Fault](http://serverfault.com/), etc.).
+The second cluster is a set of Dell R730xd servers, each with 768GB of RAM, 6TB of PCIe SSD space, and 2x 8 cores. This cluster runs *everything else*. That list includes [Talent](https://talent.stackoverflow.com), [Open ID](https://openid.stackexchange.com/), [Chat](https://chat.stackoverflow.com/), [our Exception log](https://github.com/NickCraver/StackExchange.Exceptional), and every other Q&A site (e.g. [Super User](https://superuser.com/), [Server Fault](https://serverfault.com/), etc.).
 
 CPU utilization on the database tier is something we like to keep very low, but it's actually a little high at the moment due to some plan cache issues we're addressing. As of right now, NY-SQL02 and 04 are masters, 01 and 03 are replicas we just restarted today during some SSD upgrades. Here's what the past 24 hours looks like:
 
@@ -171,6 +171,6 @@ Okay, let's change gears to something that can more directly help *you*. I've me
 - [Sigil](https://github.com/kevin-montrose/sigil) - A .Net CIL generation helper (for when C# isn't fast enough)
 - [NetGain](https://github.com/StackExchange/NetGain) - High-performance websocket server
 - [Opserver](https://github.com/opserver/Opserver/tree/overhaul) - Monitoring dashboard polling most systems directly and feeding from Orion, Bosun, or WMI as well.
-- [Bosun](http://bosun.org/) - Backend monitoring system, written in Go
+- [Bosun](https://bosun.org/) - Backend monitoring system, written in Go
 
 Next up is a detailed current hardware list of what runs our code. After that, we go down [the list](https://trello.com/b/0zgQjktX/blog-post-queue-for-stack-overflow-topics). Stay tuned.
