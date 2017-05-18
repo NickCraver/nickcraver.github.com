@@ -8,23 +8,20 @@ A question we often get asked at Stack Exchange is why stackoverflow.com and all
 
 So, what’s needed to move our network to SSL? <!--more-->Let’s make a quick list:
 
-*   Third party content must support SSL:
-
-    *   Ads
-    *   Avatars
-    *   Facebook
-    *   Google Analytics
-    *   Inline Images & Videos
-    *   MathJax
-    *   Quantcast
-
-*   Our side has to support SSL:
-
-    *   Our CDN
-    *   Our load balancers
-    *   The sites themselves
-    *   Websockets
-    *   Certificates (this one gets interesting)
+- Third party content must support SSL:
+  - Ads
+  - Avatars
+  - Facebook
+  - Google Analytics
+  - Inline Images & Videos
+  - MathJax
+  - Quantcast
+- Our side has to support SSL:
+  - Our CDN
+  - Our load balancers
+  - The sites themselves
+  - Websockets
+  - Certificates (this one gets interesting)
 
 Ok, so that doesn't look so hard, what’s the big deal?  Let’s look at third party content first.  Note that with all of these items, they're totally outside our control.  All we can do is _ask_ for them to support SSL…but luckily we work with awesome people that are they're helping us out.
 
