@@ -148,7 +148,7 @@ Stack Exchange has [hundreds of domains](https://stackexchange.com/sites).
 Let's Encrypt [doesn't offer wildcards](https://letsencrypt.org/docs/faq/).
 These two things are at odds with each other.
 We'd have to get a certificate (or two) every time we deployed a new Q&A site (or any other service).
-That greatly complicates deplomyent, and either a) drops non-SNI clients (around 2% of traffic these days) or b) requires far more IP space than we have.
+That greatly complicates deployment, and either a) drops non-SNI clients (around 2% of traffic these days) or b) requires far more IP space than we have.
 
 Another reason we want to control the certificate is we need to install the exact same certificates on both our local load balancers and our CDN/proxy provider.
 Unless we can do that, we can't failover (away from a proxy) cleanly in all cases.
