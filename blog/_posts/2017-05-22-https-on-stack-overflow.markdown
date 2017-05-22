@@ -630,7 +630,7 @@ Of note here: `meta.gaming.stackexchange.com`'s login depended on the cookie fro
 These are the "meta" sites we talked about with certificates earlier.
 Their logins were tied together, you always logged in through the parent.
 This didn't really matter much technically, but from a user experience standpoint it sucked. You had to login to each site.
-We "fixed" that with "global auth", which was an `<iframe>` in the page that logged everyone in through `stackauth.com` if they were logged in elsewhere.
+[We "fixed" that](https://stackoverflow.blog/2010/09/11/global-network-auto-login/) with "global auth", which was an `<iframe>` in the page that logged everyone in through `stackauth.com` if they were logged in elsewhere.
 Or it tried to.
 The experience was decent, but a popup bar telling you to click to reload and be logged in wasn't really awesome. 
 We could do better.
