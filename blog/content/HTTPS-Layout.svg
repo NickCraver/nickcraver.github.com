@@ -1,0 +1,1700 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="242mm" height="160mm" viewBox="0 0 2422 1606" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs>
+
+		<linearGradient gradientUnits="objectBoundingBox" spreadMethod="reflect" id="CDGradient1rgb_28_70_112_rgb_91_153_214_" x1="0.0000000000000000" y1="0.0000000000000000" x2="1.0000000000000000" y2="0.0000000000000000" gradientTransform="rotate(0)">
+			<stop offset="0.0000000000000000" stop-color="rgb(91,153,214)">
+			</stop>
+			<stop offset="1.0000000000000000" stop-color="rgb(28,70,112)">
+			</stop>
+		</linearGradient>
+		<linearGradient gradientUnits="objectBoundingBox" spreadMethod="reflect" id="CDGradient1rgb_28_70_112_rgb_91_153_214_" x1="0.0000000000000000" y1="0.0000000000000000" x2="1.0000000000000000" y2="0.0000000000000000" gradientTransform="rotate(0)">
+			<stop offset="0.0000000000000000" stop-color="rgb(91,153,214)">
+			</stop>
+			<stop offset="1.0000000000000000" stop-color="rgb(28,70,112)">
+			</stop>
+		</linearGradient>
+		<linearGradient gradientUnits="objectBoundingBox" spreadMethod="reflect" id="CDGradient2rgb_255_255_255_rgb_152_152_152_" x1="1.0000000000000000" y1="0.0000000000000000" x2="0.0000000000000000" y2="0.0000000000000000" gradientTransform="rotate(0)">
+			<stop offset="0.0000000000000000" stop-color="rgb(152,152,152)">
+			</stop>
+			<stop offset="1.0000000000000000" stop-color="rgb(255,255,255)">
+			</stop>
+		</linearGradient>
+		<linearGradient gradientUnits="objectBoundingBox" spreadMethod="reflect" id="CDGradient2rgb_255_255_255_rgb_255_255_255_" x1="1.0000000000000000" y1="0.0000000000000000" x2="0.0000000000000000" y2="0.0000000000000000" gradientTransform="rotate(0)">
+			<stop offset="0.0000000000000000" stop-color="rgb(255,255,255)">
+			</stop>
+			<stop offset="1.0000000000000000" stop-color="rgb(255,255,255)">
+			</stop>
+		</linearGradient>
+		<linearGradient gradientUnits="objectBoundingBox" spreadMethod="reflect" id="CDGradient2rgb_255_255_255_rgb_0_0_0_" x1="1.0000000000000000" y1="0.0000000000000000" x2="0.0000000000000000" y2="0.0000000000000000" gradientTransform="rotate(0)">
+			<stop offset="0.0000000000000000" stop-color="rgb(0,0,0)">
+			</stop>
+			<stop offset="1.0000000000000000" stop-color="rgb(255,255,255)">
+			</stop>
+		</linearGradient>
+		<linearGradient gradientUnits="objectBoundingBox" spreadMethod="reflect" id="CDGradient1rgb_28_70_112_rgb_91_153_214_" x1="0.0000000000000000" y1="0.0000000000000000" x2="1.0000000000000000" y2="0.0000000000000000" gradientTransform="rotate(0)">
+			<stop offset="0.0000000000000000" stop-color="rgb(91,153,214)">
+			</stop>
+			<stop offset="1.0000000000000000" stop-color="rgb(28,70,112)">
+			</stop>
+		</linearGradient>
+		<linearGradient gradientUnits="objectBoundingBox" spreadMethod="reflect" id="CDGradient1rgb_28_70_112_rgb_91_153_214_" x1="0.0000000000000000" y1="0.0000000000000000" x2="1.0000000000000000" y2="0.0000000000000000" gradientTransform="rotate(0)">
+			<stop offset="0.0000000000000000" stop-color="rgb(91,153,214)">
+			</stop>
+			<stop offset="1.0000000000000000" stop-color="rgb(28,70,112)">
+			</stop>
+		</linearGradient>
+		<linearGradient gradientUnits="objectBoundingBox" spreadMethod="reflect" id="CDGradient2rgb_255_255_255_rgb_152_152_152_" x1="1.0000000000000000" y1="0.0000000000000000" x2="0.0000000000000000" y2="0.0000000000000000" gradientTransform="rotate(0)">
+			<stop offset="0.0000000000000000" stop-color="rgb(152,152,152)">
+			</stop>
+			<stop offset="1.0000000000000000" stop-color="rgb(255,255,255)">
+			</stop>
+		</linearGradient>
+		<linearGradient gradientUnits="objectBoundingBox" spreadMethod="reflect" id="CDGradient2rgb_255_255_255_rgb_255_255_255_" x1="1.0000000000000000" y1="0.0000000000000000" x2="0.0000000000000000" y2="0.0000000000000000" gradientTransform="rotate(0)">
+			<stop offset="0.0000000000000000" stop-color="rgb(255,255,255)">
+			</stop>
+			<stop offset="1.0000000000000000" stop-color="rgb(255,255,255)">
+			</stop>
+		</linearGradient>
+		<linearGradient gradientUnits="objectBoundingBox" spreadMethod="reflect" id="CDGradient2rgb_255_255_255_rgb_0_0_0_" x1="1.0000000000000000" y1="0.0000000000000000" x2="0.0000000000000000" y2="0.0000000000000000" gradientTransform="rotate(0)">
+			<stop offset="0.0000000000000000" stop-color="rgb(0,0,0)">
+			</stop>
+			<stop offset="1.0000000000000000" stop-color="rgb(255,255,255)">
+			</stop>
+		</linearGradient>
+		<linearGradient gradientUnits="objectBoundingBox" spreadMethod="reflect" id="CDGradient1rgb_28_70_112_rgb_91_153_214_" x1="0.0000000000000000" y1="0.0000000000000000" x2="1.0000000000000000" y2="0.0000000000000000" gradientTransform="rotate(0)">
+			<stop offset="0.0000000000000000" stop-color="rgb(91,153,214)">
+			</stop>
+			<stop offset="1.0000000000000000" stop-color="rgb(28,70,112)">
+			</stop>
+		</linearGradient>
+		<linearGradient gradientUnits="objectBoundingBox" spreadMethod="reflect" id="CDGradient1rgb_28_70_112_rgb_91_153_214_" x1="0.0000000000000000" y1="0.0000000000000000" x2="1.0000000000000000" y2="0.0000000000000000" gradientTransform="rotate(0)">
+			<stop offset="0.0000000000000000" stop-color="rgb(91,153,214)">
+			</stop>
+			<stop offset="1.0000000000000000" stop-color="rgb(28,70,112)">
+			</stop>
+		</linearGradient>
+		<linearGradient gradientUnits="objectBoundingBox" spreadMethod="reflect" id="CDGradient2rgb_255_255_255_rgb_152_152_152_" x1="1.0000000000000000" y1="0.0000000000000000" x2="0.0000000000000000" y2="0.0000000000000000" gradientTransform="rotate(0)">
+			<stop offset="0.0000000000000000" stop-color="rgb(152,152,152)">
+			</stop>
+			<stop offset="1.0000000000000000" stop-color="rgb(255,255,255)">
+			</stop>
+		</linearGradient>
+		<linearGradient gradientUnits="objectBoundingBox" spreadMethod="reflect" id="CDGradient2rgb_255_255_255_rgb_255_255_255_" x1="1.0000000000000000" y1="0.0000000000000000" x2="0.0000000000000000" y2="0.0000000000000000" gradientTransform="rotate(0)">
+			<stop offset="0.0000000000000000" stop-color="rgb(255,255,255)">
+			</stop>
+			<stop offset="1.0000000000000000" stop-color="rgb(255,255,255)">
+			</stop>
+		</linearGradient>
+		<linearGradient gradientUnits="objectBoundingBox" spreadMethod="reflect" id="CDGradient2rgb_255_255_255_rgb_0_0_0_" x1="1.0000000000000000" y1="0.0000000000000000" x2="0.0000000000000000" y2="0.0000000000000000" gradientTransform="rotate(0)">
+			<stop offset="0.0000000000000000" stop-color="rgb(0,0,0)">
+			</stop>
+			<stop offset="1.0000000000000000" stop-color="rgb(255,255,255)">
+			</stop>
+		</linearGradient>
+		<linearGradient gradientUnits="objectBoundingBox" spreadMethod="reflect" id="CDGradient2rgb_255_255_255_rgb_152_152_152_" x1="1.0000000000000000" y1="0.0000000000000000" x2="0.0000000000000000" y2="0.0000000000000000" gradientTransform="rotate(0)">
+			<stop offset="0.0000000000000000" stop-color="rgb(152,152,152)">
+			</stop>
+			<stop offset="1.0000000000000000" stop-color="rgb(255,255,255)">
+			</stop>
+		</linearGradient>
+		<linearGradient gradientUnits="objectBoundingBox" spreadMethod="reflect" id="CDGradient2rgb_255_255_255_rgb_255_255_255_" x1="1.0000000000000000" y1="0.0000000000000000" x2="0.0000000000000000" y2="0.0000000000000000" gradientTransform="rotate(0)">
+			<stop offset="0.0000000000000000" stop-color="rgb(255,255,255)">
+			</stop>
+			<stop offset="1.0000000000000000" stop-color="rgb(255,255,255)">
+			</stop>
+		</linearGradient>
+		<linearGradient gradientUnits="objectBoundingBox" spreadMethod="reflect" id="CDGradient2rgb_255_255_255_rgb_0_0_0_" x1="1.0000000000000000" y1="0.0000000000000000" x2="0.0000000000000000" y2="0.0000000000000000" gradientTransform="rotate(0)">
+			<stop offset="0.0000000000000000" stop-color="rgb(0,0,0)">
+			</stop>
+			<stop offset="1.0000000000000000" stop-color="rgb(255,255,255)">
+			</stop>
+		</linearGradient>
+		<g id="CDArrow5">
+			<path d="M 40 20 L 0 0L 40 -20L 35 0">
+			</path>
+		</g>
+		<linearGradient gradientUnits="objectBoundingBox" spreadMethod="reflect" id="CDGradient2rgb_255_255_255_rgb_152_152_152_" x1="1.0000000000000000" y1="0.0000000000000000" x2="0.0000000000000000" y2="0.0000000000000000" gradientTransform="rotate(0)">
+			<stop offset="0.0000000000000000" stop-color="rgb(152,152,152)">
+			</stop>
+			<stop offset="1.0000000000000000" stop-color="rgb(255,255,255)">
+			</stop>
+		</linearGradient>
+		<linearGradient gradientUnits="objectBoundingBox" spreadMethod="reflect" id="CDGradient2rgb_255_255_255_rgb_255_255_255_" x1="1.0000000000000000" y1="0.0000000000000000" x2="0.0000000000000000" y2="0.0000000000000000" gradientTransform="rotate(0)">
+			<stop offset="0.0000000000000000" stop-color="rgb(255,255,255)">
+			</stop>
+			<stop offset="1.0000000000000000" stop-color="rgb(255,255,255)">
+			</stop>
+		</linearGradient>
+		<linearGradient gradientUnits="objectBoundingBox" spreadMethod="reflect" id="CDGradient2rgb_255_255_255_rgb_0_0_0_" x1="1.0000000000000000" y1="0.0000000000000000" x2="0.0000000000000000" y2="0.0000000000000000" gradientTransform="rotate(0)">
+			<stop offset="0.0000000000000000" stop-color="rgb(0,0,0)">
+			</stop>
+			<stop offset="1.0000000000000000" stop-color="rgb(255,255,255)">
+			</stop>
+		</linearGradient>
+		<linearGradient gradientUnits="objectBoundingBox" spreadMethod="reflect" id="CDGradient4rgb_208_111_0_rgb_208_111_0_" x1="1.0000000000000000" y1="0.0000000000000000" x2="0.0000000000000000" y2="0.0000000000000000" gradientTransform="rotate(89)">
+			<stop offset="0.0000000000000000" stop-color="rgb(208,111,0)">
+			</stop>
+			<stop offset="1.0000000000000000" stop-color="rgb(208,111,0)">
+			</stop>
+		</linearGradient>
+		<linearGradient gradientUnits="objectBoundingBox" spreadMethod="reflect" id="CDGradient4rgb_208_111_0_rgb_208_111_0_" x1="1.0000000000000000" y1="0.0000000000000000" x2="0.0000000000000000" y2="0.0000000000000000" gradientTransform="rotate(89)">
+			<stop offset="0.0000000000000000" stop-color="rgb(208,111,0)">
+			</stop>
+			<stop offset="1.0000000000000000" stop-color="rgb(208,111,0)">
+			</stop>
+		</linearGradient>
+		<linearGradient gradientUnits="objectBoundingBox" spreadMethod="reflect" id="CDGradient4rgb_208_111_0_rgb_208_111_0_" x1="1.0000000000000000" y1="0.0000000000000000" x2="0.0000000000000000" y2="0.0000000000000000" gradientTransform="rotate(89)">
+			<stop offset="0.0000000000000000" stop-color="rgb(208,111,0)">
+			</stop>
+			<stop offset="1.0000000000000000" stop-color="rgb(208,111,0)">
+			</stop>
+		</linearGradient>
+		<linearGradient gradientUnits="objectBoundingBox" spreadMethod="reflect" id="CDGradient2rgb_160_31_0_rgb_208_64_0_" x1="1.0000000000000000" y1="0.0000000000000000" x2="0.0000000000000000" y2="0.0000000000000000" gradientTransform="rotate(0)">
+			<stop offset="0.0000000000000000" stop-color="rgb(208,64,0)">
+			</stop>
+			<stop offset="1.0000000000000000" stop-color="rgb(160,31,0)">
+			</stop>
+		</linearGradient>
+		<linearGradient gradientUnits="objectBoundingBox" spreadMethod="reflect" id="CDGradient2rgb_160_31_0_rgb_208_64_0_" x1="1.0000000000000000" y1="0.0000000000000000" x2="0.0000000000000000" y2="0.0000000000000000" gradientTransform="rotate(0)">
+			<stop offset="0.0000000000000000" stop-color="rgb(208,64,0)">
+			</stop>
+			<stop offset="1.0000000000000000" stop-color="rgb(160,31,0)">
+			</stop>
+		</linearGradient>
+		<linearGradient gradientUnits="objectBoundingBox" spreadMethod="reflect" id="CDGradient4rgb_160_31_0_rgb_208_64_0_" x1="1.0000000000000000" y1="0.0000000000000000" x2="0.0000000000000000" y2="0.0000000000000000" gradientTransform="rotate(89)">
+			<stop offset="0.0000000000000000" stop-color="rgb(208,64,0)">
+			</stop>
+			<stop offset="1.0000000000000000" stop-color="rgb(160,31,0)">
+			</stop>
+		</linearGradient>
+		<linearGradient gradientUnits="objectBoundingBox" spreadMethod="reflect" id="CDGradient4rgb_255_64_0_rgb_255_255_0_" x1="1.0000000000000000" y1="0.0000000000000000" x2="0.0000000000000000" y2="0.0000000000000000" gradientTransform="rotate(89)">
+			<stop offset="0.0000000000000000" stop-color="rgb(255,255,0)">
+			</stop>
+			<stop offset="1.0000000000000000" stop-color="rgb(255,64,0)">
+			</stop>
+		</linearGradient>
+		<linearGradient gradientUnits="objectBoundingBox" spreadMethod="reflect" id="CDGradient4rgb_255_64_0_rgb_255_255_0_" x1="1.0000000000000000" y1="0.0000000000000000" x2="0.0000000000000000" y2="0.0000000000000000" gradientTransform="rotate(89)">
+			<stop offset="0.0000000000000000" stop-color="rgb(255,255,0)">
+			</stop>
+			<stop offset="1.0000000000000000" stop-color="rgb(255,64,0)">
+			</stop>
+		</linearGradient>
+		<linearGradient gradientUnits="objectBoundingBox" spreadMethod="reflect" id="CDGradient4rgb_255_143_0_rgb_255_255_0_" x1="1.0000000000000000" y1="0.0000000000000000" x2="0.0000000000000000" y2="0.0000000000000000" gradientTransform="rotate(89)">
+			<stop offset="0.0000000000000000" stop-color="rgb(255,255,0)">
+			</stop>
+			<stop offset="1.0000000000000000" stop-color="rgb(255,143,0)">
+			</stop>
+		</linearGradient>
+		<linearGradient gradientUnits="objectBoundingBox" spreadMethod="reflect" id="CDGradient4rgb_255_236_0_rgb_255_255_160_" x1="1.0000000000000000" y1="0.0000000000000000" x2="0.0000000000000000" y2="0.0000000000000000" gradientTransform="rotate(89)">
+			<stop offset="0.0000000000000000" stop-color="rgb(255,255,160)">
+			</stop>
+			<stop offset="1.0000000000000000" stop-color="rgb(255,236,0)">
+			</stop>
+		</linearGradient>
+		<linearGradient gradientUnits="objectBoundingBox" spreadMethod="reflect" id="CDGradient4rgb_255_236_0_rgb_255_255_160_" x1="1.0000000000000000" y1="0.0000000000000000" x2="0.0000000000000000" y2="0.0000000000000000" gradientTransform="rotate(89)">
+			<stop offset="0.0000000000000000" stop-color="rgb(255,255,160)">
+			</stop>
+			<stop offset="1.0000000000000000" stop-color="rgb(255,236,0)">
+			</stop>
+		</linearGradient>
+		<linearGradient gradientUnits="objectBoundingBox" spreadMethod="reflect" id="CDGradient4rgb_208_111_0_rgb_208_111_0_" x1="1.0000000000000000" y1="0.0000000000000000" x2="0.0000000000000000" y2="0.0000000000000000" gradientTransform="rotate(89)">
+			<stop offset="0.0000000000000000" stop-color="rgb(208,111,0)">
+			</stop>
+			<stop offset="1.0000000000000000" stop-color="rgb(208,111,0)">
+			</stop>
+		</linearGradient>
+		<linearGradient gradientUnits="objectBoundingBox" spreadMethod="reflect" id="CDGradient4rgb_208_111_0_rgb_208_111_0_" x1="1.0000000000000000" y1="0.0000000000000000" x2="0.0000000000000000" y2="0.0000000000000000" gradientTransform="rotate(89)">
+			<stop offset="0.0000000000000000" stop-color="rgb(208,111,0)">
+			</stop>
+			<stop offset="1.0000000000000000" stop-color="rgb(208,111,0)">
+			</stop>
+		</linearGradient>
+		<linearGradient gradientUnits="objectBoundingBox" spreadMethod="reflect" id="CDGradient4rgb_208_111_0_rgb_208_111_0_" x1="1.0000000000000000" y1="0.0000000000000000" x2="0.0000000000000000" y2="0.0000000000000000" gradientTransform="rotate(89)">
+			<stop offset="0.0000000000000000" stop-color="rgb(208,111,0)">
+			</stop>
+			<stop offset="1.0000000000000000" stop-color="rgb(208,111,0)">
+			</stop>
+		</linearGradient>
+		<linearGradient gradientUnits="objectBoundingBox" spreadMethod="reflect" id="CDGradient2rgb_160_31_0_rgb_208_64_0_" x1="1.0000000000000000" y1="0.0000000000000000" x2="0.0000000000000000" y2="0.0000000000000000" gradientTransform="rotate(0)">
+			<stop offset="0.0000000000000000" stop-color="rgb(208,64,0)">
+			</stop>
+			<stop offset="1.0000000000000000" stop-color="rgb(160,31,0)">
+			</stop>
+		</linearGradient>
+		<linearGradient gradientUnits="objectBoundingBox" spreadMethod="reflect" id="CDGradient2rgb_160_31_0_rgb_208_64_0_" x1="1.0000000000000000" y1="0.0000000000000000" x2="0.0000000000000000" y2="0.0000000000000000" gradientTransform="rotate(0)">
+			<stop offset="0.0000000000000000" stop-color="rgb(208,64,0)">
+			</stop>
+			<stop offset="1.0000000000000000" stop-color="rgb(160,31,0)">
+			</stop>
+		</linearGradient>
+		<linearGradient gradientUnits="objectBoundingBox" spreadMethod="reflect" id="CDGradient4rgb_160_31_0_rgb_208_64_0_" x1="1.0000000000000000" y1="0.0000000000000000" x2="0.0000000000000000" y2="0.0000000000000000" gradientTransform="rotate(89)">
+			<stop offset="0.0000000000000000" stop-color="rgb(208,64,0)">
+			</stop>
+			<stop offset="1.0000000000000000" stop-color="rgb(160,31,0)">
+			</stop>
+		</linearGradient>
+		<linearGradient gradientUnits="objectBoundingBox" spreadMethod="reflect" id="CDGradient4rgb_255_64_0_rgb_255_255_0_" x1="1.0000000000000000" y1="0.0000000000000000" x2="0.0000000000000000" y2="0.0000000000000000" gradientTransform="rotate(89)">
+			<stop offset="0.0000000000000000" stop-color="rgb(255,255,0)">
+			</stop>
+			<stop offset="1.0000000000000000" stop-color="rgb(255,64,0)">
+			</stop>
+		</linearGradient>
+		<linearGradient gradientUnits="objectBoundingBox" spreadMethod="reflect" id="CDGradient4rgb_255_64_0_rgb_255_255_0_" x1="1.0000000000000000" y1="0.0000000000000000" x2="0.0000000000000000" y2="0.0000000000000000" gradientTransform="rotate(89)">
+			<stop offset="0.0000000000000000" stop-color="rgb(255,255,0)">
+			</stop>
+			<stop offset="1.0000000000000000" stop-color="rgb(255,64,0)">
+			</stop>
+		</linearGradient>
+		<linearGradient gradientUnits="objectBoundingBox" spreadMethod="reflect" id="CDGradient4rgb_255_143_0_rgb_255_255_0_" x1="1.0000000000000000" y1="0.0000000000000000" x2="0.0000000000000000" y2="0.0000000000000000" gradientTransform="rotate(89)">
+			<stop offset="0.0000000000000000" stop-color="rgb(255,255,0)">
+			</stop>
+			<stop offset="1.0000000000000000" stop-color="rgb(255,143,0)">
+			</stop>
+		</linearGradient>
+		<linearGradient gradientUnits="objectBoundingBox" spreadMethod="reflect" id="CDGradient4rgb_255_236_0_rgb_255_255_160_" x1="1.0000000000000000" y1="0.0000000000000000" x2="0.0000000000000000" y2="0.0000000000000000" gradientTransform="rotate(89)">
+			<stop offset="0.0000000000000000" stop-color="rgb(255,255,160)">
+			</stop>
+			<stop offset="1.0000000000000000" stop-color="rgb(255,236,0)">
+			</stop>
+		</linearGradient>
+		<linearGradient gradientUnits="objectBoundingBox" spreadMethod="reflect" id="CDGradient4rgb_255_236_0_rgb_255_255_160_" x1="1.0000000000000000" y1="0.0000000000000000" x2="0.0000000000000000" y2="0.0000000000000000" gradientTransform="rotate(89)">
+			<stop offset="0.0000000000000000" stop-color="rgb(255,255,160)">
+			</stop>
+			<stop offset="1.0000000000000000" stop-color="rgb(255,236,0)">
+			</stop>
+		</linearGradient>
+		<linearGradient gradientUnits="objectBoundingBox" spreadMethod="reflect" id="CDGradient3rgb_0_126_185_rgb_0_106_176_" x1="0.0000000000000000" y1="0.0000000000000000" x2="1.0000000000000000" y2="0.0000000000000000" gradientTransform="rotate(89)">
+			<stop offset="0.0000000000000000" stop-color="rgb(0,106,176)">
+			</stop>
+			<stop offset="1.0000000000000000" stop-color="rgb(0,126,185)">
+			</stop>
+		</linearGradient>
+		<linearGradient gradientUnits="objectBoundingBox" spreadMethod="reflect" id="CDGradient3rgb_0_126_185_rgb_0_106_176_" x1="0.0000000000000000" y1="0.0000000000000000" x2="1.0000000000000000" y2="0.0000000000000000" gradientTransform="rotate(89)">
+			<stop offset="0.0000000000000000" stop-color="rgb(0,106,176)">
+			</stop>
+			<stop offset="1.0000000000000000" stop-color="rgb(0,126,185)">
+			</stop>
+		</linearGradient>
+		<linearGradient gradientUnits="objectBoundingBox" spreadMethod="reflect" id="CDGradient3rgb_0_126_185_rgb_0_106_176_" x1="0.0000000000000000" y1="0.0000000000000000" x2="1.0000000000000000" y2="0.0000000000000000" gradientTransform="rotate(89)">
+			<stop offset="0.0000000000000000" stop-color="rgb(0,106,176)">
+			</stop>
+			<stop offset="1.0000000000000000" stop-color="rgb(0,126,185)">
+			</stop>
+		</linearGradient>
+		<linearGradient gradientUnits="objectBoundingBox" spreadMethod="reflect" id="CDGradient2rgb_0_126_185_rgb_0_106_176_" x1="1.0000000000000000" y1="0.0000000000000000" x2="0.0000000000000000" y2="0.0000000000000000" gradientTransform="rotate(0)">
+			<stop offset="0.0000000000000000" stop-color="rgb(0,106,176)">
+			</stop>
+			<stop offset="1.0000000000000000" stop-color="rgb(0,126,185)">
+			</stop>
+		</linearGradient>
+		<linearGradient gradientUnits="objectBoundingBox" spreadMethod="reflect" id="CDGradient3rgb_0_126_185_rgb_0_106_176_" x1="0.0000000000000000" y1="0.0000000000000000" x2="1.0000000000000000" y2="0.0000000000000000" gradientTransform="rotate(89)">
+			<stop offset="0.0000000000000000" stop-color="rgb(0,106,176)">
+			</stop>
+			<stop offset="1.0000000000000000" stop-color="rgb(0,126,185)">
+			</stop>
+		</linearGradient>
+		<linearGradient gradientUnits="objectBoundingBox" spreadMethod="reflect" id="CDGradient2rgb_0_126_185_rgb_0_106_176_" x1="1.0000000000000000" y1="0.0000000000000000" x2="0.0000000000000000" y2="0.0000000000000000" gradientTransform="rotate(0)">
+			<stop offset="0.0000000000000000" stop-color="rgb(0,106,176)">
+			</stop>
+			<stop offset="1.0000000000000000" stop-color="rgb(0,126,185)">
+			</stop>
+		</linearGradient>
+		<linearGradient gradientUnits="objectBoundingBox" spreadMethod="reflect" id="CDGradient2rgb_166_202_240_rgb_239_239_239_" x1="1.0000000000000000" y1="0.0000000000000000" x2="0.0000000000000000" y2="0.0000000000000000" gradientTransform="rotate(0)">
+			<stop offset="0.0000000000000000" stop-color="rgb(239,239,239)">
+			</stop>
+			<stop offset="1.0000000000000000" stop-color="rgb(166,202,240)">
+			</stop>
+		</linearGradient>
+		<linearGradient gradientUnits="objectBoundingBox" spreadMethod="reflect" id="CDGradient2rgb_166_202_240_rgb_239_239_239_" x1="1.0000000000000000" y1="0.0000000000000000" x2="0.0000000000000000" y2="0.0000000000000000" gradientTransform="rotate(0)">
+			<stop offset="0.0000000000000000" stop-color="rgb(239,239,239)">
+			</stop>
+			<stop offset="1.0000000000000000" stop-color="rgb(166,202,240)">
+			</stop>
+		</linearGradient>
+		<linearGradient gradientUnits="objectBoundingBox" spreadMethod="reflect" id="CDGradient4rgb_95_95_95_rgb_47_47_47_" x1="1.0000000000000000" y1="0.0000000000000000" x2="0.0000000000000000" y2="0.0000000000000000" gradientTransform="rotate(89)">
+			<stop offset="0.0000000000000000" stop-color="rgb(47,47,47)">
+			</stop>
+			<stop offset="1.0000000000000000" stop-color="rgb(95,95,95)">
+			</stop>
+		</linearGradient>
+		<linearGradient gradientUnits="objectBoundingBox" spreadMethod="reflect" id="CDGradient4rgb_255_255_255_rgb_239_239_239_" x1="1.0000000000000000" y1="0.0000000000000000" x2="0.0000000000000000" y2="0.0000000000000000" gradientTransform="rotate(89)">
+			<stop offset="0.0000000000000000" stop-color="rgb(239,239,239)">
+			</stop>
+			<stop offset="1.0000000000000000" stop-color="rgb(255,255,255)">
+			</stop>
+		</linearGradient>
+		<linearGradient gradientUnits="objectBoundingBox" spreadMethod="reflect" id="CDGradient6rgb_166_202_240_rgb_239_239_239_" x1="0.5000000000000000" y1="0.0000000000000000" x2="0.0000000000000000" y2="0.0000000000000000" gradientTransform="rotate(89)">
+			<stop offset="0.0000000000000000" stop-color="rgb(239,239,239)">
+			</stop>
+			<stop offset="1.0000000000000000" stop-color="rgb(166,202,240)">
+			</stop>
+		</linearGradient>
+		<linearGradient gradientUnits="objectBoundingBox" spreadMethod="reflect" id="CDGradient3rgb_0_126_185_rgb_0_106_176_" x1="0.0000000000000000" y1="0.0000000000000000" x2="1.0000000000000000" y2="0.0000000000000000" gradientTransform="rotate(89)">
+			<stop offset="0.0000000000000000" stop-color="rgb(0,106,176)">
+			</stop>
+			<stop offset="1.0000000000000000" stop-color="rgb(0,126,185)">
+			</stop>
+		</linearGradient>
+		<linearGradient gradientUnits="objectBoundingBox" spreadMethod="reflect" id="CDGradient3rgb_0_126_185_rgb_0_106_176_" x1="0.0000000000000000" y1="0.0000000000000000" x2="1.0000000000000000" y2="0.0000000000000000" gradientTransform="rotate(89)">
+			<stop offset="0.0000000000000000" stop-color="rgb(0,106,176)">
+			</stop>
+			<stop offset="1.0000000000000000" stop-color="rgb(0,126,185)">
+			</stop>
+		</linearGradient>
+		<linearGradient gradientUnits="objectBoundingBox" spreadMethod="reflect" id="CDGradient3rgb_0_126_185_rgb_0_106_176_" x1="0.0000000000000000" y1="0.0000000000000000" x2="1.0000000000000000" y2="0.0000000000000000" gradientTransform="rotate(89)">
+			<stop offset="0.0000000000000000" stop-color="rgb(0,106,176)">
+			</stop>
+			<stop offset="1.0000000000000000" stop-color="rgb(0,126,185)">
+			</stop>
+		</linearGradient>
+		<linearGradient gradientUnits="objectBoundingBox" spreadMethod="reflect" id="CDGradient2rgb_0_126_185_rgb_0_106_176_" x1="1.0000000000000000" y1="0.0000000000000000" x2="0.0000000000000000" y2="0.0000000000000000" gradientTransform="rotate(0)">
+			<stop offset="0.0000000000000000" stop-color="rgb(0,106,176)">
+			</stop>
+			<stop offset="1.0000000000000000" stop-color="rgb(0,126,185)">
+			</stop>
+		</linearGradient>
+		<linearGradient gradientUnits="objectBoundingBox" spreadMethod="reflect" id="CDGradient3rgb_0_126_185_rgb_0_106_176_" x1="0.0000000000000000" y1="0.0000000000000000" x2="1.0000000000000000" y2="0.0000000000000000" gradientTransform="rotate(89)">
+			<stop offset="0.0000000000000000" stop-color="rgb(0,106,176)">
+			</stop>
+			<stop offset="1.0000000000000000" stop-color="rgb(0,126,185)">
+			</stop>
+		</linearGradient>
+		<linearGradient gradientUnits="objectBoundingBox" spreadMethod="reflect" id="CDGradient2rgb_0_126_185_rgb_0_106_176_" x1="1.0000000000000000" y1="0.0000000000000000" x2="0.0000000000000000" y2="0.0000000000000000" gradientTransform="rotate(0)">
+			<stop offset="0.0000000000000000" stop-color="rgb(0,106,176)">
+			</stop>
+			<stop offset="1.0000000000000000" stop-color="rgb(0,126,185)">
+			</stop>
+		</linearGradient>
+		<linearGradient gradientUnits="objectBoundingBox" spreadMethod="reflect" id="CDGradient2rgb_166_202_240_rgb_239_239_239_" x1="1.0000000000000000" y1="0.0000000000000000" x2="0.0000000000000000" y2="0.0000000000000000" gradientTransform="rotate(0)">
+			<stop offset="0.0000000000000000" stop-color="rgb(239,239,239)">
+			</stop>
+			<stop offset="1.0000000000000000" stop-color="rgb(166,202,240)">
+			</stop>
+		</linearGradient>
+		<linearGradient gradientUnits="objectBoundingBox" spreadMethod="reflect" id="CDGradient2rgb_166_202_240_rgb_239_239_239_" x1="1.0000000000000000" y1="0.0000000000000000" x2="0.0000000000000000" y2="0.0000000000000000" gradientTransform="rotate(0)">
+			<stop offset="0.0000000000000000" stop-color="rgb(239,239,239)">
+			</stop>
+			<stop offset="1.0000000000000000" stop-color="rgb(166,202,240)">
+			</stop>
+		</linearGradient>
+		<linearGradient gradientUnits="objectBoundingBox" spreadMethod="reflect" id="CDGradient4rgb_95_95_95_rgb_47_47_47_" x1="1.0000000000000000" y1="0.0000000000000000" x2="0.0000000000000000" y2="0.0000000000000000" gradientTransform="rotate(89)">
+			<stop offset="0.0000000000000000" stop-color="rgb(47,47,47)">
+			</stop>
+			<stop offset="1.0000000000000000" stop-color="rgb(95,95,95)">
+			</stop>
+		</linearGradient>
+		<linearGradient gradientUnits="objectBoundingBox" spreadMethod="reflect" id="CDGradient4rgb_255_255_255_rgb_239_239_239_" x1="1.0000000000000000" y1="0.0000000000000000" x2="0.0000000000000000" y2="0.0000000000000000" gradientTransform="rotate(89)">
+			<stop offset="0.0000000000000000" stop-color="rgb(239,239,239)">
+			</stop>
+			<stop offset="1.0000000000000000" stop-color="rgb(255,255,255)">
+			</stop>
+		</linearGradient>
+		<linearGradient gradientUnits="objectBoundingBox" spreadMethod="reflect" id="CDGradient6rgb_166_202_240_rgb_239_239_239_" x1="0.5000000000000000" y1="0.0000000000000000" x2="0.0000000000000000" y2="0.0000000000000000" gradientTransform="rotate(89)">
+			<stop offset="0.0000000000000000" stop-color="rgb(239,239,239)">
+			</stop>
+			<stop offset="1.0000000000000000" stop-color="rgb(166,202,240)">
+			</stop>
+		</linearGradient>
+		<linearGradient gradientUnits="objectBoundingBox" spreadMethod="reflect" id="CDGradient3rgb_0_126_185_rgb_0_106_176_" x1="0.0000000000000000" y1="0.0000000000000000" x2="1.0000000000000000" y2="0.0000000000000000" gradientTransform="rotate(89)">
+			<stop offset="0.0000000000000000" stop-color="rgb(0,106,176)">
+			</stop>
+			<stop offset="1.0000000000000000" stop-color="rgb(0,126,185)">
+			</stop>
+		</linearGradient>
+		<linearGradient gradientUnits="objectBoundingBox" spreadMethod="reflect" id="CDGradient3rgb_0_126_185_rgb_0_106_176_" x1="0.0000000000000000" y1="0.0000000000000000" x2="1.0000000000000000" y2="0.0000000000000000" gradientTransform="rotate(89)">
+			<stop offset="0.0000000000000000" stop-color="rgb(0,106,176)">
+			</stop>
+			<stop offset="1.0000000000000000" stop-color="rgb(0,126,185)">
+			</stop>
+		</linearGradient>
+		<linearGradient gradientUnits="objectBoundingBox" spreadMethod="reflect" id="CDGradient3rgb_0_126_185_rgb_0_106_176_" x1="0.0000000000000000" y1="0.0000000000000000" x2="1.0000000000000000" y2="0.0000000000000000" gradientTransform="rotate(89)">
+			<stop offset="0.0000000000000000" stop-color="rgb(0,106,176)">
+			</stop>
+			<stop offset="1.0000000000000000" stop-color="rgb(0,126,185)">
+			</stop>
+		</linearGradient>
+		<linearGradient gradientUnits="objectBoundingBox" spreadMethod="reflect" id="CDGradient2rgb_0_126_185_rgb_0_106_176_" x1="1.0000000000000000" y1="0.0000000000000000" x2="0.0000000000000000" y2="0.0000000000000000" gradientTransform="rotate(0)">
+			<stop offset="0.0000000000000000" stop-color="rgb(0,106,176)">
+			</stop>
+			<stop offset="1.0000000000000000" stop-color="rgb(0,126,185)">
+			</stop>
+		</linearGradient>
+		<linearGradient gradientUnits="objectBoundingBox" spreadMethod="reflect" id="CDGradient3rgb_0_126_185_rgb_0_106_176_" x1="0.0000000000000000" y1="0.0000000000000000" x2="1.0000000000000000" y2="0.0000000000000000" gradientTransform="rotate(89)">
+			<stop offset="0.0000000000000000" stop-color="rgb(0,106,176)">
+			</stop>
+			<stop offset="1.0000000000000000" stop-color="rgb(0,126,185)">
+			</stop>
+		</linearGradient>
+		<linearGradient gradientUnits="objectBoundingBox" spreadMethod="reflect" id="CDGradient2rgb_0_126_185_rgb_0_106_176_" x1="1.0000000000000000" y1="0.0000000000000000" x2="0.0000000000000000" y2="0.0000000000000000" gradientTransform="rotate(0)">
+			<stop offset="0.0000000000000000" stop-color="rgb(0,106,176)">
+			</stop>
+			<stop offset="1.0000000000000000" stop-color="rgb(0,126,185)">
+			</stop>
+		</linearGradient>
+		<linearGradient gradientUnits="objectBoundingBox" spreadMethod="reflect" id="CDGradient2rgb_166_202_240_rgb_239_239_239_" x1="1.0000000000000000" y1="0.0000000000000000" x2="0.0000000000000000" y2="0.0000000000000000" gradientTransform="rotate(0)">
+			<stop offset="0.0000000000000000" stop-color="rgb(239,239,239)">
+			</stop>
+			<stop offset="1.0000000000000000" stop-color="rgb(166,202,240)">
+			</stop>
+		</linearGradient>
+		<linearGradient gradientUnits="objectBoundingBox" spreadMethod="reflect" id="CDGradient2rgb_166_202_240_rgb_239_239_239_" x1="1.0000000000000000" y1="0.0000000000000000" x2="0.0000000000000000" y2="0.0000000000000000" gradientTransform="rotate(0)">
+			<stop offset="0.0000000000000000" stop-color="rgb(239,239,239)">
+			</stop>
+			<stop offset="1.0000000000000000" stop-color="rgb(166,202,240)">
+			</stop>
+		</linearGradient>
+		<linearGradient gradientUnits="objectBoundingBox" spreadMethod="reflect" id="CDGradient4rgb_95_95_95_rgb_47_47_47_" x1="1.0000000000000000" y1="0.0000000000000000" x2="0.0000000000000000" y2="0.0000000000000000" gradientTransform="rotate(89)">
+			<stop offset="0.0000000000000000" stop-color="rgb(47,47,47)">
+			</stop>
+			<stop offset="1.0000000000000000" stop-color="rgb(95,95,95)">
+			</stop>
+		</linearGradient>
+		<linearGradient gradientUnits="objectBoundingBox" spreadMethod="reflect" id="CDGradient4rgb_255_255_255_rgb_239_239_239_" x1="1.0000000000000000" y1="0.0000000000000000" x2="0.0000000000000000" y2="0.0000000000000000" gradientTransform="rotate(89)">
+			<stop offset="0.0000000000000000" stop-color="rgb(239,239,239)">
+			</stop>
+			<stop offset="1.0000000000000000" stop-color="rgb(255,255,255)">
+			</stop>
+		</linearGradient>
+		<linearGradient gradientUnits="objectBoundingBox" spreadMethod="reflect" id="CDGradient6rgb_166_202_240_rgb_239_239_239_" x1="0.5000000000000000" y1="0.0000000000000000" x2="0.0000000000000000" y2="0.0000000000000000" gradientTransform="rotate(89)">
+			<stop offset="0.0000000000000000" stop-color="rgb(239,239,239)">
+			</stop>
+			<stop offset="1.0000000000000000" stop-color="rgb(166,202,240)">
+			</stop>
+		</linearGradient>
+		<marker id="CDArrow5_rgb_85_167_217__size_3_end" markerUnits="userSpaceOnUse" markerHeight="60" markerWidth="60" refX="16" refY="0" orient="auto" viewBox="-18 -38 77 77">
+			<use xlink:href="#CDArrow5" fill="rgb(85,167,217)" stroke="rgb(85,167,217)" stroke-width="18.6666666666666679" x="0" y="0" transform="translate(35,0) rotate(180)">
+			</use>
+		</marker>
+	</defs>
+	<svg x="0" y="0" width="2422" height="1606">
+		<g transform="translate(20.00,20.00)">
+		</g>
+	</svg>
+	<svg x="0" y="0" width="2422" height="1606">
+		<g transform="translate(-6.75,-5.19) scale(1,1) rotate(0.00,1213.87,806.15) " fill="rgb(33,32,36)" fill-opacity="1.0000000000000000" stroke="none" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+			<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 0.00 0.00 L 0.00 1612.31 L 2427.75 1612.31 L 2427.75 0.00 L 0.00 0.00  Z">
+			</path>
+		</g>
+	</svg>
+	<svg x="0" y="0" width="2422" height="1606">
+		<g transform="translate(20.00,20.00)">
+			<g transform="translate(2024.91,1199.16) scale(1,1) rotate(0.00,53.65,89.48) " fill="none" fill-opacity="1.0000000000000000" stroke="none" stroke-width="1" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+			</g>
+			<g transform="translate(2063.86,1222.52) scale(1,1) rotate(0.00,53.65,89.48) " fill="none" fill-opacity="1.0000000000000000" stroke="none" stroke-width="1" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+			</g>
+			<g transform="translate(2102.76,1246.14) scale(1,1) rotate(0.00,53.65,89.48) " fill="none" fill-opacity="1.0000000000000000" stroke="none" stroke-width="1" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+			</g>
+			<g transform="translate(1221.99,1245.35) scale(1,1) rotate(0.00,53.65,89.48) " fill="none" fill-opacity="1.0000000000000000" stroke="none" stroke-width="1" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+			</g>
+			<g transform="translate(1259.79,1267.27) scale(1,1) rotate(0.00,53.65,89.48) " fill="none" fill-opacity="1.0000000000000000" stroke="none" stroke-width="1" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+			</g>
+			<g transform="translate(296.08,342.07) scale(1,1) rotate(0.00,73.81,115.14) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(0,0,0)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+				<g transform="translate(16.91,79.49) scale(1,1) rotate(0.00,55.26,75.39) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(0,0,0)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+				</g>
+				<g transform="translate(0.00,0.00) scale(1,1) rotate(0.00,73.81,82.91) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(0,0,0)" stroke-width="2" stroke-linecap="round" stroke-opacity="0.4000000000000000">
+				</g>
+			</g>
+			<g transform="translate(399.16,726.30) scale(1,1) rotate(0.00,73.81,115.14) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(0,0,0)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+				<g transform="translate(16.91,79.49) scale(1,1) rotate(0.00,55.26,75.39) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(0,0,0)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+				</g>
+				<g transform="translate(0.00,0.00) scale(1,1) rotate(0.00,73.81,82.91) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(0,0,0)" stroke-width="2" stroke-linecap="round" stroke-opacity="0.4000000000000000">
+				</g>
+			</g>
+			<g transform="translate(892.04,181.68) scale(1,1) rotate(0.00,62.47,62.57) " fill="none" fill-opacity="1.0000000000000000" stroke="none" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+				<g transform="translate(33.12,34.08) scale(1,1) rotate(0.00,44.14,33.03) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(0,0,0)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+				</g>
+			</g>
+			<g transform="translate(891.94,390.49) scale(1,1) rotate(0.00,62.47,62.57) " fill="none" fill-opacity="1.0000000000000000" stroke="none" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+				<g transform="translate(33.12,34.08) scale(1,1) rotate(0.00,44.14,33.03) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(0,0,0)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+				</g>
+			</g>
+			<g transform="translate(893.70,598.27) scale(1,1) rotate(0.00,62.47,62.57) " fill="none" fill-opacity="1.0000000000000000" stroke="none" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+				<g transform="translate(33.12,34.08) scale(1,1) rotate(0.00,44.14,33.03) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(0,0,0)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+				</g>
+			</g>
+		</g>
+	</svg>
+	<svg x="0" y="0" width="2422" height="1606">
+		<g transform="translate(583.41,1148.46) scale(1,1) rotate(27.58,332.89,1.55) " fill="rgb(200,199,204)" fill-opacity="1.0000000000000000" stroke="rgb(86,87,96)" stroke-width="1" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+			<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 0.00 0.00 L 0.00 3.10 L 665.77 3.10 L 665.77 0.00 L 0.00 0.00  Z">
+			</path>
+		</g>
+		<g transform="translate(1345.56,1168.67) scale(1,1) rotate(-25.10,310.61,1.55) " fill="rgb(200,199,204)" fill-opacity="1.0000000000000000" stroke="rgb(86,87,96)" stroke-width="1" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+			<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 0.00 0.00 L 0.00 3.10 L 621.23 3.10 L 621.23 0.00 L 0.00 0.00  Z">
+			</path>
+		</g>
+		<g transform="translate(350.10,42.22) scale(1,1) rotate(0.00,972.45,565.27) " fill="rgb(61,61,62)" fill-opacity="1.0000000000000000" stroke="rgb(89,89,89)" stroke-width="2" stroke-linecap="round" stroke-opacity="0.5000000000000000">
+			<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 0.00 565.27 A 972.45 565.27 0.00 1 1 1944.90 565.27 A 972.45 565.27 0.00 1 1 0.00 565.27  Z">
+			</path>
+		</g>
+		<g transform="translate(1980.35,1437.59) scale(1,1) rotate(0.00,157.33,41.41) " fill="none" fill-opacity="1.0000000000000000" stroke="none" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+			<g transform="translate(0.00,0.00) scale(1,1) rotate(0.00,157.33,41.41) ">
+				<rect x="42" y="0" width="230" height="84" fill="rgb(255,255,255)" stroke="none" opacity="0.0000000000000000">
+				</rect>
+				<text stroke-width="0">
+					<tspan font-size="35" font-family="Verdana" font-weight="100" stroke="rgb(255,255,255)" fill="rgb(255,255,255)" opacity="1.0000000000000000" x="41.72 76.60 97.62 119.60 141.33 151.01 172.03 187.08 203.10 217.95 232.80 256.92 " y="29.31 29.31 29.31 29.31 29.31 29.31 29.31 29.31 29.31 29.31 29.31 29.31 ">
+						WebTier(IIS)</tspan>
+					<tspan font-size="35" font-family="Verdana" font-weight="100" stroke="rgb(183,183,183)" fill="rgb(183,183,183)" opacity="1.0000000000000000" x="78.56 113.45 123.13 145.45 167.43 188.84 217.71 " y="71.65 71.65 71.65 71.65 71.65 71.65 71.65 ">
+						Windows</tspan>
+				</text>
+			</g>
+		</g>
+		<g transform="translate(1027.81,1436.66) scale(1,1) rotate(0.00,248.34,41.41) " fill="none" fill-opacity="1.0000000000000000" stroke="none" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+			<g transform="translate(0.00,0.00) scale(1,1) rotate(0.00,248.34,41.41) ">
+				<rect x="30" y="0" width="436" height="84" fill="rgb(255,255,255)" stroke="none" opacity="0.0000000000000000">
+				</rect>
+				<text stroke-width="0">
+					<tspan font-size="35" font-family="Verdana" font-weight="100" stroke="rgb(255,255,255)" fill="rgb(255,255,255)" opacity="1.0000000000000000" x="29.45 49.09 70.50 91.69 113.67 137.85 159.04 168.72 189.91 212.23 230.61 251.63 266.68 285.06 301.08 327.59 351.71 372.98 388.04 409.45 430.33 451.20 " y="29.31 29.31 29.31 29.31 29.31 29.31 29.31 29.31 29.31 29.31 29.31 29.31 29.31 29.31 29.31 29.31 29.31 29.31 29.31 29.31 29.31 29.31 ">
+						LoadBalancers(HAProxy)</tspan>
+					<tspan font-size="35" font-family="Verdana" font-weight="100" stroke="rgb(183,183,183)" fill="rgb(183,183,183)" opacity="1.0000000000000000" x="181.46 206.09 227.11 249.43 263.33 291.10 " y="71.65 71.65 71.65 71.65 71.65 71.65 ">
+						CentOS</tspan>
+				</text>
+			</g>
+		</g>
+		<g transform="translate(1329.30,1335.22) scale(1,1) rotate(0.05,413.56,0.00) ">
+			<path stroke="rgb(219,208,198)" stroke-width="29" stroke-linecap="round" stroke-opacity="0.3000000000000000" d="M 0.00 -0.00 L 773.47 -0.00 " fill="none">
+			</path>
+		</g>
+		<g transform="translate(2024.91,1199.16) scale(1,1) rotate(0.00,53.65,89.48) " fill="url(#CDGradient1rgb_28_70_112_rgb_91_153_214_)" fill-opacity="1.0000000000000000" stroke="none" stroke-width="1" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+			<g transform="translate(0.00,0.00) scale(1,1) rotate(0.00,53.65,89.48) " fill="url(#CDGradient1rgb_28_70_112_rgb_91_153_214_)" fill-opacity="1.0000000000000000" stroke="none" stroke-width="1" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+				<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 0.00 156.55 L 36.70 178.96 L 107.31 139.50 L 107.31 22.23 L 70.52 0.00 L 0.00 39.88 L 0.00 156.55  Z">
+				</path>
+			</g>
+			<g transform="translate(5.24,1.57) scale(1,1) rotate(0.00,49.86,28.91) " fill="url(#CDGradient2rgb_255_255_255_rgb_152_152_152_)" fill-opacity="0.3000000000000000" stroke="none" stroke-width="1" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+				<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 32.49 57.81 L 99.73 20.96 L 65.15 0.00 L 0.00 36.85 L 32.49 57.81  Z">
+				</path>
+			</g>
+			<g transform="translate(5.24,1.57) scale(1,1) rotate(0.00,49.86,28.91) " fill="none" fill-opacity="1.0000000000000000" stroke="none" stroke-width="1" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+				<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 32.49 57.81 L 99.73 20.96 L 65.15 0.00 L 0.00 36.85 L 32.49 57.81  Z">
+				</path>
+			</g>
+			<g transform="translate(19.16,50.84) scale(1,1) rotate(0.00,8.43,62.85) " fill="url(#CDGradient2rgb_255_255_255_rgb_255_255_255_)" fill-opacity="0.0000000000000000" stroke="none" stroke-width="2" stroke-linecap="round" stroke-opacity="0.4000000000000000">
+				<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 0.00 0.00 L 16.86 10.22 L 16.86 125.70 L 6.64 119.31 L 0.00 0.00  Z">
+				</path>
+			</g>
+			<g transform="translate(19.16,50.84) scale(1,1) rotate(0.00,8.43,62.85) " fill="none" fill-opacity="1.0000000000000000" stroke="none" stroke-width="2" stroke-linecap="round" stroke-opacity="0.4000000000000000">
+				<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 0.00 0.00 L 16.86 10.22 L 16.86 125.70 L 6.64 119.31 L 0.00 0.00  Z">
+				</path>
+			</g>
+			<g transform="translate(0.01,146.78) scale(1,1) rotate(0.00,18.58,13.01) " fill="url(#CDGradient2rgb_255_255_255_rgb_0_0_0_)" fill-opacity="0.6000000000000000" stroke="none" stroke-width="2" stroke-linecap="round" stroke-opacity="0.4000000000000000">
+				<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 0.03 0.00 L 37.17 22.11 L 37.17 26.01 L 0.00 3.45 L 0.03 0.00  ZM 11.74 1.41 L 11.56 4.62 L 23.75 11.88 L 23.77 8.53 L 11.74 1.41  Z">
+				</path>
+			</g>
+			<g transform="translate(0.01,146.78) scale(1,1) rotate(0.00,18.58,13.01) " fill="none" fill-opacity="1.0000000000000000" stroke="none" stroke-width="2" stroke-linecap="round" stroke-opacity="0.4000000000000000">
+				<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 0.03 0.00 L 37.17 22.11 L 37.17 26.01 L 0.00 3.45 L 0.03 0.00  ZM 11.74 1.41 L 11.56 4.62 L 23.75 11.88 L 23.77 8.53 L 11.74 1.41  Z">
+				</path>
+			</g>
+		</g>
+		<g transform="translate(2063.86,1222.52) scale(1,1) rotate(0.00,53.65,89.48) " fill="url(#CDGradient1rgb_28_70_112_rgb_91_153_214_)" fill-opacity="1.0000000000000000" stroke="none" stroke-width="1" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+			<g transform="translate(0.00,0.00) scale(1,1) rotate(0.00,53.65,89.48) " fill="url(#CDGradient1rgb_28_70_112_rgb_91_153_214_)" fill-opacity="1.0000000000000000" stroke="none" stroke-width="1" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+				<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 0.00 156.55 L 36.70 178.96 L 107.31 139.50 L 107.31 22.23 L 70.52 0.00 L 0.00 39.88 L 0.00 156.55  Z">
+				</path>
+			</g>
+			<g transform="translate(5.24,1.57) scale(1,1) rotate(0.00,49.86,28.91) " fill="url(#CDGradient2rgb_255_255_255_rgb_152_152_152_)" fill-opacity="0.3000000000000000" stroke="none" stroke-width="1" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+				<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 32.49 57.81 L 99.73 20.96 L 65.15 0.00 L 0.00 36.85 L 32.49 57.81  Z">
+				</path>
+			</g>
+			<g transform="translate(5.24,1.57) scale(1,1) rotate(0.00,49.86,28.91) " fill="none" fill-opacity="1.0000000000000000" stroke="none" stroke-width="1" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+				<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 32.49 57.81 L 99.73 20.96 L 65.15 0.00 L 0.00 36.85 L 32.49 57.81  Z">
+				</path>
+			</g>
+			<g transform="translate(19.16,50.84) scale(1,1) rotate(0.00,8.43,62.85) " fill="url(#CDGradient2rgb_255_255_255_rgb_255_255_255_)" fill-opacity="0.0000000000000000" stroke="none" stroke-width="2" stroke-linecap="round" stroke-opacity="0.4000000000000000">
+				<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 0.00 0.00 L 16.86 10.22 L 16.86 125.70 L 6.64 119.31 L 0.00 0.00  Z">
+				</path>
+			</g>
+			<g transform="translate(19.16,50.84) scale(1,1) rotate(0.00,8.43,62.85) " fill="none" fill-opacity="1.0000000000000000" stroke="none" stroke-width="2" stroke-linecap="round" stroke-opacity="0.4000000000000000">
+				<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 0.00 0.00 L 16.86 10.22 L 16.86 125.70 L 6.64 119.31 L 0.00 0.00  Z">
+				</path>
+			</g>
+			<g transform="translate(0.01,146.78) scale(1,1) rotate(0.00,18.58,13.01) " fill="url(#CDGradient2rgb_255_255_255_rgb_0_0_0_)" fill-opacity="0.6000000000000000" stroke="none" stroke-width="2" stroke-linecap="round" stroke-opacity="0.4000000000000000">
+				<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 0.03 0.00 L 37.17 22.11 L 37.17 26.01 L 0.00 3.45 L 0.03 0.00  ZM 11.74 1.41 L 11.56 4.62 L 23.75 11.88 L 23.77 8.53 L 11.74 1.41  Z">
+				</path>
+			</g>
+			<g transform="translate(0.01,146.78) scale(1,1) rotate(0.00,18.58,13.01) " fill="none" fill-opacity="1.0000000000000000" stroke="none" stroke-width="2" stroke-linecap="round" stroke-opacity="0.4000000000000000">
+				<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 0.03 0.00 L 37.17 22.11 L 37.17 26.01 L 0.00 3.45 L 0.03 0.00  ZM 11.74 1.41 L 11.56 4.62 L 23.75 11.88 L 23.77 8.53 L 11.74 1.41  Z">
+				</path>
+			</g>
+		</g>
+		<g transform="translate(2102.76,1246.14) scale(1,1) rotate(0.00,53.65,89.48) " fill="url(#CDGradient1rgb_28_70_112_rgb_91_153_214_)" fill-opacity="1.0000000000000000" stroke="none" stroke-width="1" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+			<g transform="translate(0.00,0.00) scale(1,1) rotate(0.00,53.65,89.48) " fill="url(#CDGradient1rgb_28_70_112_rgb_91_153_214_)" fill-opacity="1.0000000000000000" stroke="none" stroke-width="1" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+				<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 0.00 156.55 L 36.70 178.96 L 107.31 139.50 L 107.31 22.23 L 70.52 0.00 L 0.00 39.88 L 0.00 156.55  Z">
+				</path>
+			</g>
+			<g transform="translate(5.24,1.57) scale(1,1) rotate(0.00,49.86,28.91) " fill="url(#CDGradient2rgb_255_255_255_rgb_152_152_152_)" fill-opacity="0.3000000000000000" stroke="none" stroke-width="1" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+				<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 32.49 57.81 L 99.73 20.96 L 65.15 0.00 L 0.00 36.85 L 32.49 57.81  Z">
+				</path>
+			</g>
+			<g transform="translate(5.24,1.57) scale(1,1) rotate(0.00,49.86,28.91) " fill="none" fill-opacity="1.0000000000000000" stroke="none" stroke-width="1" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+				<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 32.49 57.81 L 99.73 20.96 L 65.15 0.00 L 0.00 36.85 L 32.49 57.81  Z">
+				</path>
+			</g>
+			<g transform="translate(19.16,50.84) scale(1,1) rotate(0.00,8.43,62.85) " fill="url(#CDGradient2rgb_255_255_255_rgb_255_255_255_)" fill-opacity="0.0000000000000000" stroke="none" stroke-width="2" stroke-linecap="round" stroke-opacity="0.4000000000000000">
+				<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 0.00 0.00 L 16.86 10.22 L 16.86 125.70 L 6.64 119.31 L 0.00 0.00  Z">
+				</path>
+			</g>
+			<g transform="translate(19.16,50.84) scale(1,1) rotate(0.00,8.43,62.85) " fill="none" fill-opacity="1.0000000000000000" stroke="none" stroke-width="2" stroke-linecap="round" stroke-opacity="0.4000000000000000">
+				<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 0.00 0.00 L 16.86 10.22 L 16.86 125.70 L 6.64 119.31 L 0.00 0.00  Z">
+				</path>
+			</g>
+			<g transform="translate(0.01,146.78) scale(1,1) rotate(0.00,18.58,13.01) " fill="url(#CDGradient2rgb_255_255_255_rgb_0_0_0_)" fill-opacity="0.6000000000000000" stroke="none" stroke-width="2" stroke-linecap="round" stroke-opacity="0.4000000000000000">
+				<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 0.03 0.00 L 37.17 22.11 L 37.17 26.01 L 0.00 3.45 L 0.03 0.00  ZM 11.74 1.41 L 11.56 4.62 L 23.75 11.88 L 23.77 8.53 L 11.74 1.41  Z">
+				</path>
+			</g>
+			<g transform="translate(0.01,146.78) scale(1,1) rotate(0.00,18.58,13.01) " fill="none" fill-opacity="1.0000000000000000" stroke="none" stroke-width="2" stroke-linecap="round" stroke-opacity="0.4000000000000000">
+				<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 0.03 0.00 L 37.17 22.11 L 37.17 26.01 L 0.00 3.45 L 0.03 0.00  ZM 11.74 1.41 L 11.56 4.62 L 23.75 11.88 L 23.77 8.53 L 11.74 1.41  Z">
+				</path>
+			</g>
+		</g>
+		<g transform="translate(1221.99,1245.35) scale(1,1) rotate(0.00,53.65,89.48) " fill="rgb(77,22,89)" fill-opacity="1.0000000000000000" stroke="none" stroke-width="1" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+			<g transform="translate(0.00,0.00) scale(1,1) rotate(0.00,53.65,89.48) " fill="rgb(77,22,89)" fill-opacity="1.0000000000000000" stroke="none" stroke-width="1" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+				<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 0.00 156.55 L 36.70 178.96 L 107.31 139.50 L 107.31 22.23 L 70.52 0.00 L 0.00 39.88 L 0.00 156.55  Z">
+				</path>
+			</g>
+			<g transform="translate(5.24,1.57) scale(1,1) rotate(0.00,49.86,28.91) " fill="url(#CDGradient2rgb_255_255_255_rgb_152_152_152_)" fill-opacity="0.3000000000000000" stroke="none" stroke-width="1" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+				<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 32.49 57.81 L 99.73 20.96 L 65.15 0.00 L 0.00 36.85 L 32.49 57.81  Z">
+				</path>
+			</g>
+			<g transform="translate(5.24,1.57) scale(1,1) rotate(0.00,49.86,28.91) " fill="none" fill-opacity="1.0000000000000000" stroke="none" stroke-width="1" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+				<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 32.49 57.81 L 99.73 20.96 L 65.15 0.00 L 0.00 36.85 L 32.49 57.81  Z">
+				</path>
+			</g>
+			<g transform="translate(19.16,50.84) scale(1,1) rotate(0.00,8.43,62.85) " fill="url(#CDGradient2rgb_255_255_255_rgb_255_255_255_)" fill-opacity="0.0000000000000000" stroke="none" stroke-width="2" stroke-linecap="round" stroke-opacity="0.4000000000000000">
+				<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 0.00 0.00 L 16.86 10.22 L 16.86 125.70 L 6.64 119.31 L 0.00 0.00  Z">
+				</path>
+			</g>
+			<g transform="translate(19.16,50.84) scale(1,1) rotate(0.00,8.43,62.85) " fill="none" fill-opacity="1.0000000000000000" stroke="none" stroke-width="2" stroke-linecap="round" stroke-opacity="0.4000000000000000">
+				<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 0.00 0.00 L 16.86 10.22 L 16.86 125.70 L 6.64 119.31 L 0.00 0.00  Z">
+				</path>
+			</g>
+			<g transform="translate(0.01,146.78) scale(1,1) rotate(0.00,18.58,13.01) " fill="url(#CDGradient2rgb_255_255_255_rgb_0_0_0_)" fill-opacity="0.6000000000000000" stroke="none" stroke-width="2" stroke-linecap="round" stroke-opacity="0.4000000000000000">
+				<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 0.03 0.00 L 37.17 22.11 L 37.17 26.01 L 0.00 3.45 L 0.03 0.00  ZM 11.74 1.41 L 11.56 4.62 L 23.75 11.88 L 23.77 8.53 L 11.74 1.41  Z">
+				</path>
+			</g>
+			<g transform="translate(0.01,146.78) scale(1,1) rotate(0.00,18.58,13.01) " fill="none" fill-opacity="1.0000000000000000" stroke="none" stroke-width="2" stroke-linecap="round" stroke-opacity="0.4000000000000000">
+				<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 0.03 0.00 L 37.17 22.11 L 37.17 26.01 L 0.00 3.45 L 0.03 0.00  ZM 11.74 1.41 L 11.56 4.62 L 23.75 11.88 L 23.77 8.53 L 11.74 1.41  Z">
+				</path>
+			</g>
+		</g>
+		<g transform="translate(1630.74,336.14) scale(1,1) rotate(0.00,175.96,44.16) " fill="none" fill-opacity="1.0000000000000000" stroke="none" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+			<g transform="translate(0.00,0.00) scale(1,1) rotate(0.00,175.96,44.16) ">
+				<rect x="24" y="2" width="302" height="84" fill="rgb(255,255,255)" stroke="none" opacity="0.0000000000000000">
+				</rect>
+				<text stroke-width="0">
+					<tspan font-size="35" font-family="Verdana" font-weight="100" stroke="rgb(255,255,255)" fill="rgb(255,255,255)" opacity="1.0000000000000000" x="116.11 140.23 161.64 180.02 200.90 221.91 " y="32.07 32.07 32.07 32.07 32.07 32.07 ">
+						Socket</tspan>
+					<tspan font-size="35" font-family="Verdana" font-weight="100" stroke="rgb(183,183,183)" fill="rgb(183,183,183)" opacity="1.0000000000000000" x="24.05 40.07 64.19 86.17 104.55 118.45 133.50 154.69 173.07 186.97 213.36 234.55 268.86 289.88 311.86 " y="74.40 74.40 74.40 74.40 74.40 74.40 74.40 74.40 74.40 74.40 74.40 74.40 74.40 74.40 74.40 ">
+						(AbstractNamed)</tspan>
+				</text>
+			</g>
+		</g>
+		<g transform="translate(93.47,1329.48) scale(1,1) rotate(0.51,156.17,0.00) ">
+			<path stroke="rgb(85,167,217)" stroke-width="29" stroke-linecap="round" stroke-opacity="1.0000000000000000" marker-end="url(#CDArrow5_rgb_85_167_217__size_3_end)" d="M 0.00 0.00 L 300.66 0.00 " fill="none">
+			</path>
+		</g>
+		<g transform="translate(681.00,1334.83) scale(1,1) rotate(-0.00,270.49,0.00) ">
+			<path stroke="rgb(85,167,217)" stroke-width="29" stroke-linecap="round" stroke-opacity="1.0000000000000000" marker-end="url(#CDArrow5_rgb_85_167_217__size_3_end)" d="M 0.00 -0.00 L 512.99 -0.00 " fill="none">
+			</path>
+		</g>
+		<g transform="translate(405.81,1248.65) scale(1,1) rotate(0.00,127.49,82.23) " fill="rgb(0,121,225)" fill-opacity="1.0000000000000000" stroke="none" stroke-width="1" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+			<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 209.56 62.52 L 134.78 148.51 L 157.02 89.91 L 128.38 89.91 A 9939.61 9939.61 -0.00 0 1 154.80 0.00 A 57.22 57.22 0.00 0 0 107.88 33.31 A 40.07 40.07 0.00 0 0 41.51 71.44 A 46.65 46.65 0.00 0 0 45.76 164.46 L 210.31 164.46 A 46.67 46.67 0.00 0 0 215.30 71.69 A 57.30 57.30 0.00 0 0 198.83 14.98 A 1306.19 1306.19 0.00 0 0 175.20 62.52 L 209.56 62.52  Z">
+			</path>
+		</g>
+		<g transform="translate(352.58,1424.27) scale(1,1) rotate(0.00,187.85,41.41) " fill="none" fill-opacity="1.0000000000000000" stroke="none" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+			<g transform="translate(0.00,0.00) scale(1,1) rotate(0.00,187.85,41.41) ">
+				<rect x="22" y="0" width="330" height="84" fill="rgb(255,255,255)" stroke="none" opacity="0.0000000000000000">
+				</rect>
+				<text stroke-width="0">
+					<tspan font-size="35" font-family="Verdana" font-weight="100" stroke="rgb(255,255,255)" fill="rgb(255,255,255)" opacity="1.0000000000000000" x="22.82 47.45 74.63 101.02 117.04 138.32 153.37 174.78 195.66 216.54 232.56 252.83 274.02 292.40 306.30 315.98 336.86 " y="29.31 29.31 29.31 29.31 29.31 29.31 29.31 29.31 29.31 29.31 29.31 29.31 29.31 29.31 29.31 29.31 29.31 ">
+						CDN/Proxy(Fastly)</tspan>
+					<tspan font-size="35" font-family="Verdana" font-weight="100" stroke="rgb(183,183,183)" fill="rgb(183,183,183)" opacity="1.0000000000000000" x="121.31 145.43 166.62 181.67 204.00 213.68 232.06 " y="71.65 71.65 71.65 71.65 71.65 71.65 71.65 ">
+						Varnish</tspan>
+				</text>
+			</g>
+		</g>
+		<g transform="translate(1259.79,1267.27) scale(1,1) rotate(0.00,53.65,89.48) " fill="rgb(77,22,89)" fill-opacity="1.0000000000000000" stroke="none" stroke-width="1" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+			<g transform="translate(0.00,0.00) scale(1,1) rotate(0.00,53.65,89.48) " fill="rgb(77,22,89)" fill-opacity="1.0000000000000000" stroke="none" stroke-width="1" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+				<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 0.00 156.55 L 36.70 178.96 L 107.31 139.50 L 107.31 22.23 L 70.52 0.00 L 0.00 39.88 L 0.00 156.55  Z">
+				</path>
+			</g>
+			<g transform="translate(5.24,1.57) scale(1,1) rotate(0.00,49.86,28.91) " fill="url(#CDGradient2rgb_255_255_255_rgb_152_152_152_)" fill-opacity="0.3000000000000000" stroke="none" stroke-width="1" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+				<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 32.49 57.81 L 99.73 20.96 L 65.15 0.00 L 0.00 36.85 L 32.49 57.81  Z">
+				</path>
+			</g>
+			<g transform="translate(5.24,1.57) scale(1,1) rotate(0.00,49.86,28.91) " fill="none" fill-opacity="1.0000000000000000" stroke="none" stroke-width="1" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+				<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 32.49 57.81 L 99.73 20.96 L 65.15 0.00 L 0.00 36.85 L 32.49 57.81  Z">
+				</path>
+			</g>
+			<g transform="translate(19.16,50.84) scale(1,1) rotate(0.00,8.43,62.85) " fill="url(#CDGradient2rgb_255_255_255_rgb_255_255_255_)" fill-opacity="0.0000000000000000" stroke="none" stroke-width="2" stroke-linecap="round" stroke-opacity="0.4000000000000000">
+				<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 0.00 0.00 L 16.86 10.22 L 16.86 125.70 L 6.64 119.31 L 0.00 0.00  Z">
+				</path>
+			</g>
+			<g transform="translate(19.16,50.84) scale(1,1) rotate(0.00,8.43,62.85) " fill="none" fill-opacity="1.0000000000000000" stroke="none" stroke-width="2" stroke-linecap="round" stroke-opacity="0.4000000000000000">
+				<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 0.00 0.00 L 16.86 10.22 L 16.86 125.70 L 6.64 119.31 L 0.00 0.00  Z">
+				</path>
+			</g>
+			<g transform="translate(0.01,146.78) scale(1,1) rotate(0.00,18.58,13.01) " fill="url(#CDGradient2rgb_255_255_255_rgb_0_0_0_)" fill-opacity="0.6000000000000000" stroke="none" stroke-width="2" stroke-linecap="round" stroke-opacity="0.4000000000000000">
+				<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 0.03 0.00 L 37.17 22.11 L 37.17 26.01 L 0.00 3.45 L 0.03 0.00  ZM 11.74 1.41 L 11.56 4.62 L 23.75 11.88 L 23.77 8.53 L 11.74 1.41  Z">
+				</path>
+			</g>
+			<g transform="translate(0.01,146.78) scale(1,1) rotate(0.00,18.58,13.01) " fill="none" fill-opacity="1.0000000000000000" stroke="none" stroke-width="2" stroke-linecap="round" stroke-opacity="0.4000000000000000">
+				<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 0.03 0.00 L 37.17 22.11 L 37.17 26.01 L 0.00 3.45 L 0.03 0.00  ZM 11.74 1.41 L 11.56 4.62 L 23.75 11.88 L 23.77 8.53 L 11.74 1.41  Z">
+				</path>
+			</g>
+		</g>
+		<g transform="translate(349.01,350.73) scale(1,1) rotate(-22.19,281.95,0.00) ">
+			<path stroke="rgb(85,167,217)" stroke-width="29" stroke-linecap="round" stroke-opacity="1.0000000000000000" marker-end="url(#CDArrow5_rgb_85_167_217__size_3_end)" d="M 71.67 0.00 L 535.91 0.00 " fill="none">
+			</path>
+		</g>
+		<g transform="translate(369.88,455.13) scale(1,1) rotate(-0.46,261.03,0.00) ">
+			<path stroke="rgb(85,167,217)" stroke-width="29" stroke-linecap="round" stroke-opacity="1.0000000000000000" marker-end="url(#CDArrow5_rgb_85_167_217__size_3_end)" d="M 67.23 0.00 L 494.07 0.00 " fill="none">
+			</path>
+		</g>
+		<g transform="translate(350.79,559.03) scale(1,1) rotate(21.24,281.00,0.00) ">
+			<path stroke="rgb(85,167,217)" stroke-width="29" stroke-linecap="round" stroke-opacity="1.0000000000000000" marker-end="url(#CDArrow5_rgb_85_167_217__size_3_end)" d="M 57.53 0.00 L 534.00 0.00 " fill="none">
+			</path>
+		</g>
+		<g transform="translate(296.08,342.07) scale(1,1) rotate(0.00,73.81,115.14) " fill="url(#CDGradient4rgb_208_111_0_rgb_208_111_0_)" fill-opacity="1.0000000000000000" stroke="rgb(140,98,56)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+			<g transform="translate(16.91,79.49) scale(1,1) rotate(0.00,55.26,75.39) " fill="url(#CDGradient4rgb_208_111_0_rgb_208_111_0_)" fill-opacity="1.0000000000000000" stroke="rgb(140,98,56)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+				<g transform="translate(0.00,0.00) scale(1,1) rotate(0.00,55.26,75.39) " fill="url(#CDGradient4rgb_208_111_0_rgb_208_111_0_)" fill-opacity="1.0000000000000000" stroke="rgb(140,98,56)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 0.00 24.29 L 37.85 0.00 L 110.53 39.13 L 110.53 124.13 L 74.00 150.78 L 0.00 108.35 L 0.00 24.29  Z">
+					</path>
+				</g>
+				<g transform="translate(1.42,25.55) scale(1,1) rotate(0.00,36.58,61.82) " fill="url(#CDGradient2rgb_160_31_0_rgb_208_64_0_)" fill-opacity="1.0000000000000000" stroke="none" stroke-width="1" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 0.00 0.00 L 73.16 41.32 L 72.95 123.65 L 0.14 81.63 L 0.00 0.00  Z">
+					</path>
+				</g>
+				<g transform="translate(74.37,39.40) scale(1,1) rotate(0.00,17.59,54.90) " fill="url(#CDGradient2rgb_160_31_0_rgb_208_64_0_)" fill-opacity="1.0000000000000000" stroke="none" stroke-width="1" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 0.21 27.47 L 35.18 0.00 L 34.77 83.24 L 0.00 109.80 L 0.21 27.47  Z">
+					</path>
+				</g>
+				<g transform="translate(1.09,25.24) scale(1,1) rotate(0.00,36.59,61.90) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 0.02 0.00 L 73.18 41.63 L 72.71 123.80 L 0.00 82.01 L 0.02 0.00  Z">
+					</path>
+				</g>
+				<g transform="translate(73.95,39.68) scale(1,1) rotate(0.00,17.73,54.68) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 0.32 27.35 L 35.46 0.00 L 35.22 83.45 L 0.00 109.36 L 0.32 27.35  Z">
+					</path>
+				</g>
+				<g transform="translate(1.01,37.85) scale(1,1) rotate(0.00,54.18,21.06) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M 0.00 0.00 L 73.18 42.11 L 108.35 15.30 ">
+					</path>
+				</g>
+				<g transform="translate(1.24,52.36) scale(1,1) rotate(0.00,53.94,20.66) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M 0.00 0.00 L 72.87 41.32 L 107.88 14.04 ">
+					</path>
+				</g>
+				<g transform="translate(1.24,65.92) scale(1,1) rotate(0.00,53.94,20.82) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M 0.00 0.00 L 72.87 41.64 L 107.88 14.67 ">
+					</path>
+				</g>
+				<g transform="translate(1.32,80.00) scale(1,1) rotate(0.00,53.86,20.74) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M 0.00 0.00 L 72.75 41.48 L 107.72 14.51 ">
+					</path>
+				</g>
+				<g transform="translate(1.09,93.68) scale(1,1) rotate(0.00,53.94,20.82) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M 0.00 0.00 L 72.39 41.64 L 107.88 14.83 ">
+					</path>
+				</g>
+				<g transform="translate(11.97,41.47) scale(1,1) rotate(90.00,6.47,0.00) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M 0.00 0.00 L 12.93 0.00 ">
+					</path>
+				</g>
+				<g transform="translate(30.11,52.04) scale(1,1) rotate(90.00,6.47,0.00) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M 0.00 0.00 L 12.93 0.00 ">
+					</path>
+				</g>
+				<g transform="translate(48.24,62.29) scale(1,1) rotate(90.00,6.31,0.00) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M 0.00 0.00 L 12.62 0.00 ">
+					</path>
+				</g>
+				<g transform="translate(3.53,50.54) scale(1,1) rotate(90.00,6.86,0.00) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M 0.00 0.00 L 13.72 0.00 ">
+					</path>
+				</g>
+				<g transform="translate(21.51,60.80) scale(1,1) rotate(90.00,6.86,0.00) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M 0.00 0.00 L 13.72 0.00 ">
+					</path>
+				</g>
+				<g transform="translate(39.49,70.89) scale(1,1) rotate(90.00,6.86,0.00) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M 0.00 0.00 L 13.72 0.00 ">
+					</path>
+				</g>
+				<g transform="translate(57.94,81.77) scale(1,1) rotate(90.00,6.86,0.00) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M 0.00 0.00 L 13.72 0.00 ">
+					</path>
+				</g>
+				<g transform="translate(47.53,89.66) scale(1,1) rotate(90.00,6.86,0.00) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M 0.00 0.00 L 13.64 0.00 ">
+					</path>
+				</g>
+				<g transform="translate(29.71,79.41) scale(1,1) rotate(90.00,6.86,0.00) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M 0.00 0.00 L 13.72 0.00 ">
+					</path>
+				</g>
+				<g transform="translate(11.42,68.84) scale(1,1) rotate(90.00,6.86,0.00) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M 0.00 0.00 L 13.72 0.00 ">
+					</path>
+				</g>
+				<g transform="translate(3.37,78.30) scale(1,1) rotate(90.00,6.86,0.00) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M 0.00 0.00 L 13.72 0.00 ">
+					</path>
+				</g>
+				<g transform="translate(21.51,88.71) scale(1,1) rotate(90.00,6.86,0.00) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M 0.00 0.00 L 13.72 0.00 ">
+					</path>
+				</g>
+				<g transform="translate(39.49,99.12) scale(1,1) rotate(90.00,6.86,0.00) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M 0.00 0.00 L 13.64 0.00 ">
+					</path>
+				</g>
+				<g transform="translate(57.79,109.53) scale(1,1) rotate(90.00,6.86,0.00) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M -0.08 0.00 L 13.72 0.00 ">
+					</path>
+				</g>
+				<g transform="translate(47.69,117.57) scale(1,1) rotate(90.00,6.86,0.00) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M 0.00 0.00 L 13.72 0.00 ">
+					</path>
+				</g>
+				<g transform="translate(29.55,106.85) scale(1,1) rotate(90.00,6.86,0.00) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M 0.00 0.00 L 13.72 0.00 ">
+					</path>
+				</g>
+				<g transform="translate(11.57,96.76) scale(1,1) rotate(90.00,6.86,0.00) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M 0.00 0.00 L 13.72 0.00 ">
+					</path>
+				</g>
+				<g transform="translate(3.69,105.75) scale(1,1) rotate(90.00,6.86,0.00) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M 0.16 0.00 L 13.72 0.00 ">
+					</path>
+				</g>
+				<g transform="translate(21.67,116.31) scale(1,1) rotate(90.00,6.86,0.00) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M 0.00 0.00 L 13.72 0.00 ">
+					</path>
+				</g>
+				<g transform="translate(39.81,126.72) scale(1,1) rotate(90.00,6.86,0.00) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M 0.00 0.00 L 13.72 0.00 ">
+					</path>
+				</g>
+				<g transform="translate(58.10,137.13) scale(1,1) rotate(90.00,6.86,0.00) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M 0.16 0.00 L 13.72 0.00 ">
+					</path>
+				</g>
+				<g transform="translate(78.34,65.45) scale(1,1) rotate(90.28,6.31,0.00) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M 0.00 0.00 L 12.62 0.00 ">
+					</path>
+				</g>
+				<g transform="translate(95.24,53.30) scale(1,1) rotate(90.00,5.99,-0.24) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M -0.39 0.00 L 12.14 0.08 ">
+					</path>
+				</g>
+				<g transform="translate(86.02,72.62) scale(1,1) rotate(90.00,6.55,0.00) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M 0.00 0.00 L 13.09 0.00 ">
+					</path>
+				</g>
+				<g transform="translate(77.66,92.81) scale(1,1) rotate(90.00,6.86,0.00) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M 0.00 0.00 L 13.49 0.00 ">
+					</path>
+				</g>
+				<g transform="translate(93.43,80.67) scale(1,1) rotate(90.00,6.70,0.00) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M 0.00 0.00 L 13.41 0.00 ">
+					</path>
+				</g>
+				<g transform="translate(85.70,100.23) scale(1,1) rotate(90.00,6.86,0.00) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M 0.00 0.00 L 13.72 0.00 ">
+					</path>
+				</g>
+				<g transform="translate(77.50,120.41) scale(1,1) rotate(90.00,6.86,0.00) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M 0.00 0.00 L 13.64 0.00 ">
+					</path>
+				</g>
+				<g transform="translate(93.27,108.27) scale(1,1) rotate(90.00,6.86,0.00) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M 0.00 0.00 L 13.72 0.00 ">
+					</path>
+				</g>
+				<g transform="translate(85.55,128.30) scale(1,1) rotate(90.00,6.86,0.00) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M 0.00 0.00 L 13.72 0.00 ">
+					</path>
+				</g>
+				<g transform="translate(1.03,0.87) scale(1,1) rotate(0.00,54.19,32.81) " fill="url(#CDGradient4rgb_160_31_0_rgb_208_64_0_)" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 0.00 23.97 L 36.91 0.00 L 108.38 38.89 L 73.50 65.61 L 0.00 23.97  Z">
+					</path>
+				</g>
+				<g transform="translate(50.34,42.35) scale(1,1) rotate(-34.70,22.44,0.00) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M 0.00 0.00 L 44.67 0.04 ">
+					</path>
+				</g>
+				<g transform="translate(32.45,32.41) scale(1,1) rotate(-34.36,22.35,0.00) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M 0.00 0.00 L 44.49 0.04 ">
+					</path>
+				</g>
+				<g transform="translate(14.60,22.63) scale(1,1) rotate(-34.15,21.92,0.00) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M 0.00 0.00 L 43.83 0.00 ">
+					</path>
+				</g>
+				<g transform="translate(24.04,26.58) scale(1,1) rotate(29.17,41.09,0.00) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M 0.00 0.00 L 82.19 0.00 ">
+					</path>
+				</g>
+				<g transform="translate(6.70,38.68) scale(1,1) rotate(29.40,41.67,0.00) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M 0.00 0.00 L 83.35 0.00 ">
+					</path>
+				</g>
+				<g transform="translate(72.12,46.79) scale(1,1) rotate(145.41,10.49,0.25) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M 0.27 0.42 L 20.57 0.00 ">
+					</path>
+				</g>
+				<g transform="translate(53.79,36.46) scale(1,1) rotate(144.92,10.36,0.25) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M 0.27 0.42 L 20.32 0.00 ">
+					</path>
+				</g>
+				<g transform="translate(36.04,26.48) scale(1,1) rotate(146.06,10.17,0.25) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M 0.26 0.42 L 19.95 0.00 ">
+					</path>
+				</g>
+				<g transform="translate(18.22,16.39) scale(1,1) rotate(146.06,10.17,0.25) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M 0.26 0.42 L 19.95 0.00 ">
+					</path>
+				</g>
+			</g>
+			<g transform="translate(0.00,0.00) scale(1,1) rotate(0.00,73.81,82.91) " fill="url(#CDGradient4rgb_255_64_0_rgb_255_255_0_)" fill-opacity="1.0000000000000000" stroke="rgb(255,0,0)" stroke-width="2" stroke-linecap="round" stroke-opacity="0.4000000000000000">
+				<g transform="translate(0.00,0.00) scale(1,1) rotate(0.00,73.81,86.63) " fill="url(#CDGradient4rgb_255_64_0_rgb_255_255_0_)" fill-opacity="1.0000000000000000" stroke="rgb(255,0,0)" stroke-width="2" stroke-linecap="round" stroke-opacity="0.4000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 35.10 130.65 C 32.26 139.49   19.76 123.80 11.62 112.17 S 1.16 94.74 0.00 83.11 C 2.91 88.92   6.39 91.25 11.62 92.41 C 11.04 69.74   -4.65 70.33 5.81 37.78 C 7.56 51.73   11.04 50.56 16.27 56.38 C 23.83 34.87   5.23 27.90 23.25 1.16 C 19.18 23.25   27.32 26.15 31.38 32.55 S 38.28 45.51 37.20 48.82 C 43.59 43.01   33.71 22.67 47.66 7.56 C 44.75 25.57   53.75 26.05 56.96 36.03 C 67.42 24.41   63.93 9.88 55.80 0.00 C 84.86 12.79   72.07 26.74 83.11 33.71 S 94.15 43.59 94.74 53.47 C 105.78 48.24   91.83 34.87 108.68 27.32 C 101.13 44.17   117.40 44.17 117.40 72.65 C 122.63 70.33   124.38 58.70 126.12 49.40 C 135.42 74.39   127.46 78.64 127.86 91.25 C 138.91 85.44   134.26 77.30 140.65 70.91 C 137.75 79.62   145.30 92.41 131.93 109.27 C 137.83 109.47   140.07 105.78 147.63 98.80 C 142.98 112.17   138.33 120.31 133.68 126.70 S 122.47 144.33 117.03 148.89 S 103.87 142.00 102.04 153.15 C 88.26 193.26   87.17 160.88 80.75 161.50 S 74.13 146.05 65.09 145.30 S 47.83 150.58 42.58 138.00 S 35.25 130.90 35.10 130.65  Z">
+					</path>
+				</g>
+				<g transform="translate(5.44,8.14) scale(1,1) rotate(0.00,67.32,70.89) " fill="url(#CDGradient4rgb_255_143_0_rgb_255_255_0_)" fill-opacity="0.6000000000000000" stroke="none" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 12.93 105.78 C 7.95 101.29   2.83 96.87 1.77 86.25 C 4.42 91.56   8.15 90.77 12.93 91.83 C 12.40 71.13   -2.53 60.45 0.37 40.10 C 1.97 52.84   10.71 50.49 15.48 55.80 C 22.39 36.15   7.93 20.92 15.48 5.81 C 16.07 20.92   22.81 25.55 26.53 31.39 S 31.59 45.22 30.60 48.24 C 43.38 33.71   33.50 17.44 39.90 7.56 C 39.90 21.50   48.01 24.01 50.94 33.13 C 60.49 22.51   64.18 9.02 56.75 0.00 C 71.86 6.39   66.42 23.27 76.51 29.64 S 87.02 41.54 87.55 50.56 C 100.34 41.85   92.20 40.68 99.76 25.57 C 98.02 39.52   110.22 43.73 110.22 69.74 C 115.00 67.62   120.25 63.13 121.85 54.63 C 124.17 69.16   117.99 78.57 118.36 90.09 C 124.17 90.09   127.08 86.02 131.73 79.04 C 130.56 87.18   132.31 91.83 117.78 107.52 C 123.16 107.71   127.73 107.50 134.63 101.13 C 130.38 113.34   116.21 120.86 111.96 126.70 S 94.82 125.54 91.04 136.47 C 82.32 150.53   69.61 132.44 64.60 130.77 S 55.64 132.37 50.65 129.61 S 45.60 123.97 40.83 119.73 S 25.71 117.64 12.93 105.78  Z">
+					</path>
+				</g>
+				<g transform="translate(5.44,8.14) scale(1,1) rotate(0.00,67.32,70.89) " fill="none" fill-opacity="1.0000000000000000" stroke="none" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 12.93 105.78 C 7.95 101.29   2.83 96.87 1.77 86.25 C 4.42 91.56   8.15 90.77 12.93 91.83 C 12.40 71.13   -2.53 60.45 0.37 40.10 C 1.97 52.84   10.71 50.49 15.48 55.80 C 22.39 36.15   7.93 20.92 15.48 5.81 C 16.07 20.92   22.81 25.55 26.53 31.39 S 31.59 45.22 30.60 48.24 C 43.38 33.71   33.50 17.44 39.90 7.56 C 39.90 21.50   48.01 24.01 50.94 33.13 C 60.49 22.51   64.18 9.02 56.75 0.00 C 71.86 6.39   66.42 23.27 76.51 29.64 S 87.02 41.54 87.55 50.56 C 100.34 41.85   92.20 40.68 99.76 25.57 C 98.02 39.52   110.22 43.73 110.22 69.74 C 115.00 67.62   120.25 63.13 121.85 54.63 C 124.17 69.16   117.99 78.57 118.36 90.09 C 124.17 90.09   127.08 86.02 131.73 79.04 C 130.56 87.18   132.31 91.83 117.78 107.52 C 123.16 107.71   127.73 107.50 134.63 101.13 C 130.38 113.34   116.21 120.86 111.96 126.70 S 94.82 125.54 91.04 136.47 C 82.32 150.53   69.61 132.44 64.60 130.77 S 55.64 132.37 50.65 129.61 S 45.60 123.97 40.83 119.73 S 25.71 117.64 12.93 105.78  Z">
+					</path>
+				</g>
+				<g transform="translate(18.08,29.06) scale(1,1) rotate(0.00,51.86,55.46) " fill="url(#CDGradient4rgb_255_236_0_rgb_255_255_160_)" fill-opacity="0.6000000000000000" stroke="none" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 28.18 93.23 C 19.81 90.44   18.93 90.11 14.23 87.65 S 3.94 82.35 3.07 73.70 C 5.23 78.02   7.55 75.62 11.44 76.49 C 11.01 59.61   -2.09 54.01 0.28 37.43 C 1.58 47.81   5.34 49.14 9.23 53.47 C 14.86 37.46   5.40 27.43 11.56 15.11 C 12.03 27.43   14.23 26.27 19.81 34.64 C 28.18 26.27   25.27 17.78 28.18 6.74 C 30.16 11.97   36.55 15.11 39.34 29.06 C 39.92 15.11   49.92 8.14 50.50 0.00 C 56.08 3.95   47.71 20.69 58.87 31.85 C 65.26 26.62   59.80 21.50 64.45 15.11 C 66.77 21.50   77.81 37.78 74.33 46.50 C 84.21 45.33   85.82 34.82 87.11 27.90 C 94.67 38.36   89.26 50.36 89.55 59.75 C 92.34 59.75   96.92 57.06 100.71 51.38 C 99.77 58.01   97.69 66.02 89.55 76.49 C 93.94 76.64   95.09 73.31 100.71 68.12 C 100.71 73.70   100.71 82.07 95.13 87.65 S 105.77 84.25 103.50 87.65 S 89.55 101.59 81.19 107.17 C 61.66 118.33   42.48 101.39 38.58 97.93 S 28.28 93.41 28.18 93.23  Z">
+					</path>
+				</g>
+				<g transform="translate(18.08,29.06) scale(1,1) rotate(0.00,51.86,55.46) " fill="none" fill-opacity="1.0000000000000000" stroke="none" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 28.18 93.23 C 19.81 90.44   18.93 90.11 14.23 87.65 S 3.94 82.35 3.07 73.70 C 5.23 78.02   7.55 75.62 11.44 76.49 C 11.01 59.61   -2.09 54.01 0.28 37.43 C 1.58 47.81   5.34 49.14 9.23 53.47 C 14.86 37.46   5.40 27.43 11.56 15.11 C 12.03 27.43   14.23 26.27 19.81 34.64 C 28.18 26.27   25.27 17.78 28.18 6.74 C 30.16 11.97   36.55 15.11 39.34 29.06 C 39.92 15.11   49.92 8.14 50.50 0.00 C 56.08 3.95   47.71 20.69 58.87 31.85 C 65.26 26.62   59.80 21.50 64.45 15.11 C 66.77 21.50   77.81 37.78 74.33 46.50 C 84.21 45.33   85.82 34.82 87.11 27.90 C 94.67 38.36   89.26 50.36 89.55 59.75 C 92.34 59.75   96.92 57.06 100.71 51.38 C 99.77 58.01   97.69 66.02 89.55 76.49 C 93.94 76.64   95.09 73.31 100.71 68.12 C 100.71 73.70   100.71 82.07 95.13 87.65 S 105.77 84.25 103.50 87.65 S 89.55 101.59 81.19 107.17 C 61.66 118.33   42.48 101.39 38.58 97.93 S 28.28 93.41 28.18 93.23  Z">
+					</path>
+				</g>
+				<g transform="translate(32.55,58.28) scale(1,1) rotate(0.00,38.05,37.73) " fill="url(#CDGradient4rgb_255_236_0_rgb_255_255_160_)" fill-opacity="0.6000000000000000" stroke="none" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 25.67 62.25 C 19.75 60.28   15.40 59.57 12.07 57.82 S 0.98 49.72 0.37 43.59 C 1.90 46.65   6.53 47.97 9.29 48.59 C 8.98 36.64   -1.50 39.07 0.18 27.33 C 1.10 34.68   6.45 34.79 9.21 37.85 C 13.19 26.52   4.93 23.90 9.29 15.18 C 12.32 24.29   15.23 21.13 19.03 23.03 C 22.83 14.80   17.92 13.13 19.98 5.31 C 21.38 9.02   27.25 9.74 30.73 16.39 C 31.15 6.51   38.01 5.76 38.42 0.00 C 42.37 2.80   34.22 9.75 42.12 17.65 C 46.65 13.95   45.00 15.22 48.29 10.70 C 49.94 15.22   57.75 26.74 55.29 32.91 C 62.28 32.09   63.42 24.65 64.34 19.75 C 69.69 27.15   65.85 35.65 66.07 42.30 C 68.04 42.30   71.28 40.39 73.97 36.37 C 73.29 41.07   71.83 46.74 66.07 54.14 C 69.17 54.25   69.98 51.90 73.97 48.22 C 73.97 52.17   73.97 58.09 70.02 62.04 S 77.54 59.64 75.94 62.04 S 70.82 68.11 64.90 72.06 C 51.07 79.96   38.87 71.98 36.11 69.53 S 25.75 62.38 25.67 62.25  Z">
+					</path>
+				</g>
+				<g transform="translate(32.55,58.28) scale(1,1) rotate(0.00,38.05,37.73) " fill="none" fill-opacity="1.0000000000000000" stroke="none" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 25.67 62.25 C 19.75 60.28   15.40 59.57 12.07 57.82 S 0.98 49.72 0.37 43.59 C 1.90 46.65   6.53 47.97 9.29 48.59 C 8.98 36.64   -1.50 39.07 0.18 27.33 C 1.10 34.68   6.45 34.79 9.21 37.85 C 13.19 26.52   4.93 23.90 9.29 15.18 C 12.32 24.29   15.23 21.13 19.03 23.03 C 22.83 14.80   17.92 13.13 19.98 5.31 C 21.38 9.02   27.25 9.74 30.73 16.39 C 31.15 6.51   38.01 5.76 38.42 0.00 C 42.37 2.80   34.22 9.75 42.12 17.65 C 46.65 13.95   45.00 15.22 48.29 10.70 C 49.94 15.22   57.75 26.74 55.29 32.91 C 62.28 32.09   63.42 24.65 64.34 19.75 C 69.69 27.15   65.85 35.65 66.07 42.30 C 68.04 42.30   71.28 40.39 73.97 36.37 C 73.29 41.07   71.83 46.74 66.07 54.14 C 69.17 54.25   69.98 51.90 73.97 48.22 C 73.97 52.17   73.97 58.09 70.02 62.04 S 77.54 59.64 75.94 62.04 S 70.82 68.11 64.90 72.06 C 51.07 79.96   38.87 71.98 36.11 69.53 S 25.75 62.38 25.67 62.25  Z">
+					</path>
+				</g>
+			</g>
+			<g transform="translate(-57.55,230.27) scale(1,1) rotate(0.00,131.36,32.93) ">
+				<text stroke-width="0">
+					<tspan font-size="35" font-family="Calibri" font-weight="100" stroke="rgb(251,255,254)" fill="rgb(251,255,254)" opacity="1.0000000000000000" x="17.98 39.96 57.15 74.34 92.56 108.77 119.47 137.69 156.30 168.59 180.41 198.29 216.17 234.05 " y="42.40 42.40 42.40 42.40 42.40 42.40 42.40 42.40 42.40 42.40 42.40 42.40 42.40 42.40 ">
+						HTTPS(Port443)</tspan>
+				</text>
+			</g>
+		</g>
+		<g transform="translate(508.63,897.65) scale(1,1) rotate(0.36,450.86,0.00) ">
+			<path stroke="rgb(85,167,217)" stroke-width="29" stroke-linecap="round" stroke-opacity="1.0000000000000000" marker-end="url(#CDArrow5_rgb_85_167_217__size_3_end)" d="M 17.96 -0.00 L 885.93 0.00 " fill="none">
+			</path>
+		</g>
+		<g transform="translate(399.16,726.30) scale(1,1) rotate(0.00,73.81,115.14) " fill="url(#CDGradient4rgb_208_111_0_rgb_208_111_0_)" fill-opacity="1.0000000000000000" stroke="rgb(140,98,56)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+			<g transform="translate(16.91,79.49) scale(1,1) rotate(0.00,55.26,75.39) " fill="url(#CDGradient4rgb_208_111_0_rgb_208_111_0_)" fill-opacity="1.0000000000000000" stroke="rgb(140,98,56)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+				<g transform="translate(0.00,0.00) scale(1,1) rotate(0.00,55.26,75.39) " fill="url(#CDGradient4rgb_208_111_0_rgb_208_111_0_)" fill-opacity="1.0000000000000000" stroke="rgb(140,98,56)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 0.00 24.29 L 37.85 0.00 L 110.53 39.13 L 110.53 124.13 L 74.00 150.78 L 0.00 108.35 L 0.00 24.29  Z">
+					</path>
+				</g>
+				<g transform="translate(1.42,25.55) scale(1,1) rotate(0.00,36.58,61.82) " fill="url(#CDGradient2rgb_160_31_0_rgb_208_64_0_)" fill-opacity="1.0000000000000000" stroke="none" stroke-width="1" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 0.00 0.00 L 73.16 41.32 L 72.95 123.65 L 0.14 81.63 L 0.00 0.00  Z">
+					</path>
+				</g>
+				<g transform="translate(74.37,39.40) scale(1,1) rotate(0.00,17.59,54.90) " fill="url(#CDGradient2rgb_160_31_0_rgb_208_64_0_)" fill-opacity="1.0000000000000000" stroke="none" stroke-width="1" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 0.21 27.47 L 35.18 0.00 L 34.77 83.24 L 0.00 109.80 L 0.21 27.47  Z">
+					</path>
+				</g>
+				<g transform="translate(1.09,25.24) scale(1,1) rotate(0.00,36.59,61.90) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 0.02 0.00 L 73.18 41.63 L 72.71 123.80 L 0.00 82.01 L 0.02 0.00  Z">
+					</path>
+				</g>
+				<g transform="translate(73.95,39.68) scale(1,1) rotate(0.00,17.73,54.68) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 0.32 27.35 L 35.46 0.00 L 35.22 83.45 L 0.00 109.36 L 0.32 27.35  Z">
+					</path>
+				</g>
+				<g transform="translate(1.01,37.85) scale(1,1) rotate(0.00,54.18,21.06) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M 0.00 0.00 L 73.18 42.11 L 108.35 15.30 ">
+					</path>
+				</g>
+				<g transform="translate(1.24,52.36) scale(1,1) rotate(0.00,53.94,20.66) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M 0.00 0.00 L 72.87 41.32 L 107.88 14.04 ">
+					</path>
+				</g>
+				<g transform="translate(1.24,65.92) scale(1,1) rotate(0.00,53.94,20.82) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M 0.00 0.00 L 72.87 41.64 L 107.88 14.67 ">
+					</path>
+				</g>
+				<g transform="translate(1.32,80.00) scale(1,1) rotate(0.00,53.86,20.74) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M 0.00 0.00 L 72.75 41.48 L 107.72 14.51 ">
+					</path>
+				</g>
+				<g transform="translate(1.09,93.68) scale(1,1) rotate(0.00,53.94,20.82) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M 0.00 0.00 L 72.39 41.64 L 107.88 14.83 ">
+					</path>
+				</g>
+				<g transform="translate(11.97,41.47) scale(1,1) rotate(90.00,6.47,0.00) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M 0.00 0.00 L 12.93 0.00 ">
+					</path>
+				</g>
+				<g transform="translate(30.11,52.04) scale(1,1) rotate(90.00,6.47,0.00) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M 0.00 0.00 L 12.93 0.00 ">
+					</path>
+				</g>
+				<g transform="translate(48.24,62.29) scale(1,1) rotate(90.00,6.31,0.00) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M 0.00 0.00 L 12.62 0.00 ">
+					</path>
+				</g>
+				<g transform="translate(3.53,50.54) scale(1,1) rotate(90.00,6.86,0.00) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M 0.00 0.00 L 13.72 0.00 ">
+					</path>
+				</g>
+				<g transform="translate(21.51,60.80) scale(1,1) rotate(90.00,6.86,0.00) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M 0.00 0.00 L 13.72 0.00 ">
+					</path>
+				</g>
+				<g transform="translate(39.49,70.89) scale(1,1) rotate(90.00,6.86,0.00) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M 0.00 0.00 L 13.72 0.00 ">
+					</path>
+				</g>
+				<g transform="translate(57.94,81.77) scale(1,1) rotate(90.00,6.86,0.00) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M 0.00 0.00 L 13.72 0.00 ">
+					</path>
+				</g>
+				<g transform="translate(47.53,89.66) scale(1,1) rotate(90.00,6.86,0.00) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M 0.00 0.00 L 13.64 0.00 ">
+					</path>
+				</g>
+				<g transform="translate(29.71,79.41) scale(1,1) rotate(90.00,6.86,0.00) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M 0.00 0.00 L 13.72 0.00 ">
+					</path>
+				</g>
+				<g transform="translate(11.42,68.84) scale(1,1) rotate(90.00,6.86,0.00) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M 0.00 0.00 L 13.72 0.00 ">
+					</path>
+				</g>
+				<g transform="translate(3.37,78.30) scale(1,1) rotate(90.00,6.86,0.00) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M 0.00 0.00 L 13.72 0.00 ">
+					</path>
+				</g>
+				<g transform="translate(21.51,88.71) scale(1,1) rotate(90.00,6.86,0.00) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M 0.00 0.00 L 13.72 0.00 ">
+					</path>
+				</g>
+				<g transform="translate(39.49,99.12) scale(1,1) rotate(90.00,6.86,0.00) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M 0.00 0.00 L 13.64 0.00 ">
+					</path>
+				</g>
+				<g transform="translate(57.79,109.53) scale(1,1) rotate(90.00,6.86,0.00) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M -0.08 0.00 L 13.72 0.00 ">
+					</path>
+				</g>
+				<g transform="translate(47.69,117.57) scale(1,1) rotate(90.00,6.86,0.00) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M 0.00 0.00 L 13.72 0.00 ">
+					</path>
+				</g>
+				<g transform="translate(29.55,106.85) scale(1,1) rotate(90.00,6.86,0.00) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M 0.00 0.00 L 13.72 0.00 ">
+					</path>
+				</g>
+				<g transform="translate(11.57,96.76) scale(1,1) rotate(90.00,6.86,0.00) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M 0.00 0.00 L 13.72 0.00 ">
+					</path>
+				</g>
+				<g transform="translate(3.69,105.75) scale(1,1) rotate(90.00,6.86,0.00) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M 0.16 0.00 L 13.72 0.00 ">
+					</path>
+				</g>
+				<g transform="translate(21.67,116.31) scale(1,1) rotate(90.00,6.86,0.00) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M 0.00 0.00 L 13.72 0.00 ">
+					</path>
+				</g>
+				<g transform="translate(39.81,126.72) scale(1,1) rotate(90.00,6.86,0.00) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M 0.00 0.00 L 13.72 0.00 ">
+					</path>
+				</g>
+				<g transform="translate(58.10,137.13) scale(1,1) rotate(90.00,6.86,0.00) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M 0.16 0.00 L 13.72 0.00 ">
+					</path>
+				</g>
+				<g transform="translate(78.34,65.45) scale(1,1) rotate(90.28,6.31,0.00) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M 0.00 0.00 L 12.62 0.00 ">
+					</path>
+				</g>
+				<g transform="translate(95.24,53.30) scale(1,1) rotate(90.00,5.99,-0.24) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M -0.39 0.00 L 12.14 0.08 ">
+					</path>
+				</g>
+				<g transform="translate(86.02,72.62) scale(1,1) rotate(90.00,6.55,0.00) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M 0.00 0.00 L 13.09 0.00 ">
+					</path>
+				</g>
+				<g transform="translate(77.66,92.81) scale(1,1) rotate(90.00,6.86,0.00) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M 0.00 0.00 L 13.49 0.00 ">
+					</path>
+				</g>
+				<g transform="translate(93.43,80.67) scale(1,1) rotate(90.00,6.70,0.00) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M 0.00 0.00 L 13.41 0.00 ">
+					</path>
+				</g>
+				<g transform="translate(85.70,100.23) scale(1,1) rotate(90.00,6.86,0.00) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M 0.00 0.00 L 13.72 0.00 ">
+					</path>
+				</g>
+				<g transform="translate(77.50,120.41) scale(1,1) rotate(90.00,6.86,0.00) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M 0.00 0.00 L 13.64 0.00 ">
+					</path>
+				</g>
+				<g transform="translate(93.27,108.27) scale(1,1) rotate(90.00,6.86,0.00) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M 0.00 0.00 L 13.72 0.00 ">
+					</path>
+				</g>
+				<g transform="translate(85.55,128.30) scale(1,1) rotate(90.00,6.86,0.00) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M 0.00 0.00 L 13.72 0.00 ">
+					</path>
+				</g>
+				<g transform="translate(1.03,0.87) scale(1,1) rotate(0.00,54.19,32.81) " fill="url(#CDGradient4rgb_160_31_0_rgb_208_64_0_)" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 0.00 23.97 L 36.91 0.00 L 108.38 38.89 L 73.50 65.61 L 0.00 23.97  Z">
+					</path>
+				</g>
+				<g transform="translate(50.34,42.35) scale(1,1) rotate(-34.70,22.44,0.00) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M 0.00 0.00 L 44.67 0.04 ">
+					</path>
+				</g>
+				<g transform="translate(32.45,32.41) scale(1,1) rotate(-34.36,22.35,0.00) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M 0.00 0.00 L 44.49 0.04 ">
+					</path>
+				</g>
+				<g transform="translate(14.60,22.63) scale(1,1) rotate(-34.15,21.92,0.00) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M 0.00 0.00 L 43.83 0.00 ">
+					</path>
+				</g>
+				<g transform="translate(24.04,26.58) scale(1,1) rotate(29.17,41.09,0.00) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M 0.00 0.00 L 82.19 0.00 ">
+					</path>
+				</g>
+				<g transform="translate(6.70,38.68) scale(1,1) rotate(29.40,41.67,0.00) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M 0.00 0.00 L 83.35 0.00 ">
+					</path>
+				</g>
+				<g transform="translate(72.12,46.79) scale(1,1) rotate(145.41,10.49,0.25) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M 0.27 0.42 L 20.57 0.00 ">
+					</path>
+				</g>
+				<g transform="translate(53.79,36.46) scale(1,1) rotate(144.92,10.36,0.25) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M 0.27 0.42 L 20.32 0.00 ">
+					</path>
+				</g>
+				<g transform="translate(36.04,26.48) scale(1,1) rotate(146.06,10.17,0.25) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M 0.26 0.42 L 19.95 0.00 ">
+					</path>
+				</g>
+				<g transform="translate(18.22,16.39) scale(1,1) rotate(146.06,10.17,0.25) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(255,246,204)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+					</path>
+					<path fill="none" d="M 0.26 0.42 L 19.95 0.00 ">
+					</path>
+				</g>
+			</g>
+			<g transform="translate(0.00,0.00) scale(1,1) rotate(0.00,73.81,82.91) " fill="url(#CDGradient4rgb_255_64_0_rgb_255_255_0_)" fill-opacity="1.0000000000000000" stroke="rgb(255,0,0)" stroke-width="2" stroke-linecap="round" stroke-opacity="0.4000000000000000">
+				<g transform="translate(0.00,0.00) scale(1,1) rotate(0.00,73.81,86.63) " fill="url(#CDGradient4rgb_255_64_0_rgb_255_255_0_)" fill-opacity="1.0000000000000000" stroke="rgb(255,0,0)" stroke-width="2" stroke-linecap="round" stroke-opacity="0.4000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 35.10 130.65 C 32.26 139.49   19.76 123.80 11.62 112.17 S 1.16 94.74 0.00 83.11 C 2.91 88.92   6.39 91.25 11.62 92.41 C 11.04 69.74   -4.65 70.33 5.81 37.78 C 7.56 51.73   11.04 50.56 16.27 56.38 C 23.83 34.87   5.23 27.90 23.25 1.16 C 19.18 23.25   27.32 26.15 31.38 32.55 S 38.28 45.51 37.20 48.82 C 43.59 43.01   33.71 22.67 47.66 7.56 C 44.75 25.57   53.75 26.05 56.96 36.03 C 67.42 24.41   63.93 9.88 55.80 0.00 C 84.86 12.79   72.07 26.74 83.11 33.71 S 94.15 43.59 94.74 53.47 C 105.78 48.24   91.83 34.87 108.68 27.32 C 101.13 44.17   117.40 44.17 117.40 72.65 C 122.63 70.33   124.38 58.70 126.12 49.40 C 135.42 74.39   127.46 78.64 127.86 91.25 C 138.91 85.44   134.26 77.30 140.65 70.91 C 137.75 79.62   145.30 92.41 131.93 109.27 C 137.83 109.47   140.07 105.78 147.63 98.80 C 142.98 112.17   138.33 120.31 133.68 126.70 S 122.47 144.33 117.03 148.89 S 103.87 142.00 102.04 153.15 C 88.26 193.26   87.17 160.88 80.75 161.50 S 74.13 146.05 65.09 145.30 S 47.83 150.58 42.58 138.00 S 35.25 130.90 35.10 130.65  Z">
+					</path>
+				</g>
+				<g transform="translate(5.44,8.14) scale(1,1) rotate(0.00,67.32,70.89) " fill="url(#CDGradient4rgb_255_143_0_rgb_255_255_0_)" fill-opacity="0.6000000000000000" stroke="none" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 12.93 105.78 C 7.95 101.29   2.83 96.87 1.77 86.25 C 4.42 91.56   8.15 90.77 12.93 91.83 C 12.40 71.13   -2.53 60.45 0.37 40.10 C 1.97 52.84   10.71 50.49 15.48 55.80 C 22.39 36.15   7.93 20.92 15.48 5.81 C 16.07 20.92   22.81 25.55 26.53 31.39 S 31.59 45.22 30.60 48.24 C 43.38 33.71   33.50 17.44 39.90 7.56 C 39.90 21.50   48.01 24.01 50.94 33.13 C 60.49 22.51   64.18 9.02 56.75 0.00 C 71.86 6.39   66.42 23.27 76.51 29.64 S 87.02 41.54 87.55 50.56 C 100.34 41.85   92.20 40.68 99.76 25.57 C 98.02 39.52   110.22 43.73 110.22 69.74 C 115.00 67.62   120.25 63.13 121.85 54.63 C 124.17 69.16   117.99 78.57 118.36 90.09 C 124.17 90.09   127.08 86.02 131.73 79.04 C 130.56 87.18   132.31 91.83 117.78 107.52 C 123.16 107.71   127.73 107.50 134.63 101.13 C 130.38 113.34   116.21 120.86 111.96 126.70 S 94.82 125.54 91.04 136.47 C 82.32 150.53   69.61 132.44 64.60 130.77 S 55.64 132.37 50.65 129.61 S 45.60 123.97 40.83 119.73 S 25.71 117.64 12.93 105.78  Z">
+					</path>
+				</g>
+				<g transform="translate(5.44,8.14) scale(1,1) rotate(0.00,67.32,70.89) " fill="none" fill-opacity="1.0000000000000000" stroke="none" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 12.93 105.78 C 7.95 101.29   2.83 96.87 1.77 86.25 C 4.42 91.56   8.15 90.77 12.93 91.83 C 12.40 71.13   -2.53 60.45 0.37 40.10 C 1.97 52.84   10.71 50.49 15.48 55.80 C 22.39 36.15   7.93 20.92 15.48 5.81 C 16.07 20.92   22.81 25.55 26.53 31.39 S 31.59 45.22 30.60 48.24 C 43.38 33.71   33.50 17.44 39.90 7.56 C 39.90 21.50   48.01 24.01 50.94 33.13 C 60.49 22.51   64.18 9.02 56.75 0.00 C 71.86 6.39   66.42 23.27 76.51 29.64 S 87.02 41.54 87.55 50.56 C 100.34 41.85   92.20 40.68 99.76 25.57 C 98.02 39.52   110.22 43.73 110.22 69.74 C 115.00 67.62   120.25 63.13 121.85 54.63 C 124.17 69.16   117.99 78.57 118.36 90.09 C 124.17 90.09   127.08 86.02 131.73 79.04 C 130.56 87.18   132.31 91.83 117.78 107.52 C 123.16 107.71   127.73 107.50 134.63 101.13 C 130.38 113.34   116.21 120.86 111.96 126.70 S 94.82 125.54 91.04 136.47 C 82.32 150.53   69.61 132.44 64.60 130.77 S 55.64 132.37 50.65 129.61 S 45.60 123.97 40.83 119.73 S 25.71 117.64 12.93 105.78  Z">
+					</path>
+				</g>
+				<g transform="translate(18.08,29.06) scale(1,1) rotate(0.00,51.86,55.46) " fill="url(#CDGradient4rgb_255_236_0_rgb_255_255_160_)" fill-opacity="0.6000000000000000" stroke="none" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 28.18 93.23 C 19.81 90.44   18.93 90.11 14.23 87.65 S 3.94 82.35 3.07 73.70 C 5.23 78.02   7.55 75.62 11.44 76.49 C 11.01 59.61   -2.09 54.01 0.28 37.43 C 1.58 47.81   5.34 49.14 9.23 53.47 C 14.86 37.46   5.40 27.43 11.56 15.11 C 12.03 27.43   14.23 26.27 19.81 34.64 C 28.18 26.27   25.27 17.78 28.18 6.74 C 30.16 11.97   36.55 15.11 39.34 29.06 C 39.92 15.11   49.92 8.14 50.50 0.00 C 56.08 3.95   47.71 20.69 58.87 31.85 C 65.26 26.62   59.80 21.50 64.45 15.11 C 66.77 21.50   77.81 37.78 74.33 46.50 C 84.21 45.33   85.82 34.82 87.11 27.90 C 94.67 38.36   89.26 50.36 89.55 59.75 C 92.34 59.75   96.92 57.06 100.71 51.38 C 99.77 58.01   97.69 66.02 89.55 76.49 C 93.94 76.64   95.09 73.31 100.71 68.12 C 100.71 73.70   100.71 82.07 95.13 87.65 S 105.77 84.25 103.50 87.65 S 89.55 101.59 81.19 107.17 C 61.66 118.33   42.48 101.39 38.58 97.93 S 28.28 93.41 28.18 93.23  Z">
+					</path>
+				</g>
+				<g transform="translate(18.08,29.06) scale(1,1) rotate(0.00,51.86,55.46) " fill="none" fill-opacity="1.0000000000000000" stroke="none" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 28.18 93.23 C 19.81 90.44   18.93 90.11 14.23 87.65 S 3.94 82.35 3.07 73.70 C 5.23 78.02   7.55 75.62 11.44 76.49 C 11.01 59.61   -2.09 54.01 0.28 37.43 C 1.58 47.81   5.34 49.14 9.23 53.47 C 14.86 37.46   5.40 27.43 11.56 15.11 C 12.03 27.43   14.23 26.27 19.81 34.64 C 28.18 26.27   25.27 17.78 28.18 6.74 C 30.16 11.97   36.55 15.11 39.34 29.06 C 39.92 15.11   49.92 8.14 50.50 0.00 C 56.08 3.95   47.71 20.69 58.87 31.85 C 65.26 26.62   59.80 21.50 64.45 15.11 C 66.77 21.50   77.81 37.78 74.33 46.50 C 84.21 45.33   85.82 34.82 87.11 27.90 C 94.67 38.36   89.26 50.36 89.55 59.75 C 92.34 59.75   96.92 57.06 100.71 51.38 C 99.77 58.01   97.69 66.02 89.55 76.49 C 93.94 76.64   95.09 73.31 100.71 68.12 C 100.71 73.70   100.71 82.07 95.13 87.65 S 105.77 84.25 103.50 87.65 S 89.55 101.59 81.19 107.17 C 61.66 118.33   42.48 101.39 38.58 97.93 S 28.28 93.41 28.18 93.23  Z">
+					</path>
+				</g>
+				<g transform="translate(32.55,58.28) scale(1,1) rotate(0.00,38.05,37.73) " fill="url(#CDGradient4rgb_255_236_0_rgb_255_255_160_)" fill-opacity="0.6000000000000000" stroke="none" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 25.67 62.25 C 19.75 60.28   15.40 59.57 12.07 57.82 S 0.98 49.72 0.37 43.59 C 1.90 46.65   6.53 47.97 9.29 48.59 C 8.98 36.64   -1.50 39.07 0.18 27.33 C 1.10 34.68   6.45 34.79 9.21 37.85 C 13.19 26.52   4.93 23.90 9.29 15.18 C 12.32 24.29   15.23 21.13 19.03 23.03 C 22.83 14.80   17.92 13.13 19.98 5.31 C 21.38 9.02   27.25 9.74 30.73 16.39 C 31.15 6.51   38.01 5.76 38.42 0.00 C 42.37 2.80   34.22 9.75 42.12 17.65 C 46.65 13.95   45.00 15.22 48.29 10.70 C 49.94 15.22   57.75 26.74 55.29 32.91 C 62.28 32.09   63.42 24.65 64.34 19.75 C 69.69 27.15   65.85 35.65 66.07 42.30 C 68.04 42.30   71.28 40.39 73.97 36.37 C 73.29 41.07   71.83 46.74 66.07 54.14 C 69.17 54.25   69.98 51.90 73.97 48.22 C 73.97 52.17   73.97 58.09 70.02 62.04 S 77.54 59.64 75.94 62.04 S 70.82 68.11 64.90 72.06 C 51.07 79.96   38.87 71.98 36.11 69.53 S 25.75 62.38 25.67 62.25  Z">
+					</path>
+				</g>
+				<g transform="translate(32.55,58.28) scale(1,1) rotate(0.00,38.05,37.73) " fill="none" fill-opacity="1.0000000000000000" stroke="none" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 25.67 62.25 C 19.75 60.28   15.40 59.57 12.07 57.82 S 0.98 49.72 0.37 43.59 C 1.90 46.65   6.53 47.97 9.29 48.59 C 8.98 36.64   -1.50 39.07 0.18 27.33 C 1.10 34.68   6.45 34.79 9.21 37.85 C 13.19 26.52   4.93 23.90 9.29 15.18 C 12.32 24.29   15.23 21.13 19.03 23.03 C 22.83 14.80   17.92 13.13 19.98 5.31 C 21.38 9.02   27.25 9.74 30.73 16.39 C 31.15 6.51   38.01 5.76 38.42 0.00 C 42.37 2.80   34.22 9.75 42.12 17.65 C 46.65 13.95   45.00 15.22 48.29 10.70 C 49.94 15.22   57.75 26.74 55.29 32.91 C 62.28 32.09   63.42 24.65 64.34 19.75 C 69.69 27.15   65.85 35.65 66.07 42.30 C 68.04 42.30   71.28 40.39 73.97 36.37 C 73.29 41.07   71.83 46.74 66.07 54.14 C 69.17 54.25   69.98 51.90 73.97 48.22 C 73.97 52.17   73.97 58.09 70.02 62.04 S 77.54 59.64 75.94 62.04 S 70.82 68.11 64.90 72.06 C 51.07 79.96   38.87 71.98 36.11 69.53 S 25.75 62.38 25.67 62.25  Z">
+					</path>
+				</g>
+			</g>
+			<g transform="translate(-40.50,230.27) scale(1,1) rotate(0.00,114.32,32.93) ">
+				<text stroke-width="0">
+					<tspan font-size="35" font-family="Calibri" font-weight="100" stroke="rgb(251,255,254)" fill="rgb(251,255,254)" opacity="1.0000000000000000" x="17.98 39.96 57.15 74.34 92.56 103.26 121.48 140.09 152.39 164.20 182.08 199.96 " y="42.40 42.40 42.40 42.40 42.40 42.40 42.40 42.40 42.40 42.40 42.40 42.40 ">
+						HTTP(Port80)</tspan>
+				</text>
+			</g>
+		</g>
+		<g transform="translate(995.88,351.62) scale(1,1) rotate(22.23,283.85,0.00) ">
+			<path stroke="rgb(85,167,217)" stroke-width="29" stroke-linecap="round" stroke-opacity="1.0000000000000000" marker-end="url(#CDArrow5_rgb_85_167_217__size_3_end)" d="M 0.00 0.00 L 449.10 0.00 " fill="none">
+			</path>
+		</g>
+		<g transform="translate(892.04,181.68) scale(1,1) rotate(0.00,62.47,62.57) " fill="url(#CDGradient3rgb_0_126_185_rgb_0_106_176_)" fill-opacity="1.0000000000000000" stroke="none" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+			<g transform="translate(0.00,0.00) scale(1,1) rotate(0.00,62.47,62.28) " fill="url(#CDGradient3rgb_0_126_185_rgb_0_106_176_)" fill-opacity="1.0000000000000000" stroke="none" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+				<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 32.43 0.00 L 0.00 14.88 L 0.00 124.57 L 94.89 124.57 L 124.93 109.90 L 124.93 0.00 L 32.43 0.00  Z">
+				</path>
+			</g>
+			<g transform="translate(0.00,25.77) scale(1,1) rotate(0.00,47.45,49.69) " fill="url(#CDGradient3rgb_0_126_185_rgb_0_106_176_)" fill-opacity="1.0000000000000000" stroke="none" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+				<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 0.00 99.37 L 94.89 99.37 L 94.89 84.99 L 32.36 84.99 L 0.00 99.37  Z">
+				</path>
+			</g>
+			<g transform="translate(0.00,14.88) scale(1,1) rotate(0.00,16.18,55.12) " fill="url(#CDGradient2rgb_0_126_185_rgb_0_106_176_)" fill-opacity="1.0000000000000000" stroke="none" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+				<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 0.00 0.00 L 0.00 110.23 L 32.36 95.85 L 32.36 0.00 L 0.00 0.00  Z">
+				</path>
+			</g>
+			<g transform="translate(0.00,0.00) scale(1,1) rotate(0.00,62.47,7.44) " fill="url(#CDGradient3rgb_0_126_185_rgb_0_106_176_)" fill-opacity="1.0000000000000000" stroke="none" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+				<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 32.43 0.00 L 124.93 0.00 L 94.89 14.88 L 0.00 14.88 L 32.43 0.00  Z">
+				</path>
+			</g>
+			<g transform="translate(94.89,0.00) scale(1,1) rotate(0.00,15.02,62.28) " fill="url(#CDGradient2rgb_0_126_185_rgb_0_106_176_)" fill-opacity="1.0000000000000000" stroke="none" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+				<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 0.00 124.57 L 0.00 14.88 L 30.04 0.00 L 30.04 109.90 L 0.00 124.57  Z">
+				</path>
+			</g>
+			<g transform="translate(-1.21,117.66) scale(1,1) rotate(156.16,17.39,0.00) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(145,216,245)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+				<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+				</path>
+				<path fill="none" d="M 0.00 0.00 L 34.78 0.00 ">
+				</path>
+			</g>
+			<g transform="translate(0.00,14.97) scale(1,1) rotate(0.00,47.45,55.09) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(145,216,245)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+				<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+				</path>
+				<path fill="none" d="M 0.00 0.00 L 94.89 0.00 L 94.89 110.17 ">
+				</path>
+			</g>
+			<g transform="translate(94.89,0.09) scale(1,1) rotate(0.00,15.02,7.44) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(145,216,245)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+				<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+				</path>
+				<path fill="none" d="M -0.00 14.88 L 30.04 -0.00 ">
+				</path>
+			</g>
+			<g transform="translate(0.00,0.09) scale(1,1) rotate(0.00,62.47,62.28) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(145,216,245)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+				<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 32.43 -0.00 L 0.00 14.88 L 0.00 124.48 L 94.89 124.57 L 124.93 109.81 L 124.93 0.00 L 32.43 -0.00  Z">
+				</path>
+			</g>
+			<g transform="translate(33.12,34.08) scale(1,1) rotate(0.00,44.14,33.03) " fill="url(#CDGradient2rgb_166_202_240_rgb_239_239_239_)" fill-opacity="1.0000000000000000" stroke="rgb(145,216,245)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+				<g transform="translate(0.40,0.82) scale(1,1) rotate(0.00,12.47,32.62) " fill="url(#CDGradient2rgb_166_202_240_rgb_239_239_239_)" fill-opacity="1.0000000000000000" stroke="rgb(145,216,245)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 0.00 32.62 A 32.62 12.47 90.00 1 1 24.95 32.62 A 32.62 12.47 90.00 1 1 0.00 32.62  Z">
+					</path>
+				</g>
+				<g transform="translate(13.32,14.19) scale(1,1) rotate(0.00,23.58,19.43) " fill="url(#CDGradient4rgb_95_95_95_rgb_47_47_47_)" fill-opacity="1.0000000000000000" stroke="none" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 22.56 6.31 L 22.56 0.00 L 47.15 8.32 L 22.56 16.48 L 22.56 10.22 L 1.48 10.22 L 1.48 6.31 L 22.56 6.31  ZM 24.60 32.54 L 24.60 38.85 L 0.00 30.54 L 24.60 22.38 L 24.60 28.63 L 45.68 28.63 L 45.68 32.54 L 24.60 32.54  Z">
+					</path>
+				</g>
+				<g transform="translate(12.39,13.42) scale(1,1) rotate(0.00,23.58,19.43) " fill="url(#CDGradient4rgb_255_255_255_rgb_239_239_239_)" fill-opacity="1.0000000000000000" stroke="none" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 22.56 6.31 L 22.56 0.00 L 47.15 8.32 L 22.56 16.48 L 22.56 10.22 L 1.48 10.22 L 1.48 6.31 L 22.56 6.31  ZM 24.60 32.54 L 24.60 38.85 L 0.00 30.54 L 24.60 22.38 L 24.60 28.63 L 45.68 28.63 L 45.68 32.54 L 24.60 32.54  Z">
+					</path>
+				</g>
+				<g transform="translate(0.00,-0.00) scale(1,1) rotate(0.00,44.14,32.99) " fill="url(#CDGradient6rgb_166_202_240_rgb_239_239_239_)" fill-opacity="1.0000000000000000" stroke="rgb(145,216,245)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 13.02 0.93 A 32.58 13.82 89.85 0 0 13.02 65.98 L 61.65 65.98 L 61.65 0.93 L 13.02 0.93  ZM 66.29 32.68 A 32.68 11.00 90.00 0 1 88.29 32.68 A 32.68 11.00 90.00 1 1 66.29 32.68  Z">
+					</path>
+				</g>
+			</g>
+			<g transform="translate(32.36,15.50) scale(1,1) rotate(0.00,31.26,47.45) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(145,216,245)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+				<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+				</path>
+				<path fill="none" d="M 62.53 94.91 L 0.00 94.91 L 0.00 0.00 ">
+				</path>
+			</g>
+			<g transform="translate(-48.19,125.14) scale(1,1) rotate(0.00,110.66,37.93) ">
+				<text stroke-width="0">
+					<tspan font-size="35" font-family="Calibri" font-weight="100" stroke="rgb(255,255,255)" fill="rgb(255,255,255)" opacity="1.0000000000000000" x="8.99 25.20 41.41 56.24 68.05 85.61 97.91 126.09 134.18 152.72 169.62 181.43 200.04 " y="47.40 47.40 47.40 47.40 47.40 47.40 47.40 47.40 47.40 47.40 47.40 47.40 47.40 ">
+						SSLterminator</tspan>
+				</text>
+			</g>
+		</g>
+		<g transform="translate(1016.86,456.03) scale(1,1) rotate(0.65,262.82,0.00) ">
+			<path stroke="rgb(85,167,217)" stroke-width="29" stroke-linecap="round" stroke-opacity="1.0000000000000000" marker-end="url(#CDArrow5_rgb_85_167_217__size_3_end)" d="M 0.00 -0.00 L 348.60 0.00 " fill="none">
+			</path>
+		</g>
+		<g transform="translate(891.94,390.49) scale(1,1) rotate(0.00,62.47,62.57) " fill="url(#CDGradient3rgb_0_126_185_rgb_0_106_176_)" fill-opacity="1.0000000000000000" stroke="none" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+			<g transform="translate(0.00,0.00) scale(1,1) rotate(0.00,62.47,62.28) " fill="url(#CDGradient3rgb_0_126_185_rgb_0_106_176_)" fill-opacity="1.0000000000000000" stroke="none" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+				<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 32.43 0.00 L 0.00 14.88 L 0.00 124.57 L 94.89 124.57 L 124.93 109.90 L 124.93 0.00 L 32.43 0.00  Z">
+				</path>
+			</g>
+			<g transform="translate(0.00,25.77) scale(1,1) rotate(0.00,47.45,49.69) " fill="url(#CDGradient3rgb_0_126_185_rgb_0_106_176_)" fill-opacity="1.0000000000000000" stroke="none" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+				<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 0.00 99.37 L 94.89 99.37 L 94.89 84.99 L 32.36 84.99 L 0.00 99.37  Z">
+				</path>
+			</g>
+			<g transform="translate(0.00,14.88) scale(1,1) rotate(0.00,16.18,55.12) " fill="url(#CDGradient2rgb_0_126_185_rgb_0_106_176_)" fill-opacity="1.0000000000000000" stroke="none" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+				<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 0.00 0.00 L 0.00 110.23 L 32.36 95.85 L 32.36 0.00 L 0.00 0.00  Z">
+				</path>
+			</g>
+			<g transform="translate(0.00,0.00) scale(1,1) rotate(0.00,62.47,7.44) " fill="url(#CDGradient3rgb_0_126_185_rgb_0_106_176_)" fill-opacity="1.0000000000000000" stroke="none" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+				<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 32.43 0.00 L 124.93 0.00 L 94.89 14.88 L 0.00 14.88 L 32.43 0.00  Z">
+				</path>
+			</g>
+			<g transform="translate(94.89,0.00) scale(1,1) rotate(0.00,15.02,62.28) " fill="url(#CDGradient2rgb_0_126_185_rgb_0_106_176_)" fill-opacity="1.0000000000000000" stroke="none" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+				<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 0.00 124.57 L 0.00 14.88 L 30.04 0.00 L 30.04 109.90 L 0.00 124.57  Z">
+				</path>
+			</g>
+			<g transform="translate(-1.21,117.66) scale(1,1) rotate(156.16,17.39,0.00) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(145,216,245)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+				<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+				</path>
+				<path fill="none" d="M 0.00 0.00 L 34.78 0.00 ">
+				</path>
+			</g>
+			<g transform="translate(0.00,14.97) scale(1,1) rotate(0.00,47.45,55.09) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(145,216,245)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+				<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+				</path>
+				<path fill="none" d="M 0.00 0.00 L 94.89 0.00 L 94.89 110.17 ">
+				</path>
+			</g>
+			<g transform="translate(94.89,0.09) scale(1,1) rotate(0.00,15.02,7.44) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(145,216,245)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+				<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+				</path>
+				<path fill="none" d="M -0.00 14.88 L 30.04 -0.00 ">
+				</path>
+			</g>
+			<g transform="translate(0.00,0.09) scale(1,1) rotate(0.00,62.47,62.28) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(145,216,245)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+				<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 32.43 -0.00 L 0.00 14.88 L 0.00 124.48 L 94.89 124.57 L 124.93 109.81 L 124.93 0.00 L 32.43 -0.00  Z">
+				</path>
+			</g>
+			<g transform="translate(33.12,34.08) scale(1,1) rotate(0.00,44.14,33.03) " fill="url(#CDGradient2rgb_166_202_240_rgb_239_239_239_)" fill-opacity="1.0000000000000000" stroke="rgb(145,216,245)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+				<g transform="translate(0.40,0.82) scale(1,1) rotate(0.00,12.47,32.62) " fill="url(#CDGradient2rgb_166_202_240_rgb_239_239_239_)" fill-opacity="1.0000000000000000" stroke="rgb(145,216,245)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 0.00 32.62 A 32.62 12.47 90.00 1 1 24.95 32.62 A 32.62 12.47 90.00 1 1 0.00 32.62  Z">
+					</path>
+				</g>
+				<g transform="translate(13.32,14.19) scale(1,1) rotate(0.00,23.58,19.43) " fill="url(#CDGradient4rgb_95_95_95_rgb_47_47_47_)" fill-opacity="1.0000000000000000" stroke="none" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 22.56 6.31 L 22.56 0.00 L 47.15 8.32 L 22.56 16.48 L 22.56 10.22 L 1.48 10.22 L 1.48 6.31 L 22.56 6.31  ZM 24.60 32.54 L 24.60 38.85 L 0.00 30.54 L 24.60 22.38 L 24.60 28.63 L 45.68 28.63 L 45.68 32.54 L 24.60 32.54  Z">
+					</path>
+				</g>
+				<g transform="translate(12.39,13.42) scale(1,1) rotate(0.00,23.58,19.43) " fill="url(#CDGradient4rgb_255_255_255_rgb_239_239_239_)" fill-opacity="1.0000000000000000" stroke="none" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 22.56 6.31 L 22.56 0.00 L 47.15 8.32 L 22.56 16.48 L 22.56 10.22 L 1.48 10.22 L 1.48 6.31 L 22.56 6.31  ZM 24.60 32.54 L 24.60 38.85 L 0.00 30.54 L 24.60 22.38 L 24.60 28.63 L 45.68 28.63 L 45.68 32.54 L 24.60 32.54  Z">
+					</path>
+				</g>
+				<g transform="translate(0.00,-0.00) scale(1,1) rotate(0.00,44.14,32.99) " fill="url(#CDGradient6rgb_166_202_240_rgb_239_239_239_)" fill-opacity="1.0000000000000000" stroke="rgb(145,216,245)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 13.02 0.93 A 32.58 13.82 89.85 0 0 13.02 65.98 L 61.65 65.98 L 61.65 0.93 L 13.02 0.93  ZM 66.29 32.68 A 32.68 11.00 90.00 0 1 88.29 32.68 A 32.68 11.00 90.00 1 1 66.29 32.68  Z">
+					</path>
+				</g>
+			</g>
+			<g transform="translate(32.36,15.50) scale(1,1) rotate(0.00,31.26,47.45) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(145,216,245)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+				<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+				</path>
+				<path fill="none" d="M 62.53 94.91 L 0.00 94.91 L 0.00 0.00 ">
+				</path>
+			</g>
+			<g transform="translate(-48.19,125.14) scale(1,1) rotate(0.00,110.66,37.93) ">
+				<text stroke-width="0">
+					<tspan font-size="35" font-family="Calibri" font-weight="100" stroke="rgb(255,255,255)" fill="rgb(255,255,255)" opacity="1.0000000000000000" x="8.99 25.20 41.41 56.24 68.05 85.61 97.91 126.09 134.18 152.72 169.62 181.43 200.04 " y="47.40 47.40 47.40 47.40 47.40 47.40 47.40 47.40 47.40 47.40 47.40 47.40 47.40 ">
+						SSLterminator</tspan>
+				</text>
+			</g>
+		</g>
+		<g transform="translate(939.28,559.92) scale(1,1) rotate(-19.00,310.04,0.00) ">
+			<path stroke="rgb(85,167,217)" stroke-width="29" stroke-linecap="round" stroke-opacity="1.0000000000000000" marker-end="url(#CDArrow5_rgb_85_167_217__size_3_end)" d="M 66.06 0.00 L 496.63 0.00 " fill="none">
+			</path>
+		</g>
+		<g transform="translate(893.70,598.27) scale(1,1) rotate(0.00,62.47,62.57) " fill="url(#CDGradient3rgb_0_126_185_rgb_0_106_176_)" fill-opacity="1.0000000000000000" stroke="none" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+			<g transform="translate(0.00,0.00) scale(1,1) rotate(0.00,62.47,62.28) " fill="url(#CDGradient3rgb_0_126_185_rgb_0_106_176_)" fill-opacity="1.0000000000000000" stroke="none" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+				<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 32.43 0.00 L 0.00 14.88 L 0.00 124.57 L 94.89 124.57 L 124.93 109.90 L 124.93 0.00 L 32.43 0.00  Z">
+				</path>
+			</g>
+			<g transform="translate(0.00,25.77) scale(1,1) rotate(0.00,47.45,49.69) " fill="url(#CDGradient3rgb_0_126_185_rgb_0_106_176_)" fill-opacity="1.0000000000000000" stroke="none" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+				<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 0.00 99.37 L 94.89 99.37 L 94.89 84.99 L 32.36 84.99 L 0.00 99.37  Z">
+				</path>
+			</g>
+			<g transform="translate(0.00,14.88) scale(1,1) rotate(0.00,16.18,55.12) " fill="url(#CDGradient2rgb_0_126_185_rgb_0_106_176_)" fill-opacity="1.0000000000000000" stroke="none" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+				<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 0.00 0.00 L 0.00 110.23 L 32.36 95.85 L 32.36 0.00 L 0.00 0.00  Z">
+				</path>
+			</g>
+			<g transform="translate(0.00,0.00) scale(1,1) rotate(0.00,62.47,7.44) " fill="url(#CDGradient3rgb_0_126_185_rgb_0_106_176_)" fill-opacity="1.0000000000000000" stroke="none" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+				<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 32.43 0.00 L 124.93 0.00 L 94.89 14.88 L 0.00 14.88 L 32.43 0.00  Z">
+				</path>
+			</g>
+			<g transform="translate(94.89,0.00) scale(1,1) rotate(0.00,15.02,62.28) " fill="url(#CDGradient2rgb_0_126_185_rgb_0_106_176_)" fill-opacity="1.0000000000000000" stroke="none" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+				<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 0.00 124.57 L 0.00 14.88 L 30.04 0.00 L 30.04 109.90 L 0.00 124.57  Z">
+				</path>
+			</g>
+			<g transform="translate(-1.21,117.66) scale(1,1) rotate(156.16,17.39,0.00) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(145,216,245)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+				<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+				</path>
+				<path fill="none" d="M 0.00 0.00 L 34.78 0.00 ">
+				</path>
+			</g>
+			<g transform="translate(0.00,14.97) scale(1,1) rotate(0.00,47.45,55.09) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(145,216,245)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+				<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+				</path>
+				<path fill="none" d="M 0.00 0.00 L 94.89 0.00 L 94.89 110.17 ">
+				</path>
+			</g>
+			<g transform="translate(94.89,0.09) scale(1,1) rotate(0.00,15.02,7.44) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(145,216,245)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+				<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+				</path>
+				<path fill="none" d="M -0.00 14.88 L 30.04 -0.00 ">
+				</path>
+			</g>
+			<g transform="translate(0.00,0.09) scale(1,1) rotate(0.00,62.47,62.28) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(145,216,245)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+				<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 32.43 -0.00 L 0.00 14.88 L 0.00 124.48 L 94.89 124.57 L 124.93 109.81 L 124.93 0.00 L 32.43 -0.00  Z">
+				</path>
+			</g>
+			<g transform="translate(33.12,34.08) scale(1,1) rotate(0.00,44.14,33.03) " fill="url(#CDGradient2rgb_166_202_240_rgb_239_239_239_)" fill-opacity="1.0000000000000000" stroke="rgb(145,216,245)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+				<g transform="translate(0.40,0.82) scale(1,1) rotate(0.00,12.47,32.62) " fill="url(#CDGradient2rgb_166_202_240_rgb_239_239_239_)" fill-opacity="1.0000000000000000" stroke="rgb(145,216,245)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 0.00 32.62 A 32.62 12.47 90.00 1 1 24.95 32.62 A 32.62 12.47 90.00 1 1 0.00 32.62  Z">
+					</path>
+				</g>
+				<g transform="translate(13.32,14.19) scale(1,1) rotate(0.00,23.58,19.43) " fill="url(#CDGradient4rgb_95_95_95_rgb_47_47_47_)" fill-opacity="1.0000000000000000" stroke="none" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 22.56 6.31 L 22.56 0.00 L 47.15 8.32 L 22.56 16.48 L 22.56 10.22 L 1.48 10.22 L 1.48 6.31 L 22.56 6.31  ZM 24.60 32.54 L 24.60 38.85 L 0.00 30.54 L 24.60 22.38 L 24.60 28.63 L 45.68 28.63 L 45.68 32.54 L 24.60 32.54  Z">
+					</path>
+				</g>
+				<g transform="translate(12.39,13.42) scale(1,1) rotate(0.00,23.58,19.43) " fill="url(#CDGradient4rgb_255_255_255_rgb_239_239_239_)" fill-opacity="1.0000000000000000" stroke="none" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 22.56 6.31 L 22.56 0.00 L 47.15 8.32 L 22.56 16.48 L 22.56 10.22 L 1.48 10.22 L 1.48 6.31 L 22.56 6.31  ZM 24.60 32.54 L 24.60 38.85 L 0.00 30.54 L 24.60 22.38 L 24.60 28.63 L 45.68 28.63 L 45.68 32.54 L 24.60 32.54  Z">
+					</path>
+				</g>
+				<g transform="translate(0.00,-0.00) scale(1,1) rotate(0.00,44.14,32.99) " fill="url(#CDGradient6rgb_166_202_240_rgb_239_239_239_)" fill-opacity="1.0000000000000000" stroke="rgb(145,216,245)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+					<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 13.02 0.93 A 32.58 13.82 89.85 0 0 13.02 65.98 L 61.65 65.98 L 61.65 0.93 L 13.02 0.93  ZM 66.29 32.68 A 32.68 11.00 90.00 0 1 88.29 32.68 A 32.68 11.00 90.00 1 1 66.29 32.68  Z">
+					</path>
+				</g>
+			</g>
+			<g transform="translate(32.36,15.50) scale(1,1) rotate(0.00,31.26,47.45) " fill="none" fill-opacity="1.0000000000000000" stroke="rgb(145,216,245)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+				<path fill-rule="evenodd" marker-start="none" marker-end="none" d="">
+				</path>
+				<path fill="none" d="M 62.53 94.91 L 0.00 94.91 L 0.00 0.00 ">
+				</path>
+			</g>
+			<g transform="translate(-48.19,125.14) scale(1,1) rotate(0.00,110.66,37.93) ">
+				<text stroke-width="0">
+					<tspan font-size="35" font-family="Calibri" font-weight="100" stroke="rgb(255,255,255)" fill="rgb(255,255,255)" opacity="1.0000000000000000" x="8.99 25.20 41.41 56.24 68.05 85.61 97.91 126.09 134.18 152.72 169.62 181.43 200.04 " y="47.40 47.40 47.40 47.40 47.40 47.40 47.40 47.40 47.40 47.40 47.40 47.40 47.40 ">
+						SSLterminator</tspan>
+				</text>
+			</g>
+		</g>
+		<g transform="translate(1319.40,679.74) scale(1,1) rotate(90.60,220.76,0.00) ">
+			<path stroke="rgb(85,167,217)" stroke-width="29" stroke-linecap="round" stroke-opacity="1.0000000000000000" marker-end="url(#CDArrow5_rgb_85_167_217__size_3_end)" d="M 75.80 0.00 L 329.71 0.00 " fill="none">
+			</path>
+		</g>
+		<g transform="translate(1390.08,382.80) scale(1,1) rotate(0.00,152.40,76.20) " fill="rgb(75,79,112)" fill-opacity="1.0000000000000000" stroke="rgb(85,85,85)" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+			<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 0.00 76.20 L 152.40 0.00 L 304.80 76.20 L 152.40 152.40 L 0.00 76.20  Z">
+			</path>
+		</g>
+		<g transform="translate(1537.83,900.49) scale(1,1) rotate(0.00,304.30,0.00) ">
+			<path stroke="rgb(85,167,217)" stroke-width="29" stroke-linecap="round" stroke-opacity="1.0000000000000000" marker-end="url(#CDArrow5_rgb_85_167_217__size_3_end)" d="M 115.27 0.00 L 580.61 -0.00 " fill="none">
+			</path>
+		</g>
+		<g transform="translate(1410.34,816.69) scale(1,1) rotate(0.00,127.49,83.80) " fill="rgb(0,121,225)" fill-opacity="1.0000000000000000" stroke="none" stroke-width="1" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+			<path fill-rule="evenodd" marker-start="none" marker-end="none" d="M 10.54 167.59 A 10.54 10.54 -0.00 0 1 0.15 155.30 L 24.89 8.79 A 10.54 10.54 0.00 0 1 35.28 0.00 L 219.69 0.00 A 10.54 10.54 0.00 0 1 230.09 8.79 L 254.82 155.30 A 10.54 10.54 -0.00 0 1 244.43 167.59 L 10.54 167.59  ZM 127.27 151.64 L 106.91 131.28 L 112.82 125.38 L 122.79 135.35 L 122.79 72.83 L 91.72 103.90 L 106.26 103.90 L 106.26 112.29 L 77.61 112.29 L 77.61 82.80 L 85.75 82.80 L 85.75 98.31 L 122.79 61.27 L 122.79 41.32 A 13.08 13.08 -0.00 1 1 131.80 41.32 L 131.80 61.21 L 168.97 98.37 L 168.97 82.83 L 177.36 82.83 L 177.36 112.26 L 149.61 112.26 L 149.61 103.84 L 162.82 103.84 L 131.80 72.83 L 131.80 135.32 L 141.75 125.38 L 147.59 131.22 L 127.27 151.64  Z">
+			</path>
+			<g transform="translate(-43.90,167.59) scale(1,1) rotate(0.00,165.53,26.93) ">
+				<rect x="89" y="4" width="152" height="45" fill="rgb(0,0,0)" stroke="none" opacity="0.0000000000000000">
+				</rect>
+				<text stroke-width="0">
+					<tspan font-size="38" font-family="Tahoma" font-weight="100" stroke="rgb(248,251,254)" fill="rgb(248,251,254)" opacity="1.0000000000000000" x="88.82 109.05 123.04 144.11 165.75 178.73 199.15 220.79 " y="36.40 36.40 36.40 36.40 36.40 36.40 36.40 36.40 ">
+						Frontend</tspan>
+				</text>
+			</g>
+		</g>
+		<g transform="translate(1692.22,791.47) scale(1,1) rotate(0.00,175.96,44.16) " fill="none" fill-opacity="1.0000000000000000" stroke="none" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+			<g transform="translate(0.00,0.00) scale(1,1) rotate(0.00,175.96,44.16) ">
+				<rect x="81" y="2" width="188" height="84" fill="rgb(255,255,255)" stroke="none" opacity="0.0000000000000000">
+				</rect>
+				<text stroke-width="0">
+					<tspan font-size="35" font-family="Verdana" font-weight="100" stroke="rgb(255,255,255)" fill="rgb(255,255,255)" opacity="1.0000000000000000" x="81.71 103.45 124.86 159.74 180.75 202.73 224.47 234.15 255.17 " y="32.07 32.07 32.07 32.07 32.07 32.07 32.07 32.07 32.07 ">
+						ToWebTier</tspan>
+					<tspan font-size="35" font-family="Verdana" font-weight="100" stroke="rgb(183,183,183)" fill="rgb(183,183,183)" opacity="1.0000000000000000" x="114.31 130.33 156.84 178.58 200.32 221.60 " y="74.40 74.40 74.40 74.40 74.40 74.40 ">
+						(HTTP)</tspan>
+				</text>
+			</g>
+		</g>
+		<g transform="translate(1109.83,65.74) scale(1,1) rotate(0.00,203.79,44.16) " fill="none" fill-opacity="1.0000000000000000" stroke="none" stroke-width="2" stroke-linecap="round" stroke-opacity="1.0000000000000000">
+			<g transform="translate(0.00,0.00) scale(1,1) rotate(0.00,203.79,44.16) ">
+				<rect x="29" y="2" width="348" height="84" fill="rgb(255,255,255)" stroke="none" opacity="0.0000000000000000">
+				</rect>
+				<text stroke-width="0">
+					<tspan font-size="35" font-family="Verdana" font-weight="100" stroke="rgb(255,255,255)" fill="rgb(255,255,255)" opacity="1.0000000000000000" x="29.66 44.51 66.83 85.21 94.89 116.87 137.89 164.40 188.51 209.78 224.84 246.25 267.13 288.01 309.74 319.42 340.44 355.49 " y="32.07 32.07 32.07 32.07 32.07 32.07 32.07 32.07 32.07 32.07 32.07 32.07 32.07 32.07 32.07 32.07 32.07 32.07 ">
+						InsideHAProxyTier1</tspan>
+					<tspan font-size="35" font-family="Verdana" font-weight="100" stroke="rgb(183,183,183)" fill="rgb(183,183,183)" opacity="1.0000000000000000" x="61.15 77.17 98.45 113.50 134.91 153.29 174.31 192.69 211.07 230.70 251.89 272.77 294.18 316.50 330.41 " y="74.40 74.40 74.40 74.40 74.40 74.40 74.40 74.40 74.40 74.40 74.40 74.40 74.40 74.40 74.40 ">
+						(ProcessLayout)</tspan>
+				</text>
+			</g>
+		</g>
+	</svg>
+</svg>
