@@ -533,7 +533,7 @@ When moving from Cloudflare to Fastly, we had to evaluate and deploy new (to us)
 That in itself in an entirely different post, [one that's been written](http://blog.serverfault.com/2017/01/09/surviving-the-next-dns-attack/) by [Mark Henderson](https://twitter.com/thefarseeker).
 Along the way, we were also controlling:
 - Our own DNS servers (still up as a fall back)
-- Name.com servers (for redirects not needing HTTS)
+- Name.com servers (for redirects not needing HTTPS)
 - Cloudflare DNS
 - Route 53 DNS
 - Google DNS
