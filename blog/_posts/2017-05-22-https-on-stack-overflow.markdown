@@ -815,7 +815,7 @@ Disclaimer: JavaScript snippets remains unsolved. It's not so easy because:
 
 Problems don't stop at user-submitted content.
 We have a fair bit of `http://` baggage as well.
-While the moves of these things aren't particular interesting, in the interest of "what took so long?" they're at least worth enumerating:
+While the moves of these things aren't particularly interesting, in the interest of "what took so long?" they're at least worth enumerating:
 - Ad Server (Calculon)
 - Ad Server (Adzerk)
 - Tag Sponsorships
