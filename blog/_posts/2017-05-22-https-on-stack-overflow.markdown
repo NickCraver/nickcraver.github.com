@@ -886,7 +886,7 @@ This is to both correct "Google juice" as we call it, and to prevent users eatin
 
 ### Redirects (301s)
 
-When you move a site from HTTPS, there are 2 critical things you need to do for Google:
+When you move a site from HTTP, there are 2 critical things you need to do for Google:
 - Update the canonical links, e.g. `<link rel="canonical" href="https://stackoverflow.com/questions/1732348/regex-match-open-tags-except-xhtml-self-contained-tags/1732454" />`
 - 301 the `http://` link to the `https://` version
 
