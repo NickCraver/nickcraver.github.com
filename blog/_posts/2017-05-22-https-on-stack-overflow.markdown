@@ -653,7 +653,7 @@ But they're only redirects and don't have cookies or logged-in users.
 
 There's a lot of backend work that I'm glossing over here (props to [Geoff Dalgas](https://twitter.com/superdalgas) and [Adam Lear](https://twitter.com/aalear) especially), but the general gist is that when you login, we set a cookie on these domains.
 We do this via third-party cookies and [nonces](https://en.wikipedia.org/wiki/Cryptographic_nonce).
-When you login to any of the above domains, 6 cookies are issues via `<img>` tags on the destination page for the other domains, effectively logging you in.
+When you login to any of the above domains, 6 cookies are issued via `<img>` tags on the destination page for the other domains, effectively logging you in.
 This doesn't work *everywhere* (in particular, mobile safari is quirky), but it's a vast improvement over previous.
 
 The client code isn't complicated, here's what it looks like:
