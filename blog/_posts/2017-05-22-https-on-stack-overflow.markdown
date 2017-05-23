@@ -899,7 +899,6 @@ Here's the actual code:
 ```csharp
 public static void PerformHttpsRedirects()
 {
-    var sb = StringBuilderCache.Get();
     var https = Settings.HTTPS;
     // If we're on HTTPS, never redirect back
     if (Request.IsSecureConnection) return;
