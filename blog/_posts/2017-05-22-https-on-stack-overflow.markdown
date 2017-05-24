@@ -77,7 +77,7 @@ We began thinking about deploying HTTPS on Stack Overflow [back in 2013]({% post
 So the obvious question: It's 2017. **What the hell took 4 years?**
 The same 2 reasons that delay almost any IT project: dependencies and priorities. 
 Let's be honest, the information on Stack Overflow isn't as valuable (to secure) as most other data. 
-We're not a bank, we're not a hospital, we don't handle credit card payments, and [we even publish most of database both by HTTP and via torrent once a quarter](https://archive.org/details/stackexchange). 
+We're not a bank, we're not a hospital, we don't handle credit card payments, and [we even publish most of our database both by HTTP and via torrent once a quarter](https://archive.org/details/stackexchange). 
 That means from a security standpoint, it's just not as high of a priority as it is in other situations. 
 We also had far more dependencies than most, a rather unique combination of some huge problem areas when deploying HTTPS.
 As you'll see later, some of the domain problems are also permanent.
@@ -89,7 +89,7 @@ The biggest areas that caused us problems were:
 - [**Hundreds** of domains](https://stackexchange.com/sites), at multiple levels (certificates)
 
 Okay, so why **do** we want HTTPS on our websites? 
-Well the data isn't the only thing that needs security. 
+Well, the data isn't the only thing that needs security. 
 We have moderators, developers, and employees with various levels of access via the web. 
 We want to secure their communications with the site.
 We want to secure every user's browsing history.
@@ -174,7 +174,7 @@ We'll cover that in a minute.
 One of the tenets of the Stack Exchange network is having a place to talk about each Q&A site.
 We call it the ["second place"](https://stackoverflow.blog/2010/04/29/do-trilogy-sites-need-a-third-place/).
 As an example, `meta.gaming.stackexchange.com` exists to talk about `gaming.stackexchange.com`.
-So why does that matter? Well it doesn't really, we only care about the domain here. It's 4 levels deep.
+So why does that matter? Well, it doesn't really. We only care about the domain here. It's 4 levels deep.
 
 I've [covered this before]({% post_url blog/2013-04-23-stackoverflow-com-the-road-to-ssl %}), but where did we end up?
 First the problem: `*.stackexchange.com` *does* cover `gaming.stackexchange.com` (and hundreds of other sites), but it **does not** cover `meta.gaming.stackexchange.com`.
@@ -319,13 +319,13 @@ Here's a logical layout of what I described above...and we'll cover that little 
 ### CDN/Proxy: Countering Latency with Cloudflare & Fastly
 
 One of the things I'm most proud of at Stack Overflow is [the efficiency](https://stackexchange.com/performance) of [our stack]({% post_url blog/2016-02-17-stack-overflow-the-architecture-2016-edition %}).
-That's awesome right? Running a major website on a small set of servers from one data center?
+That's awesome, right? Running a major website on a small set of servers from one data center?
 Nope. Not so much. Not this time.
 While it's awesome to be efficient for some things, when it comes to latency it suddenly becomes a problem.
 We've never needed a lot of servers. 
 We've never needed to expand to multiple locations (but yes, we have another for DR).
 This time, that's a problem. We can't (yet!) solve fundamental problems with latency, due to the speed of light.
-We're told someone else is working on this, but there was a minor setback with tears in fabric of space-time and losing the gerbils.
+We're told someone else is working on this, but there was a minor setback with tears in the fabric of space-time and losing the gerbils.
 
 When it comes to latency, let's look at the numbers.
 It's almost exactly 40,000km around the equator (worst case for speed of light round-trip).
@@ -349,7 +349,7 @@ That's under the best of circumstances (though [that's improving with TLS 1.3 an
 And [Ilya Grigorik](https://twitter.com/igrigorik) has [a great summary here](https://istlsfastyet.com/).
 
 Enter [Cloudflare](https://www.cloudflare.com/) and [Fastly](https://www.fastly.com/).
-HTTPS wasn't a project deployed in a silo, as you read on you'll see that several other projects multiplex in along the way.
+HTTPS wasn't a project deployed in a silo; as you read on, you'll see that several other projects multiplex in along the way.
 In the case of a local-to-the-user HTTPS termination endpoint (to minimize that round trip duration), we were looking for a few main criteria:
 - Local HTTPS termination
 - DDoS protection
@@ -456,7 +456,7 @@ The way Railgun works is by caching the last result of that URL in [memcached](h
 When Railgun is enabled, every page (under a size threshold) is cached on the way out.
 On the next request, if the entry was in Cloudflare's edge cache and our cache (keyed by URL), we still ask the web server for it.
 But instead of sending the whole page back to Cloudflare, it only sends a diff.
-That diff is applied to their cache, and served back to the client.
+That diff is applied to their cache and served back to the client.
 By nature of the pipe, it also meant the [gzip compression](https://en.wikipedia.org/wiki/Gzip) for transmission moved from 9 web servers for Stack Overflow to the 1 active Railgun box...so this had to be a pretty CPU-beefy machine.
 I point this out because all of this had to be evaluated, purchased and deployed on our way.
 
@@ -476,8 +476,8 @@ Unfortunately, we never got Railgun to work without issues in the long run.
 To my knowledge, we were (at the time) the largest deployment of the technology and we stressed it further than it has been pushed before.
 Though we tried to troubleshoot it for over a year, we ultimately gave up and moved on.
 It simply wasn't saving us more than it was costing us in the end.
-It's been several years now though.
-If you're evaluating Railgun, you should evaluate the current version, with [the improvements they've made](https://www.cloudflare.com/docs/railgun/changelog.html) and decide for yourself.
+It's been several years now, though.
+If you're evaluating Railgun, you should evaluate the current version, with [the improvements they've made](https://www.cloudflare.com/docs/railgun/changelog.html), and decide for yourself.
 
 
 ### Fastly
@@ -485,7 +485,7 @@ If you're evaluating Railgun, you should evaluate the current version, with [the
 Moving to [Fastly](https://www.fastly.com/) was relatively recent, but since we're on the CDN/Proxy topic I'll cover it now.
 The move itself wasn't terribly interesting because most of the pieces needed for any proxy were done in the Cloudflare era above.
 But of course everyone will ask: why did we move?
-While Cloudflare was very appealing in many regards, mainly: many data centers, stable bandwidth pricing, and included DNS - it wasn't the best fit for us anymore.
+While Cloudflare was very appealing in many regards - mainly, many data centers, stable bandwidth pricing, and included DNS - it wasn't the best fit for us anymore.
 We needed a few things that Fastly simply did to fit us better: more flexibility at the edge, faster change propagation, and the ability to fully automate configuration pushes.
 That's not to say Cloudflare is bad, it was just no longer the best fit for Stack Overflow.
 
@@ -605,7 +605,7 @@ This tool is called `keepctl` (short for keepalived control) - look for this to 
 Almost all of the above has been just the infrastructure work.
 This is generally done by a team of [several other Site Reliability Engineers at Stack Overflow](http://stackoverflow.com/company/team#Engineering) and I getting things situated.
 There's also so much more that needed doing inside the applications themselves.
-It's a long list. I'd grab some coffee and a snickers.
+It's a long list. I'd grab some coffee and a Snickers.
 
 One important thing to note here is that [the architecture of Stack Overflow & Stack Exchange]({% post_url blog/2016-02-17-stack-overflow-the-architecture-2016-edition %}) Q&A sites is [multi-tenant](https://en.wikipedia.org/wiki/Multitenancy).
 This means that if you hit `stackoverflow.com` or `superuser.com` or `bicycles.stackexchange.com`, you're hitting the *exact* same thing.
@@ -625,7 +625,7 @@ Login was one of those projects.
 I'm covering it first, because it was rolled out much earlier than the other changes below.
 
 For the first 5-6 years Stack Overflow (and Stack Exchange) existed, you logged into a particular site.
-As an example, each of `stackoverflow.com`, `stackexchange.com` and `gaming.stackexchange.com` had their own per-site cookies.
+As an example, each of `stackoverflow.com`, `stackexchange.com`, and `gaming.stackexchange.com` had their own per-site cookies.
 Of note here: `meta.gaming.stackexchange.com`'s login depended on the cookie from `gaming.stackexchange.com` flowing to the subdomain. 
 These are the "meta" sites we talked about with certificates earlier.
 Their logins were tied together, you always logged in through the parent.
@@ -771,7 +771,7 @@ After seeing that many of the most repetitive domains actually supported HTTPS, 
 1. Try each `<img>` source on `https://` instead. If that worked, replace the link in the post.
 2. If the source didn't support `https://`, convert it to a link.
 
-But of course that didn't *actually* just work. 
+But of course, that didn't *actually* just work. 
 It turns out the regex to match URLs in posts was broken for years and no one noticed...so we fixed that and re-indexed first.
 Oops.
 
@@ -954,7 +954,7 @@ The reasons to go with secure websockets in general are 2-fold:
 2. It supports more users, due to many old proxies not handling websockets well. With encrypted traffic, most pass it along without screwing it up. This is especially true for mobile users.
 
 The big question here was: "can we handle the load?"
-Our network handles quite a few concurrent websockets, as I write this we have over 600,000 **concurrent** connections open. 
+Our network handles quite a few concurrent websockets; as I write this we have over 600,000 **concurrent** connections open. 
 Here's a view of our HAProxy dashboard in [Opserver](https://github.com/opserver/Opserver):
 
 [![HAProxy Websockets]({{ site.contenturl }}HTTPS-Websockets.png)]({{ site.contenturl }}HTTPS-Websockets.png)
@@ -994,7 +994,7 @@ In our [network-wide rollout](https://meta.stackexchange.com/q/292058/135201), w
 - [security.stackexchange.com](https://security.stackexchange.com/)
 - [superuser.com](https://superuser.com/)
 
-These were chosen super carefully after a detailed review in a 3 minute meeting between Samo and I.
+These were chosen super carefully after a detailed review in a 3-minute meeting between Samo and I.
 Meta because it's our main feedback site (that [the announcement](https://meta.stackexchange.com/q/292058/135201) is also on).
 Security because they have experts who may notice problems other sites don't, especially in the HTTPS space.
 And last, Super User.
@@ -1007,7 +1007,7 @@ As far as we can tell: there was barely any.
 The amount of week-to-week change in searches, results, clicks, and positions is well within the normal up/down noise.
 Our company *depends* on this traffic.
 This was incredibly important to be damn sure about.
-Luckily we were concerned for little reason and could continue rolling out.
+Luckily, we were concerned for little reason and could continue rolling out.
 
 ### Mistakes
 
@@ -1050,12 +1050,12 @@ Note: when you're cache breaking resources like we do, for example: `https://cdn
 Our cache breakers are a [checksum](https://en.wikipedia.org/wiki/Checksum) of the file, which means you only download a new copy *when it actually changes*.
 Doing a build number may be slightly simpler, but it's likely quite literally costing you money and performance at the same time.
 
-Okay all of that's cool - so why the hell didn't we just do this from the start?
+Okay, all of that's cool - so why the hell didn't we just do this from the start?
 Because HTTPS, at the time, was a performance penalty.
 Users would have suffered slower load times on `http://` pages.
-For an idea of scale: we served up 4 billion requests on `sstatic.net` last month, totalling 94TB.
+For an idea of scale: we served up 4 billion requests on `sstatic.net` last month, totaling 94TB.
 That would be a lot of collective latency back when HTTPS was slower.
-Now that the tables have turned on performance with HTTP/2 and our CDN/proxy setup - it's a net win for most users as well as being simpler.
+Now that the tables have turned on performance with HTTP/2 and our CDN/proxy setup, it's a net win for most users as well as being simpler.
 Yay!
 
 
@@ -1223,7 +1223,7 @@ There's quite a bit left to do.
 #### HSTS Preloading
 
 [HSTS](https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security) stands for "HTTP Strict Transport Security".
-OWASP has a great little write up [here](https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet).
+OWASP has a great little write-up [here](https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet).
 It's a fairly simple concept:
 - When you visit an `https://` page, we send you a header like this: `Strict-Transport-Security: max-age=31536000`
 - For that duration (in seconds), your browser only visits that domain over `https://`
@@ -1276,7 +1276,7 @@ Getting the cert would be low cost, if you ignore the engineering effort require
 There's one more critical piece of archaeology here: our internal domain is `ds.stackexchange.com`.
 Why `ds.`? I'm not sure. My assumption is we didn't know how to spell data center.
 This means `includeSubDomains` automatically includes *every internal endpoint*.
-Now most of our things are `https://` already, but making everything need HTTPS for even development from the first moment internally will cause some issues and delays.
+Now, most of our things are `https://` already, but making everything need HTTPS for even development from the first moment internally will cause some issues and delays.
 It's not that we wouldn't want `https://` everywhere inside, but that's an entire project (mainly around certificate distribution and maintenance, as well as multi-level certificates) that you really don't want coupled.
 Why not just change the internal domain?
 Because we don't have a few spare months for a lateral move. 
@@ -1296,7 +1296,7 @@ Chat relies on the cookie on the second-level domain like all the other Universa
 
 There's more to think through on this, but making chat itself `https://` with mixed-content while we solve those issues is still a net win.
 It allows us to secure the network fast and work on mixed-content in real-time chat afterwards.
-Look for this to happen in the next week or two, it's next on my list.
+Look for this to happen in the next week or two. It's next on my list.
 
 
 #### Today
