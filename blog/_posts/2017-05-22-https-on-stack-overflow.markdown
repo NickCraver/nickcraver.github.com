@@ -603,7 +603,7 @@ This tool is called `keepctl` (short for keepalived control) - look for this to 
 ### Preparing the Applications
 
 Almost all of the above has been just the infrastructure work.
-This is generally done by a team of [several other Site Reliability Engineers at Stack Overflow](http://stackoverflow.com/company/team#Engineering) and I getting things situated.
+This is generally done by a team of [several other Site Reliability Engineers at Stack Overflow](http://stackoverflow.com/company/team#Engineering) and me getting things situated.
 There's also so much more that needed doing inside the applications themselves.
 It's a long list. I'd grab some coffee and a Snickers.
 
@@ -718,7 +718,7 @@ What may load just fine on the same domain on the same protocol may readily fail
 
 By having a CDN and app domains setup with the same protocols and layout we have in production, we find and fix many more issues before they leave a developer's machine.
 For example, did you know that when going from an `https://` page to an `http://` one, [the browser does not send the referer](https://www.w3.org/Protocols/rfc2616/rfc2616-sec15.html#sec15.1.3)?
-It's a security issue, there could be sensitive bits in the URL that would be sent over <span title="We saw this was a typo and opted to leave it.">paintext</span> in the referer header.
+It's a security issue, there could be sensitive bits in the URL that would be sent over <span title="We saw this was a typo and opted to leave it.">plaintext</span> in the referer header.
 
 "That's bullshit Nick, we get Google referers!"
 Well, yes. You do. But because they *explicitly opt into it*. If you look at the Google search page, you'll find this `<meta>` directive:
