@@ -1,0 +1,21 @@
+@font-face{
+    font-family: 'Fira Code';
+    src: url('../fonts/FiraCode/FiraCode-Regular.eot');
+    src: url('../fonts/FiraCode/FiraCode-Regular.eot') format('embedded-opentype'),
+         url('../fonts/FiraCode/FiraCode-Regular.woff2') format('woff2'),
+         url('../fonts/FiraCode/FiraCode-Regular.woff') format('woff'),
+         url('../fonts/FiraCode/FiraCode-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face{
+    font-family: 'Fira Code';
+    src: url('../fonts/FiraCode/FiraCode-Medium.eot');
+    src: url('../fonts/FiraCode/FiraCode-Medium.eot') format('embedded-opentype'),
+         url('../fonts/FiraCode/FiraCode-Medium.woff2') format('woff2'),
+         url('../fonts/FiraCode/FiraCode-Medium.woff') format('woff'),
+         url('../fonts/FiraCode/FiraCode-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
