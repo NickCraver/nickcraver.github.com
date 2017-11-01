@@ -290,6 +290,9 @@
     .quantity, .notes { 
         font-size: 0.8em; 
     }
+    td:last-child {
+        padding: 0 8px;
+    }
 }
 
 /**
