@@ -4,8 +4,8 @@ author: Nick Craver
 title:  "Stack Overflow: The Architecture - 2016 Edition"
 date:   2016-02-17
 ---
-> This is #1 in a [very long series of posts]({% post_url blog/2016-02-03-stack-overflow-a-technical-deconstruction %}) on Stack Overflow's architecture. Welcome.  
-Previous post (#0): [Stack Overflow: A Technical Deconstruction]({% post_url blog/2016-02-03-stack-overflow-a-technical-deconstruction %})  
+> This is #1 in a [very long series of posts]({% post_url blog/2016-02-03-stack-overflow-a-technical-deconstruction %}) on Stack Overflow's architecture. Welcome.
+Previous post (#0): [Stack Overflow: A Technical Deconstruction]({% post_url blog/2016-02-03-stack-overflow-a-technical-deconstruction %})
 Next post (#2): [Stack Overflow: The Hardware - 2016 Edition]({% post_url blog/2016-03-29-stack-overflow-the-hardware-2016-edition %})
 
 To get an idea of what all of this stuff "does," let me start off with an update on the average day at Stack Overflow. So you can compare to the [previous numbers from November 2013]({% post_url blog/2013-11-22-what-it-takes-to-run-stack-overflow %}), here's a day of statistics from February 9th, 2016 with differences since November 12th, 2013:
@@ -23,8 +23,8 @@ To get an idea of what all of this stuff "does," let me start off with an update
 - **10,396,073** <span class="note">(-88,950,843)</span> ms (2.8 hours) spent on Redis hits
 - **147,018,571** <span class="note">(+14,634,512)</span> ms (40.8 hours) spent on Tag Engine requests
 - **1,609,944,301** <span class="note">(-1,118,232,744)</span> ms (447 hours) spent processing in ASP.Net
-- **22.71** <span class="note">(-5.29)</span> ms average (19.12 ms in ASP.Net) for 49,180,275 question page renders 
-- **11.80** <span class="note">(-53.2)</span> ms average (8.81 ms in ASP.Net) for 6,370,076 home page renders 
+- **22.71** <span class="note">(-5.29)</span> ms average (19.12 ms in ASP.Net) for 49,180,275 question page renders
+- **11.80** <span class="note">(-53.2)</span> ms average (8.81 ms in ASP.Net) for 6,370,076 home page renders
 
 You may be wondering about the drastic ASP.Net reduction in processing time compared to 2013 (which was 757 hours) despite 61 million more requests a day. That's due to both [a hardware upgrade in early 2015](http://blog.serverfault.com/2015/03/05/how-we-upgrade-a-live-data-center/) as well as a lot of performance tuning inside the applications themselves. Please don't forget: [performance is still a feature](https://blog.codinghorror.com/performance-is-a-feature/). If you're curious about more hardware specifics than I'm about to provide---fear not. The next post will be an appendix with detailed hardware specs for all of the servers that run the sites (I'll update this with a link when it's live).
 <!--more-->
@@ -76,7 +76,7 @@ After you find our secret hideout, HTTP traffic comes from one of our four ISPs 
 
 I suppose this may be a good time to mention we have a 10Gbps [MPLS](https://en.wikipedia.org/wiki/Multiprotocol_Label_Switching) between our 2 data centers, but it is not directly involved in serving the sites. We use this for data replication and quick recovery in the cases where we need a burst. "But Nick, that's not redundant!" Well, you're technically correct ([the best kind of correct](https://www.youtube.com/watch?v=hou0lU8WMgo)), that's a single point of failure on its face. But wait! We maintain 2 more failover [OSPF](https://en.wikipedia.org/wiki/Open_Shortest_Path_First) routes (the MPLS is #1, these are #2 and 3 by cost) via our ISPs. Each of the sets mentioned earlier connects to the corresponding set in Colorado, and they load balance traffic between in the failover situation. We could make both sets connect to both sets and have 4 paths but, well, whatever.  Moving on.
 
-### Load Balancers ([HAProxy](https://www.haproxy.org/))
+### Load Balancers (HAProxy)
 
 The load balancers are running [HAProxy](https://www.haproxy.org/) 1.5.15 on [CentOS 7](https://www.centos.org/), our preferred flavor of Linux. TLS (SSL) traffic is also terminated in HAProxy. We'll be looking hard at HAProxy 1.7 soon for [HTTP/2](https://en.wikipedia.org/wiki/HTTP/2) support.
 
@@ -109,7 +109,7 @@ Behind those web servers is the very similar "service tier." It's also running I
 
 These service boxes do heavy lifting with the tag engine and backend APIs where we need redundancy, but not 9x redundancy. For example, loading all of the posts and their tags that change every `n` minutes from the database (currently 2) isn't that cheap. We don't want to do that load 9 times on the web tier; 3 times is enough and gives us enough safety. We also configure these boxes differently on the hardware side to be better optimized for the different computational load characteristics of the tag engine and elastic indexing jobs (which also run here). The "tag engine" is a relatively complicated topic in itself and will be a [dedicated post](https://trello.com/c/DqklJDSF/29-tag-engine). The basics are: when you visit `/questions/tagged/java`, you're hitting the tag engine to see which questions match. It does *all* of our tag matching outside of `/search`, so the [new navigation](https://meta.stackoverflow.com/questions/308875/new-navigation-release-candidate), etc. are all using this service for data.
 
-### Cache & Pub/Sub ([Redis](https://redis.io/))
+### Cache & Pub/Sub (Redis)
 
 We use [Redis](https://Redis.io/) for a few things here and it's rock solid. Despite doing about 160 billion ops a month, every instance is below 2% CPU. Usually much lower:
 
@@ -119,15 +119,15 @@ We have an L1/L2 cache system with Redis. "L1" is HTTP Cache on the web servers 
 
 We also run many Q&A sites, so each site has its own L1/L2 caching: by key prefix in L1 and by database ID in L2/Redis. We'll go deeper on this in a [future post](https://trello.com/c/OztwfkG7/16-caching-Redis).
 
-Alongside the 2 main Redis servers (master/slave) that run all the site instances, we also have a machine learning instance slaved across 2 more dedicated servers (due to memory). This is used for recommending questions on the home page, better matching to jobs, etc. It's a platform called Providence, [covered by Kevin Montrose here](https://kevinmontrose.com/2015/01/27/providence-machine-learning-at-stack-exchange/). 
+Alongside the 2 main Redis servers (master/slave) that run all the site instances, we also have a machine learning instance slaved across 2 more dedicated servers (due to memory). This is used for recommending questions on the home page, better matching to jobs, etc. It's a platform called Providence, [covered by Kevin Montrose here](https://kevinmontrose.com/2015/01/27/providence-machine-learning-at-stack-exchange/).
 
 The main Redis servers have 256GB of RAM (about 90GB in use) and the Providence servers have 384GB of RAM (about 125GB in use).
 
 Redis isn't just for cache though, it also has a publish & subscriber mechanism where one server can publish a message and all other subscribers receive it---including downstream clients on Redis slaves. We use this mechanism to clear L1 caches on other servers when one web server does a removal for consistency, but there's another great use: websockets.
 
-### Websockets ([NetGain](https://github.com/StackExchange/NetGain))
+### Websockets (https://github.com/StackExchange/NetGain)
 
-We use websockets to push real-time updates to users such as notifications in the top bar, vote counts, [new nav](https://meta.stackoverflow.com/questions/308875/new-navigation-release-candidate) counts, new answers and comments, and a few other  bits. 
+We use websockets to push real-time updates to users such as notifications in the top bar, vote counts, [new nav](https://meta.stackoverflow.com/questions/308875/new-navigation-release-candidate) counts, new answers and comments, and a few other  bits.
 
 The socket servers themselves are using raw sockets running on the web tier. It's a very thin application on top of our open source library: [`StackExchange.NetGain`](https://github.com/StackExchange/NetGain). During peak, we have about 500,000 **concurrent** websocket connections open. That's a lot of browsers. Fun fact: some of those browsers have been open for over 18 months. We're not sure why. Someone should go check if those developers are still alive. Here's what this week's concurrent websocket pattern looks like:
 
@@ -135,7 +135,7 @@ The socket servers themselves are using raw sockets running on the web tier. It'
 
 Why websockets? They're tremendously more efficient than polling at our scale. We can simply push more data with fewer resources this way, while being more instant to the user. They're not without issues though---ephemeral port and file handle exhaustion on the load balancer are fun issues [we'll cover later](https://trello.com/c/7nv66g78/58-websockets).
 
-### Search ([Elasticsearch](https://www.elastic.co/products/elasticsearch))
+### Search (Elasticsearch)
 
 Spoiler: there's not a lot to get excited about here. The web tier is doing pretty vanilla searches against [Elasticsearch](https://www.elastic.co/products/elasticsearch) 1.4, using the very slim high-performance `StackExchange.Elastic` client. Unlike most things, we have no plans to open source this simply because it only exposes a very slim subset of the API we use. I strongly believe releasing it would do more harm than good with developer confusion. We're using elastic for `/search`, calculating related questions, and suggestions when asking a question.
 
