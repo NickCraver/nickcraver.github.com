@@ -69,7 +69,7 @@ a {
     &:hover {
         color: $brand-color;
     }
-    
+
     &.button {
         background-color: darken($brand-color, 10%);
         border-radius: 5px;
@@ -77,7 +77,7 @@ a {
         padding: 2px 4px;
         display: inline-block;
         text-align: center;
-        
+
         &:hover {
             color: darken($background-color, 100%);;
             background-color: $brand-color;
@@ -110,7 +110,7 @@ code {
 }
 pre {
     padding: 8px 12px;
-    
+
     @include media-query($on-small) {
         overflow-x: scroll;
     }
@@ -126,7 +126,7 @@ b, strong {
     color: #ddd;
 }
 
-table.comparison { 
+table.comparison {
     margin: 0 auto;
     border: none;
     border-collapse: collapse;
@@ -160,4 +160,12 @@ table.comparison {
         width: 16px;
         height: 16px;
     }
+}
+
+.banner {
+    text-align: center;
+    background-color: #444;
+    color: #60aaed;
+    font-size: 20px;
+    text-shadow: #000 0 0 5px;
 }
