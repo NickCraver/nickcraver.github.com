@@ -764,7 +764,8 @@ What if we had a simple structure from the health checks like this:
 ```c#
 public class HealthResult
 {
-    public string Name { get; set; }
+    public string AppName { get; set; }
+    public string ServerName { get; set; }
     public HealthStatus Status { get; set; }
     public List<string> Tags { get; set; }
     public List<HealthResult> Dependencies { get; set; }
