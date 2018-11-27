@@ -102,7 +102,7 @@ Run the same program without it? Goes faster, doesn't it?
 Logging has a few costs.
 First, you often need to allocate strings for the logging itself.
 That's memory and garbage collection (for .NET and some other platforms).
-When you're logging *somewhere*, usually that means disk space.
+When you're logging *somewhere*, that usually that means disk space.
 If we're traversing a network (and to some degree locally), it also means bandwidth and latency.
 
 ...and I was just kidding about email and [GDPR](https://en.wikipedia.org/wiki/General_Data_Protection_Regulation)...**all of those are GDPR concerns**. Keep retention and compliance in mind when logging anything. It's another cost to consider.
@@ -199,7 +199,7 @@ This means **only** a `200` is allowed from our health check endpoint.
 Yes, it's bitten us more than once.
 
 Different apps vary on what the health check endpoint is, but for [stackoverflow.com](https://stackoverflow.com/), it's the home page.
-We've debated changing this a few times, but the reality is the homepage checks things we may not otherwise check, and a holistic check is important.
+We've debated changing this a few times, but the reality is the home page checks things we may not otherwise check, and a holistic check is important.
 By this I mean, "If users hit the same page, would it work?"
 If we made a health check that hit the database and some caches and sanity checked the big things that we know need to be online, that's great and it's way better than nothing.
 But let's say we put a bug in the code and a cache that doesn't even seem that important doesn't reload right and it turns out it was needed to render the top bar for all users.
@@ -505,7 +505,7 @@ The only thing that matters is how fast users *think* your site is.
 How fast does it *feel*?
 This manifests in many ways on the client experience, from the initial painting of a page to when content blinks in (please don't blink or shift!), ads render, etc.
 
-Things that factor in here are, for example how long did it take to...
+Things that factor in here are, for example, how long did it take to...
 - Connect over TCP?  ([HTTP/3](https://daniel.haxx.se/blog/2018/11/11/http-3/) isn't here yet)
 - Negotiate the TLS connection?
 - Finish sending the request?
@@ -842,7 +842,7 @@ Here's a handy list for reference:
 What's next?
 The way [this series]({% post_url blog/2016-02-03-stack-overflow-a-technical-deconstruction %}) works is I blog in order of what the community wants to know about most.
 Going by [the Trello board](https://trello.com/b/0zgQjktX/blog-post-queue-for-stack-overflow-topics), it looks like [Caching](https://trello.com/c/OztwfkG7/16-caching-redis) is the next most interesting topic.
-So next time expect to learn how we cache data both on the web tier and redis, how we handle cache invalidation, and take advantage of pub/sub for various tasks along the way.
+So next time expect to learn how we cache data both on the web tier and Redis, how we handle cache invalidation, and take advantage of pub/sub for various tasks along the way.
 
 [Bosun]: https://bosun.org
 [GH.BosunReporter]: https://github.com/StackExchange/BosunReporter
