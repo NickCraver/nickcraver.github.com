@@ -139,7 +139,7 @@ For the record, [Jarrod Dixon](https://twitter.com/jarrod_dixon) first suggested
 Please no one tell him he was totally right.
 A new per-month storage format will be coming soon, but that's another story.
 
-In those requests, we use profiling [that we'll talk about shortly](#miniprofiler) and send headers to HAProxy with certain numbers.
+In those requests, we use profiling [that we'll talk about shortly](#miniprofiler) and send headers to HAProxy with certain performance numbers.
 HAProxy captures and strips those headers into the syslog row we forward for processing into SQL.
 Those headers include:
 
@@ -226,6 +226,12 @@ Your health checks can absolutely be used to communicate as much state as you wa
 If having it provides some advantage and the overhead is worth it (e.g. are you running another query?), have at it.
 The Microsoft .NET team has been working on [a unified way to do health checks in ASP.NET Core](https://docs.microsoft.com/en-us/dotnet/standard/microservices-architecture/implement-resilient-applications/monitor-app-health), but I'm not sure if we'll go that way or not.
 I hope we can provide some ideas and unify things there when we get to it...more thoughts on that towards the end.
+
+However, keep in mind that health checks also generally run often. Very often. Their expense and expansiveness should be related to the frequency they're running at. If you're hitting it once every 100ms, once a second, once every 5 seconds, or once a minute, what you're checking and how many dependencies are evaluated (and take a while to check...) very much matters. For example a 100ms check can't take 200ms. That's trying to do too much.
+
+Another note here is a health check can generally reflect a few levels of "up". One is "I'm here", which is as basic as it gets. The other is "I'm ready to serve". The latter is much more important for almost every use case. But don't phrase it quite like that to the machines, you'll want to be in their favor when the uprising begins.
+
+A practical example of this happens at Stack Overflow: when you flip an HAProxy backend server from `MAINT` (maintenance mode) to `ENABLE`, the assumption is that the backend is up until a health check says otherwise. However, when you go from `DRAIN` to `ENABLE`, the assumption is the service is down, and must pass 3 health checks before getting traffic. When we're dealing with thread pool growth limitations and caches trying to spin up (like our Redis connections), we can get very nasty thread pool starvation issues because of how the health check behaves. The impact is drastic. When we spin up slowly from a drain, it takes about 8-20 seconds to be fully ready to serve traffic on a freshly built web server. If we go from maintenance which slams the server with traffic during startup, it takes 2-3 minutes. The health check and traffic influx may seem like salient details, but it's critical to our [deployment pipeline]({% post_url blog/2016-05-03-stack-overflow-how-we-do-deployment-2016-edition %}).
 
 #### Health Checks: httpUnit
 
