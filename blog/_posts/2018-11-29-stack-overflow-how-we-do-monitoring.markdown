@@ -105,7 +105,7 @@ That's memory and garbage collection (for .NET and some other platforms).
 When you're logging *somewhere*, that usually that means disk space.
 If we're traversing a network (and to some degree locally), it also means bandwidth and latency.
 
-...and I was just kidding about email and [GDPR](https://en.wikipedia.org/wiki/General_Data_Protection_Regulation)...**all of those are GDPR concerns**. Keep retention and compliance in mind when logging anything. It's another cost to consider.
+...and I was just kidding about [GDPR](https://en.wikipedia.org/wiki/General_Data_Protection_Regulation) only being a concern for email...**GDPR is a concern for all of the above**. Keep retention and compliance in mind when logging anything. It's another cost to consider.
 
 Let's say none of those are significant problems and we want to log all the things.
 Tempting, isn't it? Well, then we can have too much of a good thing.
@@ -144,11 +144,11 @@ HAProxy captures and strips those headers into the syslog row we forward for pro
 Those headers include:
 
 - ASP.NET Overall Milliseconds (encompasses those below)
-- SQL Count & Milliseconds
-- Redis Count & Milliseconds
-- HTTP Count & Milliseconds
-- Tag Engine Count & Milliseconds
-- Elasticsearch Count & Milliseconds
+- SQL Count (queries) & Milliseconds
+- Redis Count (hits) & Milliseconds
+- HTTP Count (requests sent) & Milliseconds
+- Tag Engine Count (queries) & Milliseconds
+- Elasticsearch Count (hits) & Milliseconds
 
 If something gets better or worse we can easily query and compare historical data.
 It's also useful in ways we never really thought about.
@@ -243,13 +243,13 @@ For more details, see [the GitHub README][GH.httpUnit].
 #### Health Checks: Fastly
 
 If we zoom out from the data center, we need to see what's hitting us.
-That's [Fastly](https://www.fastly.com/).
+That's usually our CDN & proxy: [Fastly](https://www.fastly.com/).
 Fastly has a concept of [services](https://docs.fastly.com/guides/basic-setup/working-with-services), which are akin to HAProxy backends when you think about it like a load balancer.
 Fastly also has [health checks](https://docs.fastly.com/guides/basic-configuration/working-with-health-checks) built in.
 In each of our data centers, we have two sets of ISPs coming in for redundancy.
 We can configure things in Fastly to optimize uptime here.
 
-Let's say our NY data center is primary at the moment, and CO is our backup (our default state).
+Let's say our NY data center is primary at the moment, and CO is our backup.
 In that case, we want to try:
 1. NY primary ISPs
 2. NY secondary ISPs
