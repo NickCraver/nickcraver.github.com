@@ -7,14 +7,19 @@ date:   2018-11-29
 > This is #4 in a [very long series of posts]({% post_url blog/2016-02-03-stack-overflow-a-technical-deconstruction %}) on Stack Overflow's architecture.  
 Previous post (#3): [Stack Overflow: How We Do Deployment - 2016 Edition]({% post_url blog/2016-05-03-stack-overflow-how-we-do-deployment-2016-edition %})
 
+
+What is monitoring? As far as I can tell, it means different things to different people.
+But we more or less agree on the concept.
+I think. Maybe. Let's find out!
+When someone says monitoring, I think of:
+
 <div style="max-width:400px;text-align: center;margin: 0 auto;">
 ![You are being monitored!]({{ site.contenturl }}SO-Monitoring/SO-Monitoring-Monitored.png)
 </div>
 
-So...what is monitoring? As far as I can tell, it means different things to different people.
-But we more or less agree on the concept.
-I think. Maybe. Let's find out!
-I see it as the process of keeping an eye on your stuff, like a security guard sitting at a desk full of cameras somewhere.
+...but evidently some people think of other things.
+Those people are obviously wrong, but let's continue.
+When I'm not a walking zombie after reading a 10,000 word blog post some idiot wrote, I see monitoring as the process of keeping an eye on your stuff, like a security guard sitting at a desk full of cameras somewhere.
 Sometimes they fall asleep - that's monitoring going down.
 Sometimes they're distracted with a doughnut delivery - that's an upgrade outage.
 Sometimes the camera is on a loop - I don't know where I was going with that one, but someone's probably robbing you.
