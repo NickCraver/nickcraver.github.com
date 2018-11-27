@@ -7,7 +7,11 @@ date:   2018-11-29
 > This is #4 in a [very long series of posts]({% post_url blog/2016-02-03-stack-overflow-a-technical-deconstruction %}) on Stack Overflow's architecture.  
 Previous post (#3): [Stack Overflow: How We Do Deployment - 2016 Edition]({% post_url blog/2016-05-03-stack-overflow-how-we-do-deployment-2016-edition %})
 
-What is monitoring? As far as I can tell, it means different things to different people.
+<div style="max-width:400px;text-align: center;margin: 0 auto;">
+![You are being monitored!]({{ site.contenturl }}SO-Monitoring/SO-Monitoring-Monitored.png)
+</div>
+
+So...what is monitoring? As far as I can tell, it means different things to different people.
 But we more or less agree on the concept.
 I think. Maybe. Let's find out!
 I see it as the process of keeping an eye on your stuff, like a security guard sitting at a desk full of cameras somewhere.
@@ -135,10 +139,10 @@ In those requests, we use profiling [we'll talk about shortly](#miniprofiler) an
 HAProxy captures and strips those headers into the syslog row we forward for processing into SQL.
 Those headers include:
 
-- ASP.NET Overall Milliseconds
+- ASP.NET Overall Milliseconds (encompasses those below)
 - SQL Count & Milliseconds
 - Redis Count & Milliseconds
-- Http Count & Milliseconds
+- HTTP Count & Milliseconds
 - Tag Engine Count & Milliseconds
 - Elasticsearch Count & Milliseconds
 
@@ -199,7 +203,7 @@ It's now breaking every page.
 A health check route running some code wouldn't trigger, but just the act of loading the master view ensures a huge number of dependencies are evaluated and working for the check.
 
 If you're curious, that's not a hypothetical.
-You know that little dot on the review queue that indicates a lot of items in queue?
+You know that little dot on the review queue that indicates a lot of items currently in queue?
 Yeah... Fun Tuesday.
 
 We also have health checks inside libraries.
@@ -209,7 +213,7 @@ We use the same approach to see if the socket is still open and working to webso
 This is a monitoring of sorts not heavily used here, but it is used.
 
 Other health checks in place include our tag engine servers.
-We could load balance this through HAProxy (which would add a hop) but making every web tier aware of every tag server directly has been a better option for us.
+We could load balance this through HAProxy (which would add a hop) but making every web tier server aware of every tag server directly has been a better option for us.
 We can: 1) choose how to spread load, 2) much more easily test new builds, and 3) get per-server op counts metrics and performance data.
 All of that is another post, but for this topic: we have a simple "ping" health check that pokes the tag server once a second and gets just a little data from it like when it last updated from the database.
 
@@ -250,7 +254,7 @@ In that case, we want to try:
 The reason for primary and secondary ISPs has to do with best transit options, commits, overages, etc.
 So we want to prefer one set over another.
 With health checks, we can very quickly failover from #1 through #4.
-Let's say someone cuts the fiber on both ISPs in #1 or [BGP](https://en.wikipedia.org/wiki/Border_Gateway_Protocol) goes wonky, then #2 kicks in immediately.
+Let's say someone cuts the fiber on both ISPs in #1 or [BGP](https://en.wikipedia.org/wiki/Border_Gateway_Protocol) [goes wonky](https://youtu.be/yhVDhcuRY1I?t=29), then #2 kicks in immediately.
 We may drop thousands of requests before it happens, but we're talking about an order of seconds and users just refreshing the page are probably back in business.
 Is it perfect? No.
 Is it better than being down indefinitely? Hell yeah.
