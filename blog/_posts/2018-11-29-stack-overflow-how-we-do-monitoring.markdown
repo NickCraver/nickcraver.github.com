@@ -212,7 +212,7 @@ Yeah...fun Tuesday.
 
 We also have health checks inside libraries.
 The simplest manifestation of this is a [heartbeat](https://en.wikipedia.org/wiki/Heartbeat_(computing)).
-This is something that for example [StackExchage.Redis](https://github.com/StackExchange/StackExchange.Redis) uses to routinely check if the socket connection to Redis is active.
+This is something that for example [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) uses to routinely check if the socket connection to Redis is active.
 We use the same approach to see if the socket is still open and working to websocket consumers on Stack Overflow.
 This is a monitoring of sorts not heavily used here, but it is used.
 
@@ -242,7 +242,7 @@ For more details, see [the GitHub README][GH.httpUnit].
 
 #### Health Checks: Fastly
 
-If we zoom out fom the data center, we need to see what's hitting us.
+If we zoom out from the data center, we need to see what's hitting us.
 That's [Fastly](https://www.fastly.com/).
 Fastly has a concept of [services](https://docs.fastly.com/guides/basic-setup/working-with-services), which are akin to HAProxy backends when you think about it like a load balancer.
 Fastly also has [health checks](https://docs.fastly.com/guides/basic-configuration/working-with-health-checks) built in.
@@ -288,7 +288,7 @@ The value in an entry can also take a few forms, but the general case is counter
 Counters report an ever-increasing value (often reset to `0` on restarts and such though).
 By taking the difference in value over time, you can find out the value delta in that window.
 For example, if we had 129,389,039 ten minutes before, we know that process on that server in those ten minutes ran 100 Gen 0 garbage collection passes.
-Another case is just reporting an absolute point-in-time value, for example "This GPU is currenly 87°".
+Another case is just reporting an absolute point-in-time value, for example "This GPU is currently 87°".
 So what do we use to handle Metrics?
 In just a minute [we'll talk about Bosun](#bosun).
 
@@ -524,7 +524,7 @@ And I might even be biased.
 ...but it also doesn't mean crap to a user if it takes forever to get to them.
 
 So, what can we do?
-Years back, I threw together a client timings pipline when the pieces we needed first became available in browsers.
+Years back, I threw together a client timings pipeline when the pieces we needed first became available in browsers.
 The concept is simple: use the [navigation timings API](https://developer.mozilla.org/en-US/docs/Web/API/Navigation_timing_API) available in web browsers and record it.
 That's it.
 There's some sanity checks in there (you wouldn't believe the number of NTP clock corrections that yield invalid timings from syncs *during a render* making clocks go backwards...), but otherwise that's pretty much it.
@@ -739,7 +739,7 @@ I get the same questions about Opserver routinely, so let's knock a few of them 
 - Only the dashboard tab and per-node view is powered by Bosun, Orion, or WMI - all other screens like SQL, Elastic, Redis, etc. have no dependency...Opserver monitors these directly.
 - Authentication is both global and per-tab pluggable (who can view and who's an admin are separate), but built-in configuration is via groups and Active Directory is included.
   - On admin vs. viewer: A viewer gets a read-only view. For example, HAProxy controls wouldn't be shown.
-- All tabs are not requied--each is independent and only appears if configured.
+- All tabs are not required--each is independent and only appears if configured.
   - For example, if you wanted to only use Opserver as an Elastic or Exceptions dashboard, go nuts.
 
 **Note**: Opserver is currently being ported to ASP.NET Core as I have time at night.
@@ -809,7 +809,7 @@ Has SQL 2017 or 2019 already improved the queries we had issues with lowering th
 We need to take some time and look at the landscape and evaluate what we want to do.
 This is something we want to get into during Q1 2019.
 
-We know of some things we'd like to do, such as impoving the alert editing experience and some other UI areas.
+We know of some things we'd like to do, such as improving the alert editing experience and some other UI areas.
 We just need to weigh some things and figure out where our time is best spent as with all things.
 
 #### Metrics Next Steps
