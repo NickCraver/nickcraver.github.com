@@ -724,7 +724,10 @@ In the per-exception page, the detail looks like this:
 
 ![Redis]({{ site.contenturl }}SO-Monitoring/SO-Monitoring-Opserver-Exceptions-Command.png)
 
-There are also details recorded like request headers (with security filters so we don't log auth cookies for example), query parameters, and any other custom data added to an exception.
+There are also details recorded like request headers (with security filters so we don't log authentication cookies for example), query parameters, and any other custom data added to an exception.
+
+Note: you can configure multiple stores, for instance we have New York and Colorado above.
+These are separate databases allowing all applications to log to a very-local store and still get to them from a single dashboard.
 
 #### Opserver: HAProxy
 
