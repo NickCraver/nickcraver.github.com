@@ -300,7 +300,7 @@ In just a minute [we'll talk about Bosun](#bosun).
 
 ### Alerting
 
-Alrighty, what do we do all that data? ALERTS!
+Alrighty, what do we do with all that data? ALERTS!
 As we all know, "alert" is an anagram that comes from "le rat", meaning "one who squealed to authorities".
 
 This happens at several levels and we customize it to the team in question and how they operate best.
