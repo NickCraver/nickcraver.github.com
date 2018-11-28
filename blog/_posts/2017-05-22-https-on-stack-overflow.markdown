@@ -20,6 +20,7 @@ As indicated by your scroll bar being very tiny right now.
 While Stack Exchange/Overflow is not unique in the problems we faced along the way, the combination of problems is fairly rare.
 I hope you find some details of our trials, tribulations, mistakes, victories, and even some open source projects that resulted along the way to be helpful.
 It's hard to structure such an intricate dependency chain into a chronological post, so I'll break this up by topic: infrastructure, application code, mistakes, etc.
+<!--more-->
 
 I think it's first helpful to preface with a list of problems that makes our situation somewhat unique:
 - We have hundreds of domains ([many sites](https://stackexchange.com/sites) and other services)
