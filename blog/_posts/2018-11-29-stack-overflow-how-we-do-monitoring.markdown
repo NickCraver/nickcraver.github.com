@@ -325,10 +325,6 @@ Things of this magnitude are:
 - stackoverflow.com (or any other important property) going offline (as seen by Pingdom)
 - Significantly high error rates
 
-```
-TODO: Check with SRE on additions here
-```
-
 Now that we have all the boring stuff out of the way, let's dig into the tools. Yummy tools!
 
 ### Bosun
