@@ -114,7 +114,7 @@ It's more to dig through.
 It can make finding the problem much harder and slower.
 With all logging, it's a balance of logging what you think you'll need vs. what you end up needing.
 You'll get it wrong. All the time.
-And you'll find a newly added feature added didn't have the right logging when things went wrong.
+And you'll find a newly added feature didn't have the right logging when things went wrong.
 And you'll finally figure that out (probably after it goes south)...and add that logging.
 That's life.
 Improve and move on.
