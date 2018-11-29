@@ -70,7 +70,7 @@
                 svg {
                     transform: translateY(-1px) scale(1.1, 1.1);
                 }
-            }                        
+            }
         }
     }
 
@@ -145,7 +145,7 @@
         }
         .post-meta {
             display: inline-block;
-            width: 75px;
+            width: 90px;
             margin-bottom: 0;
         }
     }
@@ -181,18 +181,18 @@
 /**
  * Posts
  */
-.post-header {    
+.post-header {
 }
 
 .top-right-links {
     float: right;
-    width: 120px;
+    width: 140px;
     text-align: right;
 }
 
 .post-link, a.post-link, .post-title {
     display: block;
-    font-size: 36px;
+    font-size: 34px;
     color: $post-title-color;
     margin-bottom: 0;
     line-height: 1.3;
@@ -268,27 +268,27 @@
  * Desktop Build
  */
 .wishlist {
-    table { 
-        width: 100%; 
-        border-collapse: collapse; 
+    table {
+        width: 100%;
+        border-collapse: collapse;
     }
-    tr:nth-child(even) td { 
-        background: #2c2c2c;; 
+    tr:nth-child(even) td {
+        background: #2c2c2c;;
     }
-    img { 
-        width: 48px; 
-        height: 48px; 
-        border: 0; 
+    img {
+        width: 48px;
+        height: 48px;
+        border: 0;
     }
     td:first-child {
         width: 48px;
         padding-right: 5px;
     }
-    td:nth-child(2) { 
-        font-size: 12px; 
+    td:nth-child(2) {
+        font-size: 12px;
     }
-    .quantity, .notes { 
-        font-size: 0.8em; 
+    .quantity, .notes {
+        font-size: 0.8em;
     }
     td:last-child {
         padding: 0 8px;
