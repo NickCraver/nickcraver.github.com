@@ -5,9 +5,10 @@ title:  "Stack Overflow: A Technical Deconstruction"
 date:   2016-02-03
 ---
 > As new posts in the series appear, I'll add them here to serve as a master list:  
-> #1: [Stack Overflow: The Architecture - 2016 Edition]({% post_url blog/2016-02-17-stack-overflow-the-architecture-2016-edition %})  
-> #2: [Stack Overflow: The Hardware - 2016 Edition]({% post_url blog/2016-03-29-stack-overflow-the-hardware-2016-edition %})  
-> #3: [Stack Overflow: How We Do Deployment - 2016 Edition]({% post_url blog/2016-05-03-stack-overflow-how-we-do-deployment-2016-edition %})
+#1: [Stack Overflow: The Architecture - 2016 Edition]({% post_url blog/2016-02-17-stack-overflow-the-architecture-2016-edition %})  
+#2: [Stack Overflow: The Hardware - 2016 Edition]({% post_url blog/2016-03-29-stack-overflow-the-hardware-2016-edition %})  
+#3: [Stack Overflow: How We Do Deployment - 2016 Edition]({% post_url blog/2016-05-03-stack-overflow-how-we-do-deployment-2016-edition %})  
+#4: [Stack Overflow: How We Do Monitoring - 2018 Edition]({% post_url blog/2018-11-29-stack-overflow-how-we-do-monitoring %})  
 
 One of the reasons I love working at Stack Overflow is we're <s>allowed</s> *encouraged* to talk about almost anything out in the open. Except for things companies *always* keep private like financials and the nuclear launch codes, everything else is fair game. That's an awesome thing that we haven't taken advantage of on the technical side lately. I think it's time for an experiment in extreme openness.
 
