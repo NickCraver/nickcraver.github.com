@@ -267,13 +267,23 @@
 /**
  * Desktop Build
  */
+.previous-build-header {
+    margin-top: $spacing-unit;
+}
 .wishlist {
+    margin-bottom: 2*$spacing-unit;
     table {
         width: 100%;
         border-collapse: collapse;
     }
+    th {
+        text-align: left;
+        background: #2c2c2c;
+        padding: 4px 8px;
+        font-weight: normal;
+    }
     tr:nth-child(even) td {
-        background: #2c2c2c;;
+        background: #2c2c2c;
     }
     img {
         width: 48px;
