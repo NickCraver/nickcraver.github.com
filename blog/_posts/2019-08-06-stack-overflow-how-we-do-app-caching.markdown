@@ -314,6 +314,23 @@ That's a timeout.
 We often see issues filed from people putting tremendous many-megabyte payloads into Redis with low timeouts, but that doesn't work unless the pipe is very, very fast.
 They don't see the many-megabyte command timing out...they usually see things waiting *behind* it timing out.
 
+It's important to realize that a pipeline is just like any pipe outside a computer.
+Whatever its narrowest constraint is, that's where it'll bottleneck.
+Except this is a dynamic pipe, more like a hose that can expand or bend or kink.
+The bottlenecks are not 100% constant.
+In practical terms, this can be [thread pool](https://docs.microsoft.com/en-us/dotnet/standard/threading/the-managed-thread-pool) exhaustion (either feeding commands in or handling them coming out).
+Or it may be network bandwidth.
+And maybe something *else* using that network bandwidth impacting us.
+
+Remember that at these levels of latency, the fact that you're running at say 1Gb/s or 10Gb/s isn't the correct unit of time to consider anymore.
+For me, it helps to think of 1Gb/s instead as 1Mb/ms.
+If we're traversing the network in about a millisecond or less, that payload really does matter and can increase the time taken by very measurable and impactful amounts.
+That's all to say: think small here.
+The limits on any system when you're dealing with short durations must be considered with relative constraints proportional to the same durations.
+When we're talking about milliseconds, the fact that we think of most computing concepts only down to the second is often a factor that confuses thinking and discussion.
+
+#### Pipelining: Retries
+
 The pipelined nature is also why we can't retry commands with any confidence.
 In this sad world our conveyor belt has turned into the airport baggage pickup loopy thingamajig ([also in the dictionary](https://www.merriam-webster.com/dictionary/thingamajig), for the record) we all know and love.
 
@@ -732,7 +749,7 @@ Turns out after a lot of manual profiling and troubleshooting, we found *another
 It was a small spike we thought nothing of at first, but *how* it spiked was important.
 
 It turns out that a monitoring process (dammit!) was kicking off [`vmstat`](https://en.wikipedia.org/wiki/Vmstat) to get memory statistics.
-Not tht often, not that abusive -- it was actually pretty reasonable.
+Not that often, not that abusive -- it was actually pretty reasonable.
 But what it did was punt Redis off of the CPU core it was on to run. Sometimes. Randomly.
 Which Redis instance? Well that depends on the order they started in.
 So yeah...this bug _seemed_ to hop round.
@@ -741,21 +758,27 @@ The changing of context to another core was enough to see timeouts with how _oft
 Once we found this and factored in that we have plenty of cores in these boxes, we began pinning Redis to specific cores on the physical hosts.
 This ensures the primary function of the servers always has priority and monitoring is secondary.
 
+Since writing this and asking for reviews, I learned [Redis now has built-in latency monitoring](https://redis.io/topics/latency-monitor) added shortly after the version we were using at the time. Check out [`LATENCY DOCTOR`](https://redis.io/topics/latency-monitor#latency-doctor) especially.
+AWESOME.
+Thank you Salvatore Sanfilippo! He's the lovely [@antirez](https://twitter.com/antirez), author of Redis.
+
+Now I need to go put the `LATENCY` bits into StackExchange.Redis and Opserver...
+
 ### Caching FAQ
 
 I get a lot of questions that don't really fit so well above, but I wanted to cover them for the curious.
 And since you *know* we love Q&A up in here, let's try a new section to these posts I can easily add to as new questions come up.
 
-**Q**: Why don't you use [Redis cluster](https://redis.io/topics/cluster-tutorial)?  
+**Q**: Why don't you use [Redis Cluster](https://redis.io/topics/cluster-tutorial)?  
 **A**: There are a few reasons here:
-1. We use [databases](https://redis.io/commands/select), which aren't a feature in cluster (to minimize the message replication header size). We can get around this by moving the database ID into the cache key instead (as we do with local cache above), but one giant database has maintainability trade-offs, like when you go to figure out which keys are using so much room.
+1. We use [databases](https://redis.io/commands/select), which aren't a feature in Cluster (to minimize the message replication header size). We can get around this by moving the database ID into the cache key instead (as we do with local cache above), but one giant database has maintainability trade-offs, like when you go to figure out which keys are using so much room.
 2. The replication topology thus far has been node to node, meaning maintenance on the master cluster would require shifting the same topology on a secondary cluster in our DR data center. This would make maintenance harder instead of easier. We're waiting for cluster <-> cluster replication, rather than node <-> node replication there.
 3. It would require 3+ nodes to run correctly (due to elections and such). We currently only run 2 physical Redis servers per data center. 1 server is way more performance than we need, and the second is a replica/backup.
 
-**Q**: Why don't you use [Redis sentinel](https://redis.io/topics/sentinel)?  
-**A**: We looked into this, but the management over it wasn't any simpler than we had today.
+**Q**: Why don't you use [Redis Sentinel](https://redis.io/topics/sentinel)?  
+**A**: We looked into this, but the overall management of it wasn't any simpler than we had today.
 The idea of connecting to an endpoint and being directed over is great, but the management is complicated enough that it's not worth changing our current strategy given how incredibly stable Redis is.
-One of the biggest issues with both Cluster and Sentinel is the writing of current topology state [into the same config file](https://groups.google.com/forum/#!searchin/redis-db/puppet$20cluster%7Csort:date/redis-db/1JB7OkaaxZo/w1bAZ23dAgAJ).
+One of the biggest issues with Sentinel is the writing of current topology state [into the same config file](https://groups.google.com/forum/#!searchin/redis-db/puppet$20cluster%7Csort:date/redis-db/1JB7OkaaxZo/w1bAZ23dAgAJ).
 This makes it very unfriendly to anyone with managed configs. For example, we use [Puppet](https://puppet.com/) here.
 
 **Q**: How do you secure [Stack Overflow for Teams](https://stackoverflow.com/teams) cache?  
@@ -805,6 +828,7 @@ And by "can", I mean 100% of the time at our scale.
 
 **Q**: What happens when someone runs [`FLUSHALL`](https://redis.io/commands/flushall) on production?  
 **A**: It's against policy to comment on future criminal investigations.
+[Redis 6 is adding ACLs though](https://redis.io/topics/acl), which will limit the suspect pool.
 
 **Q**: How do the police investigators figure out what happened in either of the above cases? Or any latency spike?  
 **A**: Redis has a nifty feature called [`SLOWLOG`](https://redis.io/commands/slowlog) which (by default) logs every command over 10ms in duration.
