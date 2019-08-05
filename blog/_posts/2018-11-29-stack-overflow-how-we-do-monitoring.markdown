@@ -28,6 +28,7 @@ Or maybe it's not.
 Or maybe the siren broke in 1984.
 
 I know what you're thinking: Nick, what the hell?
+<!--more-->
 My point is only that monitoring any application isn't that much different from monitoring anything else.
 Some things you can automate.
 Some things you can't.
