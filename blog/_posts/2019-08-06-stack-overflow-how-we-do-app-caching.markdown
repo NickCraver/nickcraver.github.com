@@ -28,7 +28,7 @@ Cache access is a "how many cycles" feature of a processor, so by knowing that w
 Each cache layer is able to store more, but is farther away.
 It's a trade-off in processor design with balances in play.
 For example, more memory per core means (almost certainly) on average putting it farther away on the chip from the core and that has costs in latency, opportunity costs, and power consumption.
-How far electrons have to travel has substantial impact at this scale; remember that distance is multiplied by *billions* every second.
+How far an electric charge has to travel has substantial impact at this scale; remember that distance is multiplied by *billions* every second.
 
 And I didn't get into disk latency above because we so very rarely touch disk.
 Why? Well, I guess to explain that we need to...look at disks.
