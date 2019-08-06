@@ -9,6 +9,7 @@ date:   2016-02-03
 #2: [Stack Overflow: The Hardware - 2016 Edition]({% post_url blog/2016-03-29-stack-overflow-the-hardware-2016-edition %})  
 #3: [Stack Overflow: How We Do Deployment - 2016 Edition]({% post_url blog/2016-05-03-stack-overflow-how-we-do-deployment-2016-edition %})  
 #4: [Stack Overflow: How We Do Monitoring - 2018 Edition]({% post_url blog/2018-11-29-stack-overflow-how-we-do-monitoring %})  
+#5: [Stack Overflow: How We Do App Caching - 2019 Edition]({% post_url blog/2019-08-06-stack-overflow-how-we-do-app-caching %})  
 
 One of the reasons I love working at Stack Overflow is we're <s>allowed</s> *encouraged* to talk about almost anything out in the open. Except for things companies *always* keep private like financials and the nuclear launch codes, everything else is fair game. That's an awesome thing that we haven't taken advantage of on the technical side lately. I think it's time for an experiment in extreme openness.
 
