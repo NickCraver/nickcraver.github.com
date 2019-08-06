@@ -186,7 +186,7 @@ Well...you don't.
 There are thousands of better things you can do with your time.
 Like debating which cache server is best!
 
-We have a few redis instances to separate concerns of apps (but on the same set of servers), here's an example of what one looks like:
+We have a few Redis instances to separate concerns of apps (but on the same set of servers), here's an example of what one looks like:
 
 ![Opserver: Redis View]({{ site.contenturl }}SO-Caching/SO-Cache-Opserver.png)
 
@@ -197,7 +197,7 @@ For the curious, some quick stats from last Tuesday (2019-07-30) This is across 
 - 124,415,398 active keys (422,818,481 including replicas)
 - Those numbers are across 308,065,226 HTTP hits (64,717,337 of which were question pages)
 
-<sub>Note: None of these are redis limited -- we're far from any limits. It's just how much activity there is on our instances.</sub>  
+<sub>Note: None of these are Redis limited -- we're far from any limits. It's just how much activity there is on our instances.</sub>  
 
 There are also non-cache reasons we use Redis, namely: we also use the pub/sub mechanism [for our websockets]({% post_url blog/2016-02-17-stack-overflow-the-architecture-2016-edition %}#websockets-httpsgithubcomstackexchangenetgain) that provide realtime updates on scores, rep, etc.
 Redis 5.0 [added Streams](https://redis.io/topics/streams-intro) which is a perfect fit for our websockets and we'll likely migrate to them when some other infrastructure pieces are in place (mainly limited by Stack Overflow Enterprise's version at the moment).
@@ -320,10 +320,10 @@ Except this is a dynamic pipe, more like a hose that can expand or bend or kink.
 The bottlenecks are not 100% constant.
 In practical terms, this can be [thread pool](https://docs.microsoft.com/en-us/dotnet/standard/threading/the-managed-thread-pool) exhaustion (either feeding commands in or handling them coming out).
 Or it may be network bandwidth.
-And maybe something *else* using that network bandwidth impacting us.
+And maybe something *else* is using that network bandwidth impacting us.
 
-Remember that at these levels of latency, the fact that you're running at say 1Gb/s or 10Gb/s isn't the correct unit of time to consider anymore.
-For me, it helps to think of 1Gb/s instead as 1Mb/ms.
+Remember that at these levels of latency, viewing things at 1Gb/s or 10Gb/s isn't really using the correct unit of time.
+For me, it helps to not think in terms of 1Gb/s, but instead in terms of 1Mb/ms.
 If we're traversing the network in about a millisecond or less, that payload really does matter and can increase the time taken by very measurable and impactful amounts.
 That's all to say: think small here.
 The limits on any system when you're dealing with short durations must be considered with relative constraints proportional to the same durations.
@@ -543,13 +543,13 @@ Marc and I planned how to do this at a company meetup in Denver many years ago b
 There are a few things to keep an eye on here.
 Remember those latency factors above?
 It's super slow to go off box.
-When we're rendering question pages in an average of 18-20ms, taking ~0.5ms for a redis call is a lot.
-A few calls adds up to a significant part of our rendering time.
+When we're rendering question pages in an average of 18--20ms, taking ~0.5ms for a Redis call is a lot.
+A few calls quickly add up to a significant part of our rendering time.
 
 First, we'll want to keep an eye on this at the page level.
-For this, we use [MiniProfiler](https://miniprofiler.com/dotnet/) to see every redis call involved in a page load.
+For this, we use [MiniProfiler](https://miniprofiler.com/dotnet/) to see every Redis call involved in a page load.
 It's hooked up with [StackExchange.Redis's profiling API](https://stackexchange.github.io/StackExchange.Redis/Profiling_v2.html).
-Here's an example of what that looks like on a question page, getting my live across-the-network counts for our top bar:
+Here's an example of what that looks like on a question page, getting my live across-the-network counts for the top bar:
 
 ![MiniProfiler: Redis Calls]({{ site.contenturl }}SO-Caching/SO-Cache-MiniProfiler.png)
 
@@ -559,19 +559,19 @@ Here's what a single instance looks like:
 
 ![Opserver: Redis Instance]({{ site.contenturl }}SO-Caching/SO-Cache-Opserver-Instance.png)
 
-We have some tools built-in there to analyze key usage and the ability to group them by regex pattern.
-This let's us combine what we know (we're the ones caching!) with the data to see what's eating the most space.
+We have some built-in tools there to analyze key usage and the ability to group them by regex pattern.
+This lets us combine what we know (we're the ones caching!) with the data to see what's eating the most space.
 
 <sub>
-Note: running such an analysis should onl be done on a secondary.
-It's very abusive on a master.
+Note: Running such an analysis should only be done on a secondary.
+It's very abusive on a master at scale.
 Opserver will by default run such analysis on a replica and block running it on a master without an override.
 </sub>
 
-### What's next?
+### What's Next?
 
 .NET Core is well underway here at Stack.
-We've ported most support services and the main applications are what we're working on now.
+We've ported most support services and are working on the main applications now.
 There's honestly not a lot of cache to the caching layer, but one interesting possibility is [`Utf8String`](https://github.com/dotnet/corefx/issues/30503) (which hasn't landed yet).
 We cache a lot of stuff in total, lots of tiny strings in various places -- things like "Related Questions" in the sidebar.
 If those cache entries were UTF8 instead of [the .NET default of UTF16](https://docs.microsoft.com/en-us/dotnet/standard/base-types/character-encoding), they'd be half the size.
@@ -579,31 +579,33 @@ When you're dealing with hundreds of thousands of strings at any given time, it 
 
 ### Story Time
 
-I asked for what people wanted to know about caching on Twitter and how failures happen came up a lot.
+I asked what people wanted to know about caching on Twitter and how failures happen came up a lot.
 For fun, let's recall a few that stand out in my mind:
 
 #### Taking Redis Down While Trying to Save It
 
 At one point, our Redis primary cache was getting to be about 70GB total.
-This was on 96GB servers. When we saw the growth over time we planned a server upgrade and transition.
+This was on 96GB servers.
+When we saw the growth over time, we planned a server upgrade and transition.
 By the time we got hardware in place and were ready to failover to a new master server, we had reached about 90GB of cache usage.
-Phew, close but we made it.
+Phew, close. But we made it!
 
-Or not. I was travelling for this one, but had helped planned it all out.
+...or not. I was travelling for this one, but helped planned it all out.
 What we didn't account for was the memory fork that happens for a `BGSAVE` in Redis (at least in that version -- this was back in 2.x).
-We were all so relieved to have made preparations in time, so on a weekend we hit the button and fired up data replication to the new server to prepare a failover to it.
+We were all very relieved to have made preparations in time, so on a weekend we hit the button and fired up data replication to the new server to prepare a failover to it.
 
 And all of our websites promptly went offline.
 
-What happens in the memory fork is that data that's changed during the migration gets shadow copied, something that isn't released until the clone finishes...because we need the state the server was at to initialize and then all changes since then to replicate to the new node (else we lose those new changes).
+What happens in the memory fork is that data that's changed during the migration gets shadow copied, something that isn't released until the clone finishes...because we need the state the server was at to initialize along with all changes since then to replicate to the new node (else we lose those new changes).
 So the rate at which new changes rack up is your memory growth during a copy.
 That 6GB went fast.
 Really fast.
-Then Redis crashed, the web servers went without Redis (something they hadn't done in years) and they *really* didn't handle it well.
+Then Redis crashed, the web servers went without Redis (something they hadn't done in years), and they *really* didn't handle it well.
 
 So I pulled over on the side of the road, hopped on our team call, and we got the sites back up...against the new server and an empty cache.
 It's important to note that Redis didn't do anything wrong, we did.
-And Redis has been rock solid for a decade here, it's one of the most stable pieces of infrastructure we have...you just don't think about it.
+And Redis has been rock solid for a decade here.
+It's one of the most stable pieces of infrastructure we have...you just don't think about it.
 
 But anyway, another lesson learned.
 
@@ -611,7 +613,7 @@ But anyway, another lesson learned.
 
 A certain developer we have here will be reading this and cursing my name, but I love you guys and gals so let's share anyway!
 
-When we get a cache value back from redis in our local/remote 2-layer cache story, we actually send 2 commands: a fetch of the key and a [`TTL`](https://redis.io/commands/ttl).
+When we get a cache value back from Redis in our local/remote 2-layer cache story, we actually send two commands: a fetch of the key and a [`TTL`](https://redis.io/commands/ttl).
 The result of the TTL tells us how many seconds Redis is caching it for...that's how long we also cache it in local server memory.
 We used to use a `-1` sentinel value for TTL through some library code to indicate something didn't have a TTL.
 The semantics changed in a refactor to `null` for "no TTL"...and we got some boolean logic wrong. Oops.
@@ -627,7 +629,7 @@ if (ttl == null) // ... push into L1
 ```
 
 But *most* of our caches **DO** have a TTL.
-So the vast majority of keys (probably something like 95% or more) were no longer caching in L1 (local server memory).
+This meant the vast majority of keys (probably something like 95% or more) were no longer caching in L1 (local server memory).
 Every single call to any of these keys was going to Redis and back.
 Redis was so resilient and fast, we didn't notice for a few hours.
 The actual logic was then corrected to:
@@ -635,26 +637,28 @@ The actual logic was then corrected to:
 ```csharp
 if (ttl != null) // ... push into L1
 ```
-...and everyone lives happily ever after.
+...and everyone lived happily ever after.
 
 #### Accidentally Caching Pages For .000006 Seconds
+
+You read that right.
 
 Back in 2011, we found a bit of code in our page-level output caching when looking into something unrelated:
 ```c#
 .Duration = new TimeSpan(60);
 ```
 This was intended to cache a thing for a minute.
-Which would have worked great if the default constructor for [`TimeSpan` was seconds...and not ticks](https://docs.microsoft.com/en-us/dotnet/api/system.timespan.-ctor?view=netframework-4.8#System_TimeSpan__ctor_System_Int64_).
+Which would have worked great if the default constructor for [`TimeSpan` was seconds and not ticks](https://docs.microsoft.com/en-us/dotnet/api/system.timespan.-ctor?view=netframework-4.8#System_TimeSpan__ctor_System_Int64_).
 But! We were excited to find this.
 How could cache be broken?
 But hey, good news -- wow we're going to get such a performance boost by fixing this!
 
 Nope. Not even a little.
-All we saw as memory usage go up.
+All we saw was memory usage increase a tiny bit.
 CPU usage also went up.
 
 For fun: this was included at the end of in an interview [back at MIX 2011 with Scott Hanselman](https://channel9.msdn.com/Events/Ch9Live/MIX11/C9L105).
-Wow we looked so much younger then.
+Wow. We looked so much younger then.
 Anyway, that leads us to...
 
 #### Doing More Harm Then Good
@@ -664,44 +668,44 @@ This included the homepage, question list pages, question pages themselves, and 
 
 Remember earlier: when you cache, you need to vary the cache keys based on the variants of cache.
 Concretely, this means: anonymous, or not? mobile, or not? deflate, gzip, or no compression?
-Realistically, we can't (or shouldn't) ever for logged-in users.
+Realistically, we can't (or shouldn't) ever output cache for logged-in users.
 Your stats are in the top bar and it's per-user.
 You'd notice your rep was inconsistent between page views and such.
 
-Anyway, when you step back and combine these variants with the fact that about ~80% of all questions are visited every 2 weeks, you realize that the cache hit rate is low.
+Anyway, when you step back and combine these variants with the fact that about 80% of all questions are visited every two weeks, you realize that the cache hit rate is low.
 Really low.
 But the cost of memory to store those strings (most large enough to go directly on the [large object heap](https://docs.microsoft.com/en-us/dotnet/standard/garbage-collection/large-object-heap)) is very non-trivial.
 And the cost of the garbage collector cleaning them up is also non-trivial.
 
-It turns out those 2 are _so_ non-trivial that caching did far more harm than good.
+It turns out those two pieces of the equation are _so_ non-trivial that caching did far more harm than good.
 The savings we got from the relatively occasional cache hit were drastically outweighed by the cost of having and cleaning up the cache.
 This puzzled us a bit at first, but when you zoom out and look at the numbers, it makes perfect sense.
 
 For the past several years, Stack Overflow (and all Q&A sites) output cache _nothing_.
-Output caching also not present in ASP.NET Core, so phew on not using it.
+Output caching is also not present in ASP.NET Core, so phew on not using it.
 
-Full disclosure: we still cache full XML string (similar to, but not using output cache) specifically on some RSS feed routes.
+Full disclosure: we still cache full XML response strings (similar to, but not using output cache) specifically on some RSS feed routes.
 We do so because the hit rate is quite high on these routes.
 This specific cache has all of the downsides mentioned above, except it's well worth it on the hit ratios.
 
-#### Figuring Out The World Is Crazier Than You Are
+#### Figuring Out That The World Is Crazier Than You Are
 
 When .NET 4.6.0 came out, we found a bug.
-I was digging into why MiniProfiler didn't show up on the first page load locally, slowly went insane, then grabbed [Marc Gravell](https://twitter.com/marcgravell) to go descend into madness with me.
+I was digging into why MiniProfiler didn't show up on the first page load locally, slowly went insane, and then grabbed [Marc Gravell](https://twitter.com/marcgravell) to go descend into madness with me.
 
-The bug happened in our cache layer due to the nature of the issue and how tail calls were the things affected.
+The bug happened in our cache layer due to the nature of the issue and how it specifically affected only tail calls.
 You can read about [how it manifested here](https://nickcraver.com/blog/2015/07/27/why-you-should-wait-on-dotnet-46/), but the general problem is: **methods weren't called with the parameters you passed in**.
 Ouch.
 This resulted in random cache durations for us and was pretty scary when you think about it.
 Luckily the problem with the RyuJIT was hotfixed the following month.
 
-#### .NET 4.6.2 Caching for 2,017 years
+#### .NET 4.6.2 Caching Responses for 2,017 years
 
 Okay this one isn't server-side caching at all, but I'm throwing it in because it was super "fun". 
 Shortly after deploying .NET 4.6.2, we noticed some oddities with client cache behavior, CDN caches growing, and other crazy.
 It turns out, [there was a bug in .NET 4.6.2](https://twitter.com/nick_craver/status/850403727060107265).
 
-The cause was simple enough: when comparing some date time values of what's now vs. when something should cache until and doing a difference between those to figure out the `max-age` portion of the [`Cache-Control` header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control), the value was subtly reset to 0 on the "now" side.
+The cause was simple enough: when comparing the `DateTime` values of "now" vs. when a response cache should expire and calculating the difference between those to figure out the `max-age` portion of the [`Cache-Control` header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control), the value was subtly reset to 0 on the "now" side.
 So let's say:
 
 ```
@@ -721,44 +725,43 @@ Or on CDNs, we're telling CDNs to cache things for that long...also problematic.
 
 ![Oops: Max Age]({{ site.contenturl }}SO-Caching/SO-Cache-Max-Age.jpg)
 
-Well crap. We didn't realize this early enough (Would you have checked for this? Are we idiots?).
+Well crap. We didn't realize this early enough. (Would you have checked for this? Are we idiots?)
 So that was in production and a rollback was not a quick solution.
 So what do we do?
 
 Luckily, we had moved to Fastly at this point, [which uses Varnish & VCL](https://docs.fastly.com/guides/vcl-tutorials/guide-to-vcl).
-So we can just go hop in there and detect these crazy `max-age` values and override them to something sane.
+So we can just hop in there and detect these crazy `max-age` values and override them to something sane.
 Unless, of course, you screw that up.
-...yep.
+Yep.
 Turns out on first push we missed a critical piece of the normal hash algorithm for cache keys on Fastly and did things like render people's flair back when you tried to load a question.
 This was corrected in a few minutes, but still: oops.
-Sorry about that, I reviewed and okayed that code to go out personally.
-
-```
-TODO: Find that flair bug report/screenshot...
-```
+Sorry about that.
+I reviewed and okayed that code to go out personally.
 
 #### When It's Sorta Redis But Not
 
 One issue we had was the host itself interrupting Redis and having perceptible pipeline timeouts.
 We looked in Redis: the slowness was random.
 The commands doing it didn't form any pattern or make any sense (e.g. tiny keys).
-We looked at the network, packet traces from client and server looked clean -- the pause was inside the Redis host based on the correlated timings.
+We looked at the network and packet traces from both the client and server looked clean -- the pause was inside the Redis host based on the correlated timings.
 
 Okay so...what is it?
-Turns out after a lot of manual profiling and troubleshooting, we found *another* process on the host spiked at the same time.
+Turns out after a lot of manual profiling and troubleshooting, we found *another* process on the host that spiked at the same time.
 It was a small spike we thought nothing of at first, but *how* it spiked was important.
 
 It turns out that a monitoring process (dammit!) was kicking off [`vmstat`](https://en.wikipedia.org/wiki/Vmstat) to get memory statistics.
 Not that often, not that abusive -- it was actually pretty reasonable.
-But what it did was punt Redis off of the CPU core it was on to run. Sometimes. Randomly.
-Which Redis instance? Well that depends on the order they started in.
-So yeah...this bug _seemed_ to hop round.
-The changing of context to another core was enough to see timeouts with how _often_ we're hitting Redis with a constant pipe.
+But what `vmstat` did was punt Redis off of the CPU core it was running on.
+Like a jerk.
+Sometimes. Randomly.
+Which Redis instance? Well, that depends on the order they started in.
+So yeah...this bug *seemed* to hop around.
+The changing of context to another core was enough to see timeouts with how _often_ we were hitting Redis with a constant pipe.
 
 Once we found this and factored in that we have plenty of cores in these boxes, we began pinning Redis to specific cores on the physical hosts.
 This ensures the primary function of the servers always has priority and monitoring is secondary.
 
-Since writing this and asking for reviews, I learned [Redis now has built-in latency monitoring](https://redis.io/topics/latency-monitor) added shortly after the version we were using at the time. Check out [`LATENCY DOCTOR`](https://redis.io/topics/latency-monitor#latency-doctor) especially.
+Since writing this and asking for reviews, I learned that [Redis now has built-in latency monitoring](https://redis.io/topics/latency-monitor) which was added shortly after the earlier 2.8 version we were using at the time. Check out [`LATENCY DOCTOR`](https://redis.io/topics/latency-monitor#latency-doctor) especially.
 AWESOME.
 Thank you Salvatore Sanfilippo! He's the lovely [@antirez](https://twitter.com/antirez), author of Redis.
 
@@ -766,63 +769,63 @@ Now I need to go put the `LATENCY` bits into StackExchange.Redis and Opserver...
 
 ### Caching FAQ
 
-I get a lot of questions that don't really fit so well above, but I wanted to cover them for the curious.
-And since you *know* we love Q&A up in here, let's try a new section to these posts I can easily add to as new questions come up.
+I also often get a lot of questions that don't really fit so well above, but I wanted to cover them for the curious.
+And since you *know* we love Q&A up in here, let's try a new section in these posts that I can easily add to as new questions come up.
 
 **Q**: Why don't you use [Redis Cluster](https://redis.io/topics/cluster-tutorial)?  
 **A**: There are a few reasons here:
-1. We use [databases](https://redis.io/commands/select), which aren't a feature in Cluster (to minimize the message replication header size). We can get around this by moving the database ID into the cache key instead (as we do with local cache above), but one giant database has maintainability trade-offs, like when you go to figure out which keys are using so much room.
+1. We use [databases](https://redis.io/commands/select), which aren't a feature in Cluster (to minimize the message replication header size). We can get around this by moving the database ID into the cache key instead (as we do with local cache above). But, one giant database has maintainability trade-offs, like when you go to figure out which keys are using so much room.
 2. The replication topology thus far has been node to node, meaning maintenance on the master cluster would require shifting the same topology on a secondary cluster in our DR data center. This would make maintenance harder instead of easier. We're waiting for cluster <-> cluster replication, rather than node <-> node replication there.
-3. It would require 3+ nodes to run correctly (due to elections and such). We currently only run 2 physical Redis servers per data center. 1 server is way more performance than we need, and the second is a replica/backup.
+3. It would require 3+ nodes to run correctly (due to elections and such). We currently only run 2 physical Redis servers per data center. Just 1 server is way more performance than we need, and the second is a replica/backup.
 
 **Q**: Why don't you use [Redis Sentinel](https://redis.io/topics/sentinel)?  
 **A**: We looked into this, but the overall management of it wasn't any simpler than we had today.
 The idea of connecting to an endpoint and being directed over is great, but the management is complicated enough that it's not worth changing our current strategy given how incredibly stable Redis is.
-One of the biggest issues with Sentinel is the writing of current topology state [into the same config file](https://groups.google.com/forum/#!searchin/redis-db/puppet$20cluster%7Csort:date/redis-db/1JB7OkaaxZo/w1bAZ23dAgAJ).
-This makes it very unfriendly to anyone with managed configs. For example, we use [Puppet](https://puppet.com/) here.
+One of the biggest issues with Sentinel is the writing of the current topology state [into the same config file](https://groups.google.com/forum/#!searchin/redis-db/puppet$20cluster%7Csort:date/redis-db/1JB7OkaaxZo/w1bAZ23dAgAJ).
+This makes it very unfriendly to anyone with managed configs. For example, we use [Puppet](https://puppet.com/) here and the file changes would fight with it every run.
 
 **Q**: How do you secure [Stack Overflow for Teams](https://stackoverflow.com/teams) cache?  
 **A**: We maintain an isolated network and separate Redis servers for private data.
-[Stack Overflow Enterprise](https://stackoverflow.com/enterprise) customers all each have their own isolated network and Redis instances as well.
+[Stack Overflow Enterprise](https://stackoverflow.com/enterprise) customers each have their own isolated network and Redis instances as well.
 
 **Q**: What if Redis goes down?!?1!eleven  
-**A**: Well first, there's a backup in the data center.
+**A**: First, there's a backup in the data center.
 But let's assume that fails too!
 Who doesn't love a good apocalypse? 
-First, we'd limp a bit when restarting the apps.
-The cold cache would hurt a bit, smack SQL Server around a bit, but we'd get back up.
+Without Redis at all, we'd limp a bit when restarting the apps.
+The cold cache would hurt a bit, smack SQL Server around a little, but we'd get back up.
 You'd want to build slowly if Redis was down (or just hold off on building in general in this scenario).
 As for the data, we would lose very little.
-We have treated Redis as optional for local development since before we used it at all, and it remains optional today.
+We have treated Redis as optional for local development since before the days it was an infrastructure component at all, and it remains optional today.
 This means it's not the source of truth for *anything*.
 All cache data it contains could be re-populated from whatever the source is.
 That leaves us only with active queues.
-The queues in Redis are account merge type actions (executed subs-second -- so a short queue), the aggregator (tallying network events into our central database), and some analytics (it's okay if we lose some A/B test data for a minute).
+The queues in Redis are account merge type actions (executed sub-second -- so a short queue), the aggregator (tallying network events into our central database), and some analytics (it's okay if we lose some A/B test data for a minute).
 All of these are okay to have a gap on -- it'd be minimal loses.
 
 **Q**: Are there downsides to databases?  
-**A**: Yes, one I'm aware of.
+**A**: Yes, one that I'm aware of.
 At a high limit, it can eventually impact performance by measurable amounts.
 When Redis expires keys, it loops over databases to find and clear those keys -- think of it as checking each "namespace".
 At a high count, it's a bigger loop.
 Since this runs every 100ms, that number being big can impact performance.
 
 **Q**: Are you going to open source the "L1"/"L2" cache implementation?  
-**A**: We've always wanted to, but a few things stood in the way:  
+**A**: We've always wanted to, but a few things have stood in the way:  
 1. It's very "us". By that I mean it's very multi-tenant focused and that's probably not the best API surface for everyone. This means we really need to sit down and design that API. It's a set of APIs we'd love to put into our [StackExchange.Redis client](https://github.com/StackExchange/StackExchange.Redis) directly or as another library that uses it.
-2. There has been an idea to have more core support (e.g. what we use the pub/sub mechanism for) in Redis server itself. That's [coming in Redis version 6](http://antirez.com/news/130), so we can do a lot less custom pub/sub and use more standard things other clients will understand there. The less we write for "just us" or "just our client", the better for everyone.
-2. Time. I wish we all had more of it. It's the most precious thing you have -- never take it for granted.
+2. There has been an idea to have more core support (e.g. what we use the pub/sub mechanism for) in Redis server itself. That's [coming in Redis version 6](http://antirez.com/news/130), so we can do a lot less custom pub/sub and use more standard things other clients will understand there. The less we write for "just us" or "just our client", the better it is for everyone.
+3. Time. I wish we all had more of it. It's the most precious thing you have -- never take it for granted.
 
 **Q**: With pipelining, how do you handle large Redis payloads?  
 **A**: We have a separate connection called "bulky" for this.
 It has higher timeouts and is much more rarely used.
 That's *if* it should go in Redis.
-If a worth-of-caching item is large but not particularly expensive to fetch, we may not use Redis and simple use "Local Cache", fetching it `n` times for `n` web servers.
+If a worth-of-caching item is large but not particularly expensive to fetch, we may not use Redis and simply use "Local Cache", fetching it `n` times for `n` web servers.
 Per-user features (since user sessions are sticky to web servers on Q&A) may fit this bill as well.
 
 **Q**: What happens when someone runs [`KEYS`](https://redis.io/commands/keys) on production?  
 **A**: Tasers, if they'll let me.
-Seriously though, since Redis 2.8.0 you should at least use [`SCAN`](https://redis.io/commands/scan) which doesn't block Redis for a full key dump -- it does so in chunks and let's other commands go through.
+Seriously though, since Redis 2.8.0 you should at least use [`SCAN`](https://redis.io/commands/scan) which doesn't block Redis for a full key dump -- it does so in chunks and lets other commands go through.
 `KEYS` can cause a production blockage in a hurry.
 And by "can", I mean 100% of the time at our scale.
 
@@ -834,8 +837,8 @@ And by "can", I mean 100% of the time at our scale.
 **A**: Redis has a nifty feature called [`SLOWLOG`](https://redis.io/commands/slowlog) which (by default) logs every command over 10ms in duration.
 You can adjust this, but everything should be *very* fast, so that default 10ms is a relative eternity and what we keep it at.
 When you run `SLOWLOG` you can see the last `n` entries (configurable), the command, and the arguments.
-Opserver will show these on the instance page making it easy to find the offender.
-But, it could be network latency, or an unrelated CPU spike/theft on the host (we pin the Redis instances using processor affinity to avoid this).
+Opserver will show these on the instance page, making it easy to find the offender.
+But, it could be network latency or an unrelated CPU spike/theft on the host. (We pin the Redis instances using processor affinity to avoid this.)
 
 **Q**: Do you use [Azure Cache for Redis](https://azure.microsoft.com/en-us/services/cache/) for [Stack Overflow Enterprise](https://stackoverflow.com/enterprise)?  
 **A**: Yes, but we may not long-term.
@@ -843,29 +846,29 @@ It takes [a surprisingly long time](https://feedback.azure.com/forums/169382-cac
 We're talking dozens of minutes up to an hour here.
 We'll likely use containers later, which will help us control the version used across all deployment modes as well.
 
-**Q**: Do you expect every dev to know all this to make caching decisions?  
+**Q**: Do you expect every dev to know all of this to make caching decisions?  
 **A**: Absolutely not.
 I had to look up exact values in many places here. 
 My goal is that developers understand a little bit about the layer beneath and relative costs of things -- or at least a rough idea of them.
 That's why I stress the orders of magnitude here.
 Those are the units you should be considering for cost/benefit evaluations on where and how you choose to cache.
 Most people do not run at hundreds of millions of hits a day where the cost multiplier is so high it'll ruin your day and optimizations decisions are far less important/impactful.
-Do what works for you. This is what works for us, with some context on "why?" in hopes it helps your decisions.
+Do what works for you. This is what works for us, with some context on "why?" in hopes that it helps you make your decisions.
 
 ### Tools
 
-I just wanted to provide a handy list of the tools mentioned in the article as well as some other bits we use to help with caching:
+I just wanted to provide a handy list of the tools mentioned in the article as well as a few other bits we use to help with caching:
 
 - [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) - Our open source .NET Redis client library.
 - [Opserver](https://github.com/Opserver/Opserver) - Our open source dashboard for monitoring, including Redis.
-- [MiniProfiler](https://github.com/MiniProfiler/dotnet/) - Our open source .NET profiling tool, which we view redis commands issues on any page load with.
+- [MiniProfiler](https://github.com/MiniProfiler/dotnet/) - Our open source .NET profiling tool, with which we view Redis commands issued on any page load.
 - [Dapper](https://github.com/StackExchange/Dapper) - Our open source object relational mapper for any ADO.NET data source.
-- [protobuf-net](https://github.com/mgravell/protobuf-net) - [Marc Gravell](https://twitter.com/marcgravell)'s Protocol Buffers library for idiomatic .NET
+- [protobuf-net](https://github.com/mgravell/protobuf-net) - [Marc Gravell](https://twitter.com/marcgravell)'s Protocol Buffers library for idiomatic .NET.
 
 What's next?
 The way [this series]({% post_url blog/2016-02-03-stack-overflow-a-technical-deconstruction %}) works is I blog in order of what the community wants to know about most.
 I normally go by [the Trello board](https://trello.com/b/0zgQjktX/blog-post-queue-for-stack-overflow-topics) to see what's next, but we probably have a queue jumper coming up.
 We're almost done porting Stack Overflow to .NET Core and we have a lot of stories and tips to share as well as tools we've built to make that migration easier.
 The next time you see a lot of words from me may be the next Trello board item, or it may be .NET Core.
-If you have questions that you want to see answered in such a post, please put them [on the .NET Core card](https://trello.com/c/fpwHYK97/90-the-move-to-net-core) (open to the public) and I'll be reviewing all that when going to write it.
+If you have questions that you want to see answered in such a post, please put them [on the .NET Core card](https://trello.com/c/fpwHYK97/90-the-move-to-net-core) (open to the public) and I'll be reviewing all of that when I start writing it.
 Stay tuned, and thanks for following along.
