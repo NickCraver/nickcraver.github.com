@@ -661,7 +661,7 @@ For fun: this was included at the end of in an interview [back at MIX 2011 with 
 Wow. We looked so much younger then.
 Anyway, that leads us to...
 
-#### Doing More Harm Then Good
+#### Doing More Harm Than Good
 
 For many years, we used to [output cache](https://docs.microsoft.com/en-us/aspnet/mvc/overview/older-versions-1/controllers-and-routing/improving-performance-with-output-caching-cs) major pages.
 This included the homepage, question list pages, question pages themselves, and RSS feeds.
