@@ -110,7 +110,7 @@ If we're traversing a network (and to some degree locally), it also means bandwi
 
 Let's say none of those are significant problems and we want to log all the things.
 Tempting, isn't it? Well, then we can have too much of a good thing.
-What happens we you need to look at those logs?
+What happens when you need to look at those logs?
 It's more to dig through.
 It can make finding the problem much harder and slower.
 With all logging, it's a balance of logging what you think you'll need vs. what you end up needing.
