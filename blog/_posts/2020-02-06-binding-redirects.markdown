@@ -26,7 +26,9 @@ If you just want out of this fresh version of DLL Hell you've found yourself in.
 
 ### The best fix
 
-The best fix is "go to .NET Core". While .NET Framework (e.g. 4.5, 4.8, etc.) have a heavy backwards compatibility burden meaning that the assembly loader itself is basically made of unstable plutonium with a hair trigger coated in flesh eating bacteria behind a gate made of unobtanium above a moat of napalm filled with those jellyfish that kill you...so that won't ever be truly fixed. However, .NET Core simplified assembly loading and it *just works*. I'm not saying a migration to .NET Core is trivial, that depends on your situation, but it is generally the best long-term play.
+The best fix is "go to .NET Core". Since .NET Framework (e.g. 4.5, 4.8, etc.) has a heavy backwards compatibility burden, meaning that the assembly loader itself is basically made of unstable plutonium with a hair trigger coated in flesh eating bacteria behind a gate made of unobtanium above a moat of napalm filled with those jellyfish that kill you...that won't ever be really be fixed.
+
+However, .NET Core's simplified assembly loading means it *just works*. I'm not saying a migration to .NET Core is trivial, that depends on your situation, but it is generally the best long-term play. We're almost done porting Stack Overflow to .NET Core, and this kind of pain is one of the things we're very much looking forward to not fighting ever again.
 
 ### The fix if you're using .NET Framework
 
@@ -57,7 +59,13 @@ For example, if you had libraries wanting various versions of `System.Numerics.V
 </configuration>
 ```
 
-This means "anyone asking for any version before 4.0.6.0, send them to that one...it's what in my `bin\` folder".
+This means "anyone asking for any version before 4.0.6.0, send them to that one...it's what in my `bin\` folder". For a quick practical breakdown of these fields:
+
+- `name`: The name of the strongly named DLL
+- `publicKeyToken`: The public key of the strongly named DLL (this comes from key used to sign it)
+- `culture`: Pretty much always `neutral`
+- `oldVersion`: A **range** of versions, starting at `0.0.0.0` (almost always what you want) means "redirect everything from X to Y"
+- `newVersion`: The new version to "redirect" to, instead of any old one (usually matches end of the `oldVersion` range).
 
 ### When do I need to do this?
 
