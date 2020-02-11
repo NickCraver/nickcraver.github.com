@@ -2,7 +2,7 @@
 layout: post
 author: Nick Craver
 title:  "Binding Redirects"
-date:   2020-02-06
+date:   2020-02-11
 ---
 > This isn't part of the [series on Stack Overflow's architecture]({% post_url blog/2016-02-03-stack-overflow-a-technical-deconstruction %}), but is a topic that has bitten us many times. Hopefully some of this information helps you sort out issues you hit.
 
