@@ -17,6 +17,7 @@ Those are all relatively *crazy* expensive. So we [cache](https://en.wikipedia.o
 
 I think it's important here to discuss *just how expensive* some of the above things are.
 There are several layers of caching already in play in your modern computer.
+<!--more-->
 As a concrete example, we're going to use one of our web servers which currently houses a pair of [Intel Xeon E5-2960 v3 CPUs](https://ark.intel.com/products/81713/Intel-Xeon-Processor-E5-2690-v3-30M-Cache-2-60-GHz-) and 2133MHz DIMMs.
 Cache access is a "how many cycles" feature of a processor, so by knowing that we always run at 3.06GHz (performance power mode), we can derive the latencies ([Intel architecture reference here](https://www.intel.co.uk/content/dam/www/public/us/en/documents/manuals/64-ia-32-architectures-optimization-manual.pdf) -- these processors are in the Haswell generation):
 
