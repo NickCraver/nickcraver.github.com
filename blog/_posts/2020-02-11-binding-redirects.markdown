@@ -26,7 +26,7 @@ If you just want out of this fresh version of DLL Hell you've found yourself in.
 
 ### The best fix
 
-The best fix is "go to .NET Core". Since .NET Framework (e.g. 4.5, 4.8, etc.) has a heavy backward compatibility burden, meaning that the assembly loader itself is basically made of unstable plutonium with a hair trigger coated in flesh eating bacteria behind a gate made of unobtanium above a moat of napalm filled with those jellyfish that kill you...that won't ever be really be fixed.
+The best fix is "go to .NET Core". Since .NET Framework (e.g. 4.5, 4.8, etc.) has a heavy backward compatibility burden, meaning that the assembly loader itself is basically made of unstable plutonium with a hair trigger coated in flesh eating bacteria behind a gate made of unobtanium above a moat of napalm filled with those jellyfish that kill you...that won't ever really be fixed.
 
 However, .NET Core's simplified assembly loading means it *just works*. I'm not saying a migration to .NET Core is trivial, that depends on your situation, but it is generally the best long-term play. We're almost done porting Stack Overflow to .NET Core, and this kind of pain is one of the things we're very much looking forward to not fighting ever again.
 
