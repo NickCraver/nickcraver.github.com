@@ -71,7 +71,7 @@ This means "anyone asking for any version before 4.0.6.0, send them to that one.
 
 Any of the above approaches to fixing it need to be revisited when a conflict arises again. This can happen when:
 
-- Updating a NuGet package (Remember: [NuGet uses transitive dependencies](https://docs.microsoft.com/en-us/nuget/concepts/dependency-resolution.)...so anything in the chain can cause it)
+- Updating a NuGet package (Remember: [NuGet uses transitive dependencies](https://docs.microsoft.com/en-us/nuget/concepts/dependency-resolution)...so anything in the chain can cause it)
 - Updating your target framework
 
 Note that binding redirects are to remedy *differences* in the reference chain (more on that below), so when all of your things reference the same version down their transitive chains, you don't need one. So sometimes *removing* a binding redirect is the quick fix in an upgrade.
