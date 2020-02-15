@@ -724,7 +724,7 @@ We're telling a browser to cache that value for 2017 years, 4 months, 5 days, 1 
 Which *might* be a tad bit of overkill.
 Or on CDNs, we're telling CDNs to cache things for that long...also problematic.
 
-![Oops: Max Age]({{ site.contenturl }}SO-Caching/SO-Cache-Max-Age.jpg)
+{% include jpg.html name="Oops: Max Age" url="SO-Caching/SO-Cache-Max-Age" %}
 
 Well crap. We didn't realize this early enough. (Would you have checked for this? Are we idiots?)
 So that was in production and a rollback was not a quick solution.
