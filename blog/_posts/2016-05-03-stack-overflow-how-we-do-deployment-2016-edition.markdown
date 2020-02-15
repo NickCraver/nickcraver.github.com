@@ -48,14 +48,14 @@ We deploy roughly 25 times per day to development (our CI build) just for Stack 
 ### The Human Steps
 When we're coding, if a database migration is involved then we have some extra steps. First, we check the chatroom (and confirm in the local repo) which SQL migration number is available next (we'll get to how this works). Each project with a database has their own migration folder and number. For this deploy, we're talking about the Q&A migrations folder, which applies to all Q&A databases. Here's what chat and the local repo look like before we get started:
 
-![Chat Stars]({{ site.contenturl }}SO-Deployment-Stars.png)  
+{% include png.html name="Chat Stars" url="SO-Deployment-Stars" %}  
 
 And here's the local `%Repo%\StackOverflow.Migrations\` folder:
-![StackOverflow.Migrations]({{ site.contenturl }}SO-Deployment-Migrations.png)
+{% include png.html name="StackOverflow.Migrations" url="SO-Deployment-Migrations" %}
 
 You can see both in chat and locally that 726 was the last migration number taken. So we'll issue a "taking 727 - Putting JSON in SQL to see who it offends" message in chat. This will claim the next migration so that we don't collide with someone else also doing a migration. We just type a chat message, a bot pins it. Fun fact: it also pins when I say "taking web 2 offline", but we think it's funny and refuse to fix it. Here's our little Pinbot trolling:
 
-![Oh Pinbot]({{ site.contenturl }}SO-Deployment-Pinbot.png)  
+{% include png.html name="Oh Pinbot" url="SO-Deployment-Pinbot" %}  
 
 Now let's add some code --- we'll keep it simple here:  
 
@@ -83,7 +83,7 @@ Note: the migrator is a project, but we simply drop the .exe in the solutions us
 
 What does this migrator do? It hits our local copy of the `Sites` database. It contains a list of all the Q&A sites that developer runs locally and the migrator uses that list to connect and run all migrations against all databases, in Parallel. Here's what a run looks like on a simple install with a single Q&A database:
 
-![Migration Log]({{ site.contenturl }}SO-Deployment-Migration-Log.png)  
+{% include png.html name="Migration Log" url="SO-Deployment-Migration-Log" %}  
 
 So far, so good. We have code and a migration that works and code that does...some stuff (which isn't relevant to this process). Now it's time to take our little code baby and send it out into the world. It's time to fly little code, be [freeeeee](https://youtu.be/LnlFDduJV8E?t=48s)! Okay now that we're excited, the typical process is:  
 {% highlight cmd %}
@@ -129,16 +129,16 @@ Since our repos are large (we include dependencies like NuGet packages, though [
 
 As I said earlier, there are many projects in this repo (all connected), so we're really talking about several builds running each commit (5 total):
 
-![Dev Builds]({{ site.contenturl }}SO-Deployment-Dev-Builds.png)  
+{% include png.html name="Dev Builds" url="SO-Deployment-Dev-Builds" %}  
 
 ### What's In The Build?
 Okay...what's that build actually doing? Let's take a top level look and break it down. Here are the 9 build steps in our development/CI build:
 
-![Dev Build Steps]({{ site.contenturl }}SO-Deployment-Dev-Build-Steps.png)  
+{% include png.html name="Dev Build Steps" url="SO-Deployment-Dev-Build-Steps" %}  
 
 And here's what the log of the build we triggered above looks like ([you can see the full version in a gist here](https://gist.github.com/NickCraver/d22d285e35ea6816bc4efe8e81ff152c#file-teamcity-dev-build-log-txt)):
 
-![Dev Build Log]({{ site.contenturl }}SO-Deployment-Dev-Build-Log.png)
+{% include png.html name="Dev Build Log" url="SO-Deployment-Dev-Build-Log" %}
 
 #### Steps 1 & 2: Migrations
 The first 2 steps are migrations. In development, we automatically migrate the "Sites" database. This database is our central store that contains the master list of sites and other network-level items like the inbox. This same migration isn't automatic in production since "should this run be before or after code is deployed?" is a 50/50 question. The second step is what we ran locally, just against dev. In dev, it's acceptable to be down for a second, but that still shouldn't happen. In the Meta build, we migrate **all** production databases. This means Stack Overflow's database gets new SQL bits *minutes* before code. We order deploys appropriately. 
@@ -328,14 +328,14 @@ What do the tiers really translate to? All of our development sites are on WEB10
 
 Note: we do a chat notification for build as someone goes through the tiers. Here's me (against all sane judgement) building out some changes at 5:17pm on a Friday. Don't try this at home, I'm a professional. Sometimes. Not often.
 
-![Chat Messages]({{ site.contenturl }}SO-Deployment-Chat.png)
+{% include png.html name="Chat Messages" url="SO-Deployment-Chat" %}
 
 ### Database Migrations
 See? I promised we'd come back to these. To reiterate: if new code is needed to handle the database migrations, *it must be deployed first*.  In practice though, you're likely dropping a table, or adding a table/column. For the removal case, we remove it from code, deploy, then deploy again (or later) with the drop migration. For the addition case, we would typically add it as nullable or unused in code. If it needs to be `not null`, a foreign key, etc. we'd do that in a later deploy as well.
 
 The database migrator we use is a very simple repo we could open source, but honestly, there are dozens out there and the "same migration against n databases" is fairly specific. The others are probably much better and ours is very specific to *only* our needs. The migrator connects to the Sites database, gets the list of databases to run against, and executes all migrations against every one (running multiple databases in parallel). This is done by looking at the passed-in migrations folder and loading it (once) as well as hashing the contents of every file. Each database has a `Migrations` table that keeps track of what has already been run. It looks like this (descending order):
 
-![Migrations Table]({{ site.contenturl }}SO-Deployment-Migrations-Table.png)  
+{% include png.html name="Migrations Table" url="SO-Deployment-Migrations-Table" %}  
 
 Note that the above aren't all in file number order. That's because 724 and 725 were in a branch for a few days. That's not an issue, order is not guaranteed. **Each migration itself is written to be idempotent**, e.g. "don't try to add the column if it's already there", but the specific order isn't usually relevant. Either they're all per-feature, or they're actually going in-order anyway. The migrator respects the `GO` operator to separate batches and by default runs all migrations in a transaction. The transaction behavior can be changed with a first-line comment in the `.sql` file: `-- no transaction --`. Perhaps the most useful explanation to the migrator is the README.md I wrote for it. [Here it is in the Gist](https://gist.github.com/NickCraver/b59ff38567b32936e2a3440e439d5d5c#file-sql-migrator-readme-md).
 
@@ -346,12 +346,12 @@ Rollbacks. We rarely do them. In fact, I can't remember ever having done one. We
 ### Localization/Translations (Moonspeak)
 This will get its own post, but I wanted to hint at why we do all of this work at compile time. After all, I always advocate strongly for simplicity (yep, even in this 6,000-word blog post - the irony is not lost on me). You should only do something more complicated when you *need* to do something more complicated. This is one of those cases, for performance. [Samo](https://twitter.com/m0sa) does a lot of work to make our localizations have as little **runtime** impact as possible. We'll gladly trade a bit of build complexity to make that happen. While there are options such as [`.resx` files](https://msdn.microsoft.com/en-us/library/ekyft91f.aspx) or [the new localization in ASP.NET Core 1.0](https://github.com/aspnet/localization), most of these allocate more than necessary especially with tokenized strings. Here's what strings look like in our code:
 
-![Translations: IDE]({{ site.contenturl }}SO-Deployment-Translations-1.png)
+{% include png.html name="Translations: IDE" url="SO-Deployment-Translations-1" %}
 
 And here's what that line looks like compiled (via Reflector):
-![Translations: Reflected]({{ site.contenturl }}SO-Deployment-Translations-2.png)
+{% include png.html name="Translations: Reflected" url="SO-Deployment-Translations-2" %}
 ...and most importantly, the compiled implementation:
-![Translations: Reflected 2]({{ site.contenturl }}SO-Deployment-Translations-3.png)
+{% include png.html name="Translations: Reflected 2" url="SO-Deployment-Translations-3" %}
 
 Note that we aren't allocating the entire string together, only the pieces (with most interned). This may seem like a small thing, but at scale that's a *huge* number of allocations and a lot of time in a garbage collector. I'm sure that just raises a ton of questions about how Moonspeak works. If so, [go vote it up](https://trello.com/c/GdywwBgb/24-localization-moonspeak-translations). It's a big topic in itself, I only wanted to justify the compile-time complication it adds here. To us, it's worth it.
 

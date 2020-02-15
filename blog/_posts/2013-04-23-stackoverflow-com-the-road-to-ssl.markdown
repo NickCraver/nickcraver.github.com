@@ -31,7 +31,7 @@ With websockets we'll just try and see when all dependencies are in place.  We d
 
 Of course, our load balancers have to support SSL as well, so let’s take a look at how that works in our infrastructure.  Whether our SSL setup is typical or not I have no idea, but here's how we currently do SSL:
 
-[![nginx network layout]({{ site.contenturl }}NetworkLayout-nginx.png)]({{ site.contenturl }}NetworkLayout-nginx.png)
+{% include png.html name="nginx network layout" url="NetworkLayout-nginx" %}
 
 HTTPS traffic goes to [nginx](https://en.wikipedia.org/wiki/Nginx "nginx") on the load balancer machines and terminates there.  From there a plain HTTP request is made to HAProxy which delegates the request to whichever web server set it should go to.  The response then goes back along the same path.  So you have a secure connection all the way to us, but inside our internal network it's transitioned to a regular HTTP request.
 

@@ -27,7 +27,7 @@ Let’s start by understanding Windows Server clustering quorum behavior.  Quoru
 
 Let’s take a look specifically at Stack Overflow.  In our current setup we have 2 SQL clusters that are of the same configuration for the sake of this discussion. In each cluster, we have 2 servers in the New York data center and 1 in the Oregon data center:
 
-[![SE Network SQL]({{ site.contenturl }}SENetwork-SQL-CTP2.png)]({{ site.contenturl }}SENetwork-SQL-CTP2.png)
+{% include png.html name="SE Network SQL" url="SENetwork-SQL-CTP2" %}
 
 Now the key here is that VPN link from one data center to the other.  When the internet blips (as it tends to do), the VPN mesh drops and the Oregon side loses quorum and (in 2012) goes offline.  What _would_ be a read-only data center that continued to operate without a connection to New York is essentially dead in the water.  _Dammit_.
 

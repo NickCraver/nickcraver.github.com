@@ -28,8 +28,8 @@ The last two are probably less relevant.  Custom data just enables storing of st
 
 [I've added a few initial wikis to github for getting Exceptional up and running](https://github.com/NickCraver/StackExchange.Exceptional/wiki), I'll try and get an example project up as well...in the next few days as time allows.  Here's a quick view of the list/detail screens to get a feel:
 
-[![Exceptions List]({{ site.contenturl }}Exceptional-List.png)]({{ site.contenturl }}Exceptional-List.png)
+{% include png.html name="Exceptions List" url="Exceptional-List" %}
 
-[![Exception Detail]({{ site.contenturl }}/Exceptional-Detail.png)]({{ site.contenturl }}Exceptional-Detail.png)
+{% include png.html name="Exception Detail" url="Exceptional-Detail" %}
 
 **Update**: A sample project is now posted [alongside Exceptional core on github](https://github.com/NickCraver/StackExchange.Exceptional/tree/master/Samples.MVC4 "MVC4 Sample Project").  Some additional store providers (e.g. MongoDB) have already been requested, stay tuned for those - they'll show up in the form of other packages with a dependency on StackExchange.Exceptional, so if you don't want that store's driver, you won't have to include it.

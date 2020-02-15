@@ -89,17 +89,17 @@ The load balancers themselves are a pretty simple setup. We listen to different 
 The load balancers feed traffic to 9 servers we refer to as "primary" (01-09) and 2 "dev/meta" (10-11, our staging environment) web servers. The primary servers run things like Stack Overflow, Careers, and all Stack Exchange sites except [meta.stackoverflow.com](https://meta.stackoverflow.com/) and [meta.stackexchange.com](https://meta.stackexchange.com/), which run on the last 2 servers. The primary Q&A Application itself is multi-tenant. This means that a single application serves the requests for all Q&A sites. Put another way: we can run the entire Q&A network off of a single application pool on a single server. Other applications like Careers, API v2, Mobile API, etc. are separate. Here's what the primary and dev tiers look like in IIS:
 
 <div style="text-align: center;">
-![IIS in NY-WEB01]({{ site.contenturl }}SO-Architecture-IIS-NY-WEB01.png)
-![IIS in NY-WEB10]({{ site.contenturl }}SO-Architecture-IIS-NY-WEB10.png)
+{% include png.html name="IIS in NY-WEB01" url="SO-Architecture-IIS-NY-WEB01" %}
+{% include png.html name="IIS in NY-WEB10" url="SO-Architecture-IIS-NY-WEB10" %}
 </div>
 
 Here's what Stack Overflow's distribution across the web tier looks like in [Opserver](https://github.com/Opserver/Opserver) (our internal monitoring dashboard):
 
-![HAProxy in Opserver]({{ site.contenturl }}SO-Architecture-Opserver-HAProxy.png)
+{% include png.html name="HAProxy in Opserver" url="SO-Architecture-Opserver-HAProxy" %}
 
 ...and here's what those web servers look like from a utilization perspective:
 
-![Web Tier in Opserver]({{ site.contenturl }}SO-Architecture-Opserver-WebTier.png)
+{% include png.html name="Web Tier in Opserver" url="SO-Architecture-Opserver-WebTier" %}
 
 I'll go into why we're so overprovisioned in future posts, but the highlight items are: rolling builds, headroom, and redundancy.
 
@@ -113,7 +113,7 @@ These service boxes do heavy lifting with the tag engine and backend APIs where 
 
 We use [Redis](https://Redis.io/) for a few things here and it's rock solid. Despite doing about 160 billion ops a month, every instance is below 2% CPU. Usually much lower:
 
-![Redis in Bosun]({{ site.contenturl }}SO-Architecture-Redis-Utilization.png)
+{% include png.html name="Redis in Bosun" url="SO-Architecture-Redis-Utilization" %}
 
 We have an L1/L2 cache system with Redis. "L1" is HTTP Cache on the web servers or whatever application is in play. "L2" is falling back to Redis and fetching the value out. Our values are stored in the [Protobuf format](https://developers.google.com/protocol-buffers/), via [protobuf-dot-net](https://github.com/mgravell/protobuf-net) by Marc Gravell. For a client, we're using [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis)---written in-house and open source. When one web server gets a cache miss in both L1 and L2, it fetches the value from source (a database query, API call, etc.) and puts the result in both local cache and Redis. The next server wanting the value may miss L1, but would find the value in L2/Redis, saving a database query or API call.
 
@@ -131,7 +131,7 @@ We use websockets to push real-time updates to users such as notifications in th
 
 The socket servers themselves are using raw sockets running on the web tier. It's a very thin application on top of our open source library: [`StackExchange.NetGain`](https://github.com/StackExchange/NetGain). During peak, we have about 500,000 **concurrent** websocket connections open. That's a lot of browsers. Fun fact: some of those browsers have been open for over 18 months. We're not sure why. Someone should go check if those developers are still alive. Here's what this week's concurrent websocket pattern looks like:
 
-![Websocket connection counts from Bosun]({{ site.contenturl }}SO-Architecture-Bosun-Websockets.png)
+{% include png.html name="Websocket connection counts from Bosun" url="SO-Architecture-Bosun-Websockets" %}
 
 Why websockets? They're tremendously more efficient than polling at our scale. We can simply push more data with fewer resources this way, while being more instant to the user. They're not without issues though---ephemeral port and file handle exhaustion on the load balancer are fun issues [we'll cover later](https://trello.com/c/7nv66g78/58-websockets).
 
@@ -155,7 +155,7 @@ The second cluster is a set of Dell R730xd servers, each with 768GB of RAM, 6TB 
 
 CPU utilization on the database tier is something we like to keep very low, but it's actually a little high at the moment due to some plan cache issues we're addressing. As of right now, NY-SQL02 and 04 are masters, 01 and 03 are replicas we just restarted today during some SSD upgrades. Here's what the past 24 hours looks like:
 
-![DB Tier in Opserver]({{ site.contenturl }}SO-Architecture-Opserver-DBTier.png)
+{% include png.html name="DB Tier in Opserver" url="SO-Architecture-Opserver-DBTier" %}
 
 Our usage of SQL is pretty simple. Simple is fast. Though some queries can be crazy, our interaction with SQL itself is fairly vanilla. We have some legacy [Linq2Sql](https://msdn.microsoft.com/en-us/library/bb425822.aspx), but all new development is using [Dapper](https://github.com/StackExchange/dapper-dot-net), our open source Micro-ORM using [POCOs](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object). Let me put this another way: Stack Overflow has only 1 stored procedure in the database and I intend to move that last vestige into code.
 

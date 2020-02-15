@@ -13,7 +13,7 @@ This week I took a few days and re-built my blog. It was previously a WordPress 
 I couldn't do what I wanted with WordPress, at least...not without a fight. I want to do several posts with interactive elements such as charts, maps, simulations, directly included CSV data, etc. to compare a lot of numbers I'll be throwing out about some major infrastructure changes we're making over at Stack Exchange. [Here's a quick example of many things I want to do in future posts]({{ site.contenturl }}/GraphsDemo.html). That was my motivation. When I looked into what I needed to change to support these things (besides even the basic editor fighting me along the way), I also took a long look at how the blog was performing. It was heavy...very heavy, as most WordPress installs tend to be. As a result, it was slow. Here's what my blog looked like before the do-over:
 <!--more-->
 
-![Old Blog]({{ site.contenturl }}Blog-OldHome.png)
+{% include png.html name="Old Blog" url="Blog-OldHome" %}
 
 Let's start with the job, what's actually happening here? Well...not much. I'm serving the same HTML to many people, many times. It's usually around 60,000 hits a day when a post gets love. The comments are powered by [Disqus](https://disqus.com/) and my impression counts are tracked by [Google Analytics](https://www.google.com/analytics/). All of the action happens client-side with both. The HTML is identical for every user. That's *the* big point: **what the server needs to send to the client is the same for every user**. The post content, list of posts, archives, etc. change only when I add post, correct a post, or make a content tweak. Between those events, *everything is static*.
 
@@ -35,11 +35,11 @@ The first thing I do is get a baseline. This is an important step. **Don't start
 
 This was my old blog on a first page hit:
 
-![Old Blog Performance - First Hit]({{ site.contenturl }}Blog-OldHomePerformance.png)
+{% include png.html name="Old Blog Performance - First Hit" url="Blog-OldHomePerformance" %}
 
 ...and on a second hit:
 
-![Old Blog Performance - Reload]({{ site.contenturl }}Blog-OldHomePerformanceReload.png)
+{% include png.html name="Old Blog Performance - Reload" url="Blog-OldHomePerformanceReload" %}
 
 Whelp. That sucks. Let's look at the important pieces:
 
@@ -67,19 +67,21 @@ The [Jekyll](https://jekyllrb.com/) approach is simple: take some templates and 
 
 Maybe it's subconsciously thinking about performance, but I love a minimal look and feel. That goes well with performance. Here's what I made on the first pass:
 
-![New Blog - Almost]({{ site.contenturl }}Blog-Middle.png)
+{% include png.html name="New Blog - Almost" url="Blog-Middle" %}
 
 Then, I poked [Jin](https://twitter.com/jzy) for help. He's my co-worker, friend, and awesome designer. What you see now if what we ended up with (and will continue tweaking in the future):
 
-<img src="{{ site.contenturl }}Blog-NewHome.png" style="border: 1px solid #666;" alt="New Blog" />
+<div style="border: 1px solid #666;">
+{% include png.html name="New Blog" url="Blog-NewHome" %}
+</div>
 
 Let's look at it by the numbers. When doing performance optimization, you have to compare to previous numbers. Here's what the new blog comes in at on the first hit:
 
-![New Blog Performance - First Hit]({{ site.contenturl }}Blog-NewHomePerformance.png)
+{% include png.html name="New Blog Performance - First Hit" url="Blog-NewHomePerformance" %}
 
 ...and the second hit:
 
-![New Blog Performance - Reload]({{ site.contenturl }}Blog-NewHomePerformanceReload.png)
+{% include png.html name="New Blog Performance - Reload" url="Blog-NewHomePerformanceReload" %}
 
 That's looking better. The first hit now has a `DOMContentLoaded` of **267ms** and a `load` event at `348ms`. Compared to the previous `load` of **1,390ms**, we're talking about a first hit reduction of **1,123ms** or **80.8%**.
 
@@ -94,7 +96,7 @@ Making it faster consists of 2 stages for me:
 
 Let's consider my audience, not dissimilar from most others blogs aside from the fact that you guys and gals are likely viewing my HTML source. And I bet a few more are now. <!-- Hi There! --> What does the average blog audience do on the spiky medium-traffic posts like I usually have? They're *mostly* first-hit traffic. They also very likely care about only the latest post they were linked directly to from Twitter, Reddit, Hacker News, etc. Some will browse around, but the majority come, read, and leave. That means I should optimize for the first hit. How do I know this, did I guess? No. Didn't we just discuss measuring? Google Analytics tells me:
 
-![Blog- Bounce Rate]({{ site.contenturl }}Blog-BounceRate.png)
+{% include png.html name="Blog- Bounce Rate" url="Blog-BounceRate" %}
 
 Even on a high traffic day of ~20-30k hits, the [bounce rate](https://support.google.com/analytics/answer/1009409) is pretty stable. To support this 90% use case, I need not display the full posts [on the home page](https://nickcraver.com/blog/) and all of the potential image weight that comes with them. That's **4 requests** for images and **18.1KB** of HTML gone.
 
@@ -131,13 +133,13 @@ Why does this matter? because fitting the request inside the initial window mean
 
 Here's the old post list (`/blog`) and its 27.3KB of bloated glory, which took **267ms** on this test:
 
-![TCP Stream for old blog]({{ site.contenturl }}Blog-OldTCP.png)
+{% include png.html name="TCP Stream for old blog" url="Blog-OldTCP" %}
 
 See those two black lines and the **86ms** between? The second black line is the beginning of the second congestion window (you can see exactly 10 segments before it). It had to wait on the ACK from me (the first black line) before sending more data. That's a round trip, ouch. Note: it's not always synchronous from end of segment window to ACK to the next starting, it can overlap and be a less severe penalty.
 
 Here's the new `/blog` weighting in at 9.2KB:
 
-![TCP Stream for new blog]({{ site.contenturl }}Blog-NewTCP.png)
+{% include png.html name="TCP Stream for new blog" url="Blog-NewTCP" %}
 
 Hey that's better! It's only 6 segments, so when the server gets the request it can blast out the full response before asynchronously getting an ACK. This means while we're telling the server "yep, got it!" the page is already there and content is preloading and rendering.
 
@@ -145,7 +147,7 @@ Next, I took the time to [upgrade to Universal analytics](https://developers.goo
 
 Well since we already sailed down for TCP boat river, so let's see: how much time did we save here? Well, none. Because headers aren't compressed and they send us over the initial 10 window anyway. You can see the last 2 rows here and the time gap where the server was waiting for an ACK (from earlier, in red) to send them along:
 
-![TCP Stream for analytics.js]({{ site.contenturl }}Blog-AnalyticsJSTCP.png)
+{% include png.html name="TCP Stream for analytics.js" url="Blog-AnalyticsJSTCP" %}
 
 Note: [HTTP2 does compress headers](https://http2.github.io/http2-spec/compression.html) and [SPDY does as well](https://www.chromium.org/spdy/spdy-whitepaper). This was me testing from a simple repeatable `curl` request which supports neither natively. It's possible that with compressed headers we do actually fit in the initial windows with both versions. It matters little though, since this request doesn't delay the page load or user experience.
 
