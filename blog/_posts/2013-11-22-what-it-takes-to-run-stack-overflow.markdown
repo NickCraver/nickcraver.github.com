@@ -37,7 +37,7 @@ Keep in mind these are for the entire Stack Exchange network but still don't inc
 
 Here's what that looks like:
 
-[![DataCenter Rear]({{ site.contenturl }}INAP-DataCenter-Rear-768x1024.jpg)]({{ site.contenturl }}INAP-DataCenter-Rear.jpg)
+{% include jpg.html name="DataCenter Rear" url="INAP-DataCenter-Rear" %}
 
 We don't _only_ run the sites,  The rest of those servers in the nearest rack are VMs and other infrastructure for auxiliary things not involved in serving the sites directly, like deployments, domain controllers, monitoring, ops database for sysadmin goodies, etc. Of that list above, 2 SQL servers were backups only until _very_ recently - they are now used for read-only loads so we can keep on scaling without thinking about it for even longer (this mainly consists of [the Stack Exchange API](https://api.stackexchange.com)). Two of those web servers are for dev and meta, running very little traffic.
 
