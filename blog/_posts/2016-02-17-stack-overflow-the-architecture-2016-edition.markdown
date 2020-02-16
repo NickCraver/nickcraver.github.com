@@ -49,8 +49,8 @@ Now that we have some baseline numbers for an idea of scale, let's see how we ma
 For those of you here to see what the hardware looks like these days, here are a few pictures I took of rack A (it has a matching sister rack B) during [our February 2015 upgrade](http://blog.serverfault.com/2015/03/05/how-we-upgrade-a-live-data-center/):
 
 <div style="text-align: center;">
-<img src="https://i.imgur.com/TEb0jiPh.jpg" width="384" height="512" style="padding: 5px;" />
-<img src="https://i.imgur.com/ZFvRqgkh.jpg" width="384" height="512" style="padding: 5px;" />
+{% include jpg.html name="Rack B - Top" url="SO-Architecture/SO-Architecture-RackB-Top" style="width:384px;height:512px;padding:5px;" %}
+{% include jpg.html name="Rack B - Bottom" url="SO-Architecture/SO-Architecture-RackB-Bottom" style="width:384px;height:512px;padding:5px;" %}
 </div>
 
 ...and if you're into that kind of thing, [here's the entire 256 image album from that week](https://imgur.com/a/X1HoY) (you're damn right that number's intentional). Now, let's dig into layout. Here's a logical overview of the major systems in play:

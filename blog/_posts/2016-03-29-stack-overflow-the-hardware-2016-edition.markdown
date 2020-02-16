@@ -86,15 +86,15 @@ A few global truths so I need not repeat them in each server spec below:
 <div class="pics-{{ page.slug }}">
 Here's what the network gear looks like in New York:
 
-<a href="{{ site.contenturl }}SO-Hardware-Network-NewYork-Rack.jpg" target="_blank"><img src="{{ site.contenturl }}SO-Hardware-Network-NewYork-Rack-Small.jpg" width="477" height="708" style="float: right;" /></a>
-<a href="{{ site.contenturl }}SO-Hardware-Network-NewYork-Fiber.jpg" target="_blank"><img src="{{ site.contenturl }}SO-Hardware-Network-NewYork-Fiber-Small.jpg" width="477" height="346" style="padding-right: 16px; padding-bottom: 16px;" /></a>
-<a href="{{ site.contenturl }}SO-Hardware-Network-NewYork-Fortinet.jpg" target="_blank"><img src="{{ site.contenturl }}SO-Hardware-Network-NewYork-Fortinet-Small.jpg" width="477" height="346" /></a>
+{% include jpg.html name="New York Rack" url="SO-Hardware-Network-NewYork-Rack" src="SO-Hardware-Network-NewYork-Rack-Small" style="float: right; width: 477px; height: 708px;" %}
+{% include jpg.html name="New York Fiber" url="SO-Hardware-Network-NewYork-Fiber" src="SO-Hardware-Network-NewYork-Fiber-Small" style="width: 477px; height: 346px; padding-right: 16px; padding-bottom: 16px;" %}
+{% include jpg.html name="New York Fortinet" url="SO-Hardware-Network-NewYork-Fortinet" src="SO-Hardware-Network-NewYork-Fortinet-Small" style="width: 477px; height: 346px;" %}
 
 ...and in Denver:
 
-[![Denver network before install]({{ site.contenturl }}SO-Hardware-Network-Denver-Raw-Small.jpg)]({{ site.contenturl }}SO-Hardware-Network-Denver-Raw.jpg)
+{% include jpg.html name="Denver network before install" src="SO-Hardware-Network-Denver-Raw-Small" url="SO-Hardware-Network-Denver-Raw" %}
 
-<a href="{{ site.contenturl }}SO-Hardware-Network-Denver-Racked.jpg" target="_blank"><img src="{{ site.contenturl }}SO-Hardware-Network-Denver-Racked-Small.jpg" width="477" height="620" style="padding-right: 16px;" /></a><a href="{{ site.contenturl }}SO-Hardware-Network-Denver-Installed.jpg" target="_blank"><img src="{{ site.contenturl }}SO-Hardware-Network-Denver-Installed-Small.jpg" width="477" height="620" /></a>
+{% include jpg.html name="Denver Network - Racked" url="SO-Hardware-Network-Denver-Racked" src="SO-Hardware-Network-Denver-Racked-Small" style="width: 477px; height: 620px; padding-right: 16px;" %}{% include jpg.html name="Denver Network - Installed" url="SO-Hardware-Network-Denver-Installed" src="SO-Hardware-Network-Denver-Installed-Small" style="width: 477px; height: 620px;" %}
 
 Give a shout to [Mark Henderson](https://twitter.com/thefarseeker), one of our Site Reliability Engineers who made a special trip to the New York DC to get me some high-res, current photos for this post.
 </div>
@@ -120,8 +120,9 @@ Give a shout to [Mark Henderson](https://twitter.com/thefarseeker), one of our S
 <div class="pics-{{ page.slug }}">
 Here's what the SQL Servers in New York looked like while getting their PCIe SSD upgrades in February:
 
-<a href="{{ site.contenturl }}SO-Hardware-SQL-Inside.jpg" target="_blank"><img src="{{ site.contenturl }}SO-Hardware-SQL-Inside-Small.jpg" width="477" height="354" style="padding-right: 16px;" /></a><a href="{{ site.contenturl }}SO-Hardware-SQL-SSDs.jpg" target="_blank"><img src="{{ site.contenturl }}SO-Hardware-SQL-SSDs-Small.jpg" width="477" height="354" /></a>
-<a href="{{ site.contenturl }}SO-Hardware-SQL-Front.jpg" target="_blank"><img src="{{ site.contenturl }}SO-Hardware-SQL-Front-Small.jpg" width="477" height="354" style="padding-right: 16px; padding-top: 16px;" /></a><a href="{{ site.contenturl }}SO-Hardware-SQL-Top.jpg" target="_blank"><img src="{{ site.contenturl }}SO-Hardware-SQL-Top-Small.jpg" width="477" height="354" style="padding-top: 16px;" /></a>
+
+{% include jpg.html name="SQL Server - Inside" url="SO-Hardware-SQL-Inside" src="SO-Hardware-SQL-Inside-Small" style="width: 477px; height: 354px; padding-right: 16px;" %}{% include jpg.html name="SQL Server - SSDs" url="SO-Hardware-SQL-SSDs" src="SO-Hardware-SQL-SSDs-Small" style="width: 477px; height: 354px;" %}
+{% include jpg.html name="SQL Server - Front" url="SO-Hardware-SQL-Front" src="SO-Hardware-SQL-Front-Small" style="width: 477px; height: 354px; padding-top: 16px; padding-right: 16px;" %}{% include jpg.html name="SQL Server - Top" url="SO-Hardware-SQL-Top" src="SO-Hardware-SQL-Top-Small" style="width: 477px; height: 354px; padding-top: 16px;" %}
 </div>
 
 #### Web Servers
@@ -132,8 +133,8 @@ Here's what the SQL Servers in New York looked like while getting their PCIe SSD
 - Dual 10 Gbps network (Intel X540/I350 NDC)
 
 <div class="pics-{{ page.slug }}">
-<a href="{{ site.contenturl }}SO-Hardware-Web-Tier-Front.jpg" target="_blank"><img src="{{ site.contenturl }}SO-Hardware-Web-Tier-Front-Small.jpg" width="477" height="354" style="padding-right: 16px;" /></a><a href="{{ site.contenturl }}SO-Hardware-Web-Tier-Back.jpg" target="_blank"><img src="{{ site.contenturl }}SO-Hardware-Web-Tier-Back-Small.jpg" width="477" height="354" /></a>
-<a href="{{ site.contenturl }}SO-Hardware-Web-Tier-Unboxed.jpg" target="_blank"><img src="{{ site.contenturl }}SO-Hardware-Web-Tier-Unboxed-Small.jpg" width="477" height="354" style="padding-right: 16px; padding-top: 16px;" /></a><a href="{{ site.contenturl }}SO-Hardware-Web-Tier-Front2.jpg" target="_blank"><img src="{{ site.contenturl }}SO-Hardware-Web-Tier-Front2-Small.jpg" width="477" height="354" style="padding-top: 16px;" /></a>
+{% include jpg.html name="Web Tier - Front" url="SO-Hardware-Web-Tier-Front" src="SO-Hardware-Web-Tier-Front-Small" style="width: 477px; height: 354px; padding-right: 16px;" %}{% include jpg.html name="Web Tier - Back" url="SO-Hardware-Web-Tier-Back" src="SO-Hardware-Web-Tier-Back-Small" style="width: 477px; height: 354px;" %}
+{% include jpg.html name="Web Tier - Unboxed" url="SO-Hardware-Web-Tier-Unboxed" src="SO-Hardware-Web-Tier-Unboxed-Small" style="width: 477px; height: 354px; padding-top: 16px; padding-right: 16px;" %}{% include jpg.html name="Web Tier - Front 2" url="SO-Hardware-Web-Tier-Front2" src="SO-Hardware-Web-Tier-Front2-Small" style="width: 477px; height: 354px; padding-top: 16px;" %}
 </div>
 
 #### Service Servers (Workers)
@@ -181,8 +182,8 @@ Here's what the SQL Servers in New York looked like while getting their PCIe SSD
 <div class="pics-{{ page.slug }}">
 The service, redis, search, and load balancer boxes above are all 1U servers in a stack. Here's what that stack looks like in New York:
 
-<a href="{{ site.contenturl }}SO-Hardware-Service-Redis-Search-Front.jpg" target="_blank"><img src="{{ site.contenturl }}SO-Hardware-Service-Redis-Search-Front-Small.jpg" width="477" height="354" style="padding-right: 16px;" /></a><a href="{{ site.contenturl }}SO-Hardware-Service-Rear.jpg" target="_blank"><img src="{{ site.contenturl }}SO-Hardware-Service-Rear-Small.jpg" width="477" height="354" /></a>
-<a href="{{ site.contenturl }}SO-Hardware-Redis-Inside.jpg" target="_blank"><img src="{{ site.contenturl }}SO-Hardware-Redis-Inside-Small.jpg" width="477" height="354" style="padding-right: 16px; padding-top: 16px;" /></a><a href="{{ site.contenturl }}SO-Hardware-Service-Inside.jpg" target="_blank"><img src="{{ site.contenturl }}SO-Hardware-Service-Inside-Small.jpg" width="477" height="354" style="padding-top: 16px;" /></a>
+{% include jpg.html name="Redis & Search - Front" url="SO-Hardware-Service-Redis-Search-Front" src="SO-Hardware-Service-Redis-Search-Front-Small" style="width: 477px; height: 354px; padding-right: 16px;" %}{% include jpg.html name="Service - Rear" url="SO-Hardware-Service-Rear" src="SO-Hardware-Service-Rear-Small" style="width: 477px; height: 354px;" %}
+{% include jpg.html name="Redis - Inside" url="SO-Hardware-Redis-Inside" src="SO-Hardware-Redis-Inside-Small" style="width: 477px; height: 354px; padding-top: 16px; padding-right: 16px;" %}{% include jpg.html name="Service - Inside" url="SO-Hardware-Service-Inside" src="SO-Hardware-Service-Inside-Small" style="width: 477px; height: 354px; padding-top: 16px;" %}
 </div>
 
 ## Servers for Other Bits
@@ -206,8 +207,8 @@ Since this post is meant to be an appendix for many future posts [in the series]
   - Dual 10Gb network (SFP+)
   
 <div class="pics-{{ page.slug }}">
-<a href="{{ site.contenturl }}SO-Hardware-VMs-Blades.jpg" target="_blank"><img src="{{ site.contenturl }}SO-Hardware-VMs-Blades-Small.jpg" width="477" height="708" style="padding-right: 16px;" /></a><a href="{{ site.contenturl }}SO-Hardware-VMs-Blades2.jpg" target="_blank"><img src="{{ site.contenturl }}SO-Hardware-VMs-Blades2-Small.jpg" width="477" height="708" /></a>
-<a href="{{ site.contenturl }}SO-Hardware-VMs-Front.jpg" target="_blank"><img src="{{ site.contenturl }}SO-Hardware-VMs-Front-Small.jpg" width="477" height="708" style="padding-right: 16px; padding-top: 16px;" /></a><a href="{{ site.contenturl }}SO-Hardware-VMs-Rear.jpg" target="_blank"><img src="{{ site.contenturl }}SO-Hardware-VMs-Rear-Small.jpg" width="477" height="708" style="padding-top: 16px;" /></a>
+{% include jpg.html name="VM Blades - 1" url="SO-Hardware-VMs-Blades" src="SO-Hardware-VMs-Blades-Small" style="width: 477px; height: 708px; padding-right: 16px;" %}{% include jpg.html name="VM Blades - 2" url="SO-Hardware-VMs-Blades2" src="SO-Hardware-VMs-Blades2-Small" style="width: 477px; height: 708px;" %}
+{% include jpg.html name="VMs - Front" url="SO-Hardware-VMs-Front" src="SO-Hardware-VMs-Front-Small" style="width: 477px; height: 708px; padding-top: 16px; padding-right: 16px;" %}{% include jpg.html name="VMs - Rear" url="SO-Hardware-VMs-Rear" src="SO-Hardware-VMs-Rear-Small" style="width: 477px; height: 708px; padding-top: 16px;" %}
 </div>
   
 There a few more noteworthy servers behind the scenes that aren't VMs. These perform background tasks, help us troubleshoot with logging, store tons of data, etc.
@@ -262,8 +263,7 @@ We like for dev to simulate production as much as possible, so SQL matches as we
 
 That's it for the hardware actually serving the sites or that's generally interesting. We, of course, have other servers for the background tasks such as logging, monitoring, backups, etc. If you're especially curious about specs of any other systems, just ask in comments and I'm happy to detail them out. Here's what the full setup looks like in New York as of a few weeks ago:
 
-<a href="{{ site.contenturl }}SO-Hardware-Racks2.jpg" target="_blank"><img src="{{ site.contenturl }}SO-Hardware-Racks2-Small.jpg" width="477" height="708" style="padding-right: 16px;" /></a><a href="{{ site.contenturl }}SO-Hardware-Racks.jpg" target="_blank"><img src="{{ site.contenturl }}SO-Hardware-Racks-Small.jpg" width="477" height="708" /></a>
-
+{% include jpg.html name="Racks - Left Aisle" url="SO-Hardware-Racks" src="SO-Hardware-Racks-Small" style="width: 477px; height: 708px; padding-right: 16px;" %}{% include jpg.html name="Racks - Right Aisle" url="SO-Hardware-Racks2" src="SO-Hardware-Racks2-Small" style="width: 477px; height: 708px;" %}
 </div>
 
 What's next? The way [this series]({% post_url blog/2016-02-03-stack-overflow-a-technical-deconstruction %}) works is I blog in order of what the community wants to know about most. Going by [the Trello board](https://trello.com/b/0zgQjktX/blog-post-queue-for-stack-overflow-topics), it looks like [Deployment](https://trello.com/c/bh4GZ30c/25-deployment) is the next most interesting topic. So next time expect to learn how code goes from a developers machine to production and everything involved along the way. I'll cover database migrations, rolling builds, CI infrastructure, how our dev environment is set up, and share stats on all things deployment.
