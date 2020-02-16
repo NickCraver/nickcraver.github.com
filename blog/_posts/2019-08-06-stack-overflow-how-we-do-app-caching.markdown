@@ -57,7 +57,7 @@ Let's go down the list (assuming the lower bound of each, these are best case nu
 
 If numbers aren't your thing, [here's a neat open source visualization](https://people.eecs.berkeley.edu/~rcs/research/interactive_latency.html) (use the slider!) by [Colin Scott](https://github.com/colin-scott) (you can even go see how they've evolved over time -- really neat):
 
-![Cache Latencies]({{ site.contenturl }}SO-Caching/SO-Cache-Latencies.png)
+{% include png.html name="Cache Latencies" url="SO-Caching/SO-Cache-Latencies" %}
 
 With those performance numbers and a sense of scale in mind, let's add some numbers that matter every day.
 Let's say our data source is `X`, where what `X` is doesn't matter.
@@ -189,7 +189,7 @@ Like debating which cache server is best!
 
 We have a few Redis instances to separate concerns of apps (but on the same set of servers), here's an example of what one looks like:
 
-![Opserver: Redis View]({{ site.contenturl }}SO-Caching/SO-Cache-Opserver.png)
+{% include png.html name="Opserver: Redis View" url="SO-Caching/SO-Cache-Opserver" %}
 
 For the curious, some quick stats from last Tuesday (2019-07-30) This is across all instances on the primary boxes (because we split them up for organization, not performance...one instance could handle everything we do quite easily):
 - Our Redis physical servers have 256GB of memory, but less than 96GB used.
@@ -552,13 +552,13 @@ For this, we use [MiniProfiler](https://miniprofiler.com/dotnet/) to see every R
 It's hooked up with [StackExchange.Redis's profiling API](https://stackexchange.github.io/StackExchange.Redis/Profiling_v2.html).
 Here's an example of what that looks like on a question page, getting my live across-the-network counts for the top bar:
 
-![MiniProfiler: Redis Calls]({{ site.contenturl }}SO-Caching/SO-Cache-MiniProfiler.png)
+{% include png.html name="MiniProfiler: Redis Calls" url="SO-Caching/SO-Cache-MiniProfiler" %}
 
 Second, we want to keep an eye on the Redis instances.
 For that, we use [Opserver](https://github.com/Opserver/Opserver).
 Here's what a single instance looks like:
 
-![Opserver: Redis Instance]({{ site.contenturl }}SO-Caching/SO-Cache-Opserver-Instance.png)
+{% include png.html name="Opserver: Redis Instance" url="SO-Caching/SO-Cache-Opserver-Instance" %}
 
 We have some built-in tools there to analyze key usage and the ability to group them by regex pattern.
 This lets us combine what we know (we're the ones caching!) with the data to see what's eating the most space.
@@ -724,7 +724,7 @@ We're telling a browser to cache that value for 2017 years, 4 months, 5 days, 1 
 Which *might* be a tad bit of overkill.
 Or on CDNs, we're telling CDNs to cache things for that long...also problematic.
 
-![Oops: Max Age]({{ site.contenturl }}SO-Caching/SO-Cache-Max-Age.jpg)
+{% include jpg.html name="Oops: Max Age" url="SO-Caching/SO-Cache-Max-Age" %}
 
 Well crap. We didn't realize this early enough. (Would you have checked for this? Are we idiots?)
 So that was in production and a rollback was not a quick solution.

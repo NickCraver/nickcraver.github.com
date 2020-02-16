@@ -13,7 +13,7 @@ I think. Maybe. Let's find out!
 When someone says monitoring, I think of:
 
 <div style="max-width:400px;text-align: center;margin: 0 auto;">
-![You are being monitored!]({{ site.contenturl }}SO-Monitoring/SO-Monitoring-Monitored.png)
+{% include png.html name="You are being monitored!" url="SO-Monitoring/SO-Monitoring-Monitored" %}
 </div>
 
 ...but evidently some people think of other things.
@@ -409,9 +409,9 @@ That's okay. It's in the past.
 All you can do *now* is make things better in the hopes that it doesn't happen again.
 Whether you're designing ahead of time or in retrospect, this feature is awesome:
 
-![Bosun Alert Editor]({{ site.contenturl }}SO-Monitoring/SO-Monitoring-Bosun-Alert.png)
+{% include png.html name="Bosun Alert Editor" url="SO-Monitoring/SO-Monitoring-Bosun-Alert" %}
 
-![Bosun Alert Test]({{ site.contenturl }}SO-Monitoring/SO-Monitoring-Bosun-Alert-Test.png)
+{% include png.html name="Bosun Alert Test" url="SO-Monitoring/SO-Monitoring-Bosun-Alert-Test" %}
 
 You can see on November 18th there was one system that got low enough to trigger a warning here, but otherwise all green.
 Sanity checking if an alert is noisy before anyone ever gets notified? I love it.
@@ -426,7 +426,7 @@ We also have metrics monitoring (via Bosun) errors in a few ways:
 
 If we're seeing a high error rate for any reason on either of these, messages with details land in chat a minute or two after. (Since they're aggregate count based, they can't be immediate.)
 
-![Bosun Chat Alerts]({{ site.contenturl }}SO-Monitoring/SO-Monitoring-Bosun-Chat-Alerts.png)
+{% include png.html name="Bosun Chat Alerts" url="SO-Monitoring/SO-Monitoring-Bosun-Chat-Alerts" %}
 
 These messages with links let us quickly dig into the issue.
 Did the network blip?
@@ -447,11 +447,11 @@ We can add breakdowns and details to the email itself.
 You can be better informed to handle (or even decide to ignore) an email alert without digging further.
 Here's an example email from NY-TSDB03's CPU spiking a few days ago:
 
-![Bosun: Email]({{ site.contenturl }}SO-Monitoring/SO-Monitoring-Bosun-Email.png)
+{% include png.html name="Bosun: Email" url="SO-Monitoring/SO-Monitoring-Bosun-Email" %}
 
-![Bosun: Email]({{ site.contenturl }}SO-Monitoring/SO-Monitoring-Bosun-Email2.png)
+{% include png.html name="Bosun: Email" url="SO-Monitoring/SO-Monitoring-Bosun-Email2" %}
 
-![Bosun: Email]({{ site.contenturl }}SO-Monitoring/SO-Monitoring-Bosun-Email3.png)
+{% include png.html name="Bosun: Email" url="SO-Monitoring/SO-Monitoring-Bosun-Email3" %}
 
 We also include the last 10 incidents for this alert on the systems in question so you can easily identify a pattern, see why they were dismissed, etc.
 They're just not in this particular email I was using as an example.
@@ -478,18 +478,18 @@ Our use of Grafana is probably best explained in pictures, so a few examples are
 Here's a status dashboard showing how Fastly is doing.
 Since we're behind them for DDoS protection and faster content delivery, their current status is also very much our current status.
 
-![Grafana: Fastly]({{ site.contenturl }}SO-Monitoring/SO-Monitoring-Grafana-Fastly.png)
+{% include png.html name="Grafana: Fastly" url="SO-Monitoring/SO-Monitoring-Grafana-Fastly" %}
 
 This is just a random dashboard that I think is pretty cool.
 It's traffic broken down by country of origin.
 It's split into major continents and you can see how traffic rolls around the world as people are awake.
 
-![Grafana: Continents]({{ site.contenturl }}SO-Monitoring/SO-Monitoring-Grafana-Continents.png)
+{% include png.html name="Grafana: Continents" url="SO-Monitoring/SO-Monitoring-Grafana-Continents" %}
 
 If you follow me on Twitter, you're likely aware [we're having some garbage collection issues with .NET Core](https://github.com/aspnet/AspNetCore/issues/3409#issuecomment-436677987).
 Needing to keep an eye on this isn't new though. We've had this dashboard for years:
 
-![Grafana: Garbage Collection]({{ site.contenturl }}SO-Monitoring/SO-Monitoring-Grafana-GC.png)
+{% include png.html name="Grafana: Garbage Collection" url="SO-Monitoring/SO-Monitoring-Grafana-GC" %}
 
 Note: Don't go by any numbers above for scale of any sort, these screenshots were taken on a holiday weekend.
 
@@ -535,9 +535,9 @@ For 5% of requests to Stack Overflow (or any Q&A site on our network), we ask th
 
 For a description of how this works, you can visit [teststackoverflow.com](https://teststackoverflow.com/). Here's what it looks like:
 
-![Client Timings: Breakdown]({{ site.contenturl }}SO-Monitoring/SO-Monitoring-ClientTimings-Breakdown.png)
+{% include png.html name="Client Timings: Breakdown" url="SO-Monitoring/SO-Monitoring-ClientTimings-Breakdown" %}
 
-![Client Timings: JSON]({{ site.contenturl }}SO-Monitoring/SO-Monitoring-ClientTimings-JSON.png)
+{% include png.html name="Client Timings: JSON" url="SO-Monitoring/SO-Monitoring-ClientTimings-JSON" %}
 
 This domain isn't *exactly* monitoring, but it kind of is.
 We use it to test things like [when we switched to HTTPS]({% post_url blog/2017-05-22-https-on-stack-overflow %}) what the impact for everyone would be with connection times around the world (that's why I originally created the timings pipeline).
@@ -551,7 +551,7 @@ We can test before and after configs, looking at the data.
 We can also keep an eye on current traffic and look for problems.
 We use Grafana for the last part, and it looks like this:
 
-![Client Timings: Grafana]({{ site.contenturl }}SO-Monitoring/SO-Monitoring-ClientTimings-Grafana.png)
+{% include png.html name="Client Timings: Grafana" url="SO-Monitoring/SO-Monitoring-ClientTimings-Grafana" %}
 
 Note: that's a 95% percentile view, the median total render time is the white dots towards the bottom (under 500ms most days).
 
@@ -565,12 +565,12 @@ And thus, [MiniProfiler](https://miniprofiler.com/) was born.
 It comes in a few flavors (the projects vary a bit): [.NET][GH.MiniProfiler], [Ruby](https://github.com/MiniProfiler/rack-mini-profiler), [Go](https://github.com/MiniProfiler/go), and [Node.js](https://github.com/MiniProfiler/node).
 We're looking at the .NET version I maintain here:
 
-![MiniProfiler]({{ site.contenturl }}SO-Monitoring/SO-Monitoring-MiniProfiler.png)
+{% include png.html name="MiniProfiler" url="SO-Monitoring/SO-Monitoring-MiniProfiler" %}
 
 The number is all you see by default, but you can expand it to see a breakdown of which things took how long, in tree form.
 The commands that are linked there are also viewable, so you can quickly see the SQL or Elastic query that ran, or the HTTP call made, or the Redis key fetched, etc. Here's what that looks like:
 
-![MiniProfiler: Queries]({{ site.contenturl }}SO-Monitoring/SO-Monitoring-MiniProfiler-Queries.png)
+{% include png.html name="MiniProfiler: Queries" url="SO-Monitoring/SO-Monitoring-MiniProfiler-Queries" %}
 
 Note: If you're thinking, that's ***way*** longer than we say our question renders take on average (or even 99th percentile), yes, it is.
 That's because I'm a moderator here and we load a lot more stuff for moderators.
@@ -588,7 +588,7 @@ Here's a view of what those snapshots and aggregate summaries looks like:
 
 | Snapshots | Summary |
 |-----------|---------|
-| ![MiniProfiler Snapshots]({{ site.contenturl }}SO-Monitoring/SO-Monitoring-MiniProfiler-Snapshots.png) | ![MiniProfiler Summary]({{ site.contenturl }}SO-Monitoring/SO-Monitoring-MiniProfiler-Snapshots2.png) |
+| {% include png.html name="MiniProfiler Snapshots" url="SO-Monitoring/SO-Monitoring-MiniProfiler-Snapshots" %} | {% include png.html name="MiniProfiler Summary" url="SO-Monitoring/SO-Monitoring-MiniProfiler-Snapshots2" %} |
 
 ...we should probably put an example of that in the repo.
 I'll try and get around to it soon.
@@ -627,15 +627,15 @@ The landing dashboard is a server list showing an overview of what's up.
 Users can search by name, service tag, IP address, VM host, etc.
 You can also drill down to all-time history graphs for CPU, memory, and network on each node.
 
-![Dashboard]({{ site.contenturl }}SO-Monitoring/SO-Monitoring-Opserver-Servers.png)
+{% include png.html name="Dashboard" url="SO-Monitoring/SO-Monitoring-Opserver-Servers" %}
 
 Within each node looks like this:
 
-![Dashboard: Node]({{ site.contenturl }}SO-Monitoring/SO-Monitoring-Opserver-Servers-Node.png)
+{% include png.html name="Dashboard: Node" url="SO-Monitoring/SO-Monitoring-Opserver-Servers-Node" %}
 
 If using Bosun and running Dell servers, we've added hardware metadata like this:
 
-![Dashboard: Node Hardware]({{ site.contenturl }}SO-Monitoring/SO-Monitoring-Opserver-Servers-Node-Hardware.png)
+{% include png.html name="Dashboard: Node Hardware" url="SO-Monitoring/SO-Monitoring-Opserver-Servers-Node-Hardware" %}
 
 #### Opserver: SQL Server
 
@@ -644,62 +644,62 @@ We can see how much activity each node has and which one is primary (in blue) at
 The bottom section is [AlwaysOn Availability Groups](https://docs.microsoft.com/en-us/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server), we can see who's primary for each, how far behind replication is, and how much queues are backed up.
 If things go south and a replica is unhealthy, some more indicators pop in like which databases are having issues and the free disk space on the primary for all drives involved in T-logs (since they will start growing if replication remains down):
 
-![SQL Dashboard]({{ site.contenturl }}SO-Monitoring/SO-Monitoring-Opserver-SQL.png)
+{% include png.html name="SQL Dashboard" url="SO-Monitoring/SO-Monitoring-Opserver-SQL" %}
 
 There's also a top-level all-jobs view for quick monitoring and enabling/disabling:
 
-![SQL Jobs]({{ site.contenturl }}SO-Monitoring/SO-Monitoring-Opserver-SQL-Jobs.png)
+{% include png.html name="SQL Jobs" url="SO-Monitoring/SO-Monitoring-Opserver-SQL-Jobs" %}
 
 And in the per-instance view we can see the stats about the server, caches, etc., that we've found relevant over time.
 
-![SQL Instance]({{ site.contenturl }}SO-Monitoring/SO-Monitoring-Opserver-SQL-Instance.png)
+{% include png.html name="SQL Instance" url="SO-Monitoring/SO-Monitoring-Opserver-SQL-Instance" %}
 
 For each instance, we also report top queries (based on plan cache, not query store yet), active-right now queries (based on [sp_whoisactive](http://whoisactive.com/)), connections, and database info.
 
-![SQL Top Queries]({{ site.contenturl }}SO-Monitoring/SO-Monitoring-Opserver-SQL-Top.png)
+{% include png.html name="SQL Top Queries" url="SO-Monitoring/SO-Monitoring-Opserver-SQL-Top" %}
 
-![SQL Active Queries]({{ site.contenturl }}SO-Monitoring/SO-Monitoring-Opserver-SQL-Active.png)
+{% include png.html name="SQL Active Queries" url="SO-Monitoring/SO-Monitoring-Opserver-SQL-Active" %}
 
-![SQL Connections]({{ site.contenturl }}SO-Monitoring/SO-Monitoring-Opserver-SQL-Connections.png)
+{% include png.html name="SQL Connections" url="SO-Monitoring/SO-Monitoring-Opserver-SQL-Connections" %}
 
 ...and if you want to drill down into a top query, it looks like this:
 
-![SQL Top Queries]({{ site.contenturl }}SO-Monitoring/SO-Monitoring-Opserver-SQL-Top-Query.png)
+{% include png.html name="SQL Top Queries" url="SO-Monitoring/SO-Monitoring-Opserver-SQL-Top-Query" %}
 
 In the databases view, there are drill downs to see tables, indexes, views, stored procedures, storage usage, etc.
 
-![SQL Databases]({{ site.contenturl }}SO-Monitoring/SO-Monitoring-Opserver-SQL-Databases.png)
+{% include png.html name="SQL Databases" url="SO-Monitoring/SO-Monitoring-Opserver-SQL-Databases" %}
 
-![SQL Database]({{ site.contenturl }}SO-Monitoring/SO-Monitoring-Opserver-SQL-Database.png)
+{% include png.html name="SQL Database" url="SO-Monitoring/SO-Monitoring-Opserver-SQL-Database" %}
 
-![SQL Database Table]({{ site.contenturl }}SO-Monitoring/SO-Monitoring-Opserver-SQL-Database-Table.png)
+{% include png.html name="SQL Database Table" url="SO-Monitoring/SO-Monitoring-Opserver-SQL-Database-Table" %}
 
-![SQL Database Storage]({{ site.contenturl }}SO-Monitoring/SO-Monitoring-Opserver-SQL-Database-Storage.png)
+{% include png.html name="SQL Database Storage" url="SO-Monitoring/SO-Monitoring-Opserver-SQL-Database-Storage" %}
 
-![SQL Unused Indexes]({{ site.contenturl }}SO-Monitoring/SO-Monitoring-Opserver-SQL-Database-Unused-Indexes.png)
+{% include png.html name="SQL Unused Indexes" url="SO-Monitoring/SO-Monitoring-Opserver-SQL-Database-Unused-Indexes" %}
 
 #### Opserver: Redis
 
 For Redis, we want to see the topology chain of primary and replicas as well as the overall status of each instance:
 
-![Redis]({{ site.contenturl }}SO-Monitoring/SO-Monitoring-Opserver-Redis.png)
+{% include png.html name="Redis" url="SO-Monitoring/SO-Monitoring-Opserver-Redis" %}
 
-![Redis]({{ site.contenturl }}SO-Monitoring/SO-Monitoring-Opserver-Redis-Instance.png)
+{% include png.html name="Redis" url="SO-Monitoring/SO-Monitoring-Opserver-Redis-Instance" %}
 
 Note that you can kill client connections, get the active config, change server topologies, and analyze the data in each database (configurable via [Regexes](https://twitter.com/Nick_Craver/status/1051221337413431298)).
 The last one is a heavy [`KEYS`](https://redis.io/commands/keys) and [`DEBUG OBJECT`](https://redis.io/commands/debug-object) scan, so we run it on a replica node or are allowed to force running it on a master (for safety).
 Analysis looks like this:
 
-![Redis]({{ site.contenturl }}SO-Monitoring/SO-Monitoring-Opserver-Redis-Analyze.png)
+{% include png.html name="Redis" url="SO-Monitoring/SO-Monitoring-Opserver-Redis-Analyze" %}
 
 #### Opserver: Elasticsearch
 
 For Elasticsearch, we usually want to see things in a cluster view since that's how it behaves.
 What isn't seen below is that when an index goes yellow or red. When that happens, new sections of the dashboard appear showing shards that are in trouble, what they're doing (initializing, relocating, etc.), and counts appear in each cluster summarizing how many are in which status.
 
-![Redis]({{ site.contenturl }}SO-Monitoring/SO-Monitoring-Opserver-Elastic.png)
+{% include png.html name="Redis" url="SO-Monitoring/SO-Monitoring-Opserver-Elastic" %}
 
-![Redis]({{ site.contenturl }}SO-Monitoring/SO-Monitoring-Opserver-Elastic-Node.png)
+{% include png.html name="Redis" url="SO-Monitoring/SO-Monitoring-Opserver-Elastic-Node" %}
 
 Note: the PagerDuty tab up there pulls from the PagerDuty API and displays on-call information, who's primary, secondary, allows you to see and claim incidents, etc.
 Since it's almost 100% not data you'd want to share, there's no screenshot here. :)
@@ -711,15 +711,15 @@ Exceptions in Opserver are based on [StackExchange.Exceptional][GH.Exceptional].
 In this case specifically, we're looking at the SQL Server storage provider for Exceptional.
 Opserver is a way for many applications to share a single database and table layout and have developers view their exceptions in one place.
 
-![Redis]({{ site.contenturl }}SO-Monitoring/SO-Monitoring-Opserver-Exceptions.png)
+{% include png.html name="Redis" url="SO-Monitoring/SO-Monitoring-Opserver-Exceptions" %}
 
 The top level view here can just be applications (the default), or it can be configured in groups.
 In the above case, we're configuring application groups by team so a team can bookmark or quickly click on the exceptions they're responsible for.
 In the per-exception page, the detail looks like this:
 
-![Redis]({{ site.contenturl }}SO-Monitoring/SO-Monitoring-Opserver-Exceptions-Stack.png)
+{% include png.html name="Redis" url="SO-Monitoring/SO-Monitoring-Opserver-Exceptions-Stack" %}
 
-![Redis]({{ site.contenturl }}SO-Monitoring/SO-Monitoring-Opserver-Exceptions-Command.png)
+{% include png.html name="Redis" url="SO-Monitoring/SO-Monitoring-Opserver-Exceptions-Command" %}
 
 There are also details recorded like request headers (with security filters so we don't log authentication cookies for example), query parameters, and any other custom data added to an exception.
 
@@ -730,12 +730,12 @@ These are separate databases allowing all applications to log to a very-local st
 
 The HAProxy section is pretty straightforward--we're simply presenting the current HAProxy status and allowing control of it. Here's what the main dashboard looks like:
 
-![Redis]({{ site.contenturl }}SO-Monitoring/SO-Monitoring-Opserver-HAProxy.png)
+{% include png.html name="Redis" url="SO-Monitoring/SO-Monitoring-Opserver-HAProxy" %}
 
 For each background group, specific backend server, entire server, or entire tier, it also allows some control.
 We can take a backend server out of rotation, or an entire backend down, or a web server out of all backends if we need to shut it down for emergency maintenance, etc.
 
-![Redis]({{ site.contenturl }}SO-Monitoring/SO-Monitoring-Opserver-HAProxy-Control.png)
+{% include png.html name="Redis" url="SO-Monitoring/SO-Monitoring-Opserver-HAProxy-Control" %}
 
 #### Opserver: FAQs
 

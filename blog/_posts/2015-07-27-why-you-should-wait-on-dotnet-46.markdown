@@ -100,7 +100,7 @@ This is nothing fancy, all we have is some methods calling each other. Here's th
  - RawSet: *null*, or 114, or 97, or some other seemingly random value
  
  Here's an example test run from [the GitHub repo](https://github.com/StackExchange/RyuJIT-TailCallBug):
- ![RyuJIT Tail Tests]({{ site.contenturl }}Blog-RyuJIT-Results.png)
+ {% include png.html name="RyuJIT Tail Tests" url="Blog-RyuJIT-Results" %}
  
  **The method we called did not get the parameters we passed**. That's it. The net result of this is that local cache (which we use *very* heavily) is either unreliable or non-existent. This would add a tremendous amount of load to our entire infrastructure, making Stack Overflow much slower and likely leading to a full outage.
  

@@ -159,7 +159,7 @@ We're evaluating whether we'll deploy HPKP, but we've prepped as if we will late
 I've gotten a lot of raised eyebrows at our main certificate having all of our primary domains + wildcards.
 Here's what that looks like:
 
-[![Main Certificate]({{ site.contenturl }}HTTPS-MainCertificate.png)]({{ site.contenturl }}HTTPS-MainCertificate.png)
+{% include png.html name="Main Certificate" url="HTTPS-MainCertificate" %}
 
 Why do this? 
 Well, to be fair, [DigiCert](https://www.digicert.com/) is the one who does this for us upon request.
@@ -368,7 +368,7 @@ We want to be very transparent about this, that's why details have [been availab
 There's no sensitive data transferred, only the URIs of resources *directly* loaded by the page and their timings.
 For each page load recorded, we get timings that look like this:
 
-[![teststackoverflow.com]({{ site.contenturl }}HTTPS-Teststackoverflow.png)]({{ site.contenturl }}HTTPS-Teststackoverflow.png)
+{% include png.html name="teststackoverflow.com" url="HTTPS-Teststackoverflow" %}
 
 Currently we attempt to record performance timings from 5% of traffic.
 The process isn't that complicated, but all the pieces had to be built:
@@ -381,13 +381,13 @@ The process isn't that complicated, but all the pieces had to be built:
 The end result is we now have a great real-time overview of *actual* user performance all over the world that we can readily view, alert on, and use for evaluating any changes.
 Here's a view of timings coming in live:
 
-[![Client Timings Dashboard]({{ site.contenturl }}HTTPS-ClientTimings.png)]({{ site.contenturl }}HTTPS-ClientTimings.png)
+{% include png.html name="Client Timings Dashboard" url="HTTPS-ClientTimings" %}
 
 Luckily, we have enough sustained traffic to get useful data here.
 At this point, we have over 5 billion points (and growing) of data to help drive decisions.
 Here's a quick overview of that data:
 
-[![Client Timings Database]({{ site.contenturl }}HTTPS-ClientTimingsDatabase.png)]({{ site.contenturl }}HTTPS-ClientTimingsDatabase.png)
+{% include png.html name="Client Timings Database" url="HTTPS-ClientTimingsDatabase" %}
 
 Okay, so now we have our baseline data. 
 Time to test candidates for our CDN/Proxy setup.
@@ -958,7 +958,7 @@ The big question here was: "can we handle the load?"
 Our network handles quite a few concurrent websockets; as I write this we have over 600,000 **concurrent** connections open. 
 Here's a view of our HAProxy dashboard in [Opserver](https://github.com/opserver/Opserver):
 
-[![HAProxy Websockets]({{ site.contenturl }}HTTPS-Websockets.png)]({{ site.contenturl }}HTTPS-Websockets.png)
+{% include png.html name="HAProxy Websockets" url="HTTPS-Websockets" %}
 
 That's a lot of connections on a) the terminators, b) the abstract named socket, and c) the frontend.
 It's also much more load in HAProxy itself, due to enabling [TLS session resumption](https://tools.ietf.org/html/rfc5077).
@@ -970,7 +970,7 @@ With about 600,000 websockets open at any given time (the majority of our memory
 Of this, about 12GB is being utilized by HAProxy, and most of that is the TLS session cache.
 So...it's not too bad, and *if we had to buy RAM*, it'd still be one of the cheapest things about this move.
 
-[![HAProxy Websocket Memory]({{ site.contenturl }}HTTPS-WebsocketMemory.png)]({{ site.contenturl }}HTTPS-WebsocketMemory.png)
+{% include png.html name="HAProxy Websocket Memory" url="HTTPS-WebsocketMemory" %}
 
 
 ### Unknowns
@@ -1189,7 +1189,7 @@ Here are [some of the gems created](https://meta.stackoverflow.com/a/345282/1324
 
 At least the commit to fix my mistake was simple enough:
 
-[![Me being a dumbass]({{ site.contenturl }}HTTPS-HelpCommit.png)]({{ site.contenturl }}HTTPS-HelpCommit.png)
+{% include png.html name="Me being a dumbass" url="HTTPS-HelpCommit" %}
 
 ...and re-running the backfill fixed it all. Still, that was some very public "fun". Sorry about that.
 
