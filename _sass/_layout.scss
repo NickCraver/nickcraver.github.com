@@ -34,8 +34,22 @@
         }
         .site-nav {
             font-size: 14px;
-            .social-list a {
-                margin-left: 8px;
+            .page-link:first-child {
+                padding: 6px 10px 6px 0;
+            }
+            .page-link:not(:first-child) {
+                margin-left: 0px;
+                padding: 6px 10px;
+            }
+            .social-list {
+                right: 0;
+                a {
+                    margin-left: 0;
+                    padding: 8px;
+                    &:last-child {
+                        padding-right: 10px;
+                    }
+                }
             }
         }
     }
