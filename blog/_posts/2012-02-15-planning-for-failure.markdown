@@ -2,7 +2,6 @@
 layout: post
 title:  "Stack Exchange: Planning for failure, part 1"
 date:   2012-02-15 12:00:00
-disqus_identifier: "133 http://nickcraver.com/blog/?p=133"
 ---
 This will be the first in an series of interspersed posts about how our backup/secondary infrastructure is built and designed to work.
 

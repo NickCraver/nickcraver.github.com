@@ -2,7 +2,6 @@
 layout: post
 title:  "Running Stack Overflow on SQL 2014 CTP 2"
 date:   2013-11-18 12:00:00
-disqus_identifier: "281 http://nickcraver.com/blog/?p=281"
 ---
 Ok let’s start with the obvious, why run Stack Overflow on pre-release software?  If no one tests anything, it only means one thing: **more bugs at release**.  We have the opportunity to test the hell out of the 2014 platform.  We can encounter, triage and in most cases, get bugs resolved before release.  What company doesn’t want testers for their software _in real world environments_ whenever possible?  I would like to think all of them do, just not all have the resources to make it happen.
 

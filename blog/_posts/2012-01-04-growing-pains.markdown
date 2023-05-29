@@ -3,7 +3,6 @@ layout: post
 author: Nick Craver
 title:  "Growing pains and lessons learned"
 date:   2012-01-04 12:00:00
-disqus_identifier: "1 http://nickcraver.com/blog/?p=1"
 ---
 In this blog, I aim to give you some behind the scenes views of what goes on at [Stack Exchange](https://stackexchange.com/) and share some lessons we learn along the way.
 

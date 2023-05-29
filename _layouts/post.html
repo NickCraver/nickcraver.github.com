@@ -14,5 +14,4 @@ section: blog
             var headers = document.querySelectorAll(".post-content [id]"); 
             for (var i = 0; i < headers.length; i++) { let h = headers[i]; let l = document.createElement("a"); l.setAttribute("href", "#" + h.getAttribute("id")); l.innerText = h.innerText; h.removeChild(h.childNodes[0]); h.appendChild(l); }
           </script>
-{% include comments.html %}
         </div>

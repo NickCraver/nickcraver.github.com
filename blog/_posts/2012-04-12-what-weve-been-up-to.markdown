@@ -2,7 +2,6 @@
 layout: post
 title:  "What we've been up to"
 date:   2012-04-12 12:00:00
-disqus_identifier: "196 http://nickcraver.com/blog/?p=196"
 ---
 For starters, let's get a bad assumption I personally had before being hired out of the way: **you don't see most features we deploy**.  In fact a small percentage of features we deploy are for regular users, or seen directly.  Aside from user-facing features, there exists a great deal of UI and infrastructure for our moderators, and even more for developers.  Besides features directly on the site, a lot more goes on behind the scenes. <!--more-->Here's a quick list of what's underway right now:
 

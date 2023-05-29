@@ -2,7 +2,6 @@
 layout: post
 title:  "Stack Overflow running short on space"
 date:   2012-02-07 12:00:00
-disqus_identifier: "24 http://nickcraver.com/blog/?p=24"
 ---
 Stack Overflow handles a lot of traffic. [Quantcast](https://www.quantcast.com/) ranks us (at the time of this writing) [as the 274th largest website in the US](https://www.quantcast.com/stackoverflow.com), and that's rising.  That means everything that traffic relates to grows as well. With growth, there are 2 areas of concern I like to split problems into: technical and non-technical.
 
