@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Make your PR easier to review</title>
+<style>
+  :root { color-scheme: dark; --bg: #0d1117; --panel: #161b22; --border: #30363d; --text: #e6edf3; --muted: #8b949e; --blue: #58a6ff; --green: #3fb950; --orange: #d29922; --red: #f85149; }
+  * { box-sizing: border-box; }
+  html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; background: radial-gradient(circle at 84% 16%, rgba(88, 166, 255, 0.08), transparent 24%), var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+  body { display: grid; place-items: center; }
+  #deck { position: relative; width: min(100vw, calc(100vh * 16 / 9)); height: min(100vh, calc(100vw * 9 / 16)); }
+  .slide { position: absolute; inset: 0; display: none; padding: 7.5% 8%; }
+  .slide.active { display: flex; flex-direction: column; }
+  .center { align-items: center; justify-content: center; text-align: center; }
+  .eyebrow { margin: 0 0 1.1rem; color: var(--blue); font-size: clamp(15px, 1.7vw, 25px); font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
+  h1, h2, p { margin: 0; }
+  h1 { max-width: 1100px; font-size: clamp(46px, 6.1vw, 88px); line-height: 1.03; letter-spacing: -0.045em; }
+  h2 { max-width: 1100px; font-size: clamp(38px, 4.7vw, 68px); line-height: 1.08; letter-spacing: -0.035em; }
+  .subhead { margin-top: 1.6rem; color: var(--muted); font-size: clamp(20px, 2.2vw, 32px); line-height: 1.35; }
+  .prompts { display: grid; gap: 0.7rem; margin-top: 2.2rem; color: var(--text); font-size: clamp(19px, 2vw, 29px); line-height: 1.35; }
+  .prompts.compact { margin-top: 0.8rem; }
+  .prompts p::before { content: "•"; margin-right: 0.65rem; color: var(--blue); }
+  .accent { color: var(--blue); }
+  .bright { color: var(--text); }
+  .good { color: var(--green); }
+  .warn { color: var(--orange); }
+  .bad { color: var(--red); }
+  .muted { color: var(--muted); }
+  .split { flex: 1; display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 7%; }
+  .metric { font-size: clamp(72px, 11vw, 160px); font-weight: 800; line-height: 0.9; letter-spacing: -0.06em; }
+  .label { margin-top: 1rem; color: var(--muted); font-size: clamp(20px, 2.2vw, 32px); }
+  .divider { width: 1px; height: 42%; background: var(--border); position: absolute; left: 50%; top: 23%; }
+  .verdicts { display: grid; grid-template-columns: 1fr; gap: 0.55rem; padding-top: 1rem; border-top: 1px solid var(--border); }
+  .verdict-header { color: var(--text); font-size: clamp(18px, 1.8vw, 26px); font-weight: 700; }
+  .verdict { color: var(--muted); font-size: clamp(17px, 1.65vw, 24px); line-height: 1.4; }
+  .verdict strong { margin-left: 0.35rem; font-size: 1.15em; }
+  .stack { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 1.25rem; width: 100%; max-width: 980px; margin: 0 auto; }
+  .row { display: grid; grid-template-columns: 42px 1fr; align-items: center; gap: 1.1rem; padding: 1rem 1.2rem; border: 1px solid var(--border); border-radius: 12px; background: rgba(22, 27, 34, 0.72); font-size: clamp(22px, 2.5vw, 36px); }
+  .dot { width: 16px; height: 16px; margin: auto; border-radius: 50%; background: var(--blue); box-shadow: 0 0 24px rgba(88, 166, 255, 0.35); }
+  .question { margin: auto; max-width: 1050px; font-size: clamp(42px, 5.8vw, 84px); font-weight: 750; line-height: 1.12; letter-spacing: -0.04em; text-align: center; }
+  .question.two-line { width: 100%; max-width: none; margin: 0; font-size: clamp(34px, 4.3vw, 62px); }
+  .question.two-line > span { display: block; white-space: nowrap; }
+  .arrow { color: var(--muted); font-size: clamp(30px, 4vw, 56px); }
+  .limits { width: min(980px, 100%); margin: 2.2rem auto 0; text-align: left; }
+  .limits-intro { margin-bottom: 0.8rem; color: var(--muted); font-size: clamp(19px, 2vw, 29px); }
+  .limits-list { display: grid; gap: 0.65rem; font-size: clamp(20px, 2.15vw, 31px); line-height: 1.35; }
+  .limits-list p::before { content: "•"; margin-right: 0.7rem; color: var(--red); }
+  .flow { display: flex; align-items: center; justify-content: center; gap: 1rem; margin-top: 2.5rem; }
+  .flow-step { padding: 0.9rem 1.2rem; border: 1px solid var(--border); border-radius: 10px; background: var(--panel); font-size: clamp(18px, 1.9vw, 28px); font-weight: 650; }
+  .good-bad { flex: 1; display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 2.5rem; text-align: left; }
+  .good-bad-card { min-height: 245px; padding: 1.5rem 1.7rem; border: 1px solid var(--border); border-radius: 12px; background: rgba(22, 27, 34, 0.72); }
+  .good-bad-card h3 { margin: 0 0 1.1rem; font-size: clamp(24px, 2.6vw, 38px); }
+  .good-bad-card p { color: var(--text); font-size: clamp(19px, 2vw, 29px); line-height: 1.4; }
+  .good-bad-card p + p { margin-top: 1.1rem; padding-top: 1.1rem; border-top: 1px solid var(--border); }
+  .good-bad-card small { display: block; margin-top: 0.7rem; color: var(--muted); font-size: 0.78em; line-height: 1.35; }
+  .footer { position: absolute; right: 3.2%; bottom: 3%; color: #6e7681; font-size: clamp(11px, 1vw, 15px); font-weight: 700; letter-spacing: 0.08em; }
+  #counter { position: fixed; right: 18px; bottom: 14px; z-index: 5; padding: 4px 10px; border: 1px solid var(--border); border-radius: 999px; background: rgba(22, 27, 34, 0.8); color: var(--muted); font-size: 13px; font-weight: 700; opacity: 0; transition: opacity 180ms ease; }
+  body:hover #counter { opacity: 1; }
+  #presenter-badge { position: fixed; top: 14px; left: 18px; z-index: 5; display: none; color: var(--blue); font-size: 13px; font-weight: 800; letter-spacing: 0.12em; }
+  body.presenter #presenter-badge { display: block; }
+  .zone { position: fixed; top: 0; z-index: 4; width: 22%; height: 100%; cursor: pointer; }
+  .zone.prev { left: 0; }
+  .zone.next { right: 0; }
+</style>
+</head>
+<body>
+  <main id="deck">
+    <section class="slide center active">
+      <p class="eyebrow">Pull requests</p>
+      <h1>Make your PR<br /><span class="accent">easier to review</span></h1>
+      <p class="subhead"><strong class="bright">You</strong> are the first reviewer.</p>
+    </section>
+
+    <section class="slide center">
+      <p class="eyebrow">Start here</p>
+      <h2>Think about the <span class="accent">reviewer</span>.</h2>
+      <div class="prompts">
+        <p>Can they understand the change quickly and trust it?</p>
+        <p>Do they have context?</p>
+        <p>Are they getting a concise description of the problem?</p>
+      </div>
+    </section>
+
+    <section class="slide center">
+      <p class="eyebrow">Show your work</p>
+      <h2>How was this <span class="accent">tested</span>?</h2>
+      <div class="prompts">
+        <p>Did we unit test it?</p>
+        <p>Did we deploy it?</p>
+        <p>Did we check the result of those things?</p>
+      </div>
+    </section>
+
+    <section class="slide">
+      <p class="eyebrow">Do the sanity check</p>
+      <div class="split">
+        <div class="center">
+          <div class="metric good">2</div>
+          <div class="label">“things changed”</div>
+        </div>
+        <div class="center">
+          <div class="metric bad">50</div>
+          <div class="label">files touched</div>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <div class="verdicts">
+        <p class="verdict-header">Changes that have to touch many files:</p>
+        <p class="verdict">
+          Global change repeated N times, but each is easy to scan and reason about?
+          <strong class="good">Cool. That happens.</strong>
+        </p>
+        <p class="verdict">
+          Lots of unrelated changes sucked in?
+          <strong class="bad">Not cool.</strong>
+        </p>
+      </div>
+    </section>
+
+    <section class="slide">
+      <p class="eyebrow">Unrelated changes</p>
+      <h2>Every extra change makes the risk <span class="warn">harder to see</span>.</h2>
+      <div class="stack">
+        <div class="row"><span class="dot"></span><span>What behavior actually changed?</span></div>
+        <div class="row"><span class="dot"></span><span>What needs deeper review?</span></div>
+        <div class="row"><span class="dot"></span><span>What can break independently?</span></div>
+      </div>
+    </section>
+
+    <section class="slide center">
+      <p class="eyebrow">Think about reverts</p>
+      <div class="question two-line">
+        <span>Can we undo the risky/broken thing</span>
+        <span class="bad">without undoing everything?</span>
+      </div>
+    </section>
+
+    <section class="slide center">
+      <p class="eyebrow">Challenge the solution</p>
+      <h2>What is the <span class="good">simplest change</span><br />that solves the problem?</h2>
+      <p class="subhead">Less code. Fewer assumptions. Smaller blast radius.</p>
+    </section>
+
+    <section class="slide center">
+      <p class="eyebrow">Large or stacked PRs</p>
+      <h2>Do you understand <span class="accent">each layer</span>?</h2>
+      <p class="subhead">...and do you understand them together?</p>
+      <p class="footer">IF NOT, STOP.</p>
+    </section>
+
+    <section class="slide center">
+      <p class="eyebrow">Large or stacked PRs</p>
+      <div class="question">Can any reasonable human reason about<br /><span class="accent">these changes together?</span></div>
+      <p class="subhead">I’m an unreasonable human, and often I can’t.</p>
+    </section>
+
+    <section class="slide center">
+      <p class="eyebrow">Code is documentation</p>
+      <h2>...except <span class="bad">it’s not.</span></h2>
+      <p class="subhead">It documents the code that’s running. That’s it.</p>
+      <div class="limits">
+        <p class="limits-intro">It does not document:</p>
+        <div class="limits-list">
+          <p>What the committer <em>intended</em> to do.</p>
+          <p>Why that option was chosen.</p>
+          <p>What problem it was trying to solve.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide center">
+      <p class="eyebrow">Before requesting review</p>
+      <h2>It must be: Focused. Understandable.<br /><span class="good">Revertible.</span></h2>
+      <p class="subhead"><span class="accent">You</span> have to understand it, not just the tool that wrote it.</p>
+    </section>
+
+    <section class="slide">
+      <p class="eyebrow">Good / Bad</p>
+      <h2>PR Titles</h2>
+      <div class="good-bad">
+        <div class="good-bad-card">
+          <h3 class="good">Good</h3>
+          <p>
+            Relevant title.
+            <small>Remember, we look at lists of these.</small>
+          </p>
+        </div>
+        <div class="good-bad-card">
+          <h3 class="bad">Bad</h3>
+          <p>
+            Title from the first commit.
+            <small>It may not be relevant when the PR is ready for review or merge.</small>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <p class="eyebrow">Good / Bad</p>
+      <h2>PR Descriptions</h2>
+      <div class="good-bad">
+        <div class="good-bad-card">
+          <h3 class="good">Good</h3>
+          <p>Concise description with the problem we’re trying to solve and relevant context.</p>
+        </div>
+        <div class="good-bad-card">
+          <h3 class="bad">Bad</h3>
+          <p>Fluffy description filling available space, wasting the reviewer’s time.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <p class="eyebrow">Good / Bad</p>
+      <h2>Tests</h2>
+      <div class="good-bad">
+        <div class="good-bad-card">
+          <h3 class="good">Good</h3>
+          <p>
+            Have some. Ran some. Did a relevant deploy for most things.
+            <small>For example: Stamp for most things, ASE for deployment testing.</small>
+          </p>
+        </div>
+        <div class="good-bad-card">
+          <h3 class="bad">Bad</h3>
+          <p>No tests. No deploy. Bad developer.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide center">
+      <p class="eyebrow">Practical advice</p>
+      <h1><span class="accent">Tips</span></h1>
+    </section>
+
+    <section class="slide center">
+      <p class="eyebrow">Tip 1</p>
+      <h2>AI helped <span class="accent">write it</span>?</h2>
+      <p class="subhead">Use AI to do a first pass reviewing it.</p>
+    </section>
+
+    <section class="slide center">
+      <p class="eyebrow">Tip 1</p>
+      <h2>AI <span class="accent">didn’t</span> help write it?</h2>
+      <p class="subhead">Same thing. Use AI to do a first pass reviewing it.</p>
+      <p class="subhead">Use the checks at your disposal to find any issue we can, as early as we can.</p>
+    </section>
+
+    <section class="slide center">
+      <p class="eyebrow">Tip 2</p>
+      <h2>Pull unrelated fixes out <span class="accent">ahead</span>.</h2>
+      <p class="subhead">We use merge commits. Land the fix separately first.</p>
+      <div class="flow">
+        <div class="flow-step">Merge the fix</div>
+        <span class="arrow">→</span>
+        <div class="flow-step">Update your branch</div>
+        <span class="arrow">→</span>
+        <div class="flow-step"><span class="good">Diff disappears</span></div>
+      </div>
+    </section>
+
+    <section class="slide center">
+      <p class="eyebrow">Tip 3 · What I tell my kids</p>
+      <h2>If you have to force a change<br />or it feels wrong, <span class="warn">step back.</span></h2>
+      <p class="subhead">And don’t hesitate to ask for help.</p>
+    </section>
+
+    <section class="slide center">
+      <p class="eyebrow">Tip 4</p>
+      <h2>Git worktrees are <span class="accent">your friend</span>.</h2>
+      <p class="subhead">Good for:</p>
+      <div class="prompts compact">
+        <p>Multiple changes at once.</p>
+        <p>Keeping release branches around, including for local AI comparisons.</p>
+        <p>Reviewing other folks’ PRs locally when you need better tooling.</p>
+      </div>
+    </section>
+
+    <section class="slide center">
+      <p class="eyebrow">Reminder</p>
+      <div class="question two-line">
+        <span>Every commit breaking <span class="bad">100% of CIs</span></span>
+        <span>had <span class="warn">no Stampy run</span>.</span>
+      </div>
+    </section>
+
+    <section class="slide center">
+      <p class="eyebrow">Reminder</p>
+      <h2>It takes <span class="bad">2</span> to commit a regression.</h2>
+      <p class="subhead">Reviewers, don’t rubber stamp things.</p>
+      <p class="subhead"><strong class="bright">You are the gate for a reason.</strong></p>
+    </section>
+  </main>
+
+  <div class="zone prev" aria-label="Previous slide"></div>
+  <div class="zone next" aria-label="Next slide"></div>
+  <div id="presenter-badge">NEXT SLIDE</div>
+  <div id="counter" aria-live="polite"></div>
+
+<script>
+  const slides = [...document.querySelectorAll(".slide")];
+  const counter = document.querySelector("#counter");
+  const isPresenter = new URLSearchParams(location.search).has("presenter");
+  let current = 0;
+  let presenterWindow = null;
+  let presenterAudienceIndex = 0;
+
+  document.body.classList.toggle("presenter", isPresenter);
+
+  function show(index) {
+    current = Math.max(0, Math.min(slides.length - 1, index));
+    slides.forEach((slide, i) => slide.classList.toggle("active", i === current));
+    counter.textContent = `${current + 1} / ${slides.length}`;
+    history.replaceState(null, "", current ? `#${current + 1}` : location.pathname);
+
+    if (!isPresenter && presenterWindow && !presenterWindow.closed) {
+      presenterWindow.postMessage({
+        type: "preview",
+        audienceIndex: current
+      }, "*");
+    }
+  }
+
+  function audienceIndex() {
+    return isPresenter ? presenterAudienceIndex : current;
+  }
+
+  function goTo(index) {
+    if (isPresenter && window.opener && !window.opener.closed) {
+      window.opener.postMessage({ type: "navigate", index }, "*");
+      return;
+    }
+    show(index);
+  }
+
+  function openPresenter() {
+    if (isPresenter) return;
+
+    const url = new URL(location.href);
+    url.searchParams.set("presenter", "1");
+    url.hash = `${Math.min(current + 2, slides.length)}`;
+    presenterWindow = window.open(
+      url,
+      "pr-review-presenter",
+      "popup=yes,width=1280,height=720"
+    );
+  }
+
+  window.addEventListener("message", event => {
+    if (isPresenter && event.data?.type === "preview") {
+      presenterAudienceIndex = event.data.audienceIndex;
+      show(presenterAudienceIndex + 1);
+    }
+
+    if (!isPresenter && event.data?.type === "navigate") {
+      show(event.data.index);
+    }
+
+    if (!isPresenter && event.data?.type === "presenter-ready") {
+      presenterWindow = event.source;
+      presenterWindow.postMessage({
+        type: "preview",
+        audienceIndex: current
+      }, "*");
+    }
+  });
+
+  function next() { goTo(audienceIndex() + 1); }
+  function previous() { goTo(audienceIndex() - 1); }
+
+  document.querySelector(".zone.next").addEventListener("click", next);
+  document.querySelector(".zone.prev").addEventListener("click", previous);
+
+  document.addEventListener("keydown", event => {
+    if (["ArrowRight", "PageDown", " ", "Enter"].includes(event.key)) next();
+    if (["ArrowLeft", "PageUp", "Backspace"].includes(event.key)) previous();
+    if (event.key === "Home") goTo(0);
+    if (event.key === "End") goTo(slides.length - 1);
+    if (event.key.toLowerCase() === "f") document.documentElement.requestFullscreen?.();
+    if (event.key.toLowerCase() === "p") openPresenter();
+  });
+
+  let touchStartX = 0;
+  document.addEventListener("touchstart", event => {
+    touchStartX = event.changedTouches[0].screenX;
+  }, { passive: true });
+  document.addEventListener("touchend", event => {
+    const delta = event.changedTouches[0].screenX - touchStartX;
+    if (Math.abs(delta) > 50) delta < 0 ? next() : previous();
+  }, { passive: true });
+
+  const requested = Number.parseInt(location.hash.slice(1), 10);
+  show(Number.isFinite(requested) ? requested - 1 : 0);
+
+  if (isPresenter) {
+    presenterAudienceIndex = Math.max(0, current - 1);
+    window.opener?.postMessage({ type: "presenter-ready" }, "*");
+  }
+</script>
+</body>
+</html>
